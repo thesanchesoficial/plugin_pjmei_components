@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Example Plugin PJMEI Components",
+      "type": "dart",
+      "request": "launch",
+      "program": "example/lib/main.dart",
+      "args": []
+    },
+  ],
+}
