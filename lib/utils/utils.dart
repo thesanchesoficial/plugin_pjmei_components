@@ -5,5 +5,6 @@ export './validators/validators.dart';
 export './components.dart';
 export './filter_mask.dart';
 export './init.dart';
+export './map_categorias_subcategorias.dart';
 export './mask_type.dart';
 export './variable.dart';

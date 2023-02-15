@@ -563,57 +563,112 @@ class OwFormat {
     String separadorMilhar = ".",
     bool ocultarCentavos = false,
     bool retornoGratis = true,
+    bool hideValue = false,
+    bool isInt = false,
   }) {
-    valor = valor.toString();
-    dynamic tmp;
-    String simbolo = cifraoEsquerda ? "R\$ " : "";
-    var msk = MoneyMaskedTextController(
-      decimalSeparator: separadorDecimal,
-      thousandSeparator: separadorMilhar,
-      leftSymbol: simbolo,
-    );
+    MoneyMaskedTextController msk;
+    if (isInt) {
+      valor = valor.toString();
+      dynamic tmp;
+      String simbolo = cifraoEsquerda ? "R\$ " : "";
+      msk = MoneyMaskedTextController(
+          decimalSeparator: separadorDecimal,
+          thousandSeparator: separadorMilhar,
+          leftSymbol: simbolo);
 
-    if(valor.contains(",") || valor.contains(".")) {
-      if(valor.contains(",") && valor.contains(".")) {
-        valor = valor.replaceAll(".", "").replaceAll(",", ".");
-      } else {
-        valor = valor.replaceAll(",", ".");
+      if (valor.toString() == "null") {
+        if (retornoGratis) {
+          return hideValue ? "••••" : "Grátis";
+        } else {
+          return hideValue ? "••••" : msk.text;
+        }
       }
-      tmp = double.tryParse(valor);
+
+      if (valor.contains(",") || valor.contains(".")) {
+        if (valor.contains(",") && valor.contains(".")) {
+          valor = valor.replaceAll(".", "").replaceAll(",", ".");
+        } else {
+          valor = valor.replaceAll(",", ".");
+        }
+        tmp = double.tryParse(valor);
+      } else {
+        tmp = int.tryParse(valor);
+        tmp = (tmp / 100);
+      }
+
+      if (tmp.toString() == "null") {
+        if (retornoGratis) {
+          return hideValue ? "••••" : "Grátis";
+        } else {
+          return hideValue ? "••••" : msk.text;
+        }
+      }
+
+      tmp = tmp.toStringAsFixed(2);
+      msk.text = tmp;
+
+      if (ocultarCentavos && msk.text.substring(msk.text.length - 2) == "00") {
+        String valor = msk.text;
+        valor = valor.substring(0, valor.length - 3);
+        return hideValue ? "••••" : valor;
+      }
+
+      if (msk.text.toString() == "null" ||
+          msk.text.toString() == "0${separadorDecimal}00" ||
+          msk.text.toString() == "${simbolo}0${separadorDecimal}00") {
+        if (retornoGratis) {
+          return hideValue ? "••••" : "Grátis";
+        } else {
+          return hideValue ? "••••" : msk.text;
+        }
+      }
     } else {
-      tmp = int.tryParse(valor);
-    }
-
-    if(tmp.toString() == "null") {
-      if(retornoGratis) {
-        return freePriceWord;
+      valor = valor.toString();
+      dynamic tmp;
+      String simbolo = cifraoEsquerda ? "R\$ " : "";
+      msk = MoneyMaskedTextController(
+          decimalSeparator: separadorDecimal,
+          thousandSeparator: separadorMilhar,
+          leftSymbol: simbolo);
+      if (valor.contains(",") || valor.contains(".")) {
+        if (valor.contains(",") && valor.contains(".")) {
+          valor = valor.replaceAll(".", "").replaceAll(",", ".");
+        } else {
+          valor = valor.replaceAll(",", ".");
+        }
+        tmp = double.tryParse(valor);
       } else {
-        return msk.text;
+        tmp = int.tryParse(valor);
+      }
+
+      if (tmp.toString() == "null") {
+        if (retornoGratis) {
+          return hideValue ? "••••" : "Grátis";
+        } else {
+          return hideValue ? "••••" : msk.text;
+        }
+      }
+
+      tmp = tmp.toStringAsFixed(2);
+      msk.text = tmp;
+
+      if (ocultarCentavos && msk.text.substring(msk.text.length - 2) == "00") {
+        String valor = msk.text;
+        valor = valor.substring(0, valor.length - 3);
+        return hideValue ? "••••" : valor;
+      }
+
+      if (msk.text.toString() == "null" ||
+          msk.text.toString() == "0${separadorDecimal}00" ||
+          msk.text.toString() == "${simbolo}0${separadorDecimal}00") {
+        if (retornoGratis) {
+          return hideValue ? "••••" : "Grátis";
+        } else {
+          return hideValue ? "••••" : msk.text;
+        }
       }
     }
-
-    tmp = tmp.toStringAsFixed(2);
-    msk.text = tmp;
-
-    if(ocultarCentavos && msk.text.substring(msk.text.length - 2) == "00") {
-      String valor = msk.text;
-      valor = valor.substring(0, valor.length - 3);
-      return valor;
-    }
-
-    if(
-      msk.text.toString() == "null" ||
-      msk.text.toString() == "0${separadorDecimal}00" ||
-      msk.text.toString() == "${simbolo}0${separadorDecimal}00"
-    ) {
-      if(retornoGratis) {
-        return freePriceWord;
-      } else {
-        return msk.text;
-      }
-    }
-
-    return msk.text;
+    return hideValue ? "••••" : msk.text;
   }
 
   /// It converts to currency the numbers (int or double), strings, etc

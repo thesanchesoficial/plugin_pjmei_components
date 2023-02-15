@@ -10,7 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 
 import 'empty_download.dart'
-if (dart.library.html) 'download.dart';
+if (dart.library.html) 'web_download.dart';
 
 class DownloadParams {
   List<int>? bytes;
