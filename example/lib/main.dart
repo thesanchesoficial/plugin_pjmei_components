@@ -121,6 +121,10 @@ class _MyAppState extends State<MyApp> {
               child: const Text("Dropdowns"),
               onPressed: () => context.push("/dropdown"),
             ),
+            ElevatedButton(
+              child: const Text("Dialogs"),
+              onPressed: () => context.push("/dialogs"),
+            ),
             const SizedBox(height: 50),
             Center(
               child: Text('Running on: $_platformVersion\n'),

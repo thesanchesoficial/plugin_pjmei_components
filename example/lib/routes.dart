@@ -3,6 +3,7 @@ import 'package:plugin_pjmei_components_example/bottom_app_bar.dart';
 import 'package:plugin_pjmei_components_example/buttons.dart';
 import 'package:plugin_pjmei_components_example/chips.dart';
 import 'package:plugin_pjmei_components_example/colors.dart';
+import 'package:plugin_pjmei_components_example/dialogs.dart';
 import 'package:plugin_pjmei_components_example/dropdown.dart';
 import 'package:plugin_pjmei_components_example/grid.dart';
 import 'package:plugin_pjmei_components_example/main.dart';
@@ -12,6 +13,7 @@ import 'package:plugin_pjmei_components_example/texts.dart';
 import 'package:plugin_pjmei_components_example/toasts.dart';
 
 final routes = GoRouter(
+  navigatorKey: navigatorKey,
   routes: [
     GoRoute(
       path: "/",
@@ -56,6 +58,10 @@ final routes = GoRouter(
     GoRoute(
       path: "/dropdown",
       builder: (context, state) => const DropdownTestPage(),
+    ),
+    GoRoute(
+      path: "/dialogs",
+      builder: (context, state) => const DialogsTestPage(),
     ),
   ],
 );

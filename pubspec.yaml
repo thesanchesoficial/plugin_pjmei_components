@@ -15,21 +15,26 @@ dependencies:
   bot_toast: ^4.0.3	
   brasil_fields: ^1.10.0	
   carousel_slider: ^4.2.1	
+  dio: ^4.0.5
   encrypt: ^5.0.1	
   eva_icons_flutter: ^3.1.0	
   extended_masked_text: ^2.3.1	
   flutter_cache_manager: ^3.3.0	
   flutter_typeahead: ^4.0.0	
   go_router: ^6.0.6	
+  image_gallery_saver: ^1.7.1
   intl: ^0.18.0	
   loop_page_view: ^1.2.0	
   mask_text_input_formatter: ^2.4.0	
   page_view_indicators: ^2.0.0	
   path: ^1.8.3	
+  path_provider: ^2.0.12
+  permission_handler: ^10.2.0
   plugin_platform_interface: ^2.0.2	
   pretty_qr_code: ^2.0.3	
   process: ^4.2.4	
   smooth_page_indicator: ^1.0.0+2	
+  url_launcher: ^6.1.9
 
 dev_dependencies:
   flutter_test:

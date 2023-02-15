@@ -1,5 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class OwBotToast {
   OwBotToast._();
@@ -8,42 +9,39 @@ class OwBotToast {
   static const String botToastNotificationStdSubtitle = "Tente novamente em alguns instantes.";
 
   static loading({
-    required BuildContext context,
     bool clickClose = false,
     Alignment align = Alignment.center,
     Color? background,
     Widget Function(AnimationController, void Function(), Widget)? wrapToastAnimation,
   }) {
-    background ??= Theme.of(context).colorScheme.background.withOpacity(.5);
+    background ??= Theme.of(navigatorKey.currentContext!).colorScheme.background.withOpacity(.5);
     return BotToast.showLoading(
       backgroundColor: background,
       clickClose: clickClose,
       align: align,
-      wrapToastAnimation: wrapToastAnimation ?? (aniController, fun, widget) => 
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Theme.of(context).colorScheme.secondaryContainer,
-          ),
-          child: const CircularProgressIndicator(
-            strokeWidth: 5,
-          ),
+      wrapToastAnimation: wrapToastAnimation ?? (aniController, fun, widget) =>  Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Theme.of(navigatorKey.currentContext!).colorScheme.secondaryContainer,
         ),
+        child: const CircularProgressIndicator(
+          strokeWidth: 5,
+        ),
+      ),
     );
   }
 
   static toast(String message, {
-    required BuildContext context,
     EdgeInsets padding = const EdgeInsets.fromLTRB(14, 5, 14, 7),
     BorderRadiusGeometry radius = const BorderRadius.all(Radius.circular(10)),
   }) {
     return BotToast.showText(
       text: message,
-      textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
-        color: Theme.of(context).colorScheme.background,
+      textStyle: Theme.of(navigatorKey.currentContext!).textTheme.titleMedium!.copyWith(
+        color: Theme.of(navigatorKey.currentContext!).colorScheme.background,
       ),
-      contentColor: Theme.of(context).colorScheme.onBackground,
+      contentColor: Theme.of(navigatorKey.currentContext!).colorScheme.onBackground,
       contentPadding: padding,
       borderRadius: radius,
     );

@@ -31,16 +31,13 @@ class _ToastsTestPageState extends State<ToastsTestPage> {
               onPressed: () {
                 OwBotToast.toast(
                   "Teste de toast",
-                  context: context,
                 );
               },
             ),
             OwButton(
               labelText: "Show loading",
               onPressed: () async {
-                OwBotToast.loading(
-                  context: context,
-                );
+                OwBotToast.loading();
                 await Future.delayed(const Duration(seconds: 2));
                 OwBotToast.close();
               },
