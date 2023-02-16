@@ -12,7 +12,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 // "{Mat{{h}}eus {{Sanches}} tinha {{R\$ 2 reais}} do {{troco de pão}}}}}" // certo
 
 class OwText extends StatelessWidget {
-  final String text;
+  final String? text;
   final Map<String, dynamic> arguments;
   final TextStyle? style;
   final int maxLines;
@@ -60,7 +60,7 @@ class OwText extends StatelessWidget {
     String textTemp = "";
     bool containsSecret = false;
     
-    textTemp = convertString(text, additionals: {});
+    textTemp = convertString(text ?? "", additionals: {});
 
     if(textTemp.contains("{{") && textTemp.contains("}}")) {
       containsSecret = true;
