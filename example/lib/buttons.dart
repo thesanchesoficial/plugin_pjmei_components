@@ -32,6 +32,23 @@ class _ButtonsTestPageState extends State<ButtonsTestPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            OwButton.dynamic(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+              labelText: "Dinamico",
+              onPressed: () {},
+              enable: enable,
+            ),
+            OwButton.dynamic(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+              labelText: "Dinamico",
+              onPressed: () {},
+              leading: Icons.abc_outlined,
+              trailing: Icons.abc_outlined,
+              color: Colors.red,
+              foregroundColor: Colors.blue,
+              enable: enable,
+              outline: true,
+            ),
             OwButton(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
               labelText: "Principal",

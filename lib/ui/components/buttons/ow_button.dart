@@ -41,7 +41,6 @@ class OwButton extends StatelessWidget {
     this.onPressed,
     this.onLongPressed,
     this.margin,
-    this.foregroundColor,
     this.padding,
     this.child,
     this.elevation = 0,
@@ -63,6 +62,7 @@ class OwButton extends StatelessWidget {
       secondary = false,
       elevated = false,
       color = null,
+      foregroundColor = null,
       super(key: key);
 
   const OwButton.secondary({
@@ -75,7 +75,6 @@ class OwButton extends StatelessWidget {
     this.onPressed,
     this.onLongPressed,
     this.margin,
-    this.foregroundColor,
     this.padding,
     this.child,
     this.elevation = 0,
@@ -97,6 +96,7 @@ class OwButton extends StatelessWidget {
       secondary = true,
       elevated = false,
       color = null,
+      foregroundColor = null,
       super(key: key);
 
   const OwButton.outline({
@@ -109,7 +109,6 @@ class OwButton extends StatelessWidget {
     this.onPressed,
     this.onLongPressed,
     this.margin,
-    this.foregroundColor,
     this.padding,
     this.child,
     this.elevation = 0,
@@ -131,6 +130,7 @@ class OwButton extends StatelessWidget {
       secondary = false,
       elevated = false,
       color = null,
+      foregroundColor = null,
       super(key: key);
   
   const OwButton.text({
@@ -143,7 +143,6 @@ class OwButton extends StatelessWidget {
     this.onPressed,
     this.onLongPressed,
     this.margin,
-    this.foregroundColor,
     this.padding,
     this.child,
     this.elevation = 0,
@@ -165,6 +164,7 @@ class OwButton extends StatelessWidget {
       secondary = false,
       elevated = false,
       color = null,
+      foregroundColor = null,
       super(key: key);
   
   const OwButton.elevated({
@@ -201,6 +201,40 @@ class OwButton extends StatelessWidget {
       color = null,
       super(key: key);
 
+  const OwButton.dynamic({
+    Key? key,
+    this.labelText,
+    this.autoFocus = false,
+    this.enable = true,
+    this.enableFeedback = false,
+    this.center = true,
+    this.onPressed,
+    this.onLongPressed,
+    this.margin,
+    this.color,
+    this.foregroundColor,
+    this.padding,
+    this.child,
+    this.elevation = 0,
+    this.radius = 80,
+    this.height = 40,
+    this.minimumSize,
+    this.textStyle,
+    this.leading,
+    this.trailing,
+    this.focusNode,
+    this.absorbedPointer = false,
+    this.toUpperCase = false,
+    this.ignoredPointer = false,
+    this.expanded = false,
+    this.elevated = false,
+    this.outline = false,
+  }): assert(!ignoredPointer || !absorbedPointer),
+      mainButton = true,
+      text = false,
+      secondary = false,
+      super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ignoredPointer
@@ -234,29 +268,33 @@ class OwButton extends StatelessWidget {
         autofocus: autoFocus,
         style: ButtonStyle(
           foregroundColor: enable
-            ? mainButton
-              ? MaterialStateProperty.all(Theme.of(context).colorScheme.onPrimary)
-              : secondary
-                ? MaterialStateProperty.all(Theme.of(context).colorScheme.onSecondaryContainer)
-                : outline
-                  ? MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
-                  : elevated
+            ? foregroundColor != null 
+              ? MaterialStateProperty.all(foregroundColor)
+              : mainButton
+                ? MaterialStateProperty.all(Theme.of(context).colorScheme.onPrimary)
+                : secondary
+                  ? MaterialStateProperty.all(Theme.of(context).colorScheme.onSecondaryContainer)
+                  : outline
                     ? MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
-                    : MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
+                    : elevated
+                      ? MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
+                      : MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
             : MaterialStateProperty.all(Theme.of(context).colorScheme.onSurfaceVariant),
           padding: MaterialStateProperty.all(
             padding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           ),
-          backgroundColor:  enable
-            ? mainButton
-              ? MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
-              : secondary
-                ? MaterialStateProperty.all(Theme.of(context).colorScheme.secondaryContainer)
-                : outline
-                  ? MaterialStateProperty.all(Theme.of(context).colorScheme.background)
-                  : elevated
-                    ? MaterialStateProperty.all(Theme.of(context).colorScheme.surface)
-                    : MaterialStateProperty.all(Theme.of(context).colorScheme.background)
+          backgroundColor: enable
+            ? color != null 
+              ? MaterialStateProperty.all(outline ? Colors.transparent : (color!))
+              : mainButton
+                ? MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
+                : secondary
+                  ? MaterialStateProperty.all(Theme.of(context).colorScheme.secondaryContainer)
+                  : outline
+                    ? MaterialStateProperty.all(Theme.of(context).colorScheme.background)
+                    : elevated
+                      ? MaterialStateProperty.all(Theme.of(context).colorScheme.surface)
+                      : MaterialStateProperty.all(Theme.of(context).colorScheme.background)
             : MaterialStateProperty.all(Theme.of(context).colorScheme.surfaceVariant),
           elevation: MaterialStateProperty.all(
             elevated && enable
@@ -269,15 +307,17 @@ class OwButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(radius),
               side: BorderSide(
                 color: enable
-                  ? mainButton
-                    ? Theme.of(context).colorScheme.primary
-                    : secondary
-                      ? Theme.of(context).colorScheme.secondaryContainer
-                      : outline
-                        ? Theme.of(context).colorScheme.primary
-                        : elevated
-                          ? (Colors.transparent)
-                          : (Theme.of(context).colorScheme.background)
+                  ? color != null 
+                    ? (color!)
+                    : mainButton
+                      ? Theme.of(context).colorScheme.primary
+                      : secondary
+                        ? Theme.of(context).colorScheme.secondaryContainer
+                        : outline
+                          ? Theme.of(context).colorScheme.primary
+                          : elevated
+                            ? (Colors.transparent)
+                            : (Theme.of(context).colorScheme.background)
                   : Theme.of(context).colorScheme.surfaceVariant,
                 width: 1,
               ),
@@ -337,15 +377,17 @@ class OwButton extends StatelessWidget {
       textAlign: center ? TextAlign.center : TextAlign.start,
       style: Theme.of(context).textTheme.labelLarge?.copyWith(
         color: enable
-          ? mainButton
-            ? (Theme.of(context).colorScheme.onPrimary)
-            : secondary
-              ? (Theme.of(context).colorScheme.onSecondaryContainer)
-              : outline
-                ? (Theme.of(context).colorScheme.primary)
-                : elevated
+          ? foregroundColor != null 
+            ? (foregroundColor)
+            : mainButton
+              ? (Theme.of(context).colorScheme.onPrimary)
+              : secondary
+                ? (Theme.of(context).colorScheme.onSecondaryContainer)
+                : outline
                   ? (Theme.of(context).colorScheme.primary)
-                  : (Theme.of(context).colorScheme.primary)
+                  : elevated
+                    ? (Theme.of(context).colorScheme.primary)
+                    : (Theme.of(context).colorScheme.primary)
           : (Theme.of(context).colorScheme.onSurfaceVariant),
       ),
     );
