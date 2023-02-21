@@ -21,9 +21,7 @@ class _ToastsTestPageState extends State<ToastsTestPage> {
             OwButton(
               labelText: "Show notification",
               onPressed: () {
-                OwBotToast.notification(
-                  context: context,
-                );
+                OwBotToast.notification();
               },
             ),
             OwButton(
