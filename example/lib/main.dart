@@ -4,29 +4,40 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:plugin_pjmei_components_example/routes.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
-  runApp(MaterialApp.router(
-    debugShowCheckedModeBanner: false,
-    theme: AppTheme.lightTheme,
-    darkTheme: AppTheme.darkTheme,
-    themeMode: ThemeMode.system,
-    routerDelegate: routes.routerDelegate,
-    routeInformationParser: routes.routeInformationParser,
-    routeInformationProvider: routes.routeInformationProvider,
-    builder: ComponentsInit(webWidth: 600, isWeb: true, hidePrint: false),
-    title: "PJMEI COMPONENTS",
-    localizationsDelegates: const [
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-      GlobalCupertinoLocalizations.delegate,
-    ],
-    supportedLocales: const [
-      Locale('pt', 'BR'),
-    ],
-    locale: const Locale('pt', 'BR'),
-  ));
+  runApp(
+    DynamicColorBuilder(
+      builder: (lightColorScheme, darkColorScheme) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: lightColorScheme == null ? AppTheme.lightTheme : ThemeData(
+            colorScheme: lightColorScheme,
+            useMaterial3: true,
+          ),
+          darkTheme: lightColorScheme == null ? AppTheme.darkTheme : ThemeData(
+            colorScheme: darkColorScheme,
+            useMaterial3: true,
+          ),
+          themeMode: ThemeMode.system,
+          routerDelegate: routes.routerDelegate,
+          routeInformationParser: routes.routeInformationParser,
+          routeInformationProvider: routes.routeInformationProvider,
+          builder: ComponentsInit(webWidth: 600, isWeb: true, hidePrint: false),
+          title: "PJMEI COMPONENTS",
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('pt', 'BR'),
+          ],
+          locale: const Locale('pt', 'BR'),
+        );
+      },
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

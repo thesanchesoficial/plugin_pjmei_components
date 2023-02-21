@@ -1,6 +1,6 @@
 name: plugin_pjmei_components
 description: A new Flutter plugin project.
-version: 0.0.2
+version: 0.0.3
 homepage:
 
 environment:
@@ -16,6 +16,7 @@ dependencies:
   brasil_fields: ^1.10.0	
   carousel_slider: ^4.2.1	
   dio: ^4.0.5
+  dynamic_color: ^1.6.2
   encrypt: ^5.0.1	
   eva_icons_flutter: ^3.1.0	
   extended_masked_text: ^2.3.1	
