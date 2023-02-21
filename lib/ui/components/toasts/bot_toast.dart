@@ -56,20 +56,19 @@ class OwBotToast {
     String subtitle = botToastNotificationStdSubtitle,
     Function()? onTap,
     IconData icon = Icons.info_outline,
-    required BuildContext context,
     double radius = 15,
     Alignment align = Alignment.bottomCenter,
     Duration duration = const Duration(seconds: 7),
     EdgeInsets padding = const EdgeInsets.fromLTRB(20, 15, 20, 15),
   }) {
     return BotToast.showNotification(
-      backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+      backgroundColor: Theme.of(navigatorKey.currentContext!).colorScheme.secondaryContainer,
       leading: (cancel) => SizedBox.fromSize(
         size: const Size(40, 40),
         child: IconButton(
           icon: Icon(
             icon, 
-            color: Theme.of(context).colorScheme.onSecondaryContainer,
+            color: Theme.of(navigatorKey.currentContext!).colorScheme.onSecondaryContainer,
           ),
           onPressed: cancel,
         )
@@ -80,14 +79,14 @@ class OwBotToast {
       },
       title: (cancelFunc) => Text(
         title, 
-        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-          color: Theme.of(context).colorScheme.onSecondaryContainer,
+        style: Theme.of(navigatorKey.currentContext!).textTheme.titleMedium?.copyWith(
+          color: Theme.of(navigatorKey.currentContext!).colorScheme.onSecondaryContainer,
         ),
       ),
       subtitle: (cancelFunc) => Text(
         subtitle, 
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-          color: Theme.of(context).colorScheme.onSecondaryContainer,
+        style: Theme.of(navigatorKey.currentContext!).textTheme.bodyMedium?.copyWith(
+          color: Theme.of(navigatorKey.currentContext!).colorScheme.onSecondaryContainer,
         ),
       ),
       enableSlideOff: true,

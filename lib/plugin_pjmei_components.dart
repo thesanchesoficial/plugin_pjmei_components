@@ -7,6 +7,7 @@ export 'package:extended_masked_text/extended_masked_text.dart';
 export 'package:eva_icons_flutter/eva_icons_flutter.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:flutter_tags/flutter_tags.dart';
+export 'package:package:jwt_decoder/jwt_decoder.dart';
 import 'plugin_pjmei_components_platform_interface.dart';
 
 class PluginPjmeiComponents {
