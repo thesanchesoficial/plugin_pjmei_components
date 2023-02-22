@@ -1,6 +1,6 @@
 name: plugin_pjmei_components
 description: A new Flutter plugin project.
-version: 0.0.7
+version: 0.0.8
 homepage:
 
 environment:
@@ -23,7 +23,7 @@ dependencies:
   flutter_tags: "^1.0.0-nullsafety.1"
   flutter_cache_manager: ^3.3.0	
   flutter_typeahead: ^4.0.0	
-  go_router: ^6.0.6	
+  go_router_flow: ^6.0.0+3
   image_gallery_saver: ^1.7.1
   intl: ^0.18.0	
   jwt_decoder: ^2.0.1
