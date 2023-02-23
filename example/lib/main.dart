@@ -11,14 +11,8 @@ void main() {
       builder: (lightColorScheme, darkColorScheme) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          theme: lightColorScheme == null ? AppTheme.lightTheme : ThemeData(
-            colorScheme: lightColorScheme,
-            useMaterial3: true,
-          ),
-          darkTheme: lightColorScheme == null ? AppTheme.darkTheme : ThemeData(
-            colorScheme: darkColorScheme,
-            useMaterial3: true,
-          ),
+          theme: AppTheme.getLightThemeApp(colorScheme: lightColorScheme),
+          darkTheme: AppTheme.getDarkThemeApp(colorScheme: darkColorScheme),
           themeMode: ThemeMode.system,
           routerDelegate: routes.routerDelegate,
           routeInformationParser: routes.routeInformationParser,
@@ -142,6 +136,26 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Text("Teste"),
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.add),
+            label: "Teste",
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.add),
+            label: "Teste",
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.add),
+            label: "Teste",
+          ),
+        ],
       ),
     );
   }

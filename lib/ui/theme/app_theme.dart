@@ -74,6 +74,146 @@ class AppTheme {
   static const Color processing = Colors.yellow;
   static const Color verdeVenver = Color(0xff12aa4b);
 
+  static ColorScheme getColorSchemeLightApp({ColorScheme? colorScheme}) {
+    if(colorScheme != null) {
+      return colorScheme;
+    } else {
+      return lightColorScheme;
+    }
+  }
+
+  static ColorScheme getColorSchemeDarkApp({ColorScheme? colorScheme}) {
+    if(colorScheme != null) {
+      return colorScheme;
+    } else {
+      return darkColorScheme;
+    }
+  }
+
+  static ThemeData getLightThemeApp({ColorScheme? colorScheme}) {
+    final colorSchemeApp = getColorSchemeLightApp(colorScheme: colorScheme);
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: colorSchemeApp,
+      primaryColor: colorSchemeApp.primary,
+      cardColor: colorSchemeApp.secondaryContainer,
+      unselectedWidgetColor: colorSchemeApp.primary,
+      scaffoldBackgroundColor: colorSchemeApp.background,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: colorSchemeApp.background,
+        elevation: 5,
+        selectedItemColor: colorSchemeApp.primary,
+        unselectedItemColor: colorSchemeApp.onBackground,
+        showSelectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+      ),
+      bottomAppBarTheme: const BottomAppBarTheme(),
+      brightness: Brightness.light,
+      secondaryHeaderColor: colorSchemeApp.surfaceVariant,
+      iconTheme: IconThemeData(color: colorSchemeApp.primary),
+      iconButtonTheme: IconButtonThemeData(
+        style: ButtonStyle(
+          iconColor: MaterialStatePropertyAll(colorSchemeApp.primary),
+          backgroundColor: MaterialStatePropertyAll(colorSchemeApp.surfaceVariant),
+        ),
+      ),
+      primaryIconTheme: IconThemeData(
+        color: colorSchemeApp.primary,
+      ),
+      appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(
+          color: colorSchemeApp.primary,
+        ),
+        color: colorSchemeApp.background,
+        actionsIconTheme: IconThemeData(
+          color: colorSchemeApp.primary,
+        ),
+        centerTitle: true,
+        elevation: 0,
+        titleTextStyle: TextStyle(
+          color: colorSchemeApp.onBackground,
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      scrollbarTheme: ScrollbarThemeData(
+        mainAxisMargin: 0,
+        interactive: true,
+        radius: const Radius.circular(5),
+        thickness: MaterialStateProperty.all(12),
+        crossAxisMargin: 1,
+        thumbColor: MaterialStateProperty.all(
+          colorSchemeApp.surfaceVariant,
+        ),
+        trackColor: MaterialStateProperty.all(
+          colorSchemeApp.surfaceVariant,
+        ),
+      ),
+    );
+  }
+
+  static ThemeData getDarkThemeApp({ColorScheme? colorScheme}) {
+    final colorSchemeApp = getColorSchemeDarkApp(colorScheme: colorScheme);
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: colorSchemeApp,
+      primaryColor: colorSchemeApp.primary,
+      cardColor: colorSchemeApp.secondaryContainer,
+      unselectedWidgetColor: colorSchemeApp.primary,
+      scaffoldBackgroundColor: colorSchemeApp.background,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: colorSchemeApp.background,
+        elevation: 5,
+        selectedItemColor: colorSchemeApp.primary,
+        unselectedItemColor: colorSchemeApp.onBackground,
+        showSelectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+      ),
+      bottomAppBarTheme: const BottomAppBarTheme(),
+      brightness: Brightness.dark,
+      secondaryHeaderColor: colorSchemeApp.surfaceVariant,
+      iconTheme: IconThemeData(color: colorSchemeApp.primary),
+      iconButtonTheme: IconButtonThemeData(
+        style: ButtonStyle(
+          iconColor: MaterialStatePropertyAll(colorSchemeApp.primary),
+          backgroundColor: MaterialStatePropertyAll(colorSchemeApp.surfaceVariant),
+        ),
+      ),
+      primaryIconTheme: IconThemeData(
+        color: colorSchemeApp.primary,
+      ),
+      appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(
+          color: colorSchemeApp.primary,
+        ),
+        color: colorSchemeApp.background,
+        actionsIconTheme: IconThemeData(
+          color: colorSchemeApp.primary,
+        ),
+        centerTitle: true,
+        elevation: 0,
+        titleTextStyle: TextStyle(
+          color: colorSchemeApp.onBackground,
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      scrollbarTheme: ScrollbarThemeData(
+        mainAxisMargin: 0,
+        interactive: true,
+        radius: const Radius.circular(5),
+        thickness: MaterialStateProperty.all(12),
+        crossAxisMargin: 1,
+        thumbColor: MaterialStateProperty.all(
+          colorSchemeApp.surfaceVariant,
+        ),
+        trackColor: MaterialStateProperty.all(
+          colorSchemeApp.surfaceVariant,
+        ),
+      ),
+    );
+  }
+
   static const MaterialColor myGreen = MaterialColor(0xff12aa4b, {
     50: Color(0xFFe0ffec),
     100: Color(0xFF4BE285),
@@ -86,138 +226,6 @@ class AppTheme {
     800: Color(0xFF0A8B3C),
     900: Color(0xFF078638)
   });
-
-  static final ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
-    colorScheme: lightColorScheme,
-    primaryColor: const Color(0xFF006E2C),
-    cardColor: lightColorScheme.secondaryContainer,
-    unselectedWidgetColor: verdeVenver,
-    scaffoldBackgroundColor: lightColorScheme.background,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
-      elevation: 5,
-      selectedItemColor: Color(0xff12aa4b),
-      unselectedItemColor: Colors.black,
-      showSelectedLabels: true,
-      type: BottomNavigationBarType.fixed,
-    ),
-    bottomAppBarTheme: const BottomAppBarTheme(),
-    brightness: Brightness.light,
-    secondaryHeaderColor: Colors.grey[300],
-    iconTheme: const IconThemeData(color: Color(0xff12aa4b)),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      // foregroundColor: lightColorScheme.onSecondaryContainer,
-      // backgroundColor: lightColorScheme.secondaryContainer,
-      foregroundColor: lightColorScheme.onPrimary,
-      backgroundColor: lightColorScheme.primary,
-    ),
-    iconButtonTheme: IconButtonThemeData(
-      style: ButtonStyle(
-        iconColor: MaterialStatePropertyAll(lightColorScheme.primary),
-        backgroundColor: MaterialStatePropertyAll(lightColorScheme.surfaceVariant),
-      ),
-    ),
-    primaryIconTheme: const IconThemeData(
-      color: Color(0xff12aa4b),
-    ),
-    appBarTheme: AppBarTheme(
-      iconTheme: const IconThemeData(
-        color: Color(0xff12aa4b),
-      ),
-      color: lightColorScheme.background,
-      actionsIconTheme: const IconThemeData(
-        color: Color(0xff12aa4b),
-      ),
-      centerTitle: true,
-      elevation: 0,
-      titleTextStyle: const TextStyle(
-        color: Colors.black,
-        fontSize: 15,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
-    scrollbarTheme: ScrollbarThemeData(
-      mainAxisMargin: 0,
-      interactive: true,
-      radius: const Radius.circular(
-        5,
-      ),
-      thickness: MaterialStateProperty.all(
-        12,
-      ),
-      crossAxisMargin: 1,
-      thumbColor: MaterialStateProperty.all(
-        const Color(0xffc1c1c1),
-      ),
-      trackColor: MaterialStateProperty.all(
-        const Color(0xfff1f1f1),
-      ),
-    ),
-  );
-
-  static final ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
-    colorScheme: darkColorScheme,
-    primaryColor: const Color(0xFF5BE079),
-    cardColor: darkColorScheme.secondaryContainer,
-    unselectedWidgetColor: verdeVenver,
-    scaffoldBackgroundColor: darkColorScheme.background,
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Colors.black,
-      elevation: 5,
-      selectedItemColor: Color(0xff12aa4b),
-      unselectedItemColor: Colors.white,
-      showSelectedLabels: true,
-      type: BottomNavigationBarType.fixed,
-    ),
-    bottomAppBarTheme: const BottomAppBarTheme(),
-    brightness: Brightness.dark,
-    secondaryHeaderColor: Colors.grey[300],
-    iconTheme: const IconThemeData(color: Color(0xff12aa4b)),
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      foregroundColor: lightColorScheme.onPrimary,
-      backgroundColor: lightColorScheme.primary,
-    ),
-    iconButtonTheme: IconButtonThemeData(
-      style: ButtonStyle(
-        iconColor: MaterialStatePropertyAll(darkColorScheme.primary),
-        backgroundColor: MaterialStatePropertyAll(darkColorScheme.surfaceVariant),
-      ),
-    ),
-    primaryIconTheme: const IconThemeData(color: Color(0xff12aa4b)),
-    appBarTheme: AppBarTheme(
-      iconTheme: const IconThemeData(
-        color: Color(0xff12aa4b),
-      ),
-      color: darkColorScheme.background,
-      actionsIconTheme: const IconThemeData(
-        color: Color(0xff12aa4b),
-      ),
-      centerTitle: true,
-      elevation: 0,
-      titleTextStyle: const TextStyle(
-        color: Colors.white,
-        fontSize: 15,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
-    scrollbarTheme: ScrollbarThemeData(
-      mainAxisMargin: 0,
-      interactive: true,
-      radius: const Radius.circular(15),
-      thickness: MaterialStateProperty.all(
-        12,
-      ),
-      crossAxisMargin: 1,
-      thumbColor: MaterialStateProperty.all(
-        const Color(0xff686868),
-      ),
-      trackColor: MaterialStateProperty.all(
-        const Color(0xff424242),
-      ),
-    ),
-  );
 
   static const Color errorColor = Color.fromARGB(0xFF, 239, 83, 80);
 }
