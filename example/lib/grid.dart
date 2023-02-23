@@ -19,6 +19,8 @@ class _GridTestPageState extends State<GridTestPage> {
         child: Column(
           children: [
             OwGrid(
+              // numbersInRowAccordingToWidgth: const [100, 200, 300, 400, 500],
+              numbersInRowAccordingToWidgth: const [100, 200, 300],
               children: [
                 _box(),
                 _box(),
@@ -44,7 +46,7 @@ class _GridTestPageState extends State<GridTestPage> {
 
   Widget _box() {
     return Container(
-      width: 150,
+      width: 800,
       height: 150,
       color: Colors.red,
     );
