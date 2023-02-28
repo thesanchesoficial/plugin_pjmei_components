@@ -52,7 +52,7 @@ class DownloadParams {
 
 }
 
-void downloadToDevide(DownloadParams params) async {
+Future<void> downloadToDevide(DownloadParams params) async {
   try {
     if(!kIsWeb) {
       Map<Permission, PermissionStatus> statuses = await [

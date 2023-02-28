@@ -95,7 +95,11 @@ class OwAppBar extends StatelessWidget implements PreferredSizeWidget {
           const SizedBox(width: 12),
           IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              try {
+                context.pop();
+              } catch (e) {
+                context.go("/");
+              }
             },
             icon: const Icon(Icons.close),
           ),

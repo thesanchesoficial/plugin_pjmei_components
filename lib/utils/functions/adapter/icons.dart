@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 
 class IconAdapter {
-  static IconData getIcon(String icon) => map[icon] ?? const EvaIconData(0xe900);
+  static IconData getIcon(String icon) => map[icon] ?? EvaIcons.activity;
 
   static Map<String, IconData> map = {
     "EvaIcons.const":EvaIcons.activity,

@@ -259,7 +259,7 @@ class OwTextField extends StatelessWidget {
           return _getSuggestionsList(string);
         },
         noItemsFoundBuilder: (_) {
-          return const Text("dsfsdfs");
+          return const Text("Nenhum item encontrado");
         },
         itemBuilder: (context, suggestion) {
           return ListTile(
