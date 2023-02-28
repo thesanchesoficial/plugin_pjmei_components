@@ -24,7 +24,7 @@ class _OwAlertDialogState extends State<OwAlertDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: OwText(widget.title),
+      title: OwTextWidget(widget.title),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -32,7 +32,7 @@ class _OwAlertDialogState extends State<OwAlertDialog> {
           children: [
             OwVisibility(
               visible: widget.description != null,
-              child: OwText(
+              child: OwTextWidget(
                 "${widget.description}",
               ),
             ),
@@ -42,7 +42,7 @@ class _OwAlertDialogState extends State<OwAlertDialog> {
             ),
             OwVisibility(
               visible: widget.observation != null,
-              child: OwText(
+              child: OwTextWidget(
                 "${widget.observation}",
               ),
             ),

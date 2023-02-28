@@ -11,7 +11,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 // "Matheus {Sanch{{es}} tin}}ha {{R\$ 2 reais}} do {{troco de pão}}" // certo
 // "{Mat{{h}}eus {{Sanches}} tinha {{R\$ 2 reais}} do {{troco de pão}}}}}" // certo
 
-class OwText extends StatelessWidget {
+class OwTextWidget extends StatelessWidget {
   final String? text;
   final Map<String, dynamic> arguments;
   final TextStyle? style;
@@ -32,7 +32,7 @@ class OwText extends StatelessWidget {
   final bool hideValue;
   final bool useHideValueGlobal;
 
-  const OwText(
+  const OwTextWidget(
     this.text, {
     Key? key,
     this.arguments = const {},
