@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 // ignore: must_be_immutable
 class OwAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -70,7 +71,7 @@ class OwAppBar extends StatelessWidget implements PreferredSizeWidget {
   List<Widget> actionsTemp = [];
   double leadingWidthTemp = 0;
 
-  method(context) {
+  method(BuildContext context) {
     if (!automaticallyImplyLeading) {
       leadingWidthTemp = 0;
     }
