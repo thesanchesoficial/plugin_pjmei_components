@@ -94,6 +94,7 @@ class AppTheme {
     final colorSchemeApp = getColorSchemeLightApp(colorScheme: colorScheme);
     return ThemeData(
       useMaterial3: true,
+      visualDensity: VisualDensity.standard,
       colorScheme: colorSchemeApp,
       primaryColor: colorSchemeApp.primary,
       cardColor: colorSchemeApp.secondaryContainer,
@@ -156,6 +157,7 @@ class AppTheme {
     final colorSchemeApp = getColorSchemeDarkApp(colorScheme: colorScheme);
     return ThemeData(
       useMaterial3: true,
+      visualDensity: VisualDensity.standard,
       colorScheme: colorSchemeApp,
       primaryColor: colorSchemeApp.primary,
       cardColor: colorSchemeApp.secondaryContainer,

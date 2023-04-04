@@ -1,4 +1,3 @@
-import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class OwMaskedController {
@@ -82,7 +81,7 @@ class OwMaskedController {
     String decimalSeparator = ",",
     String thousandSeparator = ".",
   }) {
-    if(leftSymbol != null && leftSymbol != "") {
+    if(leftSymbol != "") {
       leftSymbol += " ";
     }
     

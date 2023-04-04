@@ -6,7 +6,6 @@ import 'package:dio/dio.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 
 import 'empty_download.dart'

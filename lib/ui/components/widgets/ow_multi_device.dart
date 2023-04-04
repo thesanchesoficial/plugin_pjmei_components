@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum BuilderCase { tv, desktop, tablet, phone, watch }
 
-class OwMultiDevice extends StatefulWidget {
+class OwMultiDevice extends StatelessWidget {
   final Widget Function(BuildContext context)? tvBuilder;
   final Widget Function(BuildContext context)? desktopBuilder;
   final Widget Function(BuildContext context)? tabletBuilder;
@@ -19,34 +19,6 @@ class OwMultiDevice extends StatefulWidget {
     this.watchBuilder,
     this.builderCase,
   }) : super(key: key);
-
-  @override
-  _OwMultiDeviceState createState() => _OwMultiDeviceState(
-    this.tvBuilder,
-    this.desktopBuilder,
-    this.tabletBuilder,
-    this.phoneBuilder,
-    this.watchBuilder,
-    this.builderCase,
-  );
-}
-
-class _OwMultiDeviceState extends State<OwMultiDevice> {
-  final Widget Function(BuildContext context)? tvBuilder;
-  final Widget Function(BuildContext context)? desktopBuilder;
-  final Widget Function(BuildContext context)? tabletBuilder;
-  final Widget Function(BuildContext context)? phoneBuilder;
-  final Widget Function(BuildContext context)? watchBuilder;
-  final BuilderCase? builderCase;
-
-  _OwMultiDeviceState(
-    this.tvBuilder, 
-    this.desktopBuilder, 
-    this.tabletBuilder, 
-    this.phoneBuilder, 
-    this.watchBuilder,
-    this.builderCase,
-  );
 
   @override
   Widget build(BuildContext context) {

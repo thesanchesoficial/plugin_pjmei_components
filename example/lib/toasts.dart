@@ -45,12 +45,4 @@ class _ToastsTestPageState extends State<ToastsTestPage> {
       ),
     );
   }
-
-  Widget _box() {
-    return Container(
-      width: 150,
-      height: 150,
-      color: Colors.red,
-    );
-  }
 }
