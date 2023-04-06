@@ -90,11 +90,11 @@ class AppTheme {
     }
   }
 
-  static ThemeData getLightThemeApp({ColorScheme? colorScheme}) {
+  static ThemeData getLightThemeApp({ColorScheme? colorScheme, required VisualDensity visualDensity}) {
     final colorSchemeApp = getColorSchemeLightApp(colorScheme: colorScheme);
     return ThemeData(
       useMaterial3: true,
-      visualDensity: VisualDensity.standard,
+      visualDensity: visualDensity,
       colorScheme: colorSchemeApp,
       primaryColor: colorSchemeApp.primary,
       cardColor: colorSchemeApp.secondaryContainer,
@@ -153,11 +153,11 @@ class AppTheme {
     );
   }
 
-  static ThemeData getDarkThemeApp({ColorScheme? colorScheme}) {
+  static ThemeData getDarkThemeApp({ColorScheme? colorScheme, required VisualDensity visualDensity}) {
     final colorSchemeApp = getColorSchemeDarkApp(colorScheme: colorScheme);
     return ThemeData(
       useMaterial3: true,
-      visualDensity: VisualDensity.standard,
+      visualDensity: visualDensity,
       colorScheme: colorSchemeApp,
       primaryColor: colorSchemeApp.primary,
       cardColor: colorSchemeApp.secondaryContainer,

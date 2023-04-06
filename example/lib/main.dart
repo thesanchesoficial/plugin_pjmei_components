@@ -11,8 +11,14 @@ void main() {
       builder: (lightColorScheme, darkColorScheme) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.getLightThemeApp(colorScheme: lightColorScheme),
-          darkTheme: AppTheme.getDarkThemeApp(colorScheme: darkColorScheme),
+          theme: AppTheme.getLightThemeApp(
+            colorScheme: lightColorScheme,
+            visualDensity: VisualDensity.compact,
+          ),
+          darkTheme: AppTheme.getDarkThemeApp(
+            colorScheme: darkColorScheme,
+            visualDensity: VisualDensity.compact,
+          ),
           themeMode: ThemeMode.system,
           routerDelegate: routes.routerDelegate,
           routeInformationParser: routes.routeInformationParser,
