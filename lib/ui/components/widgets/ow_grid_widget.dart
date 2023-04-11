@@ -7,6 +7,7 @@ class OwGrid extends StatefulWidget {
   final double? rowHeight;
   final double spacing;
   final double runSpacing;
+  final double paddingExternal;
   final int? horizontalQuantity;
   final List<double>? numbersInRowAccordingToWidgth;
   final bool centeredChildren;
@@ -42,6 +43,7 @@ class OwGrid extends StatefulWidget {
     this.rowHeight,
     this.spacing = 10,
     this.runSpacing = 10,
+    this.paddingExternal = 0,
     this.horizontalQuantity,
     this.numbersInRowAccordingToWidgth,
     this.centeredChildren = false,
@@ -76,6 +78,7 @@ class OwGrid extends StatefulWidget {
     this.rowHeight,
     this.spacing = 10,
     this.runSpacing = 10,
+    this.paddingExternal = 0,
     this.horizontalQuantity,
     this.numbersInRowAccordingToWidgth,
     this.centeredChildren = false,
@@ -135,7 +138,7 @@ class _OwGridState extends State<OwGrid> {
         spacing: widget.spacing,
         children: widget.children!.map((e) => SizedBox(
           width: widget.numbersInRowAccordingToWidgth != null 
-            ? (MediaQuery.of(context).size.width / getCountCollumn()) - (widget.runSpacing - (widget.runSpacing / getCountCollumn()))
+            ? ((MediaQuery.of(context).size.width - widget.paddingExternal) / getCountCollumn()) - (widget.runSpacing - (widget.runSpacing / getCountCollumn()))
             : MediaQuery.of(context).size.width,
           child: e,
         )).toList(),

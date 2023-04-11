@@ -16,11 +16,12 @@ class _GridTestPageState extends State<GridTestPage> {
         title: const Text('Plugin example app'),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(25),
         child: Column(
           children: [
             OwGrid(
-              // numbersInRowAccordingToWidgth: const [100, 200, 300, 400, 500],
-              numbersInRowAccordingToWidgth: const [100, 200, 300],
+              paddingExternal: 50,
+              numbersInRowAccordingToWidgth: const [100, 200, 250],
               children: [
                 _box(),
                 _box(),
