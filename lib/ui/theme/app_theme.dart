@@ -90,7 +90,11 @@ class AppTheme {
     }
   }
 
-  static ThemeData getLightThemeApp({ColorScheme? colorScheme, required VisualDensity visualDensity}) {
+  static ThemeData getLightThemeApp({
+    ColorScheme? colorScheme,
+    required VisualDensity visualDensity,
+    TargetPlatform? platform,
+  }) {
     final colorSchemeApp = getColorSchemeLightApp(colorScheme: colorScheme);
     return ThemeData(
       useMaterial3: true,
@@ -100,6 +104,7 @@ class AppTheme {
       cardColor: colorSchemeApp.secondaryContainer,
       unselectedWidgetColor: colorSchemeApp.primary,
       scaffoldBackgroundColor: colorSchemeApp.background,
+      platform: platform,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: colorSchemeApp.background,
         elevation: 5,
@@ -153,7 +158,11 @@ class AppTheme {
     );
   }
 
-  static ThemeData getDarkThemeApp({ColorScheme? colorScheme, required VisualDensity visualDensity}) {
+  static ThemeData getDarkThemeApp({
+    ColorScheme? colorScheme,
+    required VisualDensity visualDensity,
+    TargetPlatform? platform,
+  }) {
     final colorSchemeApp = getColorSchemeDarkApp(colorScheme: colorScheme);
     return ThemeData(
       useMaterial3: true,
@@ -163,6 +172,7 @@ class AppTheme {
       cardColor: colorSchemeApp.secondaryContainer,
       unselectedWidgetColor: colorSchemeApp.primary,
       scaffoldBackgroundColor: colorSchemeApp.background,
+      platform: platform,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: colorSchemeApp.background,
         elevation: 5,
