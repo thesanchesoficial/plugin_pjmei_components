@@ -1,6 +1,6 @@
 name: plugin_pjmei_components
 description: A new Flutter plugin project.
-version: 0.0.19
+version: 0.0.20
 homepage:
 
 environment:
@@ -25,7 +25,7 @@ dependencies:
   flutter_typeahead: ^4.0.0	
   go_router_flow: ^6.0.0+3
   image_gallery_saver: ^2.0.1
-  intl: ^0.18.1	
+  intl: ^0.18.0	
   jwt_decoder: ^2.0.1
   loop_page_view: ^1.2.2	
   mask_text_input_formatter: ^2.4.0	
