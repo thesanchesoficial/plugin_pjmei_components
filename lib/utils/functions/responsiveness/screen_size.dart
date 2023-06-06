@@ -2,8 +2,8 @@
 // import 'package:flutter/material.dart';
 
 // changeScreenSize(context) {
-//   if (MediaQuery.of(context).size.width >= 600) {
-//     if(MediaQuery.of(context).size.width < 840) {
+//   if (MediaQuery.sizeOf(context).width >= 600) {
+//     if(MediaQuery.sizeOf(context).width < 840) {
 //       appStore.setIsFoldable(true);
 //       appStore.setIsWeb(true);
 //     } else {

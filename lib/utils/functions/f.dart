@@ -7,22 +7,23 @@ class F {
 
   static bool isWeb(BuildContext context) {
     return isWebApplication
-      ? MediaQuery.of(context).size.width >= webStartsWithWidth
-      : false;
+        ? MediaQuery.sizeOf(context).width >= webStartsWithWidth
+        : false;
   }
 
-  static List<dynamic> concatenateList(List<dynamic> list1, List<dynamic> list2) {
+  static List<dynamic> concatenateList(
+      List<dynamic> list1, List<dynamic> list2) {
     try {
       for (var element1 in list1) {
-        for(var element2 in list2) {
-          if(element1.id == element2.id) {
+        for (var element2 in list2) {
+          if (element1.id == element2.id) {
             list1[list1.indexOf(element1)] = element2;
             break;
           }
         }
       }
       for (var element2 in list2) {
-        if(!list1.contains(element2)) {
+        if (!list1.contains(element2)) {
           list1.add(element2);
         }
       }
@@ -35,7 +36,7 @@ class F {
   void nonNullAssert(List<dynamic> objects, [String? constructor]) {
     for (var element in objects) {
       String assertMessage = "${element.runtimeType} != null is not true";
-      if(constructor != null) assertMessage += " (called by $constructor)";
+      if (constructor != null) assertMessage += " (called by $constructor)";
       assert(element != null, assertMessage);
     }
   }

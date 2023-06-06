@@ -29,10 +29,12 @@ class OwTextField extends StatelessWidget {
   final bool autofocus;
   final bool obscureText;
   final bool readOnly;
+  final bool hideBorder;
   /// If null, it will be [TextCapitalization.sentences]
   final TextCapitalization? textCapitalization;
   final String? counterText;
   final Color? color;
+  final Color? colorText;
   final List<TextInputFormatter>? inputFormatters;
   final String? suffixText;
   final String? prefixText;
@@ -51,6 +53,7 @@ class OwTextField extends StatelessWidget {
   final bool? repeatItemsOnSuggestionList;
   final Widget? suggestionListTileTrailing;
   final double radius;
+  final double widthBorder;
   final InputDecoration? decoration;
 
   static const String assertMsgFocusNodeList = "If you are using 'focusNodeList', you need to pass its position with 'focusNodeIndex'";
@@ -71,6 +74,7 @@ class OwTextField extends StatelessWidget {
     this.autofocus = false,
     this.outlined = false,
     this.large = false,
+    this.hideBorder = false,
     this.enabled = true,
     this.onFieldSubmitted,
     this.focusNode,
@@ -86,6 +90,7 @@ class OwTextField extends StatelessWidget {
     this.suffixIcon,
     this.enableInteractiveSelection = true,
     this.color,
+    this.colorText,
     this.inputFormatters,
     this.onSaved,
     this.validator,
@@ -95,7 +100,8 @@ class OwTextField extends StatelessWidget {
     this.focusNodeIndex,
     this.automaticFocusWithFocusNodeList = true,
     bool updateMaskOnFieldType = true,
-    this.radius = 15,
+    this.radius = 0,
+    this.widthBorder = 0,
     this.decoration,
   }): suggestionsList = null,
       ignoreAccentsOnSuggestion = false,
@@ -136,10 +142,12 @@ class OwTextField extends StatelessWidget {
     this.enableInteractiveSelection = true,
     this.suffixIcon,
     this.color,
+    this.colorText,
     this.suggestionsList,
     this.inputFormatters,
     this.outlined = false,
     this.large = false,
+    this.hideBorder = false,
     this.autofocus = false,
     this.readOnly = false,
     this.nextFocusNode,
@@ -152,7 +160,8 @@ class OwTextField extends StatelessWidget {
     this.onSuggestionSelected,
     this.repeatItemsOnSuggestionList = false,
     this.suggestionListTileTrailing = const Icon(Icons.touch_app_outlined),
-    this.radius = 15,
+    this.radius = 0,
+    this.widthBorder = 0,
     this.decoration,
   }) : fieldType = null,
       onSaved = null,
@@ -183,19 +192,25 @@ class OwTextField extends StatelessWidget {
     changeTextFieldType(context);
     defineFocusNode(context);
     defineMinAndMaxLines();
-    return Container(
-      key: key,
-      margin: margin,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(radius)),
+    return ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(radius)),
+      child: Container(
+        key: key,
+        margin: margin,
+        child: _textField(context),
       ),
-      child: _textField(context),
     );
   }
 
   Widget _textField(BuildContext context) {
     if(suggestionsList == null || (suggestionsList?.isEmpty ?? true)) {
       return TextFormField(
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: colorText ?? Theme.of(context).colorScheme.outline,
+          fontSize: large ? 35 : 18,
+        ),
+        textAlignVertical: TextAlignVertical.top,
         inputFormatters: inputFormatters ?? _inputFormatters,
         keyboardType: keyboardType,
         textCapitalization: textCapitalization ?? _textCapitalization ?? TextCapitalization.sentences,
@@ -282,25 +297,58 @@ class OwTextField extends StatelessWidget {
   InputDecoration _defineTextFieldStyle(BuildContext context) {
     return decoration ?? InputDecoration(
       filled: true,
-      fillColor: color ?? Theme.of(context).colorScheme.surfaceVariant,
+      isDense: true,
+      fillColor: color ?? Theme.of(context).colorScheme.background,
+      prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
       labelText: labelText,
       hintText: hintText,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
       errorText: errorText,
+      labelStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Theme.of(context).colorScheme.onBackground,
+        fontSize: 15,
+      ),
       counterText: counterText,
-      alignLabelWithHint: false,
-      border: OutlineInputBorder(
+      hintStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: colorText ?? Theme.of(context).colorScheme.outline,
+        fontSize: large ? 35 : 18,
+      ),
+      alignLabelWithHint: true,
+      border: hideBorder ? InputBorder.none : UnderlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.onSurfaceVariant,
-          width: 1,
+          color: Theme.of(context).colorScheme.outline,
+          width: widthBorder,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(radius)),
+      ),
+      focusedBorder: hideBorder ? InputBorder.none : UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Theme.of(context).colorScheme.outline,
+          width: widthBorder,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(radius)),
+      ),
+      enabledBorder: hideBorder ? InputBorder.none : UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Theme.of(context).colorScheme.outline,
+          width: widthBorder,
         ),
         borderRadius: BorderRadius.all(Radius.circular(radius)),
       ),
       contentPadding: const EdgeInsets.symmetric(
-        horizontal: 20, 
-        vertical: 15,
+        horizontal: 0, 
+        vertical: 12,
       ),
       helperText: helperText,
       helperMaxLines: 3,
+      floatingLabelAlignment: FloatingLabelAlignment.start,
+      prefixStyle: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: colorText ?? Theme.of(context).colorScheme.outline,
+        fontSize: large ? 35 : 18,
+      ),
       suffixText: suffixText,
       prefixText: prefixText ?? _prefixText,
       suffixIcon: suffixIcon ?? _suffixIcon,

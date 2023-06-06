@@ -17,7 +17,7 @@ class _DialogsTestPageState extends State<DialogsTestPage> {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.sizeOf(context).width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -86,7 +86,8 @@ class _DialogsTestPageState extends State<DialogsTestPage> {
               ),
               OwButton(
                 margin: const EdgeInsets.only(top: 10),
-                labelText: "Title, description, content, buttons and observations",
+                labelText:
+                    "Title, description, content, buttons and observations",
                 onPressed: () {
                   showDialog(
                     context: context,

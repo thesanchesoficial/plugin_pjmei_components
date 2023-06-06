@@ -23,7 +23,7 @@ class _ColorsTestPageState extends State<ColorsTestPage> {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.sizeOf(context).width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -45,7 +45,8 @@ class _ColorsTestPageState extends State<ColorsTestPage> {
               _container(
                 title: "secondaryContainer",
                 background: Theme.of(context).colorScheme.secondaryContainer,
-                onBackground: Theme.of(context).colorScheme.onSecondaryContainer,
+                onBackground:
+                    Theme.of(context).colorScheme.onSecondaryContainer,
               ),
               _container(
                 title: "tertiary",
@@ -84,16 +85,19 @@ class _ColorsTestPageState extends State<ColorsTestPage> {
     );
   }
 
-  Widget _container({required String title, required Color background, required Color onBackground}) {
+  Widget _container(
+      {required String title,
+      required Color background,
+      required Color onBackground}) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.sizeOf(context).width,
       padding: const EdgeInsets.all(35),
       color: background,
       child: Text(
         title,
         style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-          color: onBackground,
-        ),
+              color: onBackground,
+            ),
         textAlign: TextAlign.center,
       ),
     );

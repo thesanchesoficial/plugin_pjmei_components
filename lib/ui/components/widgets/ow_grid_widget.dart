@@ -34,7 +34,7 @@ class OwGrid extends StatefulWidget {
   final bool? loadingAndTryWidgetsAboveBottomWidget;
   final bool? useTryAgainWidget;
   final double? loadMoreOffsetFromBottom;
-  
+
   const OwGrid({
     Key? key,
     required this.children,
@@ -57,17 +57,17 @@ class OwGrid extends StatefulWidget {
     this.shrinkWrap = true,
     this.horizontalSeparatorWidget,
     this.verticalSeparatorWidget,
-  }): controller = null,
-      maxLength = null,
-      loadingWidget = null,
-      loadMore = null,
-      physics = null,
-      useTryAgainWidget = null,
-      itemBuilder = null,
-      itemCount = null,
-      loadingAndTryWidgetsAboveBottomWidget = null,
-      loadMoreOffsetFromBottom = null,
-      super(key: key);
+  })  : controller = null,
+        maxLength = null,
+        loadingWidget = null,
+        loadMore = null,
+        physics = null,
+        useTryAgainWidget = null,
+        itemBuilder = null,
+        itemCount = null,
+        loadingAndTryWidgetsAboveBottomWidget = null,
+        loadMoreOffsetFromBottom = null,
+        super(key: key);
 
   const OwGrid.builder({
     Key? key,
@@ -92,27 +92,26 @@ class OwGrid extends StatefulWidget {
     this.shrinkWrap = true,
     this.horizontalSeparatorWidget,
     this.verticalSeparatorWidget,
-  }): children = null,
-      controller = null,
-      maxLength = null,
-      loadingWidget = null,
-      loadMore = null,
-      physics = null,
-      useTryAgainWidget = null,
-      loadingAndTryWidgetsAboveBottomWidget = null,
-      loadMoreOffsetFromBottom = null,
-      super(key: key);
+  })  : children = null,
+        controller = null,
+        maxLength = null,
+        loadingWidget = null,
+        loadMore = null,
+        physics = null,
+        useTryAgainWidget = null,
+        loadingAndTryWidgetsAboveBottomWidget = null,
+        loadMoreOffsetFromBottom = null,
+        super(key: key);
 
   @override
   State<OwGrid> createState() => _OwGridState();
 }
 
 class _OwGridState extends State<OwGrid> {
-
   ScrollController? _scrollController;
 
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     _scrollController = widget.controller ?? ScrollController();
     _scrollController?.addListener(() {});
@@ -124,36 +123,45 @@ class _OwGridState extends State<OwGrid> {
       alignment: Alignment.topLeft,
       padding: widget.padding,
       constraints: widget.constraints,
-      width: MediaQuery.of(context).size.width,
-      child: widget.itemBuilder != null ? AlignedGridView.count(
-        shrinkWrap: widget.shrinkWrap,
-        physics: widget.physics ?? const BouncingScrollPhysics(),
-        crossAxisCount: getCountCollumn(),
-        crossAxisSpacing: widget.spacing,
-        mainAxisSpacing: widget.runSpacing,
-        itemCount: widget.itemCount,
-        itemBuilder: widget.itemBuilder!,
-      ) : Wrap(
-        runSpacing: widget.runSpacing,
-        spacing: widget.spacing,
-        children: widget.children!.map((e) => SizedBox(
-          width: widget.numbersInRowAccordingToWidgth != null 
-            ? ((MediaQuery.of(context).size.width - widget.paddingExternal) / getCountCollumn()) - (widget.runSpacing - (widget.runSpacing / getCountCollumn()))
-            : MediaQuery.of(context).size.width,
-          child: e,
-        )).toList(),
-      ),
+      width: MediaQuery.sizeOf(context).width,
+      child: widget.itemBuilder != null
+          ? AlignedGridView.count(
+              shrinkWrap: widget.shrinkWrap,
+              physics: widget.physics ?? const BouncingScrollPhysics(),
+              crossAxisCount: getCountCollumn(),
+              crossAxisSpacing: widget.spacing,
+              mainAxisSpacing: widget.runSpacing,
+              itemCount: widget.itemCount,
+              itemBuilder: widget.itemBuilder!,
+            )
+          : Wrap(
+              runSpacing: widget.runSpacing,
+              spacing: widget.spacing,
+              children: widget.children!
+                  .map((e) => SizedBox(
+                        width: widget.numbersInRowAccordingToWidgth != null
+                            ? ((MediaQuery.sizeOf(context).width -
+                                        widget.paddingExternal) /
+                                    getCountCollumn()) -
+                                (widget.runSpacing -
+                                    (widget.runSpacing / getCountCollumn()))
+                            : MediaQuery.sizeOf(context).width,
+                        child: e,
+                      ))
+                  .toList(),
+            ),
     );
     // return _container(context);
   }
 
   int getCountCollumn() {
-    double totalWidth = MediaQuery.of(context).size.width;
-    List<double> numbersInRowAccordingToWidgth = widget.numbersInRowAccordingToWidgth ?? [];
+    double totalWidth = MediaQuery.sizeOf(context).width;
+    List<double> numbersInRowAccordingToWidgth =
+        widget.numbersInRowAccordingToWidgth ?? [];
     int caseTemp = 0;
     int i = 0;
-    for(; i < numbersInRowAccordingToWidgth.length; i++) {
-      if(totalWidth <= numbersInRowAccordingToWidgth[i]) {
+    for (; i < numbersInRowAccordingToWidgth.length; i++) {
+      if (totalWidth <= numbersInRowAccordingToWidgth[i]) {
         break;
       }
     }
@@ -166,7 +174,7 @@ class _OwGridState extends State<OwGrid> {
   //     alignment: Alignment.topLeft,
   //     padding: widget.padding,
   //     constraints: widget.constraints,
-  //     width: MediaQuery.of(context).size.width,
+  //     width: MediaQuery.sizeOf(context).width,
   //     child: _gridView(context),
   //   );
   // }
@@ -181,15 +189,15 @@ class _OwGridState extends State<OwGrid> {
 
   // List<Widget> _defineChildren(BuildContext context) {
   //   return widget.children ?? List.generate(
-  //     (widget.maxLength == null) || (widget.itemCount ?? 0) < (widget.maxLength ?? 0) 
-  //       ? (widget.itemCount ?? 0) 
-  //       : (widget.maxLength ?? 0), 
+  //     (widget.maxLength == null) || (widget.itemCount ?? 0) < (widget.maxLength ?? 0)
+  //       ? (widget.itemCount ?? 0)
+  //       : (widget.maxLength ?? 0),
   //     (index) => widget.itemBuilder!(context, index),
   //   ).toList();
   // }
 
   // List<Widget> _columnWidgets(BuildContext context, [bool addTopAndBottomWidget = false]) {
-  //   double totalWidth = MediaQuery.of(context).size.width; // LayoutBuilder
+  //   double totalWidth = MediaQuery.sizeOf(context).width; // LayoutBuilder
   //   int caseTemp = 0;
   //   if(widget.numbersInRowAccordingToWidgth != null) {
   //     int i = 0;
@@ -259,8 +267,8 @@ class _OwGridState extends State<OwGrid> {
 
   //       double? widthChild;
   //       if(
-  //         hasFlex || 
-  //         (!hasFlex && column + 1 < quantityInRow) || 
+  //         hasFlex ||
+  //         (!hasFlex && column + 1 < quantityInRow) ||
   //         (!widget.expandLastColumn && column + 1 == quantityInRow)
   //       ) {
   //         if(widget.widthColumns != null && widget.widthColumns!.length > column && widget.widthColumns?[column] != null) {

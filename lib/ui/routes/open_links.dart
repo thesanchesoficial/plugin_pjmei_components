@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 openModalPage(BuildContext context, Widget widget) async {
-  if (MediaQuery.of(context).size.width > webStartsWithWidth) {
+  if (MediaQuery.sizeOf(context).width > webStartsWithWidth) {
     return await showDialog(
       context: context,
       builder: (context) {
@@ -30,18 +30,23 @@ class OpenLinkPageParams {
   OpenLinkPageParams.basic({
     required this.child,
     this.dynamicResponsivity = true,
-  }) : route = null, extra = null, useGo = null, packageRoute = false;
+  })  : route = null,
+        extra = null,
+        useGo = null,
+        packageRoute = false;
 
   OpenLinkPageParams.packageRoute({
     required this.route,
     this.dynamicResponsivity = true,
     this.extra,
     this.useGo = false,
-  }) : child = null, packageRoute = true;
+  })  : child = null,
+        packageRoute = true;
 }
 
 openLinkPage(BuildContext context, OpenLinkPageParams params) async {
-  if (MediaQuery.of(context).size.width > webStartsWithWidth && params.dynamicResponsivity) {
+  if (MediaQuery.sizeOf(context).width > webStartsWithWidth &&
+      params.dynamicResponsivity) {
     return await showDialog(
       context: context,
       builder: (context) {
@@ -52,8 +57,8 @@ openLinkPage(BuildContext context, OpenLinkPageParams params) async {
           elevation: 0,
           content: Container(
             constraints: const BoxConstraints(minWidth: 470),
-            height: MediaQuery.of(context).size.height * 0.95,
-            width: MediaQuery.of(context).size.width * 0.5,
+            height: MediaQuery.sizeOf(context).height * 0.95,
+            width: MediaQuery.sizeOf(context).width * 0.5,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: params.child,
@@ -63,7 +68,7 @@ openLinkPage(BuildContext context, OpenLinkPageParams params) async {
       },
     );
   } else if (params.packageRoute) {
-    if(params.useGo!) {
+    if (params.useGo!) {
       return context.go(params.route!, extra: params.extra);
     } else {
       return context.push(params.route!, extra: params.extra);
@@ -89,7 +94,7 @@ class ModalWebPage extends StatelessWidget {
       elevation: 0,
       content: Container(
         constraints: const BoxConstraints(minWidth: 470),
-        width: MediaQuery.of(context).size.width * 0.5,
+        width: MediaQuery.sizeOf(context).width * 0.5,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Material(

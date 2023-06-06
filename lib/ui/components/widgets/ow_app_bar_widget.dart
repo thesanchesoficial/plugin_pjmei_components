@@ -88,7 +88,7 @@ class OwAppBar extends StatelessWidget implements PreferredSizeWidget {
           leading!,
         ],
       );
-    } else if (automaticallyImplyLeading && Navigator.canPop(context)) {
+    } else if (automaticallyImplyLeading && context.canPop()) {
       leadingWidthTemp = 63;
       leadingTemp = Row(
         mainAxisSize: MainAxisSize.min,
@@ -102,7 +102,7 @@ class OwAppBar extends StatelessWidget implements PreferredSizeWidget {
                 context.go("/");
               }
             },
-            icon: const Icon(Icons.close),
+            icon: const Icon(EvaIcons.arrowIosBackOutline),
           ),
         ],
       );

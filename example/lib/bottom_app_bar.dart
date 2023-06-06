@@ -17,11 +17,14 @@ class _BottomAppBarTestPageState extends State<BottomAppBarTestPage> {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.sizeOf(context).width,
         ),
       ),
       bottomNavigationBar: OwBottomAppBar(
-        child: Text("dfsdf", style: Theme.of(context).textTheme.displayLarge,),
+        child: Text(
+          "dfsdf",
+          style: Theme.of(context).textTheme.displayLarge,
+        ),
       ),
     );
   }

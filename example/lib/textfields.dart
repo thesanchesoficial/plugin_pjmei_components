@@ -9,7 +9,6 @@ class TextfieldsTestPage extends StatefulWidget {
 }
 
 class _TextfieldsTestPageState extends State<TextfieldsTestPage> {
-
   final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class _TextfieldsTestPageState extends State<TextfieldsTestPage> {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.sizeOf(context).width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -37,6 +36,40 @@ class _TextfieldsTestPageState extends State<TextfieldsTestPage> {
                 margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
                 labelText: "Label text",
                 hintText: "Hint text",
+                controller: _controller,
+              ),
+              OwTextField(
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                labelText: "Label text",
+                hintText: "Hint text",
+                prefixText: "R\$ ",
+                controller: _controller,
+              ),
+              OwTextField(
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                labelText: "Large",
+                hintText: "Hint text",
+                prefixText: "R\$ ",
+                large: true,
+                controller: _controller,
+              ),
+              OwTextField(
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                hintText: "Hint text",
+                prefixText: "R\$ ",
+                large: true,
+                hideBorder: true,
+                colorText: Theme.of(context).colorScheme.primary,
+                controller: _controller,
+              ),
+              OwTextField(
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                hintText: "Hint text",
+                prefixText: "R\$ ",
+                hideBorder: true,
+                color: Theme.of(context).colorScheme.error,
+                colorText: Theme.of(context).colorScheme.primary,
+                radius: 25,
                 controller: _controller,
               ),
               OwTextField(
@@ -65,11 +98,7 @@ class _TextfieldsTestPageState extends State<TextfieldsTestPage> {
                 hintText: "fdxgdf",
                 errorText: "error",
                 controller: _controller,
-                suggestionsList: const [
-                  "Test",
-                  "dsffgsdfg",
-                  "fgfgdfg"
-                ],
+                suggestionsList: const ["Test", "dsffgsdfg", "fgfgdfg"],
               ),
             ],
           ),

@@ -17,7 +17,7 @@ class _DropdownTestPageState extends State<DropdownTestPage> {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.sizeOf(context).width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
