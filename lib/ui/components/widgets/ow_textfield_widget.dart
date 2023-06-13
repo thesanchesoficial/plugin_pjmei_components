@@ -190,8 +190,10 @@ class OwTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     changeTextFieldType(context);
     defineMinAndMaxLines();
-    return Scaffold(
-      body: Padding(
+    return Material(
+      color: Colors.transparent,
+      child: Padding(
+        key: key,
         padding: margin ?? const EdgeInsets.all(0),
         child: _textField(context),
       ),
@@ -201,7 +203,6 @@ class OwTextField extends StatelessWidget {
   Widget _textField(BuildContext context) {
     if(suggestionsList == null || (suggestionsList?.isEmpty ?? true)) {
       return TextField(
-        key: key,
         style: TextStyle(
           fontWeight: FontWeight.bold,
           color: colorText ?? Theme.of(context).colorScheme.outline,
