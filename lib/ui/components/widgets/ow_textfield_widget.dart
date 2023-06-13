@@ -179,7 +179,6 @@ class OwTextField extends StatelessWidget {
   List<TextInputFormatter>? _inputFormatters;
   TextCapitalization? _textCapitalization;
   Function? _goToNextFocusNode;
-  FocusNode? _nextFocusNode;
   TextInputAction _textInputAction = TextInputAction.next;
   FocusNode? _focusNode;
   ValueChanged<String>? _changeMask;
@@ -190,13 +189,10 @@ class OwTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     changeTextFieldType(context);
-    defineFocusNode(context);
     defineMinAndMaxLines();
-    return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(radius)),
-      child: Container(
-        key: key,
-        margin: margin,
+    return Scaffold(
+      body: Padding(
+        padding: margin ?? const EdgeInsets.all(0),
         child: _textField(context),
       ),
     );
@@ -204,7 +200,8 @@ class OwTextField extends StatelessWidget {
 
   Widget _textField(BuildContext context) {
     if(suggestionsList == null || (suggestionsList?.isEmpty ?? true)) {
-      return TextFormField(
+      return TextField(
+        key: key,
         style: TextStyle(
           fontWeight: FontWeight.bold,
           color: colorText ?? Theme.of(context).colorScheme.outline,
@@ -220,20 +217,20 @@ class OwTextField extends StatelessWidget {
         enableInteractiveSelection: enableInteractiveSelection,
         decoration: _defineTextFieldStyle(context),
         onTap: onTap,
-        onSaved: onSaved,
         onChanged: (value) {
           onChanged?.call(value);
           _changeMask?.call(value);
         },
         maxLength: maxLength,
         readOnly: readOnly,
-        validator: validator,
         controller: controller,
         textInputAction: textInputAction ?? _textInputAction,
-        onFieldSubmitted: (_) {
-          onFieldSubmitted?.call(_);
-          _goToNextFocusNode?.call();
-        },
+        // onSaved: onSaved,
+        // validator: validator,
+        // onFieldSubmitted: (_) {
+        //   onFieldSubmitted?.call(_);
+        //   _goToNextFocusNode?.call();
+        // },
         enableSuggestions: true,
         focusNode: _focusNode,
         obscureText: obscureText,
@@ -555,27 +552,6 @@ class OwTextField extends StatelessWidget {
           _maxLines = 12;
           // _suffixIcon = ...;
           break;
-      }
-    }
-  }
-
-  void defineFocusNode(BuildContext context) {
-    _focusNode = focusNode ?? FN.getFnByList(focusNodeList ?? [], focusNodeIndex ?? 0);
-    _nextFocusNode = nextFocusNode ?? FN.getNextFnByList(focusNodeList ?? [], focusNodeIndex ?? 0);
-
-    if(_nextFocusNode != null) {
-      _textInputAction = TextInputAction.next;
-      if(automaticFocusWithFocusNodeList ?? true) {
-        _goToNextFocusNode = () {
-          FN.nextFn(context, _nextFocusNode!);
-        };
-      }
-    } else {
-      _textInputAction = TextInputAction.done;
-      if((unfocusIfNoNextFocusNode ?? true) && (automaticFocusWithFocusNodeList ?? true)) {
-        _goToNextFocusNode = () {
-          FN.unfocusFn(context);
-        };
       }
     }
   }
