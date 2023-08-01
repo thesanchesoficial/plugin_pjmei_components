@@ -3,9 +3,14 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+import 'package:plugin_pjmei_components_example/environments/testing.dart';
 import 'package:plugin_pjmei_components_example/routes.dart';
+import 'package:plugin_pjmei_components_example/white_label/pjmei.dart';
 
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  StateManagementInit();
   runApp(
     DynamicColorBuilder(
       builder: (lightColorScheme, darkColorScheme) {
@@ -23,7 +28,13 @@ void main() {
           routerDelegate: routes.routerDelegate,
           routeInformationParser: routes.routeInformationParser,
           routeInformationProvider: routes.routeInformationProvider,
-          builder: ComponentsInit(webWidth: 600, isWeb: true, hidePrint: false),
+          builder: ComponentsInit(
+            webWidth: 600,
+            isWeb: true,
+            hidePrint: false,
+            whiteLabelApp: pjmeiWhiteLabelSettingsApp,
+            environment: Testing(),
+          ),
           title: "PJMEI COMPONENTS",
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
@@ -89,9 +100,13 @@ class _MyAppState extends State<MyApp> {
         ],
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text('${WhiteLabelApp.current?.appName}'),
+            Text('${Environment.current?.appName}'),
+            Text('${Environment.current?.environmentType}'),
             ElevatedButton(
               child: const Text("Buttons"),
               onPressed: () => context.push("/buttons"),

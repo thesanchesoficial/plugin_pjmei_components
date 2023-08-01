@@ -1,6 +1,6 @@
 name: plugin_pjmei_components
 description: A new Flutter plugin project.
-version: 0.0.22
+version: 0.0.23
 homepage:
 
 environment:
@@ -12,40 +12,205 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  bot_toast: ^4.0.4	
-  brasil_fields: ^1.13.1	
-  carousel_slider: ^4.2.1	
+  animations: ^2.0.7
+  app_settings: ^4.2.0
+  bot_toast: ^4.0.4
+  brasil_fields: ^1.13.1
+  cached_network_image: ^3.2.3
+  carousel_slider: ^4.2.1
+  cloud_firestore: ^4.8.0
+  connectivity_plus: ^3.0.3
+  crop: ^0.5.4
+  cupertino_http: ^0.0.6
+  dartz: ^0.10.1
+  device_info_plus: ^9.0.2
   dio: ^5.2.0
+  dot_navigation_bar: ^1.0.1+4
+  dotted_border: ^2.0.0+3
   dynamic_color: ^1.6.5
-  encrypt: ^5.0.1	
-  eva_icons_flutter: ^3.1.0	
-  extended_masked_text: ^2.3.1	
+  emoji_picker_flutter: ^1.6.0
+  encrypt: ^5.0.1
+  equatable: ^2.0.5
+  eva_icons_flutter: ^3.1.0
+  extended_image: ^8.0.0
+  extended_masked_text: ^2.3.1
+  file_picker: ^5.2.6
+  file_saver: ^0.2.6
+  firebase_core: ^2.9.0
+  fl_chart: ^0.61.0
+  flex_color_picker: ^3.2.0
+  flutter_cache_manager: ^3.3.0
+  flutter_inappwebview: ^6.0.0-beta.24+1
+  flutter_map: ^3.1.0
+  flutter_mapbox_autocomplete: ^2.0.0
+  flutter_mobx: ^2.0.0
+  flutter_placeholder_textlines: ^1.2.0
+  flutter_rating_bar: ^4.0.1
+  flutter_search_bar: ^3.0.0-dev.1
+  flutter_secure_storage: ^8.0.0
+  flutter_staggered_grid_view: ^0.6.2
   flutter_tags: "^1.0.0-nullsafety.1"
-  flutter_cache_manager: ^3.3.0	
-  flutter_typeahead: ^4.0.0	
+  flutter_typeahead: ^4.0.0
+  flutter_widget_from_html: ^0.10.1
+  fwfh_webview: ^0.7.0+2
+  get_it: ^7.2.0
   go_router_flow: ^6.0.0+3
+  go_router: ^6.0.4
+  google_maps_flutter: ^2.0.1
+  http: ^0.13.5
+  image_cropper: ^4.0.1
+  image_editor: ^1.3.0
   image_gallery_saver: ^2.0.1
-  intl: ^0.18.0	
+  image_picker: ^0.8.7+5
+  image: ^4.0.15
+  internet_file: ^1.0.0+2
+  intl: ^0.18.0
   jwt_decoder: ^2.0.1
-  loop_page_view: ^1.2.2	
-  mask_text_input_formatter: ^2.4.0	
-  page_view_indicators: ^2.0.0	
-  path: ^1.8.3	
+  latlng: ^0.2.0
+  latlong2: ^0.8.1
+  lecle_volume_flutter: ^0.0.1+1
+  local_auth: ^2.1.6
+  loop_page_view: ^1.2.2
+  mapbox_search: ^3.2.0
+  mask_text_input_formatter: ^2.4.0
+  masked_text: ^1.1.2
+  mobx: ^2.0.1
+  modal_bottom_sheet: ^3.0.0-pre
+  onesignal_flutter: any
+  page_view_indicators: ^2.0.0
+  palette_generator: ^0.3.3+2
   path_provider: ^2.0.15
+  path: ^1.8.3
+  pdf: ^3.8.4
+  percent_indicator: ^4.2.2
   permission_handler: ^10.2.0
   plugin_platform_interface: ^2.1.4
   pointycastle: ^3.7.3
-  pretty_qr_code: ^2.0.3	
-  process: ^4.2.4	
-  smooth_page_indicator: ^1.1.0	
+  pretty_qr_code: ^2.0.3
+  process: ^4.2.4
+  screenshot: ^2.1.0
+  share_files_and_screenshot_widgets: ^1.0.6
+  share_plus: ^7.0.0
   shared_preferences: ^2.1.1
+  smooth_page_indicator: ^1.1.0
+  sqflite: ^2.0.0+3
+  story_view: ^0.14.0
+  tab_indicator_styler: ^2.0.0
+  table_calendar: ^3.0.9
+  universal_html: ^2.2.3
   url_launcher: ^6.1.11
-  flutter_staggered_grid_view: ^0.6.2
+  url_strategy: ^0.2.0
+  video_player: ^2.1.6
+  web_ffi: ^0.7.2
+  webview_flutter: ^4.2.1
+  widgets_to_image: ^0.0.2
+
+dependency_overrides:
+
+  flutter_google_maps:
+    git:
+      url: https://github.com/thesanchesoficial/flutter_google_maps
+      ref: master
+
+  flutter_staggered_grid_view:
+    git:
+      url: https://github.com/MehmetKaranlik/flutter_staggered_grid_view
+      ref: master
+
+  barcode_finder:
+    git:
+      url: https://github.com/uynguyen/barcode-finder
+      ref: main
+
+  chewie:
+    git:
+      url: https://github.com/Saidjamol/chewie
+      ref: master
+
+  wakelock:
+    git:
+      url: https://github.com/Alejandro-Gon/wakelock
+      ref: main
+      path: wakelock
+
+  pdfx:
+    git:
+      url: https://github.com/vishwajit76/packages.flutter
+      ref: main
+      path: packages/pdfx
+
+  mapbox_gl:
+    git:
+      url: https://github.com/flutter-mapbox-gl/maps
+      ref: master
+
+  dismissible_page:
+    git:
+      url: https://github.com/presence-app/Flutter_dismissible_page
+      ref: master
+
+  perfect_volume_control:
+    git:
+      url: https://github.com/vladyslavlaba/FlutterPerfectVolumeControl
+      ref: master
+
+  image_downloader:
+    git:
+      url: https://github.com/duyjack/image_downloader
+      ref: master
+
+  flutter_geocoder:
+    git:
+      url: https://github.com/dawid-niedzwiecki/flutter_geocoder
+      ref: master
+
+  downloads_path_provider:
+    git:
+      url: https://github.com/wiseminds/downloads_path_provider
+      ref: master
+
+  geolocator:
+    git:
+      url: https://github.com/evansherry/flutter-geolocator
+      ref: main
+      path: geolocator
+
+  geoflutterfire:
+    git:
+      url: https://github.com/EncryptingWolf/GeoFlutterFire
+      ref: master
+
+  image_cropper:
+    git:
+      url: https://github.com/amitvrm036/flutter_image_cropper
+      ref: master
+      path: image_cropper
+
+  flutter_placeholder_textlines:
+    git:
+      url: https://github.com/totorigolo/flutter_placeholder_textlines
+      ref: master
+
+  flutter_layout:
+    git:
+      url: https://github.com/thesanchesoficial/flutter_layout
+      ref: main
+      publish_to: none
+
+  flutter_datetime_picker:
+    git:
+      url: https://github.com/asionbo/flutter_datetime_picker_fork
+      ref: master
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  mockito: ^5.0.16
+  mobx_codegen: ^2.0.1+2
+  build_runner: ^2.1.2
+  recase: ^4.1.0
+  lints: ^2.0.1
 
 flutter:
   plugin:

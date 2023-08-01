@@ -1,5 +1,8 @@
+export './config/config.dart';
+export './domain/domain.dart';
 export './ui/ui.dart';
 export './utils/utils.dart';
+
 export 'package:go_router_flow/go_router_flow.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:dynamic_color/dynamic_color.dart';
