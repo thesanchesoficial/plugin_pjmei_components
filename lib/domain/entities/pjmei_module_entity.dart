@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:plugin_pjmei_components/config/framework/environment.dart';
-import 'package:plugin_pjmei_components/domain/entities/session_pjmei_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/shortcut_entity.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/ui/components/cards/highlight_message_card.dart';
-
-import 'discover_entity.dart';
+import 'package:plugin_pjmei_components/ui/components/modal_select_companie_widget.dart';
+import 'package:plugin_pjmei_components/ui/components/modal_select_user_account_widget.dart';
+import 'package:plugin_pjmei_components/ui/components/switch_hide_value_global.dart';
+import 'package:plugin_pjmei_components/ui/pages/dynamic_page/dynamic_page.dart';
+import 'package:plugin_pjmei_components/ui/pages/webview/webview_company_page.dart';
 
 class ModulePjmei {
   ModulePjmei({
@@ -259,6 +258,76 @@ class ModulePjmei {
     return shortcutsEntity;
   }
 
+  Widget? getResource({Color? color}) {
+    Widget? child;
+
+    if((image?.containsKey('type') ?? false) && (image?.containsKey('value') ?? false)) {
+      final String type = image!['type'].toString();
+      switch (type) {
+        case 'ASSET':
+          child = Image.asset(
+            image!['value'],
+            fit: BoxFit.cover,
+            color: color,
+          );
+          break;
+        case 'NETWORK':
+          child = Image.network(
+            image!['value'],
+            fit: BoxFit.cover,
+            color: color,
+          );
+          break;
+        case 'ICON':
+          child = Icon(
+            IconAdapter.getIcon(image!['value']),
+            size: 30,
+            color: color,
+          );
+          break;
+        }
+    }
+    return child;
+  }
+
+  Widget? getIcon({Color? color, double? size = 30}) {
+    Widget? child;
+
+    if((image?['type'] == 'ICON') && (image?.containsKey('value') ?? false)) {
+      child = Icon(
+        IconAdapter.getIcon(image!['value']),
+        size: size,
+        color: color,
+      );
+    }
+    return child;
+  }
+
+  Widget? getImage({Color? color, double? size = 30}) {
+    Widget? child;
+
+    if((image?['type'] != 'ICON') && (image?.containsKey('value') ?? false)) {
+      final String type = image!['type'].toString();
+      switch (type) {
+        case 'ASSET':
+          child = Image.asset(
+            image!['value'],
+            fit: BoxFit.cover,
+            color: color,
+          );
+          break;
+        case 'NETWORK':
+          child = Image.network(
+            image!['value'],
+            fit: BoxFit.cover,
+            color: color,
+          );
+          break;
+      }
+    }
+    return child;
+  }
+
   DiscoverEntity toDiscover(context) {
     Widget child;
     image ??= {};
@@ -356,5 +425,138 @@ class ModulePjmei {
     } else {
       return const SizedBox();
     }
+  }
+
+  Future onTap(BuildContext context, [Widget? child, Function()? onPressed]) async {
+    if (onPressed != null) {
+      // entrou porque passou a funcao de onPressed
+      onPressed();
+    } else {
+      if (image == null) {
+        image = {};
+      }
+      if (params['isDynamicPage'] == true || route.toString().startsWith('/dynamic-page')) {
+        if (params['openLink'] == true) {
+          context.push(
+            '/p/$id',
+            extra: this,
+          );
+        } else if (params['openModal'] == true) {
+          openModalPage(context, DynamicPage(this));
+        } else {
+          if (route != null) {
+            route = convertStringAlls(route!, additionals: {
+              '#moduleId': id,
+              '#moduleName': title,
+              '#moduleDescription': description,
+              ':companyId': '${companySM.company?.id}',
+              '#companyId': '${companySM.company?.id}',
+            });
+            context.push(route!, extra: this);
+          } else {
+            context.push(
+              '/p/$id',
+              extra: this,
+            );
+          }
+        }
+      } else if (params['openModalSelectUserAccountWidget'] == true) {
+        setModalSelectUserAccountWidget(context);
+      } else if (params['openModalSelectCompanieWidget'] == true) {
+        setModalSelectCompanieWidget(context);
+      } else if (params['switchHideValueGlobal'] == true) {
+        switchHideValueGlobal(context);
+      } else {
+        if (getSpotlightText(context) == 'Atualizar') {
+          // entrou porque o aplicativo precisa ser atualizado para acessar o modulo
+          context.push('/pending-update');
+        } else if (getSpotlightText(context) == 'Manutenção') {
+          // entrou porque o módulo está em manutenção
+          context.push('/maintenance');
+        } else {
+          if (toShortcuts(context).onTap == null) {
+            // entrou por nao possuir uma funcao especifica de clique
+            if (route != null) {
+              route = convertStringAlls(route!, additionals: {
+                '#moduleId': id,
+                '#moduleName': title,
+                '#moduleDescription': description,
+                ':companyId': '${companySM.company?.id}',
+              });
+              // entrou por ter uma rota no modulo
+              if (await canLaunchUrl(Uri.parse(route!))) {
+                // entrou por causa da rota ser uma url válida
+                if (params.containsKey('webview') &&
+                    params['webview'] == true) {
+                  // vai abrir o webview
+                  context.push(
+                    WebviewPage.route,
+                    extra: WebviewParams(
+                      url: route!,
+                      title: title,
+                    ),
+                  );
+                } else {
+                  // vai abrir o navegador
+                  launchUrl(Uri.parse(route.toString()));
+                }
+              } else {
+                // entrou por ser uma rota dentro do aplicativo
+                if ((minimalVersion ?? 1000000) <=
+                    Environment.current!.minimalVersion) {
+                  // entrou porque o modulo roda na versão do aplicativo
+                  if (child != null) {
+                    // entrou porque passou o parametro child
+                    if (params['openLink'] == true) {
+                      openLinkPage(
+                        context,
+                        OpenLinkPageParams.basic(child:
+                            LayoutBuilder(builder: (context, constraints) {
+                          return MediaQuery(
+                            data: MediaQueryData(
+                              padding: MediaQuery.viewPaddingOf(context),
+                              size: Size(
+                                constraints.maxWidth,
+                                constraints.maxHeight,
+                              ),
+                            ),
+                            child: child,
+                          );
+                        })),
+                      );
+                    } else if (params['openModal'] == true) {
+                      openModalPage(context, child);
+                    } else {
+                      Navigator.push(context, RightToLeft(page: child));
+                    }
+                  } else {
+                    // entrou porque não passou o parametro child
+                    if (params['loading'] == true) {
+                      context.push(route!, extra: this);
+                    } else {
+                      context.push(route!, extra: params);
+                    }
+                  }
+                } else {
+                  // não executa nada porque o aplicativo não pode rodar o módulo,
+                  // versão do módulo é incompatível com a versão do aplicativo.
+                }
+              }
+            }
+          } else {
+            // entrou porque tem uma função de clique específica.
+            toShortcuts(context).onTap!();
+          }
+        }
+      }
+    }
+  }
+
+  ColorSystem getColor(BuildContext context, {String defaultType = 'primary'}) {
+    return ColorSystem(
+      context: context,
+      defaultType: defaultType,
+      type: params['styleWidget'],
+    );
   }
 }

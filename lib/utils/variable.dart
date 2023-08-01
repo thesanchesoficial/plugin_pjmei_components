@@ -11,6 +11,7 @@ bool hidePrintApplication = true;
 bool isWebApplication = true;
 double webStartsWithWidth = 500;
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+Map<String, Widget Function(BuildContext)> routersApp = {};
 
 final appSM = GetIt.I.get<AppSMStore>();
 final cartSM = GetIt.I.get<CartSMStore>();

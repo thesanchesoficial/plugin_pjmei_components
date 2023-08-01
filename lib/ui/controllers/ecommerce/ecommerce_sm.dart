@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 part 'ecommerce_sm.g.dart';
 
 class EcommerceSMStore = EcommerceSMStoreBase with _$EcommerceSMStore;
 
 abstract class EcommerceSMStoreBase with Store {
+
+  @observable
+  EstablishmentEntity? establishment;
   
   @observable
   int selectedIndex = 0;
@@ -37,4 +41,9 @@ abstract class EcommerceSMStoreBase with Store {
 
   @action
   bool setShowMenu(bool value) => showMenu = value;
+
+  @action
+  void setEstablishment(EstablishmentEntity item) {
+    establishment = item;
+  }
 }

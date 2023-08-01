@@ -17,11 +17,23 @@ abstract class AppSMStoreBase with Store {
   bool dataSavingMode = false;
 
   @observable
+  bool hideAmount = false;
+
+  @observable
+  bool isWeb = false;
+
+  @observable
+  bool closeWebMenu = false;
+
+  @observable
   Environment? environment = Environment.current;
 
   @observable
   int selectedIndex = 0;
 
+  @action
+  bool setIsHideAmount(bool value) => hideAmount = value;
+  
   @action
   void setThemeMode(ThemeMode item) {
     themeMode = item;
@@ -35,6 +47,16 @@ abstract class AppSMStoreBase with Store {
   @action
   void setDataSavingMode(bool item) {
     dataSavingMode = item;
+  }
+
+  @action
+  void setIsWeb(bool item) {
+    isWeb = item;
+  }
+
+  @action
+  void setWebMenu(bool item) {
+    closeWebMenu = item;
   }
   
   @action

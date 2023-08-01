@@ -40,9 +40,7 @@ class VerticalPictureCard extends StatelessWidget {
             shape: MaterialStateProperty.all(
               const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    15,
-                  ),
+                  Radius.circular(15),
                 ),
               ),
             ),

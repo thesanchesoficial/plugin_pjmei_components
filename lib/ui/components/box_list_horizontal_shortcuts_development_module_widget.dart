@@ -38,6 +38,9 @@ class BoxListHorizontalShortcutsDevelopmentModuleWidget extends StatelessWidget 
                       title: module.title,
                       spotlight: module.getSpotlightWidget(context, color: color),
                       color: color,
+                      onPressed: () async {
+                        await module.onTap(context);
+                      },
                       child: module.toShortcuts(
                         context,
                         color: true,

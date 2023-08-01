@@ -28,11 +28,13 @@ TransitionBuilder ComponentsInit({
   bool hidePrint = false,
   bool isWeb = false,
   double webWidth = 500,
-  required Environment environment,
   required WhiteLabelApp whiteLabelApp,
+  required Environment environment,
+  required Map<String, Widget Function(BuildContext)> routers,
 }) {
   WhiteLabelApp.current = whiteLabelApp;
   Environment.current = environment;
+  routersApp = routers;
   
   hidePrintApplication = hidePrint;
   isWebApplication = isWeb;

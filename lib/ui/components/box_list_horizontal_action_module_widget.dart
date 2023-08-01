@@ -19,10 +19,10 @@ class CardActionListWidget extends StatelessWidget {
           module.image ??= {};
           return IconButton(
             onPressed: () async {
-              // module.onTap(context);
+              await module.onTap(context);
             },
             icon: Icon(
-              IconAdapter.getIcon(module.image!['value']),
+              IconAdapter.getIcon('${module.image?['value']}'),
             ),
           );
         } else {

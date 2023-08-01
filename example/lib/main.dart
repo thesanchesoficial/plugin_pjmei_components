@@ -34,6 +34,7 @@ void main() {
             hidePrint: false,
             whiteLabelApp: pjmeiWhiteLabelSettingsApp,
             environment: Testing(),
+            routers: {},
           ),
           title: "PJMEI COMPONENTS",
           localizationsDelegates: const [

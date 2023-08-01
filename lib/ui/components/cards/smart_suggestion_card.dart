@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/ui/components/widgets/ow_text.dart';
 
-class CardAlertWidget extends StatelessWidget {
+class SmartSuggestionCard extends StatelessWidget {
   final Function()? onPressed;
   final String? title;
   final String? description;
   final ColorSystem color;
 
-  const CardAlertWidget({super.key, this.onPressed, this.title, this.description, required this.color});
+  const SmartSuggestionCard({super.key, this.onPressed, this.title, this.description, required this.color});
 
   @override
   Widget build(BuildContext context) {

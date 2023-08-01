@@ -26,7 +26,7 @@ class BoxFloatingButtonWidget extends StatelessWidget {
                   icon: e.toShortcuts(context).image,
                   label: OwText('${e.toShortcuts(context).title}'),
                   onPressed: () async {
-                    // await e.onTap(context);
+                    await e.onTap(context);
                   },
                 ),
               ))
