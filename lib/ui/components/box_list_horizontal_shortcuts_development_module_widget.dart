@@ -31,7 +31,7 @@ class BoxListHorizontalShortcutsDevelopmentModuleWidget extends StatelessWidget 
                     ColorSystem color = ColorSystem(
                       context: context,
                       defaultType: 'primaryContainer',
-                      type: module.params['styleWidget'],
+                      type: module.params?['styleWidget'],
                     );
                     final ColorsByToken colors = ColorsAdapter.getByType(color);
                     return RoundCard(

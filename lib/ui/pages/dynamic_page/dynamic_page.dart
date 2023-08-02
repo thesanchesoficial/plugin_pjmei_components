@@ -126,7 +126,7 @@ class _DynamicPageState extends State<DynamicPage> with AutomaticKeepAliveClient
     try {
       modules = await makeRemoteGetListModules(
         params: {
-          'screen': "${widget.module.params["idDynamicPage"]}",
+          'screen': "${widget.module.params?["idDynamicPage"]}",
           'companyId': companySM.company?.id,
         },
       ).exec();
@@ -148,15 +148,15 @@ class _DynamicPageState extends State<DynamicPage> with AutomaticKeepAliveClient
                 _screens.add(
                   TabModuleWidget(
                     title: moduleTemp.title ?? '',
-                    icon: IconAdapter.getIcon(moduleTemp.image?['value']),
+                    icon: IconAdapter.getIcon('${moduleTemp.image?['value']}'),
                     page: routersApp[moduleTemp.route]!.call(context),
                   ),
                 );
-              } else if (moduleTemp.params['isDynamicPage'] == true) {
+              } else if (moduleTemp.params?['isDynamicPage'] == true) {
                 _screens.add(
                   TabModuleWidget(
                     title: moduleTemp.title ?? '',
-                    icon: IconAdapter.getIcon(moduleTemp.image?['value']),
+                    icon: IconAdapter.getIcon('${moduleTemp.image?['value']}'),
                     page: PageDynamicPage(moduleTemp),
                   ),
                 );

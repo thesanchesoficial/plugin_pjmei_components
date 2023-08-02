@@ -28,7 +28,7 @@ class SubscriptionEntity {
       url: map['url'] ?? map['manageUrl'] ?? '',
       status: map['status'] ?? '',
       active: map['active'] ?? false,
-      card: map['card'] == null ? null : CardEntity.fromMap(map['card']),
+      card: map['card'] == null ? null : CreditCardEntity.fromMap(map['card']),
       subscriber:  map['subscriber'] == null ? null : SubscriberEntity.fromMap(map['subscriber']),
       cardBrand: map['cardBrand'] ?? '',
       cardFirstDigits: map['cardFirstDigits'] ?? '',
@@ -38,7 +38,7 @@ class SubscriptionEntity {
       dateEnd: map['dateEnd'] ?? '',
       createdAt: map['created_at'] ?? '',
       updatedAt: map['updated_at'] ?? '',
-      plan: map['plan'] == null ? null : PlanEntity.fromMap(map['plan']),
+      plan: map['plan'] == null ? null : PlanSubscriptionEntity.fromMap(map['plan']),
     );
   }
 
@@ -47,7 +47,7 @@ class SubscriptionEntity {
   String? url;
   String? status;
   bool? active;
-  CardEntity? card;
+  CreditCardEntity? card;
   SubscriberEntity? subscriber;
   String? cardBrand;
   String? cardFirstDigits;
@@ -57,14 +57,14 @@ class SubscriptionEntity {
   String? dateEnd;
   String? createdAt;
   String? updatedAt;
-  PlanEntity? plan;
+  PlanSubscriptionEntity? plan;
   
   SubscriptionEntity copyWith({
     int? id,
     String? url,
     String? status,
     bool? active,
-    CardEntity? card,
+    CreditCardEntity? card,
     SubscriberEntity? subscriber,
     String? cardBrand,
     String? cardFirstDigits,
@@ -74,7 +74,7 @@ class SubscriptionEntity {
     String? dateEnd,
     String? createdAt,
     String? updatedAt,
-    PlanEntity? plan,
+    PlanSubscriptionEntity? plan,
   }) {
     return SubscriptionEntity(
       id: id ?? this.id,
@@ -159,9 +159,9 @@ class SubscriptionEntity {
   }
 }
 
-class PlanEntity {
+class PlanSubscriptionEntity {
 
-  PlanEntity({
+  PlanSubscriptionEntity({
     required this.id,
     this.gatewayPlanId,
     required this.name,
@@ -172,8 +172,8 @@ class PlanEntity {
     this.type,
   });
 
-  factory PlanEntity.fromMap(Map<String, dynamic> map) {
-    return PlanEntity(
+  factory PlanSubscriptionEntity.fromMap(Map<String, dynamic> map) {
+    return PlanSubscriptionEntity(
       id: map['id'] ?? '',
       gatewayPlanId: int.parse(((map['gatewayPlanId']) ?? 0).toString()),
       name: map['name'] ?? '',
@@ -185,7 +185,7 @@ class PlanEntity {
     );
   }
 
-  factory PlanEntity.fromJson(String source) => PlanEntity.fromMap(json.decode(source));
+  factory PlanSubscriptionEntity.fromJson(String source) => PlanSubscriptionEntity.fromMap(json.decode(source));
   String id;
   int? gatewayPlanId;
   String name;
@@ -195,7 +195,7 @@ class PlanEntity {
   String? description;
   String? type;
 
-  PlanEntity copyWith({
+  PlanSubscriptionEntity copyWith({
     String? id,
     int? gatewayPlanId,
     String? name,
@@ -205,7 +205,7 @@ class PlanEntity {
     String? description,
     String? type,
   }) {
-    return PlanEntity(
+    return PlanSubscriptionEntity(
       id: id ?? this.id,
       gatewayPlanId: gatewayPlanId ?? this.gatewayPlanId,
       name: name ?? this.name,
@@ -219,14 +219,14 @@ class PlanEntity {
 
   @override
   String toString() {
-    return 'PlanEntity(id: $id, gatewayPlanId: $gatewayPlanId, name: $name, amount: $amount, paymentMethods: $paymentMethods, trialDays: $trialDays, description: $description, type: $type)';
+    return 'PlanSubscriptionEntity(id: $id, gatewayPlanId: $gatewayPlanId, name: $name, amount: $amount, paymentMethods: $paymentMethods, trialDays: $trialDays, description: $description, type: $type)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
   
-    return other is PlanEntity &&
+    return other is PlanSubscriptionEntity &&
       other.id == id &&
       other.gatewayPlanId == gatewayPlanId &&
       other.name == name &&

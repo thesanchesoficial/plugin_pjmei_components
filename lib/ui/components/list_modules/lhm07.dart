@@ -44,7 +44,7 @@ class LHM07 extends StatelessWidget {
                               spotlight: module.getSpotlightWidget(context, color: c),
                               description: module.description,
                               title: module.title,
-                              labelTextButton: module.params['labelText'],
+                              labelTextButton: module.params?['labelText'],
                               onPressed: () async {
                                 await module.onTap(context);
                               },

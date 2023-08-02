@@ -34,7 +34,7 @@ class LGM04 extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Visibility(
-                        visible: (module.image != null && !module.image!.containsValue('ICON')),
+                        visible: (!(module.image?.containsValue('ICON') ?? false)),
                         child: ClipRRect(
                           borderRadius: const BorderRadius.all(Radius.circular(15)),
                           child: AspectRatio(

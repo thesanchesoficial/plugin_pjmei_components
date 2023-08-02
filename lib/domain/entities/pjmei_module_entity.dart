@@ -1,6 +1,8 @@
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:plugin_pjmei_components/ui/components/modal_select_companie_widget.dart';
 import 'package:plugin_pjmei_components/ui/components/modal_select_user_account_widget.dart';
@@ -9,19 +11,44 @@ import 'package:plugin_pjmei_components/ui/pages/dynamic_page/dynamic_page.dart'
 import 'package:plugin_pjmei_components/ui/pages/webview/webview_company_page.dart';
 
 class ModulePjmei {
+  String? id;
+  String? title;
+  String appName;
+  String? description;
+  String displayType;
+  int index;
+  Map<String, String>? image;
+  String? route;
+  String? spotlight;
+  int minimalVersion;
+  int? maximalVersion;
+  String typeScreen;
+  List<SessionPjmei>? sessions;
+  Map? params;
+  List<String>? hideOnPlans;
+  List<String>? activeOnPlans;
+  List<String>? groups;
+
   ModulePjmei({
     this.id,
     this.title,
+    this.appName = 'pjmei',
     this.description,
-    this.displayType,
-    required this.index,
+    required this.displayType,
+    this.index = 0,
     this.image,
     this.route,
     this.spotlight,
-    this.sessions,
     this.minimalVersion = 0,
-    required this.params,
+    this.maximalVersion,
+    this.typeScreen = '',
+    this.sessions,
+    this.params,
+    this.hideOnPlans,
+    this.activeOnPlans,
+    this.groups,
   });
+
 
   factory ModulePjmei.fromMap(Map<String, dynamic> map) {
     // final int minimalVersion = map['minimalVersion'] ?? 0;
@@ -106,7 +133,7 @@ class ModulePjmei {
       description: convertString(map['description'], additionals: paramsDynamic),
       displayType: map['displayType'] ?? '',
       index: map['index'] ?? 900,
-      image: Map<String, dynamic>.from(map['image'] ?? {}),
+      image: map['image'] == null ? {} : Map<String, String>.from(map['image']),
       route: convertString(map['route'], additionals: paramsDynamic),
       spotlight: map['spotlight'] ?? '',
       sessions: map['sessions'] == null ? [] : List<SessionPjmei>.from(
@@ -114,22 +141,16 @@ class ModulePjmei {
       ),
       minimalVersion: map['minimalVersion'] ?? 0,
       params: paramsTemp,
+      appName: map['appName'],
+      maximalVersion: map['maximal_version'] == null ? map['maximalVersion']?.toInt() : map['maximal_version']?.toInt() ?? 999999999,
+      typeScreen: (map['typeScreen'] ??  map['type_screen'] ?? '').toString(),
+      hideOnPlans: map['hideOnPlans'] == null ? [] : List<String>.from(map['hideOnPlans']),
+      activeOnPlans: map['activeOnPlans'] == null ? [] : List<String>.from(map['activeOnPlans']),
+      groups: map['groups'] == null ? [] : List<String>.from(map['groups']),
     );
   }
 
   factory ModulePjmei.fromJson(String source) => ModulePjmei.fromMap(json.decode(source));
-  
-  String? id;
-  String? title;
-  String? description;
-  String? displayType;
-  int index;
-  Map<String, dynamic>? image;
-  String? route;
-  String? spotlight;
-  List<SessionPjmei>? sessions;
-  int? minimalVersion;
-  Map<String, dynamic> params;
 
   ModulePjmei copyWith({
     String? id,
@@ -137,12 +158,18 @@ class ModulePjmei {
     String? description,
     String? displayType,
     int? index,
-    Map<String, dynamic>? image,
+    Map<String, String>? image,
     String? route,
     String? spotlight,
     List<SessionPjmei>? sessions,
     int? minimalVersion,
     Map<String, dynamic>? params,
+    String? appName,
+    int? maximalVersion,
+    String? typeScreen,
+    List<String>? hideOnPlans,
+    List<String>? activeOnPlans,
+    List<String>? groups,
   }) {
     return ModulePjmei(
       id: id ?? this.id,
@@ -156,6 +183,12 @@ class ModulePjmei {
       sessions: sessions ?? this.sessions,
       minimalVersion: minimalVersion ?? this.minimalVersion,
       params: params ?? this.params,
+      appName: appName ?? this.appName,
+      typeScreen: typeScreen ?? this.typeScreen,
+      activeOnPlans: activeOnPlans ?? this.activeOnPlans,
+      groups: groups ?? this.groups,
+      hideOnPlans: hideOnPlans ?? this.hideOnPlans,
+      maximalVersion: maximalVersion ?? this.maximalVersion,
     );
   }
 
@@ -214,13 +247,12 @@ class ModulePjmei {
   }
 
   ShortcutsEntity toShortcuts(context, {bool color = false, Color? iconColor}) {
-    image ??= {};
     Widget child;
-    final String type = image!['type'].toString();
+    final String type = '${image?['type']}';
     switch (type) {
       case 'ASSET':
         child = Image.asset(
-          image!['value'],
+          '${image?['value']}',
           width: 30,
           height: 30,
           color: iconColor,
@@ -228,7 +260,7 @@ class ModulePjmei {
         break;
       case 'NETWORK':
         child = Image.network(
-          image!['value'],
+          '${image?['value']}',
           width: 30,
           height: 30,
           color: iconColor,
@@ -236,9 +268,9 @@ class ModulePjmei {
         break;
       case 'ICON':
         child = Icon(
-          IconAdapter.getIcon(image!['value']),
+          IconAdapter.getIcon('${image?['value']}',),
           size: 22,
-          color: iconColor ?? (color || params['iconColor'] == true
+          color: iconColor ?? (color || params?['iconColor'] == true
             ? Theme.of(context).colorScheme.primary
             : iconColor ?? Theme.of(context).textTheme.bodyLarge?.color),
         );
@@ -262,25 +294,25 @@ class ModulePjmei {
     Widget? child;
 
     if((image?.containsKey('type') ?? false) && (image?.containsKey('value') ?? false)) {
-      final String type = image!['type'].toString();
+      final String type = '${image?['type']}';
       switch (type) {
         case 'ASSET':
           child = Image.asset(
-            image!['value'],
+            '${image?['value']}',
             fit: BoxFit.cover,
             color: color,
           );
           break;
         case 'NETWORK':
           child = Image.network(
-            image!['value'],
+            '${image?['value']}',
             fit: BoxFit.cover,
             color: color,
           );
           break;
         case 'ICON':
           child = Icon(
-            IconAdapter.getIcon(image!['value']),
+            IconAdapter.getIcon('${image?['value']}',),
             size: 30,
             color: color,
           );
@@ -295,7 +327,7 @@ class ModulePjmei {
 
     if((image?['type'] == 'ICON') && (image?.containsKey('value') ?? false)) {
       child = Icon(
-        IconAdapter.getIcon(image!['value']),
+        IconAdapter.getIcon('${image?['value']}',),
         size: size,
         color: color,
       );
@@ -307,18 +339,18 @@ class ModulePjmei {
     Widget? child;
 
     if((image?['type'] != 'ICON') && (image?.containsKey('value') ?? false)) {
-      final String type = image!['type'].toString();
+      final String type = '${image?['type']}';
       switch (type) {
         case 'ASSET':
           child = Image.asset(
-            image!['value'],
+            '${image?['value']}',
             fit: BoxFit.cover,
             color: color,
           );
           break;
         case 'NETWORK':
           child = Image.network(
-            image!['value'],
+            '${image?['value']}',
             fit: BoxFit.cover,
             color: color,
           );
@@ -330,26 +362,23 @@ class ModulePjmei {
 
   DiscoverEntity toDiscover(context) {
     Widget child;
-    image ??= {};
-
-    final String type = image!['type'].toString();
-
+    final String type = '${image?['type']}';
     switch (type) {
       case 'ASSET':
         child = Image.asset(
-          image!['value'],
+          '${image?['value']}',
           fit: BoxFit.cover,
         );
         break;
       case 'NETWORK':
         child = Image.network(
-          image!['value'],
+          '${image?['value']}',
           fit: BoxFit.cover,
         );
         break;
       case 'ICON':
         child = Icon(
-          IconAdapter.getIcon(image!['value']),
+          IconAdapter.getIcon('${image?['value']}',),
           size: 30,
           color: Theme.of(context).iconTheme.color,
         );
@@ -362,7 +391,7 @@ class ModulePjmei {
       image: child,
       title: title,
       description: description,
-      label: params['labelButton'] ?? 'Acessar',
+      label: params?['labelButton'] ?? 'Acessar',
       router: route,
       params: toMap(),
     );
@@ -371,7 +400,7 @@ class ModulePjmei {
 
 
   String? getSpotlightText(context) {
-    if ((minimalVersion ?? 1000000) <= Environment.current!.minimalVersion) {
+    if ((minimalVersion) <= Environment.current!.minimalVersion) {
       // entrou porque o aplicativo possui a versao minima para o modulo
       // funcionar
       if (toShortcuts(context).spotlight?.isNotEmpty ?? false) {
@@ -432,19 +461,16 @@ class ModulePjmei {
       // entrou porque passou a funcao de onPressed
       onPressed();
     } else {
-      if (image == null) {
-        image = {};
-      }
-      if (params['isDynamicPage'] == true || route.toString().startsWith('/dynamic-page')) {
-        if (params['openLink'] == true) {
+      if (params?['isDynamicPage'] == true || route.toString().startsWith('/dynamic-page')) {
+        if (params?['openLink'] == true) {
           context.push(
             '/p/$id',
             extra: this,
           );
-        } else if (params['openModal'] == true) {
+        } else if (params?['openModal'] == true) {
           openModalPage(context, DynamicPage(this));
         } else {
-          if (route != null) {
+          if(route != null) {
             route = convertStringAlls(route!, additionals: {
               '#moduleId': id,
               '#moduleName': title,
@@ -453,18 +479,13 @@ class ModulePjmei {
               '#companyId': '${companySM.company?.id}',
             });
             context.push(route!, extra: this);
-          } else {
-            context.push(
-              '/p/$id',
-              extra: this,
-            );
           }
         }
-      } else if (params['openModalSelectUserAccountWidget'] == true) {
+      } else if (params?['openModalSelectUserAccountWidget'] == true) {
         setModalSelectUserAccountWidget(context);
-      } else if (params['openModalSelectCompanieWidget'] == true) {
+      } else if (params?['openModalSelectCompanieWidget'] == true) {
         setModalSelectCompanieWidget(context);
-      } else if (params['switchHideValueGlobal'] == true) {
+      } else if (params?['switchHideValueGlobal'] == true) {
         switchHideValueGlobal(context);
       } else {
         if (getSpotlightText(context) == 'Atualizar') {
@@ -476,7 +497,7 @@ class ModulePjmei {
         } else {
           if (toShortcuts(context).onTap == null) {
             // entrou por nao possuir uma funcao especifica de clique
-            if (route != null) {
+            if(route != null) {
               route = convertStringAlls(route!, additionals: {
                 '#moduleId': id,
                 '#moduleName': title,
@@ -486,8 +507,8 @@ class ModulePjmei {
               // entrou por ter uma rota no modulo
               if (await canLaunchUrl(Uri.parse(route!))) {
                 // entrou por causa da rota ser uma url válida
-                if (params.containsKey('webview') &&
-                    params['webview'] == true) {
+                if ((params?.containsKey('webview') ?? false) &&
+                    params?['webview'] == true) {
                   // vai abrir o webview
                   context.push(
                     WebviewPage.route,
@@ -502,12 +523,12 @@ class ModulePjmei {
                 }
               } else {
                 // entrou por ser uma rota dentro do aplicativo
-                if ((minimalVersion ?? 1000000) <=
+                if ((minimalVersion) <=
                     Environment.current!.minimalVersion) {
                   // entrou porque o modulo roda na versão do aplicativo
                   if (child != null) {
                     // entrou porque passou o parametro child
-                    if (params['openLink'] == true) {
+                    if (params?['openLink'] == true) {
                       openLinkPage(
                         context,
                         OpenLinkPageParams.basic(child:
@@ -524,14 +545,14 @@ class ModulePjmei {
                           );
                         })),
                       );
-                    } else if (params['openModal'] == true) {
+                    } else if (params?['openModal'] == true) {
                       openModalPage(context, child);
                     } else {
                       Navigator.push(context, RightToLeft(page: child));
                     }
                   } else {
                     // entrou porque não passou o parametro child
-                    if (params['loading'] == true) {
+                    if (params?['loading'] == true) {
                       context.push(route!, extra: this);
                     } else {
                       context.push(route!, extra: params);
@@ -556,7 +577,7 @@ class ModulePjmei {
     return ColorSystem(
       context: context,
       defaultType: defaultType,
-      type: params['styleWidget'],
+      type: params?['styleWidget'],
     );
   }
 }

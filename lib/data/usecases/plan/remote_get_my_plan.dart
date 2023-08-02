@@ -26,7 +26,7 @@ class RemoteGetMyPlan implements GetMyPlan {
           dateEnd: '1990-01-01T10:10:10.999Z',
           dateStart: '1990-01-01T10:10:10.999Z',
           status: 'Sem',
-          plan: PlanEntity.fromMap((httpResponse['success']['plan'])),
+          plan: PlanSubscriptionEntity.fromMap((httpResponse['success']['plan'])),
         );
       }
     } on HttpError catch (_) {

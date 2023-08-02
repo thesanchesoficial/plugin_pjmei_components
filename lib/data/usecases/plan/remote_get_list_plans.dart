@@ -8,7 +8,7 @@ class RemoteGetListPlans implements GetListPlans {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<PlanListEntity>> exec() async {
+  Future<List<PlanEntity>> exec() async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
@@ -18,7 +18,7 @@ class RemoteGetListPlans implements GetListPlans {
         throw HttpError.notFound;
       }
       return ((httpResponse['success']['plans']) as List)
-          .map((e) => PlanListEntity.fromMap(e))
+          .map((e) => PlanEntity.fromMap(e))
           .toList();
     } on HttpError catch (_) {
       throw DomainError.unexpected;

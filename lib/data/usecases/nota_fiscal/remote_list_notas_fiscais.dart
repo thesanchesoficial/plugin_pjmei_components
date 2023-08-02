@@ -1,0 +1,26 @@
+import 'package:plugin_pjmei_components/data/http/http.dart';
+import 'package:plugin_pjmei_components/domain/usecases/nota_fiscal/list_notas_fiscais.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+
+class RemoteListNotasFiscais implements ListNotasFiscais {
+  final HttpClient httpClient;
+  final String url;
+
+  RemoteListNotasFiscais({
+    required this.httpClient,
+    required this.url
+  });
+
+  @override
+  Future<List<NotaFiscalEntity>> exec() async {
+    try {
+      final httpResponse = await httpClient.request(
+        url: url, 
+        method: 'get',
+      );
+      return (httpResponse["success"] as List).map((e) => NotaFiscalEntity.fromMap(e)).toList();
+    } on HttpError catch(_) {
+      throw DomainError.unexpected;
+    }
+  }
+}

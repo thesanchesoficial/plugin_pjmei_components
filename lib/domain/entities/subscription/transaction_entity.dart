@@ -35,7 +35,7 @@ class TransactionEntity {
       tid: map['tid'] ?? '',
       dateCreated: map['dateCreated'] ?? map['date_created'] ?? '',
       amount: map['amount']?.toInt() ?? 0,
-      card: CardEntity.fromMap(map['card']),
+      card: CreditCardEntity.fromMap(map['card']),
       lastDigits: map['lastDigits'] ?? map['last_digits'] ?? '',
       firstDigits: map['firstDigits'] ?? map['first_digits'] ?? '',
       cardBrand: map['cardBrand'] ?? map['card_brand'] ?? '',
@@ -61,7 +61,7 @@ class TransactionEntity {
   String? tid;
   String? dateCreated;
   int? amount;
-  CardEntity? card;
+  CreditCardEntity? card;
   String? lastDigits;
   String? firstDigits;
   String? cardBrand;
@@ -84,7 +84,7 @@ class TransactionEntity {
     String? tid,
     String? dateCreated,
     int? amount,
-    CardEntity? card,
+    CreditCardEntity? card,
     String? lastDigits,
     String? firstDigits,
     String? cardBrand,
@@ -211,17 +211,17 @@ class TransactionEntity {
   }
 }
 
-class CardEntity {
+class CreditCardEntity {
 
-  CardEntity({
+  CreditCardEntity({
     this.token,
     this.cardBrand,
     this.cardFirstDigits,
     this.cardLastDigits,
   });
 
-  factory CardEntity.fromMap(Map<String, dynamic> map) {
-    return CardEntity(
+  factory CreditCardEntity.fromMap(Map<String, dynamic> map) {
+    return CreditCardEntity(
       token: map['token'] ?? map['token'] ?? '',
       cardBrand: map['cardBrand'] ?? map['card_brand'] ?? '',
       cardFirstDigits: map['cardFirstDigits'] ??  map['card_first_digits'] ??'',
@@ -229,20 +229,20 @@ class CardEntity {
     );
   }
 
-  factory CardEntity.fromJson(String source) =>
-      CardEntity.fromMap(json.decode(source));
+  factory CreditCardEntity.fromJson(String source) =>
+      CreditCardEntity.fromMap(json.decode(source));
   String? token;
   String? cardBrand;
   String? cardFirstDigits;
   String? cardLastDigits;
 
-  CardEntity copyWith({
+  CreditCardEntity copyWith({
     String? token,
     String? cardBrand,
     String? cardFirstDigits,
     String? cardLastDigits,
   }) {
-    return CardEntity(
+    return CreditCardEntity(
       token: token ?? this.token,
       cardBrand: cardBrand ?? this.cardBrand,
       cardFirstDigits: cardFirstDigits ?? this.cardFirstDigits,
@@ -269,7 +269,7 @@ class CardEntity {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is CardEntity &&
+    return other is CreditCardEntity &&
         other.token == token &&
         other.cardBrand == cardBrand &&
         other.cardFirstDigits == cardFirstDigits &&

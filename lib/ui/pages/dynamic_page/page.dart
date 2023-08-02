@@ -40,9 +40,9 @@ class _PageDynamicPageState extends State<PageDynamicPage> with AutomaticKeepAli
           ),
         ],
         title: Visibility(
-          visible: Valid.text(widget.module.params['titleAppBarDynamicPage']),
+          visible: Valid.text(widget.module.params?['titleAppBarDynamicPage']),
           child: OwText(
-            "${widget.module.params["titleAppBarDynamicPage"]}".toUpperCase(),
+            "${widget.module.params?["titleAppBarDynamicPage"]}".toUpperCase(),
           ),
         ),
       ),
@@ -71,30 +71,30 @@ class _PageDynamicPageState extends State<PageDynamicPage> with AutomaticKeepAli
                       children: [
                         Visibility(
                           visible: Valid.text(
-                            widget.module.params['slugDynamicPage'],
+                            widget.module.params?['slugDynamicPage'],
                           ),
                           child: OwText(
-                            "${widget.module.params["slugDynamicPage"]}",
+                            "${widget.module.params?["slugDynamicPage"]}",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ),
                         Visibility(
                           visible: Valid.text(
-                            widget.module.params['titleDynamicPage'],
+                            widget.module.params?['titleDynamicPage'],
                           ),
                           child: OwText(
-                            "${widget.module.params["titleDynamicPage"]}",
+                            "${widget.module.params?["titleDynamicPage"]}",
                             style: Theme.of(context).textTheme.headlineLarge,
                           ),
                         ),
                         Visibility(
                           visible: Valid.text(
-                            widget.module.params['descriptionDynamicPage'],
+                            widget.module.params?['descriptionDynamicPage'],
                           ),
                           child: Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: OwText(
-                              "${widget.module.params["descriptionDynamicPage"]}",
+                              "${widget.module.params?["descriptionDynamicPage"]}",
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),
@@ -117,7 +117,7 @@ class _PageDynamicPageState extends State<PageDynamicPage> with AutomaticKeepAli
   void callApi() async {
     try {
       modules = await makeRemoteGetListModules(params: {
-        'screen': "${widget.module.params["idDynamicPage"]}",
+        'screen': "${widget.module.params?["idDynamicPage"]}",
         'companyId': companySM.company?.id,
       }).exec();
     } catch (e) {

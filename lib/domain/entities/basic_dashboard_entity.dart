@@ -16,7 +16,7 @@ class BasicDashboardEntity {
   factory BasicDashboardEntity.fromMap(Map<String, dynamic> map) {
     return BasicDashboardEntity(
       balance: map['balance'] != null ? ExtractEntity.fromMap(map['balance']) : null,
-      plan: map['plan'] != null ? PlanEntity.fromMap(map['plan']) : null,
+      plan: map['plan'] != null ? PlanSubscriptionEntity.fromMap(map['plan']) : null,
       order: int.parse((map['order'] ?? 0).toString()),
       financialAssistants: map['financialAssistants'] == null ? [] : List<FinancialAssistantEntity>.from(map['financialAssistants']?.map((x) => FinancialAssistantEntity.fromMap(x))),
     );
@@ -24,13 +24,13 @@ class BasicDashboardEntity {
 
   factory BasicDashboardEntity.fromJson(String source) => BasicDashboardEntity.fromMap(json.decode(source));
   ExtractEntity? balance;
-  PlanEntity? plan;
+  PlanSubscriptionEntity? plan;
   int? order;
   List<FinancialAssistantEntity>? financialAssistants;
   
   BasicDashboardEntity copyWith({
     ExtractEntity? balance,
-    PlanEntity? plan,
+    PlanSubscriptionEntity? plan,
     int? order,
     List<FinancialAssistantEntity>? financialAssistants,
   }) {

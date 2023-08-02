@@ -109,7 +109,7 @@ class LHM03 extends StatelessWidget {
                                       ),
                                       Visibility(
                                         visible: Valid.text(
-                                            module.params['labelButton']),
+                                            module.params?['labelButton']),
                                         child: Padding(
                                           padding:
                                               const EdgeInsets.only(top: 20),
@@ -120,14 +120,14 @@ class LHM03 extends StatelessWidget {
                                                 color: Colors.transparent,
                                                 child: CardAtalhos(
                                                   title:
-                                                      "${module.params["labelButton"]}",
+                                                      "${module.params?["labelButton"]}",
                                                   selecionado: true,
-                                                  selectedColor: module.params[
+                                                  selectedColor: module.params?[
                                                               'buttonSelected'] ==
                                                           true
                                                       ? colors.selectedButton
                                                       : colors.button,
-                                                  labelColor: module.params[
+                                                  labelColor: module.params?[
                                                               'buttonSelected'] ==
                                                           true
                                                       ? colors.onSelectedButton
