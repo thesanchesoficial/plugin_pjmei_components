@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/plans/list_transactions_by_subscriptions.dart';
 
 class RemoteListTransactionsBySubscriptions
     implements ListTransactionsBySubscriptions {

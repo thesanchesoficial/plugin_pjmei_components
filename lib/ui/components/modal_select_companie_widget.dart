@@ -3,20 +3,20 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class ModalSelectUserAccountWidget extends StatefulWidget {
-  const ModalSelectUserAccountWidget({
+class ModalSelectCompanyWidget extends StatefulWidget {
+  const ModalSelectCompanyWidget({
     Key? key,
     this.isStore = false,
   }) : super(key: key);
   final bool isStore;
 
   @override
-  State<ModalSelectUserAccountWidget> createState() =>
-      _ModalSelectUserAccountWidgetState();
+  State<ModalSelectCompanyWidget> createState() =>
+      _ModalSelectCompanyWidgetState();
 }
 
-class _ModalSelectUserAccountWidgetState
-    extends State<ModalSelectUserAccountWidget> {
+class _ModalSelectCompanyWidgetState
+    extends State<ModalSelectCompanyWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -236,7 +236,7 @@ Future setModalSelectCompanieWidget(context, {bool isStore = false}) async {
                   maxHeight: 580,
                 )
               : null,
-          child: ModalSelectUserAccountWidget(isStore: isStore),
+          child: ModalSelectCompanyWidget(isStore: isStore),
         ),
       );
     },

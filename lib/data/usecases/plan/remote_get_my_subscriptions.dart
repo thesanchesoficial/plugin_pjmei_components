@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/plans/get_my_subscriptions.dart';
 
 class RemoteGetMySubscriptions implements GetMySubscriptions {
   RemoteGetMySubscriptions({required this.httpClient, required this.url});

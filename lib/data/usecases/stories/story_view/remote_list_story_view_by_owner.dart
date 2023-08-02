@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/stories/story_view/list_story_view_by_owner.dart';
 
 class RemoteListStoryViewByOwner implements ListStoryViewByOwner {
   RemoteListStoryViewByOwner({required this.httpClient, required this.url});

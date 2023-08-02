@@ -1,13 +1,10 @@
-import 'package:plugin_pjmei_components/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/domain/usecases/documents/list_document_filters.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class RemoteGetDocumentFilters implements ListDocumentFilters {
+class RemoteListDocumentFilters implements ListDocumentFilters {
   final HttpClient httpClient;
   final String url;
 
-  RemoteGetDocumentFilters({
+  RemoteListDocumentFilters({
     required this.httpClient,
     required this.url
   });

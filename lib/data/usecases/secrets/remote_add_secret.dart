@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/secrets/add_secret.dart';
 
 class RemoteAddSecret implements AddSecret {
   RemoteAddSecret({required this.httpClient, required this.url});

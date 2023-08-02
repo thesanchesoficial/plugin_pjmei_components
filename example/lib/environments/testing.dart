@@ -18,6 +18,6 @@ class Testing extends Environment {
   final int minimalVersion = 12;
 
   @override
-  EnvironmentType environmentType = EnvironmentType.TESTING;
+  EnvironmentType environmentType = EnvironmentType.testing;
 
 }

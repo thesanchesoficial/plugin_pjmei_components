@@ -1,7 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/entities/plan_list_entity.dart';
-import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
-import 'package:plugin_pjmei_components/domain/usecases/plans/get_list_plans.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteGetListPlans implements GetListPlans {
   RemoteGetListPlans({required this.httpClient, required this.url});

@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/sales/list_sales_orders.dart';
 
 class RemoteListSalesOrders implements ListSalesOrders {
   RemoteListSalesOrders({required this.httpClient, required this.url});

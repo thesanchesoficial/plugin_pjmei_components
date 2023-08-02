@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/stories/story_view/delete_story_view.dart';
 
 class RemoteDeleteStoryView implements DeleteStoryView {
   RemoteDeleteStoryView({required this.httpClient, required this.url});

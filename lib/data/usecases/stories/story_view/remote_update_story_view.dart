@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/stories/story_view/update_story_view.dart';
 
 class RemoteUpdateStoryView implements UpdateStoryView {
   RemoteUpdateStoryView({required this.httpClient, required this.url});

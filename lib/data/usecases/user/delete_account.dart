@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/user/delete_account.dart';
 
 class RemoteDeleteAccount implements DeleteAccount {
   RemoteDeleteAccount({required this.httpClient, required this.url});

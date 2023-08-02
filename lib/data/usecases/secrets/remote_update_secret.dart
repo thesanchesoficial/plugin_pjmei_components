@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/secrets/update_secret.dart';
 
 class RemoteUpdateSecret implements UpdateSecret {
   RemoteUpdateSecret({required this.httpClient, required this.url});

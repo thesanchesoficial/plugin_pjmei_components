@@ -1,5 +1,3 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/plans/add_voucher_plan.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteAddVoucherPlan implements AddVoucherPlan {

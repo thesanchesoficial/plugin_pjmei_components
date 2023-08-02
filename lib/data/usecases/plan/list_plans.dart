@@ -1,5 +1,3 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/plans/list_plans.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteListPlans implements ListPlans {

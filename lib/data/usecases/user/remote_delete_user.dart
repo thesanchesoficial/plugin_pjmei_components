@@ -1,5 +1,3 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/user/delete_user.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteDeleteUser implements DeleteUser {

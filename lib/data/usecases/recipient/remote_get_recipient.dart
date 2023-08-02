@@ -1,7 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/entities/recipient_entity.dart';
-import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
-import 'package:plugin_pjmei_components/domain/usecases/usecases.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteGetRecipient implements GetRecipient {
   RemoteGetRecipient({required this.httpClient, required this.url});

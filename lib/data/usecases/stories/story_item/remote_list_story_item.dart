@@ -1,5 +1,3 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/stories/story_item/list_story_item.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteListStoryItem implements ListStoryItem {

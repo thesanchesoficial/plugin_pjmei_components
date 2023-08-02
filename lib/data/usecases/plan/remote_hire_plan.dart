@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/plans/hire_plan.dart';
 
 class RemoteHirePlan implements HirePlan {
   RemoteHirePlan({required this.httpClient, required this.url});

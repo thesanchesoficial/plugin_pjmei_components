@@ -1,6 +1,6 @@
-bool isFirstLoading = true;
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-enum EnvironmentType { DEVELOPMENT, STAGING, PRODUCTION, TESTING }
+bool isFirstLoading = true;
 
 class Environment {
 
@@ -17,6 +17,6 @@ class Environment {
   late String apiKeyUrlQuery;
   late int minimalVersion;
 
-  EnvironmentType environmentType = EnvironmentType.DEVELOPMENT;
+  EnvironmentType environmentType = EnvironmentType.development;
 
 }
