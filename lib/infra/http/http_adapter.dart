@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
@@ -43,9 +44,9 @@ class HttpAdapter implements HttpClient {
     } catch(error) {
       throw HttpError.serverError;
     }
-    if(hidePrintApplication) {
-      print(response.statusCode);
-      print(response.body);
+    if(!hidePrintApplication) {
+      log('body: ${response.statusCode}');
+      log('body: ${response.body}');
     }
     OwBotToast.close();
     return _handleResponse(response, newReturnErrorMsg);

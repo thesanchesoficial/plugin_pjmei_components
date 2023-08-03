@@ -90,6 +90,7 @@ export './product/additional_product_information_entity.dart';
 export './product/product_entity.dart';
 export './product/product_option_items_entity.dart';
 export './product/product_options_entity.dart';
+export './product/scheduling_entity.dart';
 
 export './secrets/secret_entity.dart';
 
