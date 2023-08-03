@@ -1,10 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:plugin_pjmei_components/domain/entities/tab_module_widget.dart';
-import 'package:plugin_pjmei_components/main/factories/usecases/modules/list_modules.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/ui/components/card_loading_api.dart';
-import 'package:plugin_pjmei_components/ui/pages/dynamic_page/page.dart';
 
 class DynamicPage extends StatefulWidget {
   const DynamicPage(this.module, {Key? key}) : super(key: key);

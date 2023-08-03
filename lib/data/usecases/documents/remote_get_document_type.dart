@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/documents/get_documenttype.dart';
 
 class RemoteGetDocumentType implements GetDocumentType {
   RemoteGetDocumentType({required this.httpClient, required this.url});

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/usecases.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteGetDasPdf implements GetDasPdf {
@@ -19,7 +17,7 @@ class RemoteGetDasPdf implements GetDasPdf {
           (httpResponse['error'] as Map<String, dynamic>)
               .containsKey('message')) {
         throw httpResponse['error']['message'];
-      } else if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+      } else if ((httpResponse).containsKey('error')) {
         throw 'Erro interno do servidor.';
       }
       final DasDataEntity daspdf =

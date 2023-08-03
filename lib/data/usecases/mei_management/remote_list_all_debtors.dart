@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/mei_management/list_all_debtors.dart';
 
 class RemoteListAllDebtors implements ListAllDebtors {
   final HttpClient? httpClient;
@@ -20,7 +18,7 @@ class RemoteListAllDebtors implements ListAllDebtors {
           (httpResponse['error'] as Map<String, dynamic>)
               .containsKey('message')) {
         throw httpResponse['error']['message'];
-      } else if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+      } else if ((httpResponse).containsKey('error')) {
         throw 'Erro interno do servidor.';
       }
       return DasYearsDebtorsDateEntity.fromMap(httpResponse['success']);

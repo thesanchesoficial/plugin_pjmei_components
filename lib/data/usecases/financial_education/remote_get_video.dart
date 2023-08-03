@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
-import 'package:plugin_pjmei_components/domain/usecases/financial_education/get_video.dart';
 
 class RemoteGetVideoFinancialEducation implements GetVideoFinancialEducation {
   RemoteGetVideoFinancialEducation(

@@ -1,5 +1,3 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/online_store/find_online_store_by_company_id.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteFindOnlineStoreByCompanyId implements FindOnlineStoreByCompanyId {

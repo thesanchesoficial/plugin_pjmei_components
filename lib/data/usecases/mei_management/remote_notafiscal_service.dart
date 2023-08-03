@@ -1,7 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/data/http/http_error.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import '../../../domain/usecases/mei_management/get_notafiscal_service.dart';
 
 class RemoteGetNotaFiscalService implements GetNotaFiscalService {
   final HttpClient? httpClient;

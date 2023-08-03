@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
-import 'package:plugin_pjmei_components/domain/usecases/financial_education/add_video_financial_education.dart';
 
 class RemoteAddVideoFinancialEducation implements AddVideoFinancialEducation {
   final HttpClient httpClient;

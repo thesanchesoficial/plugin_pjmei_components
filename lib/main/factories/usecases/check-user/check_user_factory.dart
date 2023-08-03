@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:plugin_pjmei_components/data/usecases/check-user/remote_check_user.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
-import 'package:plugin_pjmei_components/domain/usecases/check-user/check_user.dart';
 
 import '../../factories.dart';
 

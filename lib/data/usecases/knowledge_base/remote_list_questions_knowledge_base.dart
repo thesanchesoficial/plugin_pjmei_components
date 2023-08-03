@@ -1,5 +1,3 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/knowledge_base/list_questions_knowledge_base.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteListQuestionsKnowledgeBase implements ListQuestionsKnowledgeBase {

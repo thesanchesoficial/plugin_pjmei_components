@@ -1,13 +1,20 @@
-
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 WhiteLabelApp pjmeiWhiteLabelSettingsApp = WhiteLabelApp(
   appName: 'PJMEI',
-  descriptionAboutApp: '',
   descriptionName: '',
-  idShop: 'ff4e94d6-912d-4acf-b335-0736ca5a2882',
-  idSupport: 'SUPPORT1-0000-0000-0000-00000000PJMEI',
+  descriptionAboutApp: '',
   appType: AppType.PJMEI,
+  sandbox: EnvironmentSettings(
+    establishmentId: 'ff4e94d6-912d-4acf-b335-0736ca5a2882',
+    companyId: 'd286430b-83cf-4057-8f11-4204411f8b48',
+    idSupport: 'SUPPORT1-SAND-0000-0000-00000000PJMEI',
+  ),
+  production: EnvironmentSettings(
+    establishmentId: '7408f412-ca74-47bb-ad02-5ef12de848bd',
+    companyId: 'f327226e-709b-4c6a-ab5e-5c4b25e551e1',
+    idSupport: 'SUPPORT1-0000-0000-0000-00000000PJMEI',
+  ),
   acceptCompany: true,
   acceptIndividual: true,
   companyAccountLimit: 20,
@@ -53,9 +60,7 @@ WhiteLabelApp pjmeiWhiteLabelSettingsApp = WhiteLabelApp(
         route: '/empresa/${companySM.company?.id}/perfil/edit',
       ),
     ],
-    chatBot: ChatBotOptionsWhiteLabel(
-      
-    ),
+    chatBot: ChatBotOptionsWhiteLabel(),
   ),
   logoMenuMobile: 'assets/images/logo-pjmei.png',
   logoMenuWeb: 'assets/images/logo-pjmei.png',

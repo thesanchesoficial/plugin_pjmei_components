@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/usecases.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteLogin implements Login {
@@ -11,9 +9,10 @@ class RemoteLogin implements Login {
   Future<UserEntity> exec(LoginParams params) async {
     try {
       final httpResponse = await httpClient.request(
-          url: url,
-          method: 'post',
-          body: RemoteLoginParams.fromDomain(params).toMap());
+        url: url,
+        method: 'post',
+        body: RemoteLoginParams.fromDomain(params).toMap(),
+      );
       UserEntity temp = UserEntity.fromMap(httpResponse['success']['usuario']);
       temp = temp.copyWith(
         senha: params.password,
@@ -23,8 +22,10 @@ class RemoteLogin implements Login {
     } on HttpError catch (error) {
       if (error == HttpError.notFound) {
         throw DomainError.invalidCredentials;
+      } else if (error == HttpError.badRequest) {
+        throw DomainError.invalidCredentials;
       }
-      throw DomainError.unexpected;
+      throw error;
     }
   }
 }

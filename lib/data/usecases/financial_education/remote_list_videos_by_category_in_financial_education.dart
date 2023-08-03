@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
-import 'package:plugin_pjmei_components/domain/usecases/financial_education/list_videos_by_category_in_financial_education.dart';
 
 class RemoteGetListVideosByCategoryFinancialEducation
     implements GetListVideosByCategoryFinancialEducation {

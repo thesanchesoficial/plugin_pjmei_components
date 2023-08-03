@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/page_bio/get_page_bio.dart';
 
 class RemoteGetPageBio implements GetPageBio {
   RemoteGetPageBio({required this.httpClient, required this.url});

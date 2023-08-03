@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/mei_management/list_das_years.dart';
 
 class RemoteListDasYears implements ListDasYears {
   final HttpClient? httpClient;
@@ -20,7 +18,7 @@ class RemoteListDasYears implements ListDasYears {
           (httpResponse['error'] as Map<String, dynamic>)
               .containsKey('message')) {
         throw httpResponse['error']['message'];
-      } else if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+      } else if ((httpResponse).containsKey('error')) {
         throw 'Erro interno do servidor.';
       }
       return ((httpResponse['success']['years']) as List)

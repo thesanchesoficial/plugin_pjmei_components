@@ -109,6 +109,22 @@ class _MyAppState extends State<MyApp> {
             Text('${Environment.current?.appName}'),
             Text('${Environment.current?.environmentType}'),
             ElevatedButton(
+              child: const Text("Login"),
+              onPressed: () async {
+                try {
+                  OwBotToast.loading();
+                  String? passwordCrypt = await encriptarTexto('Jd123456*');
+                  UserEntity user = await makeRemoteLogin().exec(LoginParams(
+                    email: 'danzi@pjmei.app', password: '$passwordCrypt',
+                  ));
+                  userSM.setUser(user);
+                  p(user);
+                } catch (e) {
+                  OwBotToast.toast(e.toString());
+                }
+              },
+            ),
+            ElevatedButton(
               child: const Text("Buttons"),
               onPressed: () => context.push("/buttons"),
             ),

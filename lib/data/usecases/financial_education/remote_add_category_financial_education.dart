@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
-import 'package:plugin_pjmei_components/domain/usecases/financial_education/add_category_financial_education.dart';
 
 class RemoteAddCategoryFinancialEducation implements AddCategoryFinancialEducation {
   final HttpClient httpClient;

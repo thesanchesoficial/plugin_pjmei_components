@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:plugin_pjmei_components/domain/entities/pjmei_module_entity.dart';
 import 'package:plugin_pjmei_components/ui/components/item_modal_widget.dart';
-
 
 enum AppType { VENVER, PJMEI, CIAMPE_SERRA, SICOOB, CIAMPE_CACHOEIRO }
 
@@ -15,8 +15,8 @@ class WhiteLabelApp {
     required this.logoMenuWeb,
     required this.logoMenuMobile,
     required this.logoSplash,
-    required this.idShop,
-    required this.idSupport,
+    this.production,
+    this.sandbox,
     required this.settings,
     this.lightColorScheme,
     this.darkColorScheme,
@@ -39,8 +39,8 @@ class WhiteLabelApp {
   final String logoMenuWeb;
   final String logoMenuMobile;
   final String logoSplash;
-  final String idShop;
-  final String idSupport;
+  final EnvironmentSettings? production;
+  final EnvironmentSettings? sandbox;
   final WhiteLabelSettings settings;
   final ColorScheme? lightColorScheme;
   final ColorScheme? darkColorScheme;
@@ -51,6 +51,17 @@ class WhiteLabelApp {
   final bool acceptCompany;
   final int individualAccountLimit;
   final int companyAccountLimit;
+}
+
+class EnvironmentSettings {
+  final String establishmentId;
+  final String companyId;
+  final String idSupport;
+  EnvironmentSettings({
+    required this.establishmentId,
+    required this.companyId,
+    required this.idSupport,
+  });
 }
 
 class WhiteLabelSettings {

@@ -2,13 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/ui/components/modal_select_companie_widget.dart';
-import 'package:plugin_pjmei_components/ui/components/modal_select_user_account_widget.dart';
-import 'package:plugin_pjmei_components/ui/components/switch_hide_value_global.dart';
-import 'package:plugin_pjmei_components/ui/pages/dynamic_page/dynamic_page.dart';
-import 'package:plugin_pjmei_components/ui/pages/webview/webview_company_page.dart';
 
 class ModulePjmei {
   String? id;

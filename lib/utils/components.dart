@@ -23,7 +23,6 @@ StateManagementInit() {
   }
 }
 
-// ignore: non_constant_identifier_names
 TransitionBuilder ComponentsInit({
   bool hidePrint = false,
   bool isWeb = false,

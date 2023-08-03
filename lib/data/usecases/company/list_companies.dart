@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:plugin_pjmei_components/domain/usecases/company/list_companies.dart';
 
 class RemoteListCompanies implements ListCompanies {
   RemoteListCompanies({required this.httpClient, required this.url});

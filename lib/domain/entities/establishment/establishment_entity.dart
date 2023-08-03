@@ -1,10 +1,4 @@
 import 'dart:convert';
-import 'package:plugin_pjmei_components/domain/entities/address/address_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/establishment/establishment_subcategory_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/establishment/product_category_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/establishment/shipping_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/establishment/timeline_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/product/product_entity.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class EstablishmentEntity {
