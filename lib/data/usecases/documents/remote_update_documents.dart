@@ -11,12 +11,12 @@ class RemoteUpdateDocuments implements UpdateDocuments {
   });
 
   @override
-  Future<bool> exec(DocumentEntity params) async {
+  Future<bool> exec(DocumentEntity params, {bool log = false}) async {
     try {
       var req = http.MultipartRequest('PUT', Uri.parse(url));
       req.headers['Content-Type'] = 'multipart/form-data';
       req.headers['x_api_key'] = '${Environment.current?.apiKey}';
-      req.headers['Authorization'] = 'Bearer ${userSM.user?.authorization}';
+      req.headers['Authorization'] = 'Bearer ${userSM.user?.accessToken}';
       req.fields['cnpj'] = params.cnpj ?? '';
       req.fields['due_date'] = params.dueDate?.toLocal().toString() ?? '';
       req.fields['value'] = params.value.toString();

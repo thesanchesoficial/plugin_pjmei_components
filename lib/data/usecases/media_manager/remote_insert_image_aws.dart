@@ -6,10 +6,11 @@ class RemoteInsertImageAws implements InsertImageAws {
   final String url;
 
   @override
-  Future<FileMediaAwsEntity> exec(Map params) async {
+  Future<FileMediaAwsEntity> exec(Map params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'post',
         body: params,
       );

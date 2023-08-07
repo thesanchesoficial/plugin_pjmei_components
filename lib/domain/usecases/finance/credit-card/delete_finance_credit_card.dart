@@ -1,3 +1,3 @@
 abstract class DeleteFinanceCreditCard {
-  Future<bool> exec();
+  Future<bool> exec({bool log = false});
 }

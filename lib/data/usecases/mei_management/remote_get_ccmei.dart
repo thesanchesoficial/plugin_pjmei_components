@@ -7,7 +7,7 @@ class RemoteGetCcmei implements GetCcmei {
 
   RemoteGetCcmei({@required this.httpClient, @required this.url});
 
-  Future<CcmeiEntity> exec() async {
+  Future<CcmeiEntity> exec({bool log = false}) async {
     try {
       final httpResponse =
           await httpClient!.request(url: url ?? '', method: 'get');

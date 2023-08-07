@@ -4,26 +4,23 @@ class RemoteListQuestionsKnowledgeBase implements ListQuestionsKnowledgeBase {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListQuestionsKnowledgeBase({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListQuestionsKnowledgeBase(
+      {required this.httpClient, required this.url});
 
   @override
-  Future<List<HelpQuestionFaqEntity>> exec() async {
+  Future<List<HelpQuestionFaqEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
-        method: 'get',
-        newReturnErrorMsg: true
-      );
+          url: url, log: log, method: 'get', newReturnErrorMsg: true);
 
       if ((httpResponse as Map<String, dynamic>).containsKey("error")) {
         throw httpResponse["error"]["message"];
       }
-      
-      return (httpResponse["success"]["knowledgeQuestions"]["items"] as List).map((e) => HelpQuestionFaqEntity.fromMap(e)).toList();
-    } on HttpError catch(_) {
+
+      return (httpResponse["success"]["knowledgeQuestions"]["items"] as List)
+          .map((e) => HelpQuestionFaqEntity.fromMap(e))
+          .toList();
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

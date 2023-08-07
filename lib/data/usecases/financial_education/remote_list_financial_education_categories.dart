@@ -8,10 +8,12 @@ class RemoteGetListCategoriesFinancialEducation
   final HttpClient httpClient;
   final String url;
 
-  Future<List<CategoryFinancialEducationEntity>> exec() async {
+  Future<List<CategoryFinancialEducationEntity>> exec(
+      {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {

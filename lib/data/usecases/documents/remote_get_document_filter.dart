@@ -5,10 +5,10 @@ class RemoteGetDocumentFilters implements GetDocumentFilters {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<DocumentFilterEntity>> exec() async {
+  Future<List<DocumentFilterEntity>> exec({bool log = false}) async {
     try {
       final httpResponse =
-          await httpClient.request(url: url, method: 'get', headers: {
+          await httpClient.request(url: url, log: log, method: 'get', headers: {
         'Content-Type': 'application/json',
         'x-api-key': Environment.current!.apiKey,
       });

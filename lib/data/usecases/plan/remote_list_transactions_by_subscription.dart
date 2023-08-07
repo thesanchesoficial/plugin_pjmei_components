@@ -7,10 +7,10 @@ class RemoteListTransactionsBySubscriptions
   final HttpClient httpClient;
   final String url;
 
-  Future<List<TransactionEntity>> exec() async {
+  Future<List<TransactionEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-          url: url, method: 'get', newReturnErrorMsg: true);
+          url: url, log: log, method: 'get', newReturnErrorMsg: true);
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
         throw HttpError.notFound;
       }

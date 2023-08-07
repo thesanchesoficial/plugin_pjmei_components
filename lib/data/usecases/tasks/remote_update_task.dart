@@ -5,10 +5,11 @@ class RemoteUpdateTask implements UpdateTask {
   final HttpClient httpClient;
   final String url;
 
-  Future<TaskEntity> exec(TaskEntity params) async {
+  Future<TaskEntity> exec(TaskEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'put',
         body: params.toMap(),
         newReturnErrorMsg: true,

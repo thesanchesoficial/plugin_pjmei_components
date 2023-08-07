@@ -5,10 +5,10 @@ class RemoteAddLink implements AddLink {
   final HttpClient httpClient;
   final String url;
 
-  Future<LinkEntity> exec(LinkEntity params) async {
+  Future<LinkEntity> exec(LinkEntity params, {bool log = false}) async {
     try {
       final httpResponse =
-          await httpClient.request(url: url, method: 'post', body: {
+          await httpClient.request(url: url, log: log, method: 'post', body: {
         'name': params.name,
         'url': params.url,
         'company_id': companySM.company?.id,

@@ -5,10 +5,11 @@ class RemoteUpdateStoryItem implements UpdateStoryItem {
   final HttpClient httpClient;
   final String url;
 
-  Future<StoryItemEntity> exec(Map params) async {
+  Future<StoryItemEntity> exec(Map params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'put',
         body: params,
         newReturnErrorMsg: true,

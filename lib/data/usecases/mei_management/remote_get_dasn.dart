@@ -7,7 +7,7 @@ class RemoteGetDasn implements GetDasn {
 
   RemoteGetDasn({@required this.httpClient, @required this.url});
 
-  Future<List<DasnEntity>> exec() async {
+  Future<List<DasnEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
         url: url ?? '',

@@ -12,6 +12,7 @@ class NotaFiscalEntity {
   String? companyRazaoSocial;
   String? companyCnpj;
   String? createdAt;
+  String? date;
 
   NotaFiscalEntity({
     this.id,
@@ -25,6 +26,7 @@ class NotaFiscalEntity {
     this.companyRazaoSocial,
     this.companyCnpj,
     this.createdAt,
+    this.date,
   });
   
   NotaFiscalEntity copyWith({
@@ -39,6 +41,7 @@ class NotaFiscalEntity {
     String? companyRazaoSocial,
     String? companyCnpj,
     String? createdAt,
+    String? date,
   }) {
     return NotaFiscalEntity(
       id: id ?? this.id,
@@ -52,6 +55,7 @@ class NotaFiscalEntity {
       companyRazaoSocial: companyRazaoSocial ?? this.companyRazaoSocial,
       companyCnpj: companyCnpj ?? this.companyCnpj,
       createdAt: createdAt ?? this.createdAt,
+      date: date ?? this.date,
     );
   }
 
@@ -68,6 +72,7 @@ class NotaFiscalEntity {
       'companyRazaoSocial': companyRazaoSocial,
       'companyCnpj': companyCnpj,
       'createdAt': createdAt,
+      'date': date,
     };
   }
 
@@ -84,6 +89,7 @@ class NotaFiscalEntity {
       companyRazaoSocial: map['company_razao_social'] ?? map['companyRazaoSocial'],
       companyCnpj: map['company_cnpj'] ?? map['companyCnpj'],
       createdAt: map['created_at'] ?? map['createdAt'],
+      date: map['date'] ?? map['date'],
     );
   }
 
@@ -93,7 +99,7 @@ class NotaFiscalEntity {
 
   @override
   String toString() {
-    return 'NotaFiscalEntity(id: $id, document: $document, serviceType: $serviceType, description: $description, value: $value, status: $status, link: $link, companyId: $companyId, companyRazaoSocial: $companyRazaoSocial, companyCnpj: $companyCnpj, createdAt: $createdAt)';
+    return 'NotaFiscalEntity(id: $id, document: $document, date: $date, serviceType: $serviceType, description: $description, value: $value, status: $status, link: $link, companyId: $companyId, companyRazaoSocial: $companyRazaoSocial, companyCnpj: $companyCnpj, createdAt: $createdAt)';
   }
 
   @override
@@ -111,6 +117,7 @@ class NotaFiscalEntity {
       other.companyId == companyId &&
       other.companyRazaoSocial == companyRazaoSocial &&
       other.companyCnpj == companyCnpj &&
+      other.date == date &&
       other.createdAt == createdAt;
   }
 
@@ -126,6 +133,7 @@ class NotaFiscalEntity {
       companyId.hashCode ^
       companyRazaoSocial.hashCode ^
       companyCnpj.hashCode ^
+      date.hashCode ^
       createdAt.hashCode;
   }
 }

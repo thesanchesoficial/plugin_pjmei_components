@@ -5,10 +5,10 @@ class RemoteGetDocumentType implements GetDocumentType {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<DocumentTypeEntity>> exec() async {
+  Future<List<DocumentTypeEntity>> exec({bool log = false}) async {
     try {
       final httpResponse =
-          await httpClient.request(url: url, method: 'get', headers: {
+          await httpClient.request(url: url, log: log, method: 'get', headers: {
         'Content-Type': 'application/json',
         'x-api-key': Environment.current!.apiKey,
       });

@@ -5,10 +5,11 @@ class RemoteListStoryView implements ListStoryView {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<StoryViewEntity>> exec() async {
+  Future<List<StoryViewEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
         newReturnErrorMsg: true,
       );

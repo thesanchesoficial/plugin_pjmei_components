@@ -5,10 +5,11 @@ class RemoteHirePlan implements HirePlan {
   final HttpClient httpClient;
   final String url;
 
-  Future<SubscriptionEntity> exec(Map params) async {
+  Future<SubscriptionEntity> exec(Map params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'post',
         body: params,
         newReturnErrorMsg: true,

@@ -6,7 +6,7 @@ class RemoteGetNotaFiscalService implements GetNotaFiscalService {
 
   RemoteGetNotaFiscalService({this.httpClient, this.url});
 
-  Future<List<NotaFiscalServiceEntity>> exec() async {
+  Future<List<NotaFiscalServiceEntity>> exec({bool log = false}) async {
     try {
       final httpResponse =
           await httpClient?.request(url: url ?? '', method: 'get', headers: {

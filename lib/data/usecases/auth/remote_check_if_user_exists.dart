@@ -6,10 +6,11 @@ class RemoteCheckIfUserExists implements CheckIfUserExists {
   final HttpClient httpClient;
   final String url;
 
-  Future<CheckIfUserExistsParams> exec() async {
+  Future<CheckIfUserExistsParams> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       return RemoteCheckIfUserExistsParams.fromMap(httpResponse['success'])

@@ -7,7 +7,7 @@ class RemoteListDasReceitaFederal implements ListDasReceitaFederal {
 
   RemoteListDasReceitaFederal({@required this.httpClient, @required this.url});
 
-  Future<List<DasDataEntity>> exec() async {
+  Future<List<DasDataEntity>> exec({bool log = false}) async {
     try {
       // print(url);
       final httpResponse = await httpClient?.request(

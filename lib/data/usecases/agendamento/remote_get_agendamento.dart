@@ -8,10 +8,11 @@ class RemoteGetAgendamento implements GetAgendamento {
   final HttpClient httpClient;
   final String url;
 
-  Future<BasicDashboardEntity> exec() async {
+  Future<BasicDashboardEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {

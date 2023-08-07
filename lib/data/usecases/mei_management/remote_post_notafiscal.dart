@@ -6,7 +6,7 @@ class RemotePostNotaFiscal implements PostNotaFiscal {
 
   RemotePostNotaFiscal({this.httpClient, this.url});
 
-  Future<NotaFiscalEntity> exec(NotaFiscalEntity params) async {
+  Future<NotaFiscalEntity> exec(NotaFiscalEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
           url: url ?? '',

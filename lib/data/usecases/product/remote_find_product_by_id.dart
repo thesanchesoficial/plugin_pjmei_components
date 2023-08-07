@@ -5,10 +5,11 @@ class RemoteFindProductById implements FindProductById {
   final HttpClient httpClient;
   final String url;
 
-  Future<ProductEntity> exec() async {
+  Future<ProductEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       return ProductEntity.fromMap(httpResponse['success']);

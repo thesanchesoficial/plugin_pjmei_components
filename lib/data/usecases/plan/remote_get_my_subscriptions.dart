@@ -5,10 +5,11 @@ class RemoteGetMySubscriptions implements GetMySubscriptions {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<SubscriptionEntity>> exec() async {
+  Future<List<SubscriptionEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
         newReturnErrorMsg: true,
       );

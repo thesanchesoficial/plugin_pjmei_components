@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class AddVideoFinancialEducation {
-  Future<VideoFinancialEducationEntity> exec(VideoFinancialEducationEntity params);
+  Future<VideoFinancialEducationEntity> exec(VideoFinancialEducationEntity params, {bool log = false});
 }

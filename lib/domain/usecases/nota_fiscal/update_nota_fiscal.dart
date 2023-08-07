@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class UpdateNotaFiscal {
-  Future<NotaFiscalEntity> exec(NotaFiscalEntity nota);
+  Future<NotaFiscalEntity> exec(NotaFiscalEntity nota, {bool log = false});
 }

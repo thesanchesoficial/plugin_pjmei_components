@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class UpdateNotification {
-  Future<NotificationEntity> exec(NotificationEntity module);
+  Future<NotificationEntity> exec(NotificationEntity module, {bool log = false});
 }

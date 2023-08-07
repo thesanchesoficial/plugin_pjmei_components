@@ -5,10 +5,11 @@ class RemoteInsertProduct implements InsertProduct {
   final HttpClient httpClient;
   final String url;
 
-  Future<ProductEntity> exec() async {
+  Future<ProductEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'post',
       );
       return ProductEntity.fromMap(httpResponse['success']);

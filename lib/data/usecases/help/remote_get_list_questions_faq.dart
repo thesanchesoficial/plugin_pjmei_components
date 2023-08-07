@@ -5,10 +5,11 @@ class RemoteGetListQuestionsFaq implements GetListQuestionsFaq {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<HelpQuestionFaqEntity>> exec() async {
+  Future<List<HelpQuestionFaqEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
         newReturnErrorMsg: true,
       );

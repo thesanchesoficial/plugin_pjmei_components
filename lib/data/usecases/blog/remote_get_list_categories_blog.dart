@@ -5,9 +5,10 @@ class RemoteGetListCategoriesBlog implements GetListCategoriesBlog {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<CategoryBlogEntity>> exec() async {
+  Future<List<CategoryBlogEntity>> exec({bool log = false}) async {
     try {
-      final httpResponse = await httpClient.request(url: url, method: 'get');
+      final httpResponse =
+          await httpClient.request(url: url, log: log, method: 'get');
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }

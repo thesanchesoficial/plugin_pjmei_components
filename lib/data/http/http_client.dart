@@ -5,5 +5,6 @@ abstract class HttpClient {
     Map? body,
     Map? headers,
     bool newReturnErrorMsg = false,
+    bool log = false,
   });
 }

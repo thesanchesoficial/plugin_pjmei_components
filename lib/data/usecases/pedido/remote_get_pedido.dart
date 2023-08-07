@@ -5,10 +5,11 @@ class RemoteGetPedido implements GetPedido {
   final HttpClient httpClient;
   final String url;
 
-  Future<OrderEntity> exec() async {
+  Future<OrderEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {

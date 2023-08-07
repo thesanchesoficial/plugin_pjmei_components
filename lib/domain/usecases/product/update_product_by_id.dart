@@ -1,3 +1,3 @@
 abstract class UpdateProductById {
-  Future<bool> exec();
+  Future<bool> exec({bool log = false});
 }

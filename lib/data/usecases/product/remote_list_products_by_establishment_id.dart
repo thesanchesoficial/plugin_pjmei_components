@@ -7,10 +7,11 @@ class RemoteListProductsByEstablishmentId
   final HttpClient httpClient;
   final String url;
 
-  Future<List<ProductEntity>> exec() async {
+  Future<List<ProductEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       final List<ProductEntity> _list = [];

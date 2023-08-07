@@ -6,17 +6,20 @@ class RemoteLogin implements Login {
   final HttpClient httpClient;
   final String url;
 
-  Future<UserEntity> exec(LoginParams params) async {
+  Future<UserEntity> exec(LoginParams params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'post',
         body: RemoteLoginParams.fromDomain(params).toMap(),
       );
-      UserEntity temp = UserEntity.fromMap(httpResponse['success']['usuario']);
+      
+      UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
       temp = temp.copyWith(
         senha: params.password,
-        authorization: httpResponse['success']['access_token'],
+        refreshToken: httpResponse['success']['refreshToken'],
+        accessToken: httpResponse['success']['accessToken'],
       );
       return temp;
     } on HttpError catch (error) {

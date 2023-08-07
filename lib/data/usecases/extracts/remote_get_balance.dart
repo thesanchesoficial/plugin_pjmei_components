@@ -8,10 +8,11 @@ class RemoteGetBalance implements GetBalance {
   final HttpClient httpClient;
   final String url;
 
-  Future<ExtractEntity> exec() async {
+  Future<ExtractEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {

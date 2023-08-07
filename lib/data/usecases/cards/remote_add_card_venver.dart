@@ -4,16 +4,14 @@ class RemoteAddCardVenver implements AddCardVenver {
   final HttpClient httpClient;
   final String url;
 
-  RemoteAddCardVenver({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteAddCardVenver({required this.httpClient, required this.url});
 
   @override
-  Future<CardEntity> exec(CardEntity params) async {
+  Future<CardEntity> exec(CardEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'post',
         body: {
           'title': params.title,
@@ -27,7 +25,7 @@ class RemoteAddCardVenver implements AddCardVenver {
         },
       );
       return CardEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

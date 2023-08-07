@@ -7,7 +7,7 @@ class RemoteGetLimiteMei implements GetLimiteMei {
 
   RemoteGetLimiteMei({@required this.httpClient, @required this.url});
 
-  Future<LimiteMeiEntity> exec() async {
+  Future<LimiteMeiEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
         url: url ?? '',

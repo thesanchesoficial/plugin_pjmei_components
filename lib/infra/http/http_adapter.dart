@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:http/http.dart';
+import 'package:plugin_pjmei_components/domain/usecases/auth/refresh_token.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/auth/new_refresh_token.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class HttpAdapter implements HttpClient {
@@ -13,14 +14,30 @@ class HttpAdapter implements HttpClient {
     required String method, 
     Map? body, 
     Map? headers,
-    bool newReturnErrorMsg = false
+    bool newReturnErrorMsg = false,
+    bool log = false,
   }) async {
     Map<String, String> defaultHeaders = {};
+
+    if (userSM.user?.accessToken != null) {
+      if (JwtDecoder.isExpired(userSM.user!.accessToken ?? "")) {
+        try {
+          RefreshTokenEntity tokenTemp = await _newToken();
+          userSM.user = userSM.user!.copyWith(
+            accessToken: tokenTemp.accessToken,
+            refreshToken: tokenTemp.refreshToken,
+          );
+        } catch (e) {
+          throw HttpError.serverError;
+        }
+      }
+    }
+
     if(!url.contains('pjmei.app/_functions/')) {
       defaultHeaders = headers?.cast<String, String>() ?? {}..addAll({
         'accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${userSM.user?.authorization}',
+        'Authorization': 'Bearer ${userSM.user?.accessToken}',
         'company': '${companySM.company?.id}',
         'x-api-key': Environment.current!.apiKey,
       });
@@ -44,9 +61,12 @@ class HttpAdapter implements HttpClient {
     } catch(error) {
       throw HttpError.serverError;
     }
-    if(!hidePrintApplication) {
-      log('body: ${response.statusCode}');
-      log('body: ${response.body}');
+    if(log) {
+      p('body: ${response.statusCode}');
+      p('body: ${response.body}');
+    } else if(!hidePrintApplication) {
+      p('body: ${response.statusCode}');
+      p('body: ${response.body}');
     }
     OwBotToast.close();
     return _handleResponse(response, newReturnErrorMsg);
@@ -114,4 +134,14 @@ class HttpAdapter implements HttpClient {
       }
     }
   }
+
+  Future<RefreshTokenEntity> _newToken() async {
+    try {
+      RefreshTokenEntity token = await makeRefreshToken().exec();
+      return token;
+    } catch (e) {
+      throw e;
+    }
+  }
+
 }

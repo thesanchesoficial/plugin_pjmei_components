@@ -6,7 +6,7 @@ class RemotePostDasn implements PostDasn {
 
   RemotePostDasn({this.httpClient, this.url});
 
-  Future<Map<String, dynamic>> exec(DasnEntity params) async {
+  Future<Map<String, dynamic>> exec(DasnEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
         url: url ?? '',

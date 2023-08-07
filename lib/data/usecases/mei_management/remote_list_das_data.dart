@@ -7,7 +7,7 @@ class RemoteListDasData implements ListDasData {
 
   RemoteListDasData({@required this.httpClient, @required this.url});
 
-  Future<List<DasDataEntity>> exec() async {
+  Future<List<DasDataEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
         url: url ?? '',

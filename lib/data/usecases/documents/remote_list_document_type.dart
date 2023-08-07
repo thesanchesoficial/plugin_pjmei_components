@@ -4,16 +4,14 @@ class RemoteListDocumentType implements ListDocumentType {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListDocumentType({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListDocumentType({required this.httpClient, required this.url});
 
   @override
-  Future<List<DocumentTypeEntity>> exec() async {
+  Future<List<DocumentTypeEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
       );
 
@@ -25,7 +23,7 @@ class RemoteListDocumentType implements ListDocumentType {
       }
 
       return data;
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

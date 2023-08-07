@@ -4,20 +4,20 @@ class RemoteListUsers implements ListUsers {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListUsers({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListUsers({required this.httpClient, required this.url});
 
   @override
-  Future<List<UserEntity>> exec() async {
+  Future<List<UserEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
       );
-      return (httpResponse["success"] as List).map((e) => UserEntity.fromMap(e)).toList();
-    } on HttpError catch(_) {
+      return (httpResponse["success"] as List)
+          .map((e) => UserEntity.fromMap(e))
+          .toList();
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

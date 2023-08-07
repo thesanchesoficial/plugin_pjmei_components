@@ -5,10 +5,11 @@ class RemoteListLinks implements ListLinks {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<LinkEntity>> exec() async {
+  Future<List<LinkEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       final List<LinkEntity> _list = [];

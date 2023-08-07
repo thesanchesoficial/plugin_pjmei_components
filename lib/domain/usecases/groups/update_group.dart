@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class UpdateGroup {
-  Future<GroupEntity> exec(GroupEntity module);
+  Future<GroupEntity> exec(GroupEntity module, {bool log = false});
 }

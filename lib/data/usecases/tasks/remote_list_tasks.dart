@@ -5,10 +5,11 @@ class RemoteListTasks implements ListTasks {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<TaskEntity>> exec() async {
+  Future<List<TaskEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
         newReturnErrorMsg: true,
       );

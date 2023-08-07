@@ -5,10 +5,11 @@ class RemoteUpdateProductById implements UpdateProductById {
   final HttpClient httpClient;
   final String url;
 
-  Future<bool> exec() async {
+  Future<bool> exec({bool log = false}) async {
     try {
       await httpClient.request(
         url: url,
+        log: log,
         method: 'put',
       );
       return true;

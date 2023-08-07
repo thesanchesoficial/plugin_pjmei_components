@@ -7,7 +7,7 @@ class RemoteListAllDebtors implements ListAllDebtors {
 
   RemoteListAllDebtors({@required this.httpClient, @required this.url});
 
-  Future<DasYearsDebtorsDateEntity> exec(bool put) async {
+  Future<DasYearsDebtorsDateEntity> exec(bool put, {bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
         url: url ?? '',

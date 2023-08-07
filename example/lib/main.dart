@@ -33,7 +33,7 @@ void main() {
             isWeb: true,
             hidePrint: false,
             whiteLabelApp: pjmeiWhiteLabelSettingsApp,
-            environment: Testing(),
+            environment: Development(),
             routers: {},
           ),
           title: "PJMEI COMPONENTS",
@@ -114,12 +114,14 @@ class _MyAppState extends State<MyApp> {
                 try {
                   OwBotToast.loading();
                   String? passwordCrypt = await encriptarTexto('Jd123456*');
+                  print(passwordCrypt);
                   UserEntity user = await makeRemoteLogin().exec(LoginParams(
                     email: 'danzi@pjmei.app', password: '$passwordCrypt',
                   ));
                   userSM.setUser(user);
                   p(user);
                 } catch (e) {
+                  OwBotToast.close();
                   OwBotToast.toast(e.toString());
                 }
               },

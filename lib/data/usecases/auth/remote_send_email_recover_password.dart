@@ -5,10 +5,11 @@ class RemoteSendEmailRecoverPassword implements SendEmailRecoverPassword {
   final HttpClient httpClient;
   final String url;
 
-  Future<UserEntity> exec() async {
+  Future<UserEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'put',
       );
       return UserEntity.fromMap(httpResponse['success']);

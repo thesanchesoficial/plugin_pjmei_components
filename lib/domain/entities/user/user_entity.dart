@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:plugin_pjmei_components/domain/entities/address/address_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/establishment/establishment_entity.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class UserEntity {
   UserEntity({
@@ -18,7 +17,8 @@ class UserEntity {
     this.senha,
     this.owner,
     this.createdDate,
-    this.authorization,
+    this.accessToken,
+    this.refreshToken,
   });
 
   factory UserEntity.fromMap(Map<String, dynamic> map) {
@@ -32,7 +32,8 @@ class UserEntity {
       owner: map['owner'],
       createdDate: map['created_at'],
       cpf: map['cpf'],
-      authorization: map['authorization'],
+      accessToken: map['accessToken'],
+      refreshToken: map['refreshToken'],
       enderecos: map['endereco'] == null
           ? []
           : List<AddressEntity>.from(
@@ -57,7 +58,8 @@ class UserEntity {
   String? owner;
   String? createdDate;
   String? cpf;
-  String? authorization;
+  String? accessToken;
+  String? refreshToken;
   List<AddressEntity>? enderecos;
   List<EstablishmentEntity>? estabelecimentos;
   final String? email;
@@ -65,7 +67,7 @@ class UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, paymentId: $paymentId, nome: $nome, telefone: $telefone, proprietario: $proprietario, senha: $senha, owner: $owner, createdDate: $createdDate, cpf: $cpf, authorization: $authorization, enderecos: $enderecos, estabelecimentos: $estabelecimentos, email: $email, nascimento: $nascimento)';
+    return 'UserEntity(id: $id, paymentId: $paymentId, nome: $nome, telefone: $telefone, proprietario: $proprietario, senha: $senha, owner: $owner, createdDate: $createdDate, cpf: $cpf, accessToken: $accessToken, refreshToken: $refreshToken, enderecos: $enderecos, estabelecimentos: $estabelecimentos, email: $email, nascimento: $nascimento)';
   }
 
   Map<String, dynamic> toMap() {
@@ -79,7 +81,8 @@ class UserEntity {
       'owner': owner,
       'createdDate': createdDate,
       'cpf': cpf,
-      'authorization': authorization,
+      'accessToken': accessToken,
+      'refreshToken': refreshToken,
       'enderecos': enderecos?.map((x) => x.toMap()).toList(),
       'estabelecimentos': estabelecimentos?.map((x) => x.toMap()).toList(),
       'email': email,
@@ -99,7 +102,8 @@ class UserEntity {
     String? owner,
     String? createdDate,
     String? cpf,
-    String? authorization,
+    String? accessToken,
+    String? refreshToken,
     List<AddressEntity>? enderecos,
     List<EstablishmentEntity>? estabelecimentos,
     String? email,
@@ -115,7 +119,8 @@ class UserEntity {
       owner: owner ?? this.owner,
       createdDate: createdDate ?? this.createdDate,
       cpf: cpf ?? this.cpf,
-      authorization: authorization ?? this.authorization,
+      accessToken: accessToken ?? this.accessToken,
+      refreshToken: refreshToken ?? this.refreshToken,
       enderecos: enderecos ?? this.enderecos,
       estabelecimentos: estabelecimentos ?? this.estabelecimentos,
       email: email ?? this.email,
@@ -137,7 +142,8 @@ class UserEntity {
         other.owner == owner &&
         other.createdDate == createdDate &&
         other.cpf == cpf &&
-        other.authorization == authorization &&
+        other.accessToken == accessToken &&
+        other.refreshToken == refreshToken &&
         listEquals(other.enderecos, enderecos) &&
         listEquals(other.estabelecimentos, estabelecimentos) &&
         other.email == email &&
@@ -155,7 +161,8 @@ class UserEntity {
         owner.hashCode ^
         createdDate.hashCode ^
         cpf.hashCode ^
-        authorization.hashCode ^
+        accessToken.hashCode ^
+        refreshToken.hashCode ^
         enderecos.hashCode ^
         estabelecimentos.hashCode ^
         email.hashCode ^
@@ -163,18 +170,17 @@ class UserEntity {
   }
 
   bool maiorDeIdade() {
-    return true;
-    // final DateTime atual = DateTime.now();
-    // final DateTime nascidoAte =
-    //     DateTime(atual.year - 18, atual.month, atual.day + 1);
-    // DateTime? nascimentoUsuario;
-    // if (userSM.user.nascimento != null) {
-    //   nascimentoUsuario = DateTime.tryParse(userStore.user.nascimento ?? '');
-    // }
-    // if (nascimentoUsuario == null) {
-    //   return false;
-    // } else {
-    //   return nascimentoUsuario.isBefore(nascidoAte);
-    // }
+    final DateTime atual = DateTime.now();
+    final DateTime nascidoAte =
+        DateTime(atual.year - 18, atual.month, atual.day + 1);
+    DateTime? nascimentoUsuario;
+    if (userSM.user?.nascimento != null) {
+      nascimentoUsuario = DateTime.tryParse(userSM.user!.nascimento ?? '');
+    }
+    if (nascimentoUsuario == null) {
+      return false;
+    } else {
+      return nascimentoUsuario.isBefore(nascidoAte);
+    }
   }
 }

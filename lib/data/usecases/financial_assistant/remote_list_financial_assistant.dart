@@ -8,10 +8,10 @@ class RemoteListFinancialAssistant implements ListFinancialAssistant {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<FinancialAssistantEntity>> exec() async {
+  Future<List<FinancialAssistantEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-          url: url, method: 'get', newReturnErrorMsg: true);
+          url: url, log: log, method: 'get', newReturnErrorMsg: true);
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }

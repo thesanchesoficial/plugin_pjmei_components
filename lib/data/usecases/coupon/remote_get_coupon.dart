@@ -7,10 +7,11 @@ class RemoteGetCoupon implements GetCoupon {
   final HttpClient httpClient;
   final String url;
 
-  Future<CouponDiscount> exec() async {
+  Future<CouponDiscount> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
         newReturnErrorMsg: true,
       );

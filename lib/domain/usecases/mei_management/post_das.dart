@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class PostDas {
-  Future<DasEntity> exec();
+  Future<DasEntity> exec({bool log = false});
 }

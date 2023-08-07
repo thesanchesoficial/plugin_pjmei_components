@@ -5,16 +5,17 @@ class RemoteAddVideoFinancialEducation implements AddVideoFinancialEducation {
   final HttpClient httpClient;
   final String url;
 
-  RemoteAddVideoFinancialEducation({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteAddVideoFinancialEducation(
+      {required this.httpClient, required this.url});
 
   @override
-  Future<VideoFinancialEducationEntity> exec(VideoFinancialEducationEntity params) async {
+  Future<VideoFinancialEducationEntity> exec(
+      VideoFinancialEducationEntity params,
+      {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'post',
         body: {
           'url': params.url,
@@ -27,7 +28,7 @@ class RemoteAddVideoFinancialEducation implements AddVideoFinancialEducation {
         },
       );
       return VideoFinancialEducationEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

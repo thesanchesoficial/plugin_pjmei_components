@@ -6,17 +6,19 @@ class RemoteRegister implements Register {
   final HttpClient httpClient;
   final String url;
 
-  Future<UserEntity> exec(RegisterParams params) async {
+  Future<UserEntity> exec(RegisterParams params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-          url: url,
-          method: 'post',
-          body: RemoteRegisterParams.fromDomain(params).toMap());
-      UserEntity temp =
-          UserEntity.fromMap(httpResponse['success']['usuario']);
+        url: url,
+        log: log,
+        method: 'post',
+        body: RemoteRegisterParams.fromDomain(params).toMap(),
+      );
+      UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
       temp = temp.copyWith(
         senha: params.password,
-        authorization: httpResponse['success']['access_token'],
+        refreshToken: httpResponse['success']['refreshToken'],
+        accessToken: httpResponse['success']['accessToken'],
       );
       return temp;
     } on HttpError catch (error) {

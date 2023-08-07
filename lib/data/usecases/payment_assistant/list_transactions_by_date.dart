@@ -10,11 +10,11 @@ class RemoteListTransactionsFinaceOpenedEntity
   final HttpClient httpClient;
   final String url;
 
-  Future<List<TransactionFinaceOpenedEntity>> exec(
-      Map<dynamic, dynamic> params) async {
+  Future<List<TransactionFinaceOpenedEntity>> exec(Map<dynamic, dynamic> params,
+      {bool log = false}) async {
     try {
-      final httpResponse =
-          await httpClient.request(url: url, method: 'post', body: params);
+      final httpResponse = await httpClient.request(
+          url: url, log: log, method: 'post', body: params);
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
         throw HttpError.notFound;
       }

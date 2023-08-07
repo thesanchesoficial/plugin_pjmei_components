@@ -65,19 +65,19 @@ class EstablishmentEntity {
     }
 
     final List<TimelineEntity> listaCronogramasLocal = gerarCronograma(mapCronogramaUtc: map['cronograma'] ?? map['estabelecimento_categoria']);
-    final List<EstablishmentSubcategoryEntity> listaSubcategorias = [];
+    final List<FiltroCategoria> listaSubcategorias = [];
 
     try {
       if (map['estabelecimento_categoria'] is List) {
         map['estabelecimento_categoria'].forEach((element) {
-          EstablishmentSubcategoryEntity fs;
+          FiltroCategoria fs;
           if (element['sub_categoria'] != null) {
-            fs = EstablishmentSubcategoryEntity(
+            fs = FiltroCategoria(
               id: element['sub_categoria']['id'],
               nome: element['sub_categoria']['nome'],
             );
           } else {
-            fs = EstablishmentSubcategoryEntity(
+            fs = FiltroCategoria(
               id: element['id'],
               nome: element['nome'],
             );
@@ -91,7 +91,7 @@ class EstablishmentEntity {
       if (map['estabelecimento_categoria'] == null ||
           map['estabelecimento_categoria'].isEmpty) {
         map['subcategorias'].forEach((element) {
-          final EstablishmentSubcategoryEntity fs = EstablishmentSubcategoryEntity(
+          final FiltroCategoria fs = FiltroCategoria(
             id: element['sub_categoria']['id'].toString(),
             nome: element['sub_categoria']['nome'].toString(),
           );
@@ -99,7 +99,7 @@ class EstablishmentEntity {
         });
       } else {
         map['estabelecimento_categoria'].forEach((element) {
-          final EstablishmentSubcategoryEntity fs = EstablishmentSubcategoryEntity(
+          final FiltroCategoria fs = FiltroCategoria(
             id: element['sub_categoria']['id'].toString(),
             nome: element['sub_categoria']['nome'].toString(),
           );
@@ -204,7 +204,7 @@ class EstablishmentEntity {
   num? distancia;
   List<AddressEntity>? enderecos;
   // List<String> estabelecimentoCategoria;
-  List<EstablishmentSubcategoryEntity>? subcategorias;
+  List<FiltroCategoria>? subcategorias;
   List<TimelineEntity>? cronogramasUtc; // adicionado
   List<TimelineEntity>? cronogramasLocal; // adicionado
   String? createdAt; // adicionado
@@ -253,7 +253,7 @@ class EstablishmentEntity {
     String? usuarioId,
     num? distancia,
     List<AddressEntity>? enderecos,
-    List<EstablishmentSubcategoryEntity>? subcategorias,
+    List<FiltroCategoria>? subcategorias,
     String? createdAt,
     List<TimelineEntity>? cronogramasUtc,
     List<TimelineEntity>? cronogramasLocal,
@@ -303,7 +303,7 @@ class EstablishmentEntity {
         listaFrete.add(element.copyWith());
       });
     }
-    List<EstablishmentSubcategoryEntity> listaSubcategorias = [];
+    List<FiltroCategoria> listaSubcategorias = [];
     if (subcategorias == null) {
       listaSubcategorias = [];
       this.subcategorias?.forEach((element) {

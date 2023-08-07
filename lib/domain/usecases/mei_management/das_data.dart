@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class DasData {
-  Future<DasDataEntity> exec();
+  Future<DasDataEntity> exec({bool log = false});
 }

@@ -4,16 +4,14 @@ class RemoteListDocumentFilters implements ListDocumentFilters {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListDocumentFilters({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListDocumentFilters({required this.httpClient, required this.url});
 
   @override
-  Future<List<DocumentFilterEntity>> exec() async {
+  Future<List<DocumentFilterEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
       );
 
@@ -25,7 +23,7 @@ class RemoteListDocumentFilters implements ListDocumentFilters {
       }
 
       return data;
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

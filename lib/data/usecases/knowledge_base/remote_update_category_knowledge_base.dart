@@ -4,27 +4,27 @@ class RemoteUpdateCategoryKnowledgeBase implements UpdateCategoryKnowledgeBase {
   final HttpClient httpClient;
   final String url;
 
-  RemoteUpdateCategoryKnowledgeBase({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteUpdateCategoryKnowledgeBase(
+      {required this.httpClient, required this.url});
 
   @override
-  Future<HelpCategoriesFaqEntity> exec(HelpCategoriesFaqEntity category) async {
+  Future<HelpCategoriesFaqEntity> exec(HelpCategoriesFaqEntity category,
+      {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
-        method: 'put',
-        body: category.toMap(),
-        newReturnErrorMsg: true
-      );
+          url: url,
+          log: log,
+          method: 'put',
+          body: category.toMap(),
+          newReturnErrorMsg: true);
 
       if ((httpResponse as Map<String, dynamic>).containsKey("error")) {
         throw httpResponse["error"]["message"];
       }
-      
-      return HelpCategoriesFaqEntity.fromMap(httpResponse["success"]["knowledgeCategory"]);
-    } on HttpError catch(_) {
+
+      return HelpCategoriesFaqEntity.fromMap(
+          httpResponse["success"]["knowledgeCategory"]);
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

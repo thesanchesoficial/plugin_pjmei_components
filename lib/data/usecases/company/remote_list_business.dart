@@ -6,23 +6,22 @@ class RemoteListBusiness implements ListBusines {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListBusiness({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListBusiness({required this.httpClient, required this.url});
 
   @override
-  Future<ListCompanyResult> exec() async {
+  Future<ListCompanyResult> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
       );
       return ListCompanyResult(
-        count: int.tryParse(httpResponse["success"]?["count"] ?? "0") ?? 0,
-        company: (httpResponse["success"]["items"] as List).map((e) => CompanyEntity.fromMap(e)).toList()
-      );
-    } on HttpError catch(_) {
+          count: int.tryParse(httpResponse["success"]?["count"] ?? "0") ?? 0,
+          company: (httpResponse["success"]["items"] as List)
+              .map((e) => CompanyEntity.fromMap(e))
+              .toList());
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }
@@ -56,13 +55,15 @@ class ListCompanyResult {
   factory ListCompanyResult.fromMap(Map<String, dynamic> map) {
     return ListCompanyResult(
       count: map['count']?.toInt() ?? 0,
-      company: List<CompanyEntity>.from(map['company']?.map((x) => CompanyEntity.fromMap(x))),
+      company: List<CompanyEntity>.from(
+          map['company']?.map((x) => CompanyEntity.fromMap(x))),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory ListCompanyResult.fromJson(String source) => ListCompanyResult.fromMap(json.decode(source));
+  factory ListCompanyResult.fromJson(String source) =>
+      ListCompanyResult.fromMap(json.decode(source));
 
   @override
   String toString() => 'ListCompanyResult(count: $count, company: $company)';
@@ -70,10 +71,10 @@ class ListCompanyResult {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is ListCompanyResult &&
-      other.count == count &&
-      listEquals(other.company, company);
+        other.count == count &&
+        listEquals(other.company, company);
   }
 
   @override

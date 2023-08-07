@@ -1,7 +1,7 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class Register {
-  Future<UserEntity> exec(RegisterParams params);
+  Future<UserEntity> exec(RegisterParams params, {bool log = false});
 }
 
 class RegisterParams {

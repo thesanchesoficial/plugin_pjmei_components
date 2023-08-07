@@ -7,10 +7,11 @@ class RemoteListCategoriesOfExtraServices
   final HttpClient httpClient;
   final String url;
 
-  Future<List<ExtraService>> exec() async {
+  Future<List<ExtraService>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       final List<ExtraService> _list = [];

@@ -4,11 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
 
 abstract class ListFinanceDashboardBasic {
-  Future<FinanceDashboardBasicEntity> exec();
+  Future<FinanceDashboardBasicEntity> exec({bool log = false});
 }
 
 abstract class ListFinanceDashboardBanks {
-  Future<FinanceDashboardEntity> exec();
+  Future<FinanceDashboardEntity> exec({bool log = false});
 }
 
 abstract class ListFinanceDashboardByFilterBasic {

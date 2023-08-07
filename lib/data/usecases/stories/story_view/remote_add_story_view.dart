@@ -5,10 +5,11 @@ class RemoteAddStoryView implements AddStoryView {
   final HttpClient httpClient;
   final String url;
 
-  Future<StoryViewEntity> exec(Map params) async {
+  Future<StoryViewEntity> exec(Map params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'post',
         body: params,
         newReturnErrorMsg: true,

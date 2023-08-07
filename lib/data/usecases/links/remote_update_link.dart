@@ -5,11 +5,12 @@ class RemoteUpdateLink implements UpdateLink {
   final HttpClient httpClient;
   final String url;
 
-  Future<LinkEntity> exec(LinkEntity params) async {
+  Future<LinkEntity> exec(LinkEntity params, {bool log = false}) async {
     try {
       final Map body = params.toMap();
       body['company_id'] = companySM.company?.id;
-      final httpResponse = await httpClient.request(url: url, method: 'put', body: body);
+      final httpResponse = await httpClient.request(
+          url: url, log: log, method: 'put', body: body);
       return LinkEntity.fromMap(httpResponse['success']);
     } on HttpError catch (_) {
       throw DomainError.unexpected;

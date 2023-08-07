@@ -4,16 +4,14 @@ class RemoteListDocumentsByFilter implements ListDocuments {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListDocumentsByFilter({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListDocumentsByFilter({required this.httpClient, required this.url});
 
   @override
-  Future<List<DocumentEntity>> exec() async {
+  Future<List<DocumentEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
         // headers: {
         //   'x_api_key': BackofficeApp.current!.apiKey,
@@ -22,10 +20,11 @@ class RemoteListDocumentsByFilter implements ListDocuments {
       );
 
       List temp = httpResponse["success"];
-      List<DocumentEntity> data = temp.map((e) => DocumentEntity.fromMap(e)).toList();
+      List<DocumentEntity> data =
+          temp.map((e) => DocumentEntity.fromMap(e)).toList();
 
       return data;
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

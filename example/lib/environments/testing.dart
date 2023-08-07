@@ -1,11 +1,11 @@
 
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class Testing extends Environment {
+class Development extends Environment {
   @override
   String get apiKeyUrlQuery => '&api_key=thlIuTaIRQW3go7RGfPtf3O2FrMFkOmTIzbaWxhi';
   @override
-  String get appName => '${WhiteLabelApp.current?.appName} Testing';
+  String get appName => '${WhiteLabelApp.current?.appName} Development';
   @override
   String get url => 'https://dev.venver.app/';
   @override
@@ -18,6 +18,6 @@ class Testing extends Environment {
   int get minimalVersion => 12;
 
   @override
-  EnvironmentType get environmentType => EnvironmentType.testing;
+  EnvironmentType get environmentType => EnvironmentType.development;
 
 }

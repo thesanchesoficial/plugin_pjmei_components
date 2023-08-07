@@ -5,10 +5,11 @@ class RemoteAddContact implements AddContact {
   final HttpClient httpClient;
   final String url;
 
-  Future<ContactEntity> exec(ContactEntity params) async {
+  Future<ContactEntity> exec(ContactEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'post',
         body: params.toMap(),
         newReturnErrorMsg: true,

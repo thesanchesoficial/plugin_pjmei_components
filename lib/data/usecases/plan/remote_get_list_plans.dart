@@ -5,10 +5,11 @@ class RemoteGetListPlans implements GetListPlans {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<PlanEntity>> exec() async {
+  Future<List<PlanEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {

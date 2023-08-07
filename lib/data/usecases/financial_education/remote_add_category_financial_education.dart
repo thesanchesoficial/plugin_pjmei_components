@@ -1,20 +1,22 @@
 import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
 
-class RemoteAddCategoryFinancialEducation implements AddCategoryFinancialEducation {
+class RemoteAddCategoryFinancialEducation
+    implements AddCategoryFinancialEducation {
   final HttpClient httpClient;
   final String url;
 
-  RemoteAddCategoryFinancialEducation({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteAddCategoryFinancialEducation(
+      {required this.httpClient, required this.url});
 
   @override
-  Future<CategoryFinancialEducationEntity> exec(CategoryFinancialEducationEntity params) async {
+  Future<CategoryFinancialEducationEntity> exec(
+      CategoryFinancialEducationEntity params,
+      {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'post',
         body: {
           'cover': params.cover,
@@ -25,7 +27,7 @@ class RemoteAddCategoryFinancialEducation implements AddCategoryFinancialEducati
         },
       );
       return CategoryFinancialEducationEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

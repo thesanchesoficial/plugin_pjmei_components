@@ -13,12 +13,12 @@ class RemoteCreateDocuments implements CreateDocuments {
   });
 
   @override
-  Future<bool> exec(DocumentEntity params, List<int>? file) async {
+  Future<bool> exec(DocumentEntity params, List<int>? file, {bool log = false}) async {
     try {
       var req = http.MultipartRequest('POST', Uri.parse(url));
       req.headers['Content-Type'] = 'multipart/form-data';
       req.headers['x_api_key'] = '${Environment.current?.apiKey}';
-      req.headers['Authorization'] = 'Bearer ${userSM.user?.authorization}';
+      req.headers['Authorization'] = 'Bearer ${userSM.user?.accessToken}';
       req.files.add(http.MultipartFile.fromBytes(
         'file', file!,
         contentType: MediaType('application', 'pdf'),

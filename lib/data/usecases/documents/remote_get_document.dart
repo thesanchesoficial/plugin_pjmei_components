@@ -5,10 +5,11 @@ class RemoteGetDocument implements GetDocuments {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<DocumentEntity>> exec() async {
+  Future<List<DocumentEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {

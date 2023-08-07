@@ -4,16 +4,15 @@ class RemoteAddNotification implements AddNotifications {
   final HttpClient httpClient;
   final String url;
 
-  RemoteAddNotification({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteAddNotification({required this.httpClient, required this.url});
 
   @override
-  Future<NotificationEntity> exec(NotificationEntity params) async {
+  Future<NotificationEntity> exec(NotificationEntity params,
+      {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'post',
         body: {
           'title': params.title,
@@ -22,7 +21,7 @@ class RemoteAddNotification implements AddNotifications {
         },
       );
       return NotificationEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

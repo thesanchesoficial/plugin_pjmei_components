@@ -5,10 +5,11 @@ class RemoteDeleteAccount implements DeleteAccount {
   final HttpClient httpClient;
   final String url;
 
-  Future<bool> exec() async {
+  Future<bool> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'delete',
       );
       return httpResponse == null;

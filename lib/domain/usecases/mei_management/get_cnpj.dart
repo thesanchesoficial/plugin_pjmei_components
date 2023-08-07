@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class GetCnpj {
-  Future<CnpjEntity> exec();
+  Future<CnpjEntity> exec({bool log = false});
 }

@@ -5,10 +5,11 @@ class RemoteRemoveProductById implements RemoveProductById {
   final HttpClient httpClient;
   final String url;
 
-  Future<bool> exec() async {
+  Future<bool> exec({bool log = false}) async {
     try {
       await httpClient.request(
         url: url,
+        log: log,
         method: 'remove',
       );
       return true;

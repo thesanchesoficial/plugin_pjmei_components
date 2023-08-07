@@ -1,7 +1,7 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class ListSalesOrders {
-  Future<ReturnApiOrdersList> exec();
+  Future<ReturnApiOrdersList> exec({bool log = false});
 }
 
 class ReturnApiOrdersList {

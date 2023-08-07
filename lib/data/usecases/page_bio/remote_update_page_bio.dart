@@ -5,10 +5,10 @@ class RemoteUpdatePageBio implements UpdatePageBio {
   final HttpClient httpClient;
   final String url;
 
-  Future<PageBioEntity> exec(PageBioEntity params) async {
+  Future<PageBioEntity> exec(PageBioEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-          url: url, method: 'put', body: params.toMap());
+          url: url, log: log, method: 'put', body: params.toMap());
       return PageBioEntity.fromMap(httpResponse['success']);
     } on HttpError catch (_) {
       throw DomainError.unexpected;

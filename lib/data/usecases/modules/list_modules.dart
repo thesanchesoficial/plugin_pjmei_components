@@ -8,10 +8,11 @@ class RemoteListModules implements ListModules {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<ModulePjmei>> exec() async {
+  Future<List<ModulePjmei>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {

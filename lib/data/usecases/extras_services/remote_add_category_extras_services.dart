@@ -4,16 +4,16 @@ class RemoteAddCategoryExtrasServices implements AddCategoryExtrasServices {
   final HttpClient httpClient;
   final String url;
 
-  RemoteAddCategoryExtrasServices({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteAddCategoryExtrasServices(
+      {required this.httpClient, required this.url});
 
   @override
-  Future<CategoryExtraServiceEntity> exec(CategoryExtraServiceEntity params) async {
+  Future<CategoryExtraServiceEntity> exec(CategoryExtraServiceEntity params,
+      {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'post',
         body: {
           'name': params.name,
@@ -25,7 +25,7 @@ class RemoteAddCategoryExtrasServices implements AddCategoryExtrasServices {
         },
       );
       return CategoryExtraServiceEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

@@ -6,10 +6,11 @@ class RemoteFindOnlineStoreByCompanyId implements FindOnlineStoreByCompanyId {
   final HttpClient httpClient;
   final String url;
 
-  Future<EstablishmentEntity> exec() async {
+  Future<EstablishmentEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       return EstablishmentEntity.fromMap(httpResponse['success']);

@@ -5,10 +5,11 @@ class RemoteCheckUser implements CheckUser {
   final HttpClient httpClient;
   final String url;
 
-  Future<CheckUserEntity> exec() async {
+  Future<CheckUserEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       return CheckUserEntity.fromMap(httpResponse['success']['itens']);

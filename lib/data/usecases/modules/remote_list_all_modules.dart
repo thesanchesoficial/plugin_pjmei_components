@@ -4,20 +4,20 @@ class RemoteListAllModules implements ListAllModules {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListAllModules({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListAllModules({required this.httpClient, required this.url});
 
   @override
-  Future<List<ModulePjmei>> exec() async {
+  Future<List<ModulePjmei>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
       );
-      return (httpResponse["success"] as List).map((e) => ModulePjmei.fromMap(e)).toList();
-    } on HttpError catch(_) {
+      return (httpResponse["success"] as List)
+          .map((e) => ModulePjmei.fromMap(e))
+          .toList();
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

@@ -5,10 +5,11 @@ class RemoteListSecrets implements ListSecrets {
   final HttpClient httpClient;
   final String url;
 
-  Future<List<SecretEntity>> exec() async {
+  Future<List<SecretEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
       );
       final List<SecretEntity> _list = [];

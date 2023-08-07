@@ -1,3 +1,3 @@
 abstract class DeleteCompany {
-  Future<bool> exec();
+  Future<bool> exec({bool log = false});
 }

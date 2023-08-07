@@ -1,3 +1,3 @@
 abstract class RemoveProductById {
-  Future<bool> exec();
+  Future<bool> exec({bool log = false});
 }

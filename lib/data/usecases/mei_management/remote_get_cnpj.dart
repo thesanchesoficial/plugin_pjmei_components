@@ -7,7 +7,7 @@ class RemoteGetCnpj implements GetCnpj {
 
   RemoteGetCnpj({@required this.httpClient, @required this.url});
 
-  Future<CnpjEntity> exec() async {
+  Future<CnpjEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
         url: url ?? '',

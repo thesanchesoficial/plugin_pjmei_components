@@ -7,7 +7,7 @@ class RemoteGetDasPdf implements GetDasPdf {
 
   RemoteGetDasPdf({@required this.httpClient, @required this.url});
 
-  Future<DasDataEntity> exec() async {
+  Future<DasDataEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient?.request(
         url: url ?? '',

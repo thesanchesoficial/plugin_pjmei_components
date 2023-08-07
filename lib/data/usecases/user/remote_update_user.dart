@@ -4,21 +4,19 @@ class RemoteUpdateUser implements UpdateUser {
   final HttpClient httpClient;
   final String url;
 
-  RemoteUpdateUser({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteUpdateUser({required this.httpClient, required this.url});
 
   @override
-  Future<UserEntity> exec(UserEntity user) async {
+  Future<UserEntity> exec(UserEntity user, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'put',
         body: user.toMap().remove({"email": user.email}),
       );
       return UserEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

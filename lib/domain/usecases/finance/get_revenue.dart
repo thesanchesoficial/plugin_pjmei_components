@@ -1,3 +1,3 @@
 abstract class GetRevenue {
-  Future<num> exec();
+  Future<num> exec({bool log = false});
 }

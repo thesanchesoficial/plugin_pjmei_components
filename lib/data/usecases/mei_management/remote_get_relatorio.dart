@@ -6,7 +6,7 @@ class RemoteGetRelatorio implements GetRelatorioMeiEntity {
 
   RemoteGetRelatorio({this.httpClient, this.url});
 
-  Future<RelatorioMeiEntity> exec() async {
+  Future<RelatorioMeiEntity> exec({bool log = false}) async {
     // print(url);
     try {
       final httpResponse =

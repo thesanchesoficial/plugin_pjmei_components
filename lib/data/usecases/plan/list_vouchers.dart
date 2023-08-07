@@ -4,20 +4,20 @@ class RemoteListVouchersPlans implements ListVouchersPlans {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListVouchersPlans({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListVouchersPlans({required this.httpClient, required this.url});
 
   @override
-  Future<List<VoucherEntity>> exec() async {
+  Future<List<VoucherEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
       );
-      return (httpResponse["success"]["coupons"] as List).map((e) => VoucherEntity.fromMap(e)).toList();
-    } on HttpError catch(_) {
+      return (httpResponse["success"]["coupons"] as List)
+          .map((e) => VoucherEntity.fromMap(e))
+          .toList();
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

@@ -5,10 +5,11 @@ class RemoteGetMyPlan implements GetMyPlan {
   final HttpClient httpClient;
   final String url;
 
-  Future<SubscriptionEntity> exec() async {
+  Future<SubscriptionEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
+        log: log,
         method: 'get',
         newReturnErrorMsg: true,
       );
@@ -24,7 +25,8 @@ class RemoteGetMyPlan implements GetMyPlan {
           dateEnd: '1990-01-01T10:10:10.999Z',
           dateStart: '1990-01-01T10:10:10.999Z',
           status: 'Sem',
-          plan: PlanSubscriptionEntity.fromMap((httpResponse['success']['plan'])),
+          plan:
+              PlanSubscriptionEntity.fromMap((httpResponse['success']['plan'])),
         );
       }
     } on HttpError catch (_) {

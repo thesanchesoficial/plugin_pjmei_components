@@ -1,3 +1,3 @@
 abstract class FinanceCreditCardInvoiceDelete {
-  Future<String> exec();
+  Future<String> exec({bool log = false});
 }

@@ -4,16 +4,14 @@ class RemoteListDocuments implements ListDocuments {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListDocuments({
-    required this.httpClient,
-    required this.url
-  });
+  RemoteListDocuments({required this.httpClient, required this.url});
 
   @override
-  Future<List<DocumentEntity>> exec() async {
+  Future<List<DocumentEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-        url: url, 
+        url: url,
+        log: log,
         method: 'get',
         // headers: {
         //   'x_api_key': BackofficeApp.current!.apiKey,
@@ -25,16 +23,26 @@ class RemoteListDocuments implements ListDocuments {
       List<DocumentEntity> data = [];
 
       for (var element in temp) {
-        Map<String, dynamic> filtro = {'id': element['filtro'][0]['id_filter'], 'name': element['filtro'][0]['filter_name']};
-        Map<String, dynamic> tipo = {'id': element['tipo'][0]['id_type'], 'name': element['tipo'][0]['type_name']};
+        Map<String, dynamic> filtro = {
+          'id': element['filtro'][0]['id_filter'],
+          'name': element['filtro'][0]['filter_name']
+        };
+        Map<String, dynamic> tipo = {
+          'id': element['tipo'][0]['id_type'],
+          'name': element['tipo'][0]['type_name']
+        };
 
-        Map<String, dynamic> document = {...element, 'filtro': filtro, 'tipo': tipo};
+        Map<String, dynamic> document = {
+          ...element,
+          'filtro': filtro,
+          'tipo': tipo
+        };
 
         data.add(DocumentEntity.fromMap(document));
       }
 
       return data;
-    } on HttpError catch(_) {
+    } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
   }

@@ -6,7 +6,7 @@ class RemotePostDas implements PostDas {
 
   RemotePostDas({this.httpClient, this.url});
 
-  Future<DasEntity> exec() async {
+  Future<DasEntity> exec({bool log = false}) async {
     try {
       final httpResponse =
           await httpClient?.request(url: url ?? '', method: 'post', headers: {

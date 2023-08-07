@@ -5,10 +5,10 @@ class RemoteAddOnlineStore implements AddOnlineStore {
   final HttpClient httpClient;
   final String url;
 
-  Future<EstablishmentEntity> exec(Map params) async {
+  Future<EstablishmentEntity> exec(Map params, {bool log = false}) async {
     try {
-      final httpResponse =
-          await httpClient.request(url: url, method: 'post', body: params);
+      final httpResponse = await httpClient.request(
+          url: url, log: log, method: 'post', body: params);
       return EstablishmentEntity.fromMap(httpResponse['success']);
     } on HttpError catch (_) {
       throw DomainError.unexpected;
