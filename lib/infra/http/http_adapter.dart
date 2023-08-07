@@ -16,19 +16,22 @@ class HttpAdapter implements HttpClient {
     Map? headers,
     bool newReturnErrorMsg = false,
     bool log = false,
+    bool ignoreToken = false,
   }) async {
     Map<String, String> defaultHeaders = {};
 
-    if (userSM.user?.accessToken != null) {
-      if (JwtDecoder.isExpired(userSM.user!.accessToken ?? "")) {
-        try {
-          RefreshTokenEntity tokenTemp = await _newToken();
-          userSM.user = userSM.user!.copyWith(
-            accessToken: tokenTemp.accessToken,
-            refreshToken: tokenTemp.refreshToken,
-          );
-        } catch (e) {
-          throw HttpError.serverError;
+    if(!ignoreToken) {
+      if (userSM.user?.accessToken != null) {
+        if (JwtDecoder.isExpired(userSM.user!.accessToken ?? "")) {
+          try {
+            RefreshTokenEntity tokenTemp = await _newToken();
+            userSM.user = userSM.user!.copyWith(
+              accessToken: tokenTemp.accessToken,
+              refreshToken: tokenTemp.refreshToken,
+            );
+          } catch (e) {
+            throw HttpError.serverError;
+          }
         }
       }
     }

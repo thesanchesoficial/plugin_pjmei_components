@@ -18,6 +18,7 @@ class AuthorizeHttpClientDecorator implements HttpClient {
       Map? headers,
       bool newReturnErrorMsg = false,
       bool log = false,
+      bool ignoreToken = false,
       }) async {
     try {
       final token = await fetchSecureCacheStorage.fetch('token');

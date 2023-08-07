@@ -6,5 +6,6 @@ abstract class HttpClient {
     Map? headers,
     bool newReturnErrorMsg = false,
     bool log = false,
+    bool ignoreToken = false,
   });
 }

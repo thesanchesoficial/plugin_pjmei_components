@@ -12,6 +12,7 @@ class RemoteRefreshToken implements RefreshToken {
         url: url,
         log: log,
         method: 'post',
+        ignoreToken: true,
         body: {
           'refreshToken': '${userSM.user?.refreshToken}',
         },
