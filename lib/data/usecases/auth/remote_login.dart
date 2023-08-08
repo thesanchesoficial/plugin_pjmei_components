@@ -12,6 +12,7 @@ class RemoteLogin implements Login {
         url: url,
         log: log,
         method: 'post',
+        ignoreToken: true,
         body: RemoteLoginParams.fromDomain(params).toMap(),
       );
       

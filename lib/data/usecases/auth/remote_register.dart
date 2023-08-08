@@ -12,6 +12,7 @@ class RemoteRegister implements Register {
         url: url,
         log: log,
         method: 'post',
+        ignoreToken: true,
         body: RemoteRegisterParams.fromDomain(params).toMap(),
       );
       UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);

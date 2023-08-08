@@ -11,6 +11,7 @@ class RemoteSendEmailRecoverPassword implements SendEmailRecoverPassword {
         url: url,
         log: log,
         method: 'put',
+        ignoreToken: true,
       );
       return UserEntity.fromMap(httpResponse['success']);
     } on HttpError catch (_) {

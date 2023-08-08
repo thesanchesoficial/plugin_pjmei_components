@@ -111,6 +111,7 @@ export './card_entity.dart';
 export './category_extra_service_entity.dart';
 export './color_system_entity.dart';
 export './coupon_discount_entity.dart';
+export './das_item_entity.dart';
 export './discover_entity.dart';
 export './extra_service_entity.dart';
 export './extract_entity.dart';

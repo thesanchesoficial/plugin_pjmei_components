@@ -114,7 +114,6 @@ class _MyAppState extends State<MyApp> {
                 try {
                   OwBotToast.loading();
                   String? passwordCrypt = await encriptarTexto('Jd123456*');
-                  print(passwordCrypt);
                   UserEntity user = await makeRemoteLogin().exec(LoginParams(
                     email: 'danzi@pjmei.app', password: '$passwordCrypt',
                   ));

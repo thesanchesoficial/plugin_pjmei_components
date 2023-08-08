@@ -12,6 +12,7 @@ class RemoteCheckIfUserExists implements CheckIfUserExists {
         url: url,
         log: log,
         method: 'get',
+        ignoreToken: true,
       );
       return RemoteCheckIfUserExistsParams.fromMap(httpResponse['success'])
           .toEntity();

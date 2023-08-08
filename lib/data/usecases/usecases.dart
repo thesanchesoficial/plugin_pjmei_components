@@ -183,3 +183,5 @@ export './user/delete_account.dart';
 export './user/remote_delete_user.dart';
 export './user/remote_list_users.dart';
 export './user/remote_update_user.dart';
+
+export './remote_get_list_das_items.dart';
