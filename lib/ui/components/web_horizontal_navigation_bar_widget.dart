@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class WebHorizontalNavigationBar extends StatelessWidget {
@@ -34,13 +35,17 @@ class WebHorizontalNavigationBar extends StatelessWidget {
                     return const SizedBox(height: 10);
                   },
                   itemBuilder: (context, index) {
-                    return ButtonMenuWeb(
-                      label: screens[index].title,
-                      icon: screens[index].icon,
-                      selected: appSM.selectedIndex == index,
-                      onPressed: () {
-                        appSM.setSelectedIndex(index);
-                      },
+                    return Observer(
+                      builder: (context) {
+                        return ButtonMenuWeb(
+                          label: screens[index].title,
+                          icon: screens[index].icon,
+                          selected: appSM.selectedIndex == index,
+                          onPressed: () {
+                            appSM.setSelectedIndex(index);
+                          },
+                        );
+                      }
                     );
                   },
                 ),
