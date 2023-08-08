@@ -1,6 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/config/framework/environment.dart';
+import 'package:plugin_pjmei_components/config/white_label/environment.dart';
 part 'app_sm.g.dart';
 
 class AppSMStore = AppSMStoreBase with _$AppSMStore;
@@ -27,6 +28,9 @@ abstract class AppSMStoreBase with Store {
 
   @observable
   Environment? environment = Environment.current;
+
+  @observable
+  WhiteLabelApp? whiteLabel = WhiteLabelApp.current;
 
   @observable
   int selectedIndex = 0;
@@ -62,6 +66,11 @@ abstract class AppSMStoreBase with Store {
   @action
   void setEnvironment(Environment item) {
     environment = item;
+  }
+
+  @action
+  void setWhiteLabel(WhiteLabelApp item) {
+    whiteLabel = item;
   }
   
   @action

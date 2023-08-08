@@ -9,7 +9,7 @@ class WebHorizontalNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     if(screens.length > 1) {
       return Container(
-        width: 245,
+        width: 246,
         decoration: BoxDecoration(
           border: Border(
             right: BorderSide(

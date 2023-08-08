@@ -56,6 +56,53 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
     });
   }
 
+  late final _$hideAmountAtom =
+      Atom(name: 'AppSMStoreBase.hideAmount', context: context);
+
+  @override
+  bool get hideAmount {
+    _$hideAmountAtom.reportRead();
+    return super.hideAmount;
+  }
+
+  @override
+  set hideAmount(bool value) {
+    _$hideAmountAtom.reportWrite(value, super.hideAmount, () {
+      super.hideAmount = value;
+    });
+  }
+
+  late final _$isWebAtom = Atom(name: 'AppSMStoreBase.isWeb', context: context);
+
+  @override
+  bool get isWeb {
+    _$isWebAtom.reportRead();
+    return super.isWeb;
+  }
+
+  @override
+  set isWeb(bool value) {
+    _$isWebAtom.reportWrite(value, super.isWeb, () {
+      super.isWeb = value;
+    });
+  }
+
+  late final _$closeWebMenuAtom =
+      Atom(name: 'AppSMStoreBase.closeWebMenu', context: context);
+
+  @override
+  bool get closeWebMenu {
+    _$closeWebMenuAtom.reportRead();
+    return super.closeWebMenu;
+  }
+
+  @override
+  set closeWebMenu(bool value) {
+    _$closeWebMenuAtom.reportWrite(value, super.closeWebMenu, () {
+      super.closeWebMenu = value;
+    });
+  }
+
   late final _$environmentAtom =
       Atom(name: 'AppSMStoreBase.environment', context: context);
 
@@ -69,6 +116,22 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
   set environment(Environment? value) {
     _$environmentAtom.reportWrite(value, super.environment, () {
       super.environment = value;
+    });
+  }
+
+  late final _$whiteLabelAtom =
+      Atom(name: 'AppSMStoreBase.whiteLabel', context: context);
+
+  @override
+  WhiteLabelApp? get whiteLabel {
+    _$whiteLabelAtom.reportRead();
+    return super.whiteLabel;
+  }
+
+  @override
+  set whiteLabel(WhiteLabelApp? value) {
+    _$whiteLabelAtom.reportWrite(value, super.whiteLabel, () {
+      super.whiteLabel = value;
     });
   }
 
@@ -90,6 +153,17 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
 
   late final _$AppSMStoreBaseActionController =
       ActionController(name: 'AppSMStoreBase', context: context);
+
+  @override
+  bool setIsHideAmount(bool value) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setIsHideAmount');
+    try {
+      return super.setIsHideAmount(value);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void setThemeMode(ThemeMode item) {
@@ -125,11 +199,44 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
   }
 
   @override
+  void setIsWeb(bool item) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setIsWeb');
+    try {
+      return super.setIsWeb(item);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setWebMenu(bool item) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setWebMenu');
+    try {
+      return super.setWebMenu(item);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setEnvironment(Environment item) {
     final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
         name: 'AppSMStoreBase.setEnvironment');
     try {
       return super.setEnvironment(item);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setWhiteLabel(WhiteLabelApp item) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setWhiteLabel');
+    try {
+      return super.setWhiteLabel(item);
     } finally {
       _$AppSMStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -152,7 +259,11 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
 themeMode: ${themeMode},
 color: ${color},
 dataSavingMode: ${dataSavingMode},
+hideAmount: ${hideAmount},
+isWeb: ${isWeb},
+closeWebMenu: ${closeWebMenu},
 environment: ${environment},
+whiteLabel: ${whiteLabel},
 selectedIndex: ${selectedIndex}
     ''';
   }

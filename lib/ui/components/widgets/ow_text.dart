@@ -62,7 +62,7 @@ class OwText extends StatelessWidget {
             convertStringAlls(text, additionals: params),
             arguments: arguments,
             hideAllText: hideAllText,
-            hideValue: hideValue,
+            hideValue: appSM.hideAmount,
             key: key,
             locale: locale,
             maxLines: maxLines,
