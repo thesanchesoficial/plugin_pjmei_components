@@ -497,6 +497,9 @@ class ModulePjmei {
                 '#moduleName': title,
                 '#moduleDescription': description,
                 ':companyId': '${companySM.company?.id}',
+                '#companyId': '${companySM.company?.id}',
+                '#userId': '${userSM.user?.id}',
+                ':userId': '${userSM.user?.id}',
               });
               // entrou por ter uma rota no modulo
               if (await canLaunchUrl(Uri.parse(route!))) {
