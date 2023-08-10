@@ -31,6 +31,9 @@ export './contacts/update_contact_factory.dart';
 
 export './coupon/get_coupon.dart';
 
+export './das/get_das_factory.dart';
+export './das/update_das_factory.dart';
+
 export './documents/create_document_filters_factory.dart';
 export './documents/create_document_type_factory.dart';
 export './documents/create_documents_factory.dart';
@@ -56,6 +59,8 @@ export './extras_services/extras_services_list_factory.dart';
 export './extras_services/list_categories_of_extra_services_factory.dart';
 export './extras_services/remove_category_by_id_in_extras_services_factory.dart';
 export './extras_services/update_category_by_id_in_extras_services_factory.dart';
+
+export './finance/finance.dart';
 
 export './financial_assistant/list_financial_assistant_factory.dart';
 

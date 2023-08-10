@@ -49,7 +49,7 @@ class CcmeiEntity {
       bairro: map['bairro'] ?? '',
       municipio: map['municipio'] ?? '',
       uf: map['uf'] ?? '',
-      mei: map['mei'] ?? '',
+      mei: map['mei'] ?? false,
       dataOpMei: map['dataOpMei'] ?? '',
       dataExcMei: map['dataExcMei'] ?? '',
       complemento: map['complemento'] ?? '',
@@ -76,7 +76,7 @@ class CcmeiEntity {
   String? bairro;
   String? municipio;
   String? uf;
-  String? mei;
+  bool? mei;
   String? dataOpMei;
   String? dataExcMei;
   String? complemento;
@@ -101,7 +101,7 @@ class CcmeiEntity {
     String? bairro,
     String? municipio,
     String? uf,
-    String? mei,
+    bool? mei,
     String? dataOpMei,
     String? dataExcMei,
     String? complemento,

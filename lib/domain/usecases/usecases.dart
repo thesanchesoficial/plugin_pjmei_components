@@ -30,6 +30,8 @@ export './contacts/update_contacts.dart';
 
 export './coupon/get_coupon.dart';
 
+export './das/get_list_das_item.dart';
+
 export './documents/create_document_filters.dart';
 export './documents/create_document_type.dart';
 export './documents/create_documents.dart';
@@ -77,6 +79,22 @@ export './finance/credit-card/transactions/delete_finance_credit_card_transactio
 export './finance/credit-card/transactions/list_finance_credit_card_transaction_factory.dart';
 export './finance/credit-card/transactions/update_finance_credit_card_transaction_factory.dart';
 export './finance/credit-card/update_finance_credit_card.dart';
+export './finance/report/get_balance_evolution_report.dart';
+export './finance/report/get_behavior_average_monthly_expense_report.dart';
+export './finance/report/get_cash_flow_report.dart';
+export './finance/report/get_profit_loss_report.dart';
+export './finance/report/get_transaction_report.dart';
+export './finance/transactions/delete_finance_transaction.dart';
+export './finance/transactions/get_finance_transaction.dart';
+export './finance/transactions/list_finance_transactions.dart';
+export './finance/transactions/list_finance_transactions_by_filter.dart';
+export './finance/transactions/list_finance_transactions_search.dart';
+export './finance/transactions/post_finance_transaction.dart';
+export './finance/get_revenue.dart';
+export './finance/list_finance_bank_institution.dart';
+export './finance/list_finance_category.dart';
+export './finance/list_finance_credit_card_category.dart';
+export './finance/list_finance_dashboard_basic.dart';
 
 export './financial_assistant/list_financial_assistant.dart';
 
@@ -214,5 +232,3 @@ export './user/delete_account.dart';
 export './user/delete_user.dart';
 export './user/list_users.dart';
 export './user/update_user.dart';
-
-export './get_list_das_item.dart';

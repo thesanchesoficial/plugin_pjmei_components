@@ -50,6 +50,8 @@ export './extras_services/remote_extras_services_list.dart';
 export './extras_services/remote_list_categories_of_extra_services.dart';
 export './extras_services/remote_update_category_extras_services.dart';
 
+export './finance/finance.dart';
+
 export './financial_assistant/remote_list_financial_assistant.dart';
 
 export './financial_education/remote_add_category_financial_education.dart';
