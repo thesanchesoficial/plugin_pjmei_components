@@ -143,6 +143,7 @@ class HttpAdapter implements HttpClient {
       RefreshTokenEntity token = await makeRefreshToken().exec();
       return token;
     } catch (e) {
+      userSM.user = null;
       throw e;
     }
   }

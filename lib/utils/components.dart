@@ -33,8 +33,7 @@ TransitionBuilder ComponentsInit({
 }) {
   WhiteLabelApp.current = whiteLabelApp;
   Environment.current = environment;
-  routersApp = routers;
-  
+  routersApp = routers;  
   hidePrintApplication = hidePrint;
   isWebApplication = isWeb;
   webStartsWithWidth = webWidth;
