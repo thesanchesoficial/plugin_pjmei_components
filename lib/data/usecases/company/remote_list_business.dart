@@ -17,7 +17,7 @@ class RemoteListBusiness implements ListBusines {
         method: 'get',
       );
       return ListCompanyResult(
-          count: int.tryParse(httpResponse["success"]?["count"] ?? "0") ?? 0,
+          count: int.tryParse((httpResponse["success"]?["count"] ?? 0).toString()) ?? 0,
           company: (httpResponse["success"]["items"] as List)
               .map((e) => CompanyEntity.fromMap(e))
               .toList());
