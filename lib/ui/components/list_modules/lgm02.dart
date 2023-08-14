@@ -41,11 +41,12 @@ class LGM02 extends StatelessWidget {
             itemBuilder: (context, index) {
               if (modules[index].toShortcuts(context).isValid()) {
                 ColorSystem c = modules[index].getColor(context);
+                final ColorsByToken colors = ColorsAdapter.getByType(c);
                 return RoundCard(
                   title: modules[index].title,
                   color: c,
                   spotlight: modules[index].getSpotlightWidget(context, color: c),
-                  child: modules[index].toDiscover(context).image ?? const SizedBox(),
+                  child: modules[index].toDiscover(context, color: colors.onBackground).image ?? const SizedBox(),
                   onPressed: () {
                     modules[index].onTap(context);
                   },

@@ -354,7 +354,7 @@ class ModulePjmei {
     return child;
   }
 
-  DiscoverEntity toDiscover(context) {
+  DiscoverEntity toDiscover(context, {Color? color}) {
     Widget child;
     final String type = '${image?['type']}';
     switch (type) {
@@ -374,7 +374,7 @@ class ModulePjmei {
         child = Icon(
           IconAdapter.getIcon('${image?['value']}',),
           size: 30,
-          color: Theme.of(context).iconTheme.color,
+          color: color ?? Theme.of(context).iconTheme.color,
         );
         break;
       default:

@@ -27,6 +27,8 @@ class LGM04 extends StatelessWidget {
             numbersInRowAccordingToWidgth: [330, 600, 900, 1200, 1650],
             itemBuilder: (context, index) {
               if (modules[index].toShortcuts(context).isValid()) {
+                ColorSystem c = modules[index].getColor(context);
+                final ColorsByToken colors = ColorsAdapter.getByType(c);
                 final module = modules[index];
                 return Container(
                   child: Column(
@@ -40,7 +42,7 @@ class LGM04 extends StatelessWidget {
                           child: AspectRatio(
                             aspectRatio: 5 / 3,
                             child: Container(
-                              child: module.toDiscover(context).image,
+                              child: module.toDiscover(context, color: colors.onBackground).image,
                             ),
                           ),
                         ),
