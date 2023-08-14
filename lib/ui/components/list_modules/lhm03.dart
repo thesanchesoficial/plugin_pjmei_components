@@ -43,7 +43,7 @@ class LHM03 extends StatelessWidget {
                             constraints: const BoxConstraints(
                               maxWidth: 630,
                             ),
-                            margin: const EdgeInsets.only(right: 1),
+                            margin: const EdgeInsets.only(right: 10),
                             width: modules.length > 1
                                 ? MediaQuery.sizeOf(context).width - 70
                                 : MediaQuery.sizeOf(context).width - 50,

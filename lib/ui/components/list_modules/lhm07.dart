@@ -39,17 +39,20 @@ class LHM07 extends StatelessWidget {
                         children: modules.map<Widget>((module) {
                           if (module.toDiscover(context).isValid()) {
                             ColorSystem c = module.getColor(context);
-                            return DiscoverMoreCard(
-                              color: c,
-                              spotlight: module.getSpotlightWidget(context, color: c),
-                              description: module.description,
-                              title: module.title,
-                              labelTextButton: module.params?['labelText'],
-                              onPressed: () async {
-                                await module.onTap(context);
-                              },
-                              leading: module.getIcon(),
-                              extra: module.getImage(),
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: DiscoverMoreCard(
+                                color: c,
+                                spotlight: module.getSpotlightWidget(context, color: c),
+                                description: module.description,
+                                title: module.title,
+                                labelTextButton: module.params?['labelText'],
+                                onPressed: () async {
+                                  await module.onTap(context);
+                                },
+                                leading: module.getIcon(),
+                                extra: module.getImage(),
+                              ),
                             );
                           } else {
                             return const SizedBox();
