@@ -9,18 +9,17 @@ class CnaeEntity {
 
   factory CnaeEntity.fromMap(Map<String, dynamic> map) {
     return CnaeEntity(
-      codigo: map['codigo'] ?? '',
+      codigo: map['codigo'] ?? 0,
       descricao: map['descricao'] ?? '',
     );
   }
 
-  factory CnaeEntity.fromJson(String source) =>
-      CnaeEntity.fromMap(json.decode(source) as Map<String, dynamic>);
-  String? codigo;
+  factory CnaeEntity.fromJson(String source) => CnaeEntity.fromMap(json.decode(source) as Map<String, dynamic>);
+  int? codigo;
   String? descricao;
 
   CnaeEntity copyWith({
-    String? codigo,
+    int? codigo,
     String? descricao,
   }) {
     return CnaeEntity(
