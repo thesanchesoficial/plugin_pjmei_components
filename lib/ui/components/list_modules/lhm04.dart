@@ -36,13 +36,16 @@ class LHM04 extends StatelessWidget {
                   children: modules.map<Widget>((module) {
                     if (module.toShortcuts(context).isValid()) {
                       ColorSystem c = module.getColor(context);
+                      final ColorsByToken colors = ColorsAdapter.getByType(c);
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: RoundCard(
                           title: module.title,
                           color: c,
                           spotlight: module.getSpotlightWidget(context, color: c),
-                          child: module.getIcon() ?? const SizedBox(),
+                          child: module.getIcon(
+                            color: colors.onBackground,
+                          ) ?? const SizedBox(),
                           onPressed: () {
                             module.onTap(context);
                           },

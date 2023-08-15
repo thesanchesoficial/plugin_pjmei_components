@@ -373,7 +373,7 @@ class ModulePjmei {
       case 'ICON':
         child = Icon(
           IconAdapter.getIcon('${image?['value']}',),
-          size: 30,
+          size: 22,
           color: color ?? Theme.of(context).iconTheme.color,
         );
         break;

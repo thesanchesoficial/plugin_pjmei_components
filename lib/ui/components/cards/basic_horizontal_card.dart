@@ -18,7 +18,7 @@ class BasicHorizontalCard extends StatelessWidget {
     required this.color,
     this.leading,
     this.extra,
-    this.padding = const EdgeInsets.only(right: 25),
+    this.padding = const EdgeInsets.fromLTRB(25, 15, 25, 15),
   }) : super(key: key);
 
   @override
@@ -34,16 +34,7 @@ class BasicHorizontalCard extends StatelessWidget {
               visible: leading != null,
               child: Container(
                 margin: const EdgeInsets.only(right: 25),
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(80),
-                  ),
-                  color: colors.background,
-                ),
-                child: Center(
-                  child: leading ?? const SizedBox(),
-                ),
+                child: leading,
               ),
             ),
             Expanded(
