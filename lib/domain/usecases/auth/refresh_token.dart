@@ -1,12 +1,5 @@
-abstract class RefreshToken {
-  Future<RefreshTokenEntity> exec({bool log = false});
-}
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class RefreshTokenEntity {
-  String accessToken;
-  String refreshToken;
-  RefreshTokenEntity({
-    required this.accessToken,
-    required this.refreshToken,
-  });
+abstract class RefreshToken {
+  Future<UserEntity> exec({bool log = false});
 }

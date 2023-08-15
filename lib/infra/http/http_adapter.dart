@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart';
-import 'package:plugin_pjmei_components/domain/usecases/auth/refresh_token.dart';
-import 'package:plugin_pjmei_components/main/factories/usecases/auth/new_refresh_token.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class HttpAdapter implements HttpClient {
@@ -22,17 +20,13 @@ class HttpAdapter implements HttpClient {
 
     if(ignoreToken) {
       p('Ignorando token.');
-      p('accessToken: ${userSM.user?.accessToken}');
-      p('refreshToken: ${userSM.user?.refreshToken}');
+      p('accessToken atual: ${userSM.user?.accessToken}');
+      p('refreshToken atual: ${userSM.user?.refreshToken}');
     } else {
       if (userSM.user?.accessToken != null) {
         if (JwtDecoder.isExpired(userSM.user!.accessToken ?? "")) {
           try {
-            RefreshTokenEntity tokenTemp = await _newToken();
-            userSM.user = userSM.user!.copyWith(
-              accessToken: tokenTemp.accessToken,
-              refreshToken: tokenTemp.refreshToken,
-            );
+            await _newToken();
           } catch (e) {
             userSM.user = null;
             throw HttpError.serverError;
@@ -143,11 +137,13 @@ class HttpAdapter implements HttpClient {
     }
   }
 
-  Future<RefreshTokenEntity> _newToken() async {
+  Future<UserEntity> _newToken() async {
     try {
       p('Obtendo novo token');
-      RefreshTokenEntity token = await makeRefreshToken().exec();
-      p('Novo token: ${token.toString()}');
+      UserEntity token = await makeRefreshToken().exec();
+      p('Novo accessToken: ${token.accessToken.toString()}');
+      p('Novo refreshToken: ${token.refreshToken.toString()}');
+      userSM.user = token;
       return token;
     } catch (e) {
       p('Erro ao gerar novo token: ${e.toString()}');

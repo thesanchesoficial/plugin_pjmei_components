@@ -1,4 +1,3 @@
-import 'package:plugin_pjmei_components/domain/usecases/auth/refresh_token.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteRefreshToken implements RefreshToken {
@@ -6,7 +5,7 @@ class RemoteRefreshToken implements RefreshToken {
   final HttpClient httpClient;
   final String url;
 
-  Future<RefreshTokenEntity> exec({bool log = false}) async {
+  Future<UserEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
@@ -17,10 +16,12 @@ class RemoteRefreshToken implements RefreshToken {
           'refreshToken': '${userSM.user?.refreshToken}',
         },
       );
-      return RefreshTokenEntity(
-        accessToken: httpResponse['success']['accessToken'],
+      UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
+      temp = temp.copyWith(
         refreshToken: httpResponse['success']['refreshToken'],
+        accessToken: httpResponse['success']['accessToken'],
       );
+      return temp;
     } on HttpError catch (error) {
       if (error == HttpError.notFound) {
         throw DomainError.invalidCredentials;

@@ -14,7 +14,6 @@ class UserEntity {
     this.estabelecimentos,
     this.nascimento,
     this.proprietario,
-    this.senha,
     this.owner,
     this.createdDate,
     this.accessToken,
@@ -28,7 +27,6 @@ class UserEntity {
       nome: map['nome'],
       telefone: map['telefone'],
       proprietario: map['proprietario'],
-      senha: map['senha'],
       owner: map['owner'],
       createdDate: map['created_at'],
       cpf: map['cpf'],
@@ -54,7 +52,6 @@ class UserEntity {
   String? nome;
   String? telefone;
   String? proprietario;
-  String? senha;
   String? owner;
   String? createdDate;
   String? cpf;
@@ -67,7 +64,7 @@ class UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, paymentId: $paymentId, nome: $nome, telefone: $telefone, proprietario: $proprietario, senha: $senha, owner: $owner, createdDate: $createdDate, cpf: $cpf, accessToken: $accessToken, refreshToken: $refreshToken, enderecos: $enderecos, estabelecimentos: $estabelecimentos, email: $email, nascimento: $nascimento)';
+    return 'UserEntity(id: $id, paymentId: $paymentId, nome: $nome, telefone: $telefone, proprietario: $proprietario, owner: $owner, createdDate: $createdDate, cpf: $cpf, accessToken: $accessToken, refreshToken: $refreshToken, enderecos: $enderecos, estabelecimentos: $estabelecimentos, email: $email, nascimento: $nascimento)';
   }
 
   Map<String, dynamic> toMap() {
@@ -77,7 +74,6 @@ class UserEntity {
       'nome': nome,
       'telefone': telefone,
       'proprietario': proprietario,
-      'senha': senha,
       'owner': owner,
       'createdDate': createdDate,
       'cpf': cpf,
@@ -98,7 +94,6 @@ class UserEntity {
     String? nome,
     String? telefone,
     String? proprietario,
-    String? senha,
     String? owner,
     String? createdDate,
     String? cpf,
@@ -115,7 +110,6 @@ class UserEntity {
       nome: nome ?? this.nome,
       telefone: telefone ?? this.telefone,
       proprietario: proprietario ?? this.proprietario,
-      senha: senha ?? this.senha,
       owner: owner ?? this.owner,
       createdDate: createdDate ?? this.createdDate,
       cpf: cpf ?? this.cpf,
@@ -138,7 +132,6 @@ class UserEntity {
         other.nome == nome &&
         other.telefone == telefone &&
         other.proprietario == proprietario &&
-        other.senha == senha &&
         other.owner == owner &&
         other.createdDate == createdDate &&
         other.cpf == cpf &&
@@ -157,7 +150,6 @@ class UserEntity {
         nome.hashCode ^
         telefone.hashCode ^
         proprietario.hashCode ^
-        senha.hashCode ^
         owner.hashCode ^
         createdDate.hashCode ^
         cpf.hashCode ^

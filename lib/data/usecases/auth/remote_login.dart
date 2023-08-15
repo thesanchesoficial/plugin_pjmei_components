@@ -15,10 +15,8 @@ class RemoteLogin implements Login {
         ignoreToken: true,
         body: RemoteLoginParams.fromDomain(params).toMap(),
       );
-      
       UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
       temp = temp.copyWith(
-        senha: params.password,
         refreshToken: httpResponse['success']['refreshToken'],
         accessToken: httpResponse['success']['accessToken'],
       );

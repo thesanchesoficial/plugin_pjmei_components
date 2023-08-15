@@ -17,7 +17,6 @@ class RemoteRegister implements Register {
       );
       UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
       temp = temp.copyWith(
-        senha: params.password,
         refreshToken: httpResponse['success']['refreshToken'],
         accessToken: httpResponse['success']['accessToken'],
       );
