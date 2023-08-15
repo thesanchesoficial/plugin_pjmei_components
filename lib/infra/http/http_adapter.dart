@@ -20,7 +20,11 @@ class HttpAdapter implements HttpClient {
   }) async {
     Map<String, String> defaultHeaders = {};
 
-    if(!ignoreToken) {
+    if(ignoreToken) {
+      p('Ignorando token.');
+      p('accessToken: ${userSM.user?.accessToken}');
+      p('refreshToken: ${userSM.user?.refreshToken}');
+    } else {
       if (userSM.user?.accessToken != null) {
         if (JwtDecoder.isExpired(userSM.user!.accessToken ?? "")) {
           try {
@@ -30,6 +34,7 @@ class HttpAdapter implements HttpClient {
               refreshToken: tokenTemp.refreshToken,
             );
           } catch (e) {
+            userSM.user = null;
             throw HttpError.serverError;
           }
         }
@@ -65,10 +70,10 @@ class HttpAdapter implements HttpClient {
       throw HttpError.serverError;
     }
     if(log) {
-      p('body: ${response.statusCode}');
+      p('statusCode: ${response.statusCode}');
       p('body: ${response.body}');
     } else if(!hidePrintApplication) {
-      p('body: ${response.statusCode}');
+      p('statusCode: ${response.statusCode}');
       p('body: ${response.body}');
     }
     OwBotToast.close();
@@ -140,9 +145,12 @@ class HttpAdapter implements HttpClient {
 
   Future<RefreshTokenEntity> _newToken() async {
     try {
+      p('Obtendo novo token');
       RefreshTokenEntity token = await makeRefreshToken().exec();
+      p('Novo token: ${token.toString()}');
       return token;
     } catch (e) {
+      p('Erro ao gerar novo token: ${e.toString()}');
       userSM.user = null;
       throw e;
     }

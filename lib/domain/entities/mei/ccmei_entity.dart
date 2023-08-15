@@ -32,17 +32,17 @@ class CcmeiEntity {
 
   factory CcmeiEntity.fromMap(Map<String, dynamic> map) {
     return CcmeiEntity(
-      nomeCivil: map['nomeCivil'] ?? '',
+      nomeCivil: map['nomeCivil'] ?? map['nome_civil'] ?? '',
       cpf: map['cpf'] ?? '',
-      cnpjBasico: map['cnpjBasico'] ?? '',
-      cnpjOrdem: map['cnpjOrdem'] ?? '',
-      cnpjDv: map['cnpjDv'] ?? '',
-      dataInicio: map['dataInicio'] ?? '',
-      razaoSocial: map['razaoSocial'] ?? '',
-      nomeFantasia: map['nomeFantasia'] ?? '',
-      capitalSocial: map['capitalSocial'] ?? '',
+      cnpjBasico: map['cnpjBasico'] ?? map['cnpj_basico'] ?? '',
+      cnpjOrdem: map['cnpjOrdem'] ?? map['cnpj_ordem'] ?? '',
+      cnpjDv: map['cnpjDv'] ?? map['cnpj_dv'] ?? '',
+      dataInicio: map['dataInicio'] ?? map['data_inicio'] ?? '',
+      razaoSocial: map['razaoSocial'] ?? map['razao_social'] ?? '',
+      nomeFantasia: map['nomeFantasia'] ?? map['nome_fantasia'] ?? '',
+      capitalSocial: map['capitalSocial'] ?? map['capital_social'] ?? '',
       situacao: map['situacao'] ?? '',
-      dataSituacao: map['dataSituacao'] ?? '',
+      dataSituacao: map['dataSituacao'] ?? map['data_situacao'] ?? '',
       cep: map['cep'] ?? '',
       logradouro: map['logradouro'] ?? '',
       numero: map['numero'] ?? '',
@@ -50,11 +50,11 @@ class CcmeiEntity {
       municipio: map['municipio'] ?? '',
       uf: map['uf'] ?? '',
       mei: map['mei'] ?? false,
-      dataOpMei: map['dataOpMei'] ?? '',
-      dataExcMei: map['dataExcMei'] ?? '',
+      dataOpMei: map['dataOpMei'] ?? map['data_op_mei'] ?? '',
+      dataExcMei: map['dataExcMei'] ?? map['data_exc_mei'] ?? '',
       complemento: map['complemento'] ?? '',
-      cnaesSecundarios:  map['cnaesSecundarios'] == null ? [] : List<CnaeEntity>.from(map['cnaesSecundarios']?.map((x) => CnaeEntity.fromMap(x))),
-      cnaePrincipal: CnaeEntity.fromMap(map['cnaePrincipal']),
+      cnaesSecundarios: map['cnaesSecundarios'] == null ? map['cnaes_secundarios'] == null ? [] : List<CnaeEntity>.from(map['cnaes_secundarios']?.map((x) => CnaeEntity.fromMap(x))) : List<CnaeEntity>.from(map['cnaesSecundarios']?.map((x) => CnaeEntity.fromMap(x))),
+      cnaePrincipal: map['cnaePrincipal'] == null ? map['cnae_principal'] == null ? null : CnaeEntity.fromMap(map['cnae_principal']) : CnaeEntity.fromMap(map['cnaePrincipal']),
     );
   }
 

@@ -9,8 +9,8 @@ class CnaeEntity {
 
   factory CnaeEntity.fromMap(Map<String, dynamic> map) {
     return CnaeEntity(
-      codigo: map['codigo'] as String,
-      descricao: map['descricao'] as String,
+      codigo: map['codigo'] ?? '',
+      descricao: map['descricao'] ?? '',
     );
   }
 

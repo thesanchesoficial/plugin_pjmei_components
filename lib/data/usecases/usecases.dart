@@ -91,19 +91,11 @@ export './media_manager/remote_list_files_media_manager.dart';
 
 export './mei_management/remote_get_ccmei.dart';
 export './mei_management/remote_get_cnpj.dart';
-export './mei_management/remote_get_das_pdf.dart';
-export './mei_management/remote_get_dasn.dart';
 export './mei_management/remote_get_limitemei.dart';
 export './mei_management/remote_get_notafiscal.dart';
 export './mei_management/remote_get_relatorio.dart';
 export './mei_management/remote_list_all_das_years.dart';
-export './mei_management/remote_list_all_debtors.dart';
-export './mei_management/remote_list_das_data.dart';
-export './mei_management/remote_list_das_receita_federal.dart';
-export './mei_management/remote_list_das_years.dart';
 export './mei_management/remote_notafiscal_service.dart';
-export './mei_management/remote_post_das.dart';
-export './mei_management/remote_post_dasn.dart';
 export './mei_management/remote_post_notafiscal.dart';
 
 export './modules/list_modules.dart';
@@ -186,4 +178,7 @@ export './user/remote_delete_user.dart';
 export './user/remote_list_users.dart';
 export './user/remote_update_user.dart';
 
-export './remote_get_list_das_items.dart';
+export './das/remote_get_list_das_items.dart';
+
+export './dasn/remote_get_list_dasn_items.dart';
+export './dasn/remote_post_dasn_item.dart';

@@ -34,6 +34,9 @@ export './coupon/get_coupon.dart';
 export './das/get_das_factory.dart';
 export './das/update_das_factory.dart';
 
+export './dasn/get_list_dasn_factory.dart';
+export './dasn/post_dasn_factory.dart';
+
 export './documents/create_document_filters_factory.dart';
 export './documents/create_document_type_factory.dart';
 export './documents/create_documents_factory.dart';
@@ -106,19 +109,11 @@ export './media_manager/list_files_media_manager_factory.dart';
 
 export './mei_management/get_ccmei_factory.dart';
 export './mei_management/get_cnpj_factory.dart';
-export './mei_management/get_das_pdf.dart';
-export './mei_management/get_dasn_factory.dart';
 export './mei_management/get_limitemei_factory.dart';
-export './mei_management/get_list_all_debtors.dart';
 export './mei_management/get_list_alls_data_das_factory.dart';
-export './mei_management/get_list_data_das_by_years_das_factory.dart';
-export './mei_management/get_list_data_das_in_receita_deferal_factory.dart';
-export './mei_management/get_list_years_das_factory.dart';
 export './mei_management/get_notafical_service_factory.dart';
 export './mei_management/get_relatorio_mei_factory.dart';
 export './mei_management/list_notafiscal_factory.dart';
-export './mei_management/post_das_factory.dart';
-export './mei_management/post_dasn_factory.dart';
 export './mei_management/post_notafiscal_factory.dart';
 
 export './modules/delete_module_factory.dart';

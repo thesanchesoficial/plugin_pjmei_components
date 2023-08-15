@@ -32,6 +32,9 @@ export './coupon/get_coupon.dart';
 
 export './das/get_list_das_item.dart';
 
+export './dasn/get_list_dasn_item.dart';
+export './dasn/post_dasn_item.dart';
+
 export './documents/create_document_filters.dart';
 export './documents/create_document_type.dart';
 export './documents/create_documents.dart';
@@ -133,24 +136,13 @@ export './media_manager/insert_image.dart';
 export './media_manager/insert_image_aws.dart';
 export './media_manager/list_files_media_manager.dart';
 
-export './mei_management/das_data.dart';
-export './mei_management/das_years.dart';
 export './mei_management/get_ccmei.dart';
 export './mei_management/get_cnpj.dart';
-export './mei_management/get_das.dart';
-export './mei_management/get_das_pdf.dart';
-export './mei_management/get_dasn.dart';
 export './mei_management/get_limitemei.dart';
 export './mei_management/get_notafiscal.dart';
 export './mei_management/get_notafiscal_service.dart';
 export './mei_management/get_relatoriomei_entity.dart';
 export './mei_management/list_all_das_years.dart';
-export './mei_management/list_all_debtors.dart';
-export './mei_management/list_das_data.dart';
-export './mei_management/list_das_receita_federal.dart';
-export './mei_management/list_das_years.dart';
-export './mei_management/post_das.dart';
-export './mei_management/post_dasn.dart';
 export './mei_management/post_notafiscal.dart';
 
 export './modules/delete_module.dart';
