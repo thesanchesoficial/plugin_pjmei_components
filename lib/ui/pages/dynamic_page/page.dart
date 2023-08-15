@@ -33,7 +33,7 @@ class _PageDynamicPageState extends State<PageDynamicPage> with AutomaticKeepAli
       appBar: OwAppBar(
         actions: [
           CardActionListWidget(
-            list: modules,
+            list: modules?.where((element) => element.displayType == 'LAC').toList(),
           ),
         ],
         title: Visibility(
@@ -106,7 +106,7 @@ class _PageDynamicPageState extends State<PageDynamicPage> with AutomaticKeepAli
               ),
       ),
       floatingActionButton: BoxFloatingButtonWidget(
-        list: modules,
+        list: modules?.where((element) => element.displayType == 'LFABM').toList(),
       ),
     );
   }
