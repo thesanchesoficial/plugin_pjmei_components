@@ -4,6 +4,7 @@ export './auth/change_password_factory.dart';
 export './auth/check_if_user_exists_factory.dart';
 export './auth/login_factory.dart';
 export './auth/new_password_factory.dart';
+export './auth/new_refresh_token.dart';
 export './auth/register_factory.dart';
 export './auth/send_email_recover_password_factory.dart';
 

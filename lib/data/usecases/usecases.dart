@@ -4,6 +4,7 @@ export './auth/remote_change_password.dart';
 export './auth/remote_check_if_user_exists.dart';
 export './auth/remote_login.dart';
 export './auth/remote_new_password.dart';
+export './auth/remote_refresh_token.dart';
 export './auth/remote_register.dart';
 export './auth/remote_send_email_recover_password.dart';
 
