@@ -60,6 +60,8 @@ export './image/image_entity.dart';
 
 export './inbox/chat_entity.dart';
 
+export './mei_benefits/mei_benefits_entity.dart';
+
 export './mei/beneficios_entity.dart';
 export './mei/ccmei_entity.dart';
 export './mei/cnae_entity.dart';

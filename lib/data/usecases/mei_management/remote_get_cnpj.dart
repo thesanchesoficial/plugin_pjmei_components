@@ -13,9 +13,12 @@ class RemoteGetCnpj implements GetCnpj {
         url: url ?? '',
         method: 'get',
       );
-      return CnpjEntity.fromMap(httpResponse['success']['result']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return CnpjEntity.fromMap(httpResponse['success']['cnpj']);
+    } catch (errorMsg) {
+      throw errorMsg;
     }
   }
 }

@@ -91,6 +91,9 @@ export './media_manager/remote_insert_image.dart';
 export './media_manager/remote_insert_image_aws.dart';
 export './media_manager/remote_list_files_media_manager.dart';
 
+export './mei_benefits/get_mei_benefits.dart';
+export './mei_benefits/update_mei_benefits.dart';
+
 export './mei_management/remote_get_ccmei.dart';
 export './mei_management/remote_get_cnpj.dart';
 export './mei_management/remote_get_limitemei.dart';

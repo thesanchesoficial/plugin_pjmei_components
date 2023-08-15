@@ -109,6 +109,9 @@ export './media_manager/insert_image_factory.dart';
 export './media_manager/insert_image_aws_factory.dart';
 export './media_manager/list_files_media_manager_factory.dart';
 
+export './mei_benefits/get_mei_benefits_factory.dart';
+export './mei_benefits/update_mei_benefits_factory.dart';
+
 export './mei_management/get_ccmei_factory.dart';
 export './mei_management/get_cnpj_factory.dart';
 export './mei_management/get_limitemei_factory.dart';

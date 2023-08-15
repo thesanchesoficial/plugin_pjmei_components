@@ -138,6 +138,9 @@ export './media_manager/insert_image.dart';
 export './media_manager/insert_image_aws.dart';
 export './media_manager/list_files_media_manager.dart';
 
+export './mei_benefits/get_mei_benefits.dart';
+export './mei_benefits/update_mei_benefits.dart';
+
 export './mei_management/get_ccmei.dart';
 export './mei_management/get_cnpj.dart';
 export './mei_management/get_limitemei.dart';

@@ -1,20 +1,20 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class RemoteGetCcmei implements GetCcmei {
-  RemoteGetCcmei({required this.httpClient, required this.url});
+class RemoteUpdateMeiBenefits implements UpdateMeiBenefits {
   final HttpClient httpClient;
   final String url;
+  RemoteUpdateMeiBenefits({required this.httpClient, required this.url});
 
-  Future<CcmeiEntity> exec({bool log = false}) async {
+  Future<MeiBenefitsEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
-        method: 'get',
+        method: 'put',
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return CcmeiEntity.fromMap(httpResponse['success']['ccmei']);
+      return MeiBenefitsEntity.fromMap(httpResponse['success']);
     } catch (errorMsg) {
       throw errorMsg;
     }
