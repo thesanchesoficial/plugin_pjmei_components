@@ -18,8 +18,10 @@ export './cards/remote_update_category_extras_services.dart';
 
 export './check-user/remote_check_user.dart';
 
-export './company/list_companies.dart';
+export './company/remote_list_companies.dart';
 export './company/remote_delete_company.dart';
+export './company/remote_insert_company.dart';
+export './company/remote_find_company.dart';
 export './company/remote_list_business.dart';
 export './company/remote_update_company.dart';
 

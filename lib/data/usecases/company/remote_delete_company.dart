@@ -14,9 +14,12 @@ class RemoteDeleteCompany implements DeleteCompany {
         log: log,
         method: 'delete',
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       return httpResponse["code"] == 200;
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (errorMsg) {
+      throw errorMsg;
     }
   }
 }

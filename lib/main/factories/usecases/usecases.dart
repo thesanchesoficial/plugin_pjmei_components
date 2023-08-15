@@ -23,6 +23,8 @@ export './company/delete_company_factory.dart';
 export './company/list_business_factory.dart';
 export './company/list_company_factory.dart';
 export './company/update_company_factory.dart';
+export './company/insert_company_factory.dart';
+export './company/find_company_factory.dart';
 
 export './contacts/add_contact_factory.dart';
 export './contacts/delete_contact_factory.dart';

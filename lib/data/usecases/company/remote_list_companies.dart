@@ -12,14 +12,14 @@ class RemoteListCompanies implements ListCompanies {
         log: log,
         method: 'get',
       );
-      if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
-        throw HttpError.notFound;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
       }
       return ((httpResponse['success']['items']) as List)
           .map((e) => CompanyEntity.fromMap(e))
           .toList();
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (errorMsg) {
+      throw errorMsg;
     }
   }
 }

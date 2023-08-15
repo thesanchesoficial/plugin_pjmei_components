@@ -16,13 +16,16 @@ class RemoteListBusiness implements ListBusines {
         log: log,
         method: 'get',
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       return ListCompanyResult(
           count: int.tryParse((httpResponse["success"]?["count"] ?? 0).toString()) ?? 0,
           company: (httpResponse["success"]["items"] as List)
               .map((e) => CompanyEntity.fromMap(e))
               .toList());
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (errorMsg) {
+      throw errorMsg;
     }
   }
 }

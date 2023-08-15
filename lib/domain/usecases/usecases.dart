@@ -20,6 +20,8 @@ export './cards/update_category_extras_services.dart';
 export './check-user/check_user.dart';
 
 export './company/delete_company.dart';
+export './company/find_company.dart';
+export './company/insert_company.dart';
 export './company/list_business.dart';
 export './company/list_companies.dart';
 export './company/update_company.dart';

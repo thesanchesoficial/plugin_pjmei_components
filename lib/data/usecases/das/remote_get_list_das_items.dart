@@ -14,8 +14,8 @@ class RemoteGetListDasItem implements GetListDasItem {
         url: url ?? '',
         method: method,
       );
-      if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
-        throw HttpError.notFound;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
       }
       return ((httpResponse['success']['das']) as List).map((e) => DasItemEntity.fromMap(e)).toList();
     } catch (errorMsg) {
