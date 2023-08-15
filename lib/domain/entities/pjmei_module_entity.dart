@@ -355,32 +355,33 @@ class ModulePjmei {
   }
 
   DiscoverEntity toDiscover(context, {Color? color}) {
-    Widget child;
-    final String type = '${image?['type']}';
-    switch (type) {
-      case 'ASSET':
-        child = Image.asset(
-          '${image?['value']}',
-          fit: BoxFit.cover,
-        );
-        break;
-      case 'NETWORK':
-        child = Image.network(
-          '${image?['value']}',
-          fit: BoxFit.cover,
-        );
-        break;
-      case 'ICON':
-        child = Icon(
-          IconAdapter.getIcon('${image?['value']}',),
-          size: 22,
-          color: color ?? Theme.of(context).iconTheme.color,
-        );
-        break;
-      default:
-        child = const SizedBox();
+    Widget? child;
+    if(Valid.text('${image?['value']}')) {
+      final String type = '${image?['type']}';
+      switch (type) {
+        case 'ASSET':
+          child = Image.asset(
+            '${image?['value']}',
+            fit: BoxFit.cover,
+          );
+          break;
+        case 'NETWORK':
+          child = Image.network(
+            '${image?['value']}',
+            fit: BoxFit.cover,
+          );
+          break;
+        case 'ICON':
+          child = Icon(
+            IconAdapter.getIcon('${image?['value']}',),
+            size: 22,
+            color: color ?? Theme.of(context).iconTheme.color,
+          );
+          break;
+        default:
+          child = null;
+      }
     }
-
     final DiscoverEntity discoverEntity = DiscoverEntity(
       image: child,
       title: title,
