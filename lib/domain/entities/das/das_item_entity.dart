@@ -3,7 +3,7 @@ import 'dart:convert';
 class DasItemEntity {
   final String id;
   final String cnpj;
-  final String year;
+  final int year;
   final String month;
   final String total;
   final String? barCode;
@@ -29,7 +29,7 @@ class DasItemEntity {
   DasItemEntity copyWith({
     String? id,
     String? cnpj,
-    String? year,
+    int? year,
     String? month,
     String? total,
     String? barCode,
@@ -74,7 +74,7 @@ class DasItemEntity {
     return DasItemEntity(
       id: map['id'] ?? '',
       cnpj: map['cnpj'] ?? '',
-      year: map['year'] ?? '',
+      year: map['year'] ?? 0,
       month: map['month'] ?? '',
       total: map['total'] ?? '',
       barCode: map['barCode'],
