@@ -12,6 +12,7 @@ class RemoteGetListDasnItem implements GetListDasnItem {
       final httpResponse = await httpClient.request(
         url: url,
         method: method,
+        newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];

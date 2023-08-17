@@ -1,19 +1,18 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class RemoteGetNotaFiscal implements GetNotaFiscal {
-  final HttpClient? httpClient;
-  final String? url;
+  final HttpClient httpClient;
+  final String url;
 
-  RemoteGetNotaFiscal({this.httpClient, this.url});
+  RemoteGetNotaFiscal({required this.httpClient, required this.url});
 
   Future<List<NotaFiscalEntity>> exec({bool log = false}) async {
-    // print(url);
     try {
-      final httpResponse =
-          await httpClient?.request(url: url ?? '', method: 'get', headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': Environment.current?.apiKey,
-      });
+      final httpResponse = await httpClient.request(
+        url: url,
+        method: 'get',
+        newReturnErrorMsg: true,
+      );
       final List temp = httpResponse['success'];
       final List<NotaFiscalEntity> data = [];
 

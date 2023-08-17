@@ -12,6 +12,11 @@ export './company/company_entity.dart';
 
 export './contact/contact_entity.dart';
 
+export './das/das_item_entity.dart';
+
+export './dasn/dasn_declaration_entity.dart';
+export './dasn/dasn_item_entity.dart';
+
 export './document/document_entity.dart';
 export './document/document_filter_entity.dart';
 export './document/document_type_entity.dart';
@@ -107,8 +112,6 @@ export './card_entity.dart';
 export './category_extra_service_entity.dart';
 export './color_system_entity.dart';
 export './coupon_discount_entity.dart';
-export './das/das_item_entity.dart';
-export './dasn/dasn_item_entity.dart';
 export './discover_entity.dart';
 export './extra_service_entity.dart';
 export './extract_entity.dart';

@@ -1,6 +1,6 @@
 name: plugin_pjmei_components
 description: A new Flutter plugin project.
-version: 0.0.47
+version: 0.0.48
 homepage:
 
 environment:
@@ -21,7 +21,7 @@ dependencies:
   cloud_firestore: ^4.8.0
   connectivity_plus: ^3.0.3
   crop: ^0.5.4
-  cupertino_http: ^0.0.6
+  cupertino_http: ^1.0.1
   dartz: ^0.10.1
   device_info_plus: ^9.0.2
   dio: ^5.2.0
@@ -32,7 +32,7 @@ dependencies:
   encrypt: ^5.0.1
   equatable: ^2.0.5
   eva_icons_flutter: ^3.1.0
-  extended_image: ^8.0.0
+  extended_image: ^8.1.0
   extended_masked_text: ^2.3.1
   file_picker: ^5.2.6
   file_saver: ^0.2.6
@@ -41,8 +41,8 @@ dependencies:
   flex_color_picker: ^3.2.0
   flutter_cache_manager: ^3.3.0
   flutter_inappwebview: ^6.0.0-beta.24+1
-  flutter_map: ^3.1.0
-  flutter_mapbox_autocomplete: ^2.0.0
+  flutter_map: ^5.0.0
+  # flutter_mapbox_autocomplete: ^2.0.0
   flutter_mobx: ^2.0.0
   flutter_placeholder_textlines: ^1.2.0
   flutter_rating_bar: ^4.0.1
@@ -57,21 +57,21 @@ dependencies:
   go_router_flow: ^6.0.0+3
   go_router: ^6.0.4
   google_maps_flutter: ^2.0.1
-  http: ^0.13.5
-  image_cropper: ^4.0.1
+  http: ^1.0.0
+  image_cropper: ^5.0.0
   image_editor: ^1.3.0
   image_gallery_saver: ^2.0.1
   image_picker: ^0.8.7+5
   image: ^4.0.15
-  internet_file: ^1.0.0+2
+  # internet_file: ^1.0.0+2
   intl: ^0.18.0
   jwt_decoder: ^2.0.1
   latlng: ^0.2.0
-  latlong2: ^0.8.1
+  latlong2: ^0.9.0
   lecle_volume_flutter: ^0.0.1+1
   local_auth: ^2.1.6
   loop_page_view: ^1.2.2
-  mapbox_search: ^3.2.0
+  # mapbox_search: ^3.2.0
   mask_text_input_formatter: ^2.4.0
   masked_text: ^1.1.2
   mobx: ^2.0.1
@@ -107,9 +107,9 @@ dependencies:
 
 dependency_overrides:
 
-  flutter_google_maps:
+  mapbox_search:
     git:
-      url: https://github.com/thesanchesoficial/flutter_google_maps
+      url: https://github.com/BrunoMazzocchi/mapbox_search
       ref: master
 
   flutter_staggered_grid_view:
@@ -138,6 +138,12 @@ dependency_overrides:
       url: https://github.com/vishwajit76/packages.flutter
       ref: main
       path: packages/pdfx
+
+  internet_file:
+    git:
+      url: https://github.com/nukeolay/packages.dart
+      ref: master
+      path: packages/internet_file
 
   mapbox_gl:
     git:
@@ -180,11 +186,11 @@ dependency_overrides:
       url: https://github.com/EncryptingWolf/GeoFlutterFire
       ref: master
 
-  image_cropper:
-    git:
-      url: https://github.com/amitvrm036/flutter_image_cropper
-      ref: master
-      path: image_cropper
+  # image_cropper:
+  #   git:
+  #     url: https://github.com/amitvrm036/flutter_image_cropper
+  #     ref: master
+  #     path: image_cropper
 
   flutter_placeholder_textlines:
     git:

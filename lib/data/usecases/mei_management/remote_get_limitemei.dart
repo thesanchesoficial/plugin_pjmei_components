@@ -10,6 +10,7 @@ class RemoteGetLimiteMei implements GetLimiteMei {
       final httpResponse = await httpClient.request(
         url: url,
         method: 'get',
+        newReturnErrorMsg: true,
       );
       return LimiteMeiEntity.fromMap(httpResponse['success']);
     } on HttpError catch (_) {

@@ -13,19 +13,20 @@ class RemoteRegister implements Register {
         log: log,
         method: 'post',
         ignoreToken: true,
+        newReturnErrorMsg: true,
         body: RemoteRegisterParams.fromDomain(params).toMap(),
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
       temp = temp.copyWith(
         refreshToken: httpResponse['success']['refreshToken'],
         accessToken: httpResponse['success']['accessToken'],
       );
       return temp;
-    } on HttpError catch (error) {
-      if (error == HttpError.badRequest) {
-        throw DomainError.documentInUse;
-      }
-      throw DomainError.unexpected;
+    } catch (errorMsg) {
+      throw errorMsg;
     }
   }
 }

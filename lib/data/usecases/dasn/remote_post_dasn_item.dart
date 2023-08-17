@@ -6,16 +6,22 @@ class RemotePostDasnItem implements PostDasnItem {
 
   RemotePostDasnItem({required this.httpClient, required this.url});
 
-  Future<DasnItemEntity> exec({bool log = false}) async {
+  Future<DasnItemEntity> exec(DasnDeclaration dasn, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         method: 'post',
+        newReturnErrorMsg: true,
+        body: dasn.toMap(),
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return DasnItemEntity.fromMap(httpResponse['success']['dasn']);
+      if(httpResponse['success']['dasn'] != null) {
+        return DasnItemEntity.fromMap(httpResponse['success']['dasn']);
+      } else {
+        throw httpResponse['success']['message'];
+      }
     } catch (errorMsg) {
       throw errorMsg;
     }

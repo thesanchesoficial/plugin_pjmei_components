@@ -10,6 +10,7 @@ class RemoteGetCcmei implements GetCcmei {
       final httpResponse = await httpClient.request(
         url: url,
         method: 'get',
+        newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];

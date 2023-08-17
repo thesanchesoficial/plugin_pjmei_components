@@ -10,6 +10,7 @@ class RemoteUpdateMeiBenefits implements UpdateMeiBenefits {
       final httpResponse = await httpClient.request(
         url: url,
         method: 'put',
+        newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];

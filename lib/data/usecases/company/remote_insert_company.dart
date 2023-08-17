@@ -13,6 +13,7 @@ class RemoteInsertCompany implements InsertCompany {
         log: log,
         method: 'post',
         body: body,
+        newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
