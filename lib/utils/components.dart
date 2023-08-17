@@ -1,5 +1,4 @@
 library components;
-import 'dart:developer';
 
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ StateManagementInit() {
     getIt.registerSingleton<ModuleSMStore>(ModuleSMStore());
     getIt.registerSingleton<UserSMStore>(UserSMStore());
   } catch (e) {
-    log(e.toString());
+    p(e.toString());
   }
 }
 

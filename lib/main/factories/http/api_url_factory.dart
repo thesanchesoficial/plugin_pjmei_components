@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 String makeApiUrl(String router, {Map<String, dynamic>? params}) {
@@ -7,6 +6,6 @@ String makeApiUrl(String router, {Map<String, dynamic>? params}) {
   params?.forEach((key, value) {
     urlParams = urlParams + '&$key=$value';
   });
-  log('${Environment.current?.baseUrl}$router$urlParams');
+  p('${Environment.current?.baseUrl}$router$urlParams');
   return ('${Environment.current?.baseUrl}$router$urlParams');
 }
