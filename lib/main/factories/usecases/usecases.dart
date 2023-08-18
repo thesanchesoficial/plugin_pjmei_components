@@ -121,6 +121,7 @@ export './mei_management/get_notafical_service_factory.dart';
 export './mei_management/get_relatorio_mei_factory.dart';
 export './mei_management/list_notafiscal_factory.dart';
 export './mei_management/post_notafiscal_factory.dart';
+export './mei_management/put_cnpj_factory.dart';
 
 export './modules/delete_module_factory.dart';
 export './modules/list_all_modules_factory.dart';

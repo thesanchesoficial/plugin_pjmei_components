@@ -12,23 +12,22 @@ class RemoteRefreshToken implements RefreshToken {
         log: log,
         method: 'post',
         ignoreToken: true,
+        newReturnErrorMsg: true,
         body: {
           'refreshToken': '${userSM.user?.refreshToken}',
         },
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
       temp = temp.copyWith(
         refreshToken: httpResponse['success']['refreshToken'],
         accessToken: httpResponse['success']['accessToken'],
       );
       return temp;
-    } on HttpError catch (error) {
-      if (error == HttpError.notFound) {
-        throw DomainError.invalidCredentials;
-      } else if (error == HttpError.badRequest) {
-        throw DomainError.invalidCredentials;
-      }
-      throw error;
+    } catch (errorMsg) {
+      throw errorMsg;
     }
   }
 }

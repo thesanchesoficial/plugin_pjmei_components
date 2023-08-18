@@ -16,6 +16,9 @@ class RemoteLogin implements Login {
         newReturnErrorMsg: true,
         body: RemoteLoginParams.fromDomain(params).toMap(),
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       UserEntity temp = UserEntity.fromMap(httpResponse['success']['user']);
       temp = temp.copyWith(
         refreshToken: httpResponse['success']['refreshToken'],

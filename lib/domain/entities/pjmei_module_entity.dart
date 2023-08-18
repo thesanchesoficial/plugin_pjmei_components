@@ -517,7 +517,10 @@ class ModulePjmei {
                   );
                 } else {
                   // vai abrir o navegador
-                  launchUrl(Uri.parse(route.toString()));
+                  launchUrl(
+                    Uri.parse(route.toString()),
+                    mode: LaunchMode.externalApplication,
+                  );
                 }
               } else {
                 // entrou por ser uma rota dentro do aplicativo

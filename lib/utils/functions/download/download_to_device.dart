@@ -61,7 +61,7 @@ Future<void> downloadToDevide(DownloadParams params) async {
     }
     if(kIsWeb) {
       if(params.url != null) {
-        launchUrl(Uri.parse(params.url!));
+        launchUrl(Uri.parse(params.url!), mode: LaunchMode.externalApplication,);
       } else if(params.bytes != null) {
         String fileName = DateTime.now().millisecondsSinceEpoch.toString();
         String savename = "${params.downloadName}-$fileName.${params.type}";

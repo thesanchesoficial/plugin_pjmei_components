@@ -30,7 +30,7 @@ class _WebviewPageState extends State<WebviewPage> {
           IconButton(
             icon: const Icon(EvaIcons.externalLink),
             onPressed: () {
-              launchUrl(Uri.parse(widget.params.url));
+              launchUrl(Uri.parse(widget.params.url), mode: LaunchMode.externalApplication,);
             },
           ),
         ],

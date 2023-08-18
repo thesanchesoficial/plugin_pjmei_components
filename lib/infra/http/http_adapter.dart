@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
@@ -29,6 +30,7 @@ class HttpAdapter implements HttpClient {
             await _newToken();
           } catch (e) {
             userSM.user = null;
+            navigatorKey.currentContext?.push('/');
             throw HttpError.serverError;
           }
         }
@@ -144,6 +146,7 @@ class HttpAdapter implements HttpClient {
       p('Novo accessToken: ${token.accessToken.toString()}');
       p('Novo refreshToken: ${token.refreshToken.toString()}');
       userSM.user = token;
+      ModelClass().onChange();
       return token;
     } catch (e) {
       p('Erro ao gerar novo token: ${e.toString()}');
@@ -152,4 +155,10 @@ class HttpAdapter implements HttpClient {
     }
   }
 
+}
+
+class ModelClass extends ChangeNotifier { 
+  void onChange() { 
+    checkUserNotifier.notifyListeners(); 
+  } 
 }

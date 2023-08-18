@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/ui/components/widgets/ow_text.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CardAtalhos extends StatelessWidget {
 
@@ -73,7 +74,7 @@ class CardAtalhos extends StatelessWidget {
                 icon == null || title == null
                     ? const SizedBox()
                     : const SizedBox(width: 10),
-                image == null ? const SizedBox() : Image.asset(image ?? '', height: 18),
+                image == null ? SizedBox() : (image!.contains('.svg') ? SvgPicture.asset(image!, semanticsLabel: image, height: 21,) : Image.asset(image!, height: 18)),
                 image == null ? const SizedBox() : const SizedBox(width: 10),
                 title == null
                     ? const SizedBox()

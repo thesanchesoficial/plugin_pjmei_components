@@ -20,7 +20,7 @@ class FinanceBankAccountEntity {
       id: map['id'] ?? '',
       balance: map['balance'] != null ? num.parse(map['balance'].toString()) : null,
       openingBalance: map['openingBalance'] != null ? num.parse(map['openingBalance'].toString()) : null,
-      bank: map['bank'] == null ? null : FinanceBankInstitutionEntity.fromMap(map['bank']),
+      bank: map['bankInstitution'] == null ?  map['bank'] == null ? null : FinanceBankInstitutionEntity.fromMap(map['bank']) : FinanceBankInstitutionEntity.fromMap(map['bankInstitution']),
       name: map['name'] ?? '',
       description: map['description'] ?? '',
       userId: map['userId'] ?? '',
