@@ -25,6 +25,7 @@ class RemoteRefreshToken implements RefreshToken {
         refreshToken: httpResponse['success']['refreshToken'],
         accessToken: httpResponse['success']['accessToken'],
       );
+      userSM.setUser(temp);
       return temp;
     } catch (errorMsg) {
       throw errorMsg;

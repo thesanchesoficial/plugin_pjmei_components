@@ -30,7 +30,7 @@ class HttpAdapter implements HttpClient {
             await _newToken();
           } catch (e) {
             userSM.user = null;
-            navigatorKey.currentContext?.push('/');
+            navigatorKey.currentContext?.push('/home');
             throw HttpError.serverError;
           }
         }
