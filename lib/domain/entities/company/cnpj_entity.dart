@@ -29,6 +29,7 @@ class CnpjEntity {
   String? dataSituacao;
   String? situacaoEsp;
   String? dataSituacaoEsp;
+  String updatedAt;
 
   CnpjEntity({
     this.cnpjBasico,
@@ -58,6 +59,7 @@ class CnpjEntity {
     this.dataSituacao,
     this.situacaoEsp,
     this.dataSituacaoEsp,
+    required this.updatedAt,
   });
 
   CnpjEntity copyWith({
@@ -88,6 +90,7 @@ class CnpjEntity {
     String? dataSituacao,
     String? situacaoEsp,
     String? dataSituacaoEsp,
+    String? updatedAt,
   }) {
     return CnpjEntity(
       cnpjBasico: cnpjBasico ?? this.cnpjBasico,
@@ -117,6 +120,7 @@ class CnpjEntity {
       dataSituacao: dataSituacao ?? this.dataSituacao,
       situacaoEsp: situacaoEsp ?? this.situacaoEsp,
       dataSituacaoEsp: dataSituacaoEsp ?? this.dataSituacaoEsp,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 
@@ -149,6 +153,7 @@ class CnpjEntity {
       'dataSituacao': dataSituacao,
       'situacaoEsp': situacaoEsp,
       'dataSituacaoEsp': dataSituacaoEsp,
+      'updatedAt': updatedAt,
     };
   }
 
@@ -181,6 +186,7 @@ class CnpjEntity {
       dataSituacao: map['dataSituacao'] ?? map['data_situacao'] ?? '',
       situacaoEsp: map['situacaoEsp'] ?? map['situacao_esp'] ?? '',
       dataSituacaoEsp: map['dataSituacaoEsp'] ?? map['data_situacao_esp'] ?? '',
+      updatedAt: map['updatedAt'] ?? map['updatedAt'] ?? '',
     );
   }
 
