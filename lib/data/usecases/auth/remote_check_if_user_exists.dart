@@ -16,6 +16,9 @@ class RemoteCheckIfUserExists implements CheckIfUserExists {
         newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        if(httpResponse['error']['errors'][0]['type'] == 'notFound') {
+          throw DomainError.userNotFound;
+        }
         throw httpResponse['error']['message'];
       }
       return RemoteCheckIfUserExistsParams.fromMap(httpResponse['success']).toEntity();
