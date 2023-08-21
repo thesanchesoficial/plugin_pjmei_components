@@ -124,7 +124,7 @@ class _ModalSelectUserAccountWidgetState
                                               CrossAxisAlignment.stretch,
                                           children: [
                                             OwText(
-                                              '${userSM.user?.nome}',
+                                              '${userSM.user?.name}',
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .titleMedium,
@@ -180,45 +180,6 @@ class _ModalSelectUserAccountWidgetState
                       .current?.settings.optionsModalUser[index];
                 },
               ),
-              // Material(
-              //   color: Colors.transparent,
-              //   child: Ink(
-              //     child: InkWell(
-              //       onTap: () async {
-              //         Navigator.pop(context);
-              //         await openModalPage(context, const BsSair(''));
-              //       },
-              //       child: Padding(
-              //         padding: const EdgeInsets.symmetric(
-              //           horizontal: 28,
-              //           vertical: 12,
-              //         ),
-              //         child: Row(
-              //           children: [
-              //             Icon(
-              //               EvaIcons.logOutOutline,
-              //               color: Theme.of(context).colorScheme.error,
-              //             ),
-              //             const SizedBox(
-              //               width: 16,
-              //             ),
-              //             Expanded(
-              //               child: OwText(
-              //                 'Sair da conta',
-              //                 style: Theme.of(context)
-              //                     .textTheme
-              //                     .titleMedium!
-              //                     .copyWith(
-              //                       color: Theme.of(context).colorScheme.error,
-              //                     ),
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
               const SizedBox(
                 height: 16,
               ),
@@ -232,33 +193,33 @@ class _ModalSelectUserAccountWidgetState
 
 Future setModalSelectUserAccountWidget(context, {bool isPf = false}) async {
   return showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          elevation: 0,
-          alignment: Alignment.topRight,
-          backgroundColor: Colors.transparent,
-          insetPadding: EdgeInsets.zero,
-          contentPadding:
-              const EdgeInsets.fromLTRB(10, 10 + kToolbarHeight, 10, 10),
-          content: Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              borderRadius: const BorderRadius.all(Radius.circular(30)),
-            ),
-            width: MediaQuery.sizeOf(context).width,
-            constraints: appSM.isWeb
-                ? const BoxConstraints(
-                    minWidth: 200,
-                    maxWidth: 360,
-                    minHeight: 180,
-                    maxHeight: 580,
-                  )
-                : null,
-            child: ModalSelectUserAccountWidget(
-              isPf: isPf,
-            ),
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        elevation: 0,
+        alignment: Alignment.topRight,
+        backgroundColor: Colors.transparent,
+        insetPadding: EdgeInsets.zero,
+        contentPadding: const EdgeInsets.fromLTRB(10, 10 + kToolbarHeight, 10, 10),
+        content: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).scaffoldBackgroundColor,
+            borderRadius: const BorderRadius.all(Radius.circular(30)),
           ),
-        );
-      });
+          width: MediaQuery.sizeOf(context).width,
+          constraints: appSM.isWeb
+              ? const BoxConstraints(
+                  minWidth: 200,
+                  maxWidth: 360,
+                  minHeight: 180,
+                  maxHeight: 580,
+                )
+              : null,
+          child: ModalSelectUserAccountWidget(
+            isPf: isPf,
+          ),
+        ),
+      );
+    }
+  );
 }
