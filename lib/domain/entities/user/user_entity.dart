@@ -14,7 +14,7 @@ class UserEntity {
   String? cpf;
   String? birth;
   String? phone;
-  String? image;
+  List<ImageEntity>? image;
   String? owner;
   List<AddressEntity>? address;
   final String? createdAt;
@@ -65,7 +65,7 @@ class UserEntity {
     String? cpf,
     String? birth,
     String? phone,
-    String? image,
+    List<ImageEntity>? image,
     String? owner,
     List<AddressEntity>? address,
     String? createdAt,
@@ -104,8 +104,8 @@ class UserEntity {
       'cpf': cpf,
       'birth': birth,
       'phone': phone,
-      'image': image,
       'owner': owner,
+      'image': image?.map((x) => x.toMap()).toList(),
       'address': address?.map((x) => x.toMap()).toList(),
       'createdAt': createdAt,
       'updatedAt': updatedAt,
@@ -125,7 +125,7 @@ class UserEntity {
       cpf: map['cpf'],
       birth: map['birth'] ?? map['nascimento'],
       phone: map['phone'] ?? map['telefone'],
-      image: map['image'],
+      image: map['image'] != null ? List<ImageEntity>.from(map['image']?.map((x) => ImageEntity.fromMap(x))) : [],
       owner: map['owner'] ?? map['id'],
       address: map['address'] != null ? List<AddressEntity>.from(map['address']?.map((x) => AddressEntity.fromMap(x))) : [],
       createdAt: map['createdAt'] ?? map['created_at'],
@@ -158,8 +158,8 @@ class UserEntity {
       other.cpf == cpf &&
       other.birth == birth &&
       other.phone == phone &&
-      other.image == image &&
       other.owner == owner &&
+      listEquals(other.image, image) &&
       listEquals(other.address, address) &&
       other.createdAt == createdAt &&
       other.updatedAt == updatedAt &&
