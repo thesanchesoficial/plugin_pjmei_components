@@ -12,9 +12,12 @@ class RemoteDeleteAccount implements DeleteAccount {
         log: log,
         method: 'delete',
       );
+      if (httpResponse != null && (httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       return httpResponse == null;
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }
