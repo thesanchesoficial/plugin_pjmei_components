@@ -13,11 +13,19 @@ class RemoteUpdateUser implements UpdateUser {
         url: url,
         log: log,
         method: 'put',
-        body: user.toMap().remove({"email": user.email}),
+        body: {
+          'id': user.id,
+          'name': user.name,
+          'email': user.email,
+          'phone': user.phone,
+        },
       );
-      return UserEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if (httpResponse != null && (httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return UserEntity.fromMap(httpResponse['success']['user']);
+    } catch (e) {
+      throw e;
     }
   }
 }

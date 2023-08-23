@@ -5,17 +5,24 @@ class RemoteChangePassword implements ChangePassword {
   final HttpClient httpClient;
   final String url;
 
-  Future<UserEntity> exec({bool log = false}) async {
+  Future<bool> exec(String oldPassword, String newPassword, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
-        method: 'put',
+        method: 'post',
+        body: {
+          'oldPassword': oldPassword,
+          'newPassword': newPassword,
+        },
         ignoreToken: true,
       );
-      return UserEntity.fromMap(httpResponse['success']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if (httpResponse != null && (httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return httpResponse == null;
+    } catch (e) {
+      throw e;
     }
   }
 }

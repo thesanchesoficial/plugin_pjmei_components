@@ -1,5 +1,3 @@
-import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-
 abstract class ChangePassword {
-  Future<UserEntity> exec({bool log = false});
+  Future<bool> exec(String oldPassword, String newPassword, {bool log = false});
 }
