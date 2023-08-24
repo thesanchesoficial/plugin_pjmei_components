@@ -7,6 +7,6 @@ class ColorSystem {
   ColorSystem({
     this.type,
     required this.context,
-    this.defaultType = 'background',
+    this.defaultType = 'primaryContainer',
   });
 }

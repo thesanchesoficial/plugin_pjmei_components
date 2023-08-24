@@ -87,7 +87,7 @@ class LVM02 extends StatelessWidget {
                                           '${modules[index].title}',
                                           style: Theme.of(context)
                                               .textTheme
-                                              .titleLarge!
+                                              .titleMedium!
                                               .copyWith(
                                                 color: colors.onBackground,
                                               ),
@@ -98,7 +98,7 @@ class LVM02 extends StatelessWidget {
                                             Valid.text(modules[index].title) &&
                                                 Valid.text(
                                                     modules[index].description),
-                                        child: const SizedBox(height: 6),
+                                        child: const SizedBox(height: 4),
                                       ),
                                       Visibility(
                                         visible: Valid.text(

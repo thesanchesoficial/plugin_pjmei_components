@@ -25,6 +25,7 @@ class LVM04 extends StatelessWidget {
                   0,
                 ),
               ),
+              const OwDivider(),
               ListView.builder(
                 padding: const EdgeInsets.all(0),
                 shrinkWrap: true,
