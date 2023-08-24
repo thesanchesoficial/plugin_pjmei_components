@@ -28,9 +28,9 @@ class DiscoverMoreCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ColorsByToken colors = ColorsAdapter.getByType(color);
     return Container(
-      width: MediaQuery.sizeOf(context).width * 0.8,
+      width: MediaQuery.sizeOf(context).width * 0.7,
       constraints: const BoxConstraints(
-        maxWidth: 310,
+        maxWidth: 260,
         minWidth: 180,
       ),
       child: ElevatedButton(
@@ -86,7 +86,7 @@ class DiscoverMoreCard extends StatelessWidget {
                             visible: Valid.text(title),
                             child: OwText(
                               '${title}',
-                              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                              style: Theme.of(context).textTheme.titleLarge!.copyWith(
                                 color: colors.onBackground,
                               ),
                               maxLines: 2,
@@ -98,7 +98,7 @@ class DiscoverMoreCard extends StatelessWidget {
                     ),
                     Visibility(
                       visible: (leading != null || Valid.text(title)),
-                      child: const SizedBox(height: 15),
+                      child: const SizedBox(height: 10),
                     ),
                     Visibility(
                       visible: Valid.text(description),
@@ -109,13 +109,16 @@ class DiscoverMoreCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    OwButton.dynamic(
-                      color: colors.spotlightColor,
-                      foregroundColor: colors.onSpotlightColor,
-                      labelText: labelTextButton ?? 'Saiba mais',
-                      height: 40,
-                      onPressed: onPressed,
+                    Visibility(
+                      visible: Valid.text(labelTextButton),
+                      child: OwButton.dynamic(
+                        margin: const EdgeInsets.only(top: 15),
+                        color: colors.spotlightColor,
+                        foregroundColor: colors.onSpotlightColor,
+                        labelText: labelTextButton ?? 'Saiba mais',
+                        height: 40,
+                        onPressed: onPressed,
+                      ),
                     ),
                   ],
                 ),

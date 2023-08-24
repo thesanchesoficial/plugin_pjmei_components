@@ -386,7 +386,7 @@ class ModulePjmei {
       image: child,
       title: title,
       description: description,
-      label: params?['labelButton'] ?? 'Acessar',
+      label: params?['labelButton'],
       router: route,
       params: toMap(),
     );
@@ -472,6 +472,8 @@ class ModulePjmei {
               '#moduleDescription': description,
               ':companyId': '${companySM.company?.id}',
               '#companyId': '${companySM.company?.id}',
+              ':establishmentId': '${ecommerceSM.establishment?.id}',
+              '#establishmentId': '${ecommerceSM.establishment?.id}',
             });
             context.push(route!, extra: this);
           }

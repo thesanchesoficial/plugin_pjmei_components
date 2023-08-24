@@ -23,7 +23,7 @@ class LHM04 extends StatelessWidget {
             }),
             child: SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(
-                25,
+                15,
                 25,
                 25,
                 0,
