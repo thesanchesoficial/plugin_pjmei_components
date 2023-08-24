@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class LHM05 extends StatelessWidget {
@@ -59,8 +60,8 @@ class LHM05 extends StatelessWidget {
                                 child: Container(
                                   padding: const EdgeInsets.all(25),
                                   width: modules.length > 1
-                                      ? MediaQuery.sizeOf(context).width * 0.8
-                                      : MediaQuery.sizeOf(context).width - 15,
+                                      ? MediaQuery.sizeOf(context).width * 0.7
+                                      : MediaQuery.sizeOf(context).width - 50,
                                   constraints: BoxConstraints(
                                     maxWidth: modules.length > 1
                                         ? 340
@@ -94,13 +95,17 @@ class LHM05 extends StatelessWidget {
                                       ),
                                       Visibility(
                                         visible: Valid.text(module.description),
-                                        child: OwText(
+                                        child: HtmlWidget(
                                           '${module.description}',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge!
-                                              .copyWith(
-                                                  color: colors.onBackground),
+                                          onErrorBuilder: (context, element, error) => OwText('$element error: $error'),
+                                          onLoadingBuilder: (context, element, loadingProgress) => const CircularProgressIndicator(),
+                                          customStylesBuilder: (element) {
+                                            return null;
+                                          },
+                                          renderMode: RenderMode.column,
+                                          textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                            color: colors.onBackground,
+                                          ),
                                         ),
                                       ),
                                     ],
