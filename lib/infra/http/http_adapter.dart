@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
@@ -18,11 +17,8 @@ class HttpAdapter implements HttpClient {
     bool ignoreToken = false,
   }) async {
     Map<String, String> defaultHeaders = {};
-
     if(ignoreToken) {
       p('Ignorando token.');
-      p('accessToken atual: ${userSM.user?.accessToken}');
-      p('refreshToken atual: ${userSM.user?.refreshToken}');
     } else {
       if (userSM.user?.accessToken != null) {
         if (JwtDecoder.isExpired(userSM.user!.accessToken ?? "")) {
@@ -141,24 +137,14 @@ class HttpAdapter implements HttpClient {
 
   Future<UserEntity> _newToken() async {
     try {
-      p('Obtendo novo token');
-      UserEntity token = await makeRefreshToken().exec();
-      p('Novo accessToken: ${token.accessToken.toString()}');
-      p('Novo refreshToken: ${token.refreshToken.toString()}');
-      userSM.user = token;
-      ModelClass().onChange();
-      return token;
+      UserEntity user = await makeRefreshToken().exec();
+      userSM.setUser(user);
+      checkUserNotifier.value = user;
+      return user;
     } catch (e) {
-      p('Erro ao gerar novo token: ${e.toString()}');
       userSM.user = null;
       throw e;
     }
   }
 
-}
-
-class ModelClass extends ChangeNotifier { 
-  void onChange() { 
-    checkUserNotifier.notifyListeners(); 
-  } 
 }

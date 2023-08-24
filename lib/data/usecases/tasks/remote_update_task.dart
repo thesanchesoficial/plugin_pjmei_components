@@ -18,8 +18,8 @@ class RemoteUpdateTask implements UpdateTask {
         throw httpResponse['error']['message'];
       }
       return TaskEntity.fromMap(httpResponse['success']['task']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

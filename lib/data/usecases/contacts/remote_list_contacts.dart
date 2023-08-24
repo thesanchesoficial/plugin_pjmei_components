@@ -21,8 +21,8 @@ class RemoteListContacts implements ListContacts {
         _list.add(ContactEntity.fromMap(e));
       }).toList();
       return _list;
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

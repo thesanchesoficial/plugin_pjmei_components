@@ -18,8 +18,8 @@ class RemoteUpdateContact implements UpdateContact {
         throw httpResponse['error']['message'];
       }
       return ContactEntity.fromMap(httpResponse['success']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

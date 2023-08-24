@@ -15,9 +15,12 @@ class RemoteAddSecret implements AddSecret {
         'password': passwordCrypt,
         'company_id': companySM.company?.id,
       });
-      return SecretEntity.fromMap(httpResponse['success']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return SecretEntity.fromMap(httpResponse['success']['secret']);
+    } catch (e) {
+      throw e;
     }
   }
 }

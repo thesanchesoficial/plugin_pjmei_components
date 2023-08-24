@@ -11,6 +11,11 @@ void main() {
 
   WidgetsFlutterBinding.ensureInitialized();
   StateManagementInit();
+
+  checkUserNotifier.addListener(() {
+    print('alterou algo\n\n');
+  });
+  
   runApp(
     DynamicColorBuilder(
       builder: (lightColorScheme, darkColorScheme) {

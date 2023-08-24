@@ -18,8 +18,8 @@ class RemoteAddContact implements AddContact {
         throw httpResponse['error']['message'];
       }
       return ContactEntity.fromMap(httpResponse['success']['contact']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

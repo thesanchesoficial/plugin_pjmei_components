@@ -12,13 +12,16 @@ class RemoteListSecrets implements ListSecrets {
         log: log,
         method: 'get',
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       final List<SecretEntity> _list = [];
-      httpResponse['success'].map((e) {
+      httpResponse['success']['items'].map((e) {
         _list.add(SecretEntity.fromMap(e));
       }).toList();
       return _list;
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

@@ -21,8 +21,8 @@ class RemoteListTasks implements ListTasks {
         _list.add(TaskEntity.fromMap(e));
       }).toList();
       return _list;
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }
