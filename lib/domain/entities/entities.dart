@@ -1,5 +1,7 @@
 export './address/address_entity.dart';
 
+export './bill/bill_entity.dart';
+
 export './blog/category_blog_entity.dart';
 export './blog/post_blog_entity.dart';
 

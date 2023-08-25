@@ -10,6 +10,8 @@ export './auth/send_email_recover_password_factory.dart';
 
 export './balance/get_basic_data_factory.dart';
 
+export './bill/list_bill_by_establishment_factory.dart';
+
 export './blog/get_list_categories_blog.dart';
 export './blog/get_list_posts_blog.dart';
 
@@ -207,3 +209,8 @@ export './user/delete_account_factory.dart';
 export './user/delete_user_factory.dart';
 export './user/list_users_factory.dart';
 export './user/update_user_factory.dart';
+
+export './voucher/delete_voucher_factory.dart';
+export './voucher/insert_voucher_factory.dart';
+export './voucher/list_by_establishment_voucher_factory.dart';
+export './voucher/update_voucher_factory.dart';

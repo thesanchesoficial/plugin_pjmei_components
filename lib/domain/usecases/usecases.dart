@@ -11,6 +11,8 @@ export './auth/send_email_recover_password.dart';
 export './balance/get_balance.dart';
 export './balance/get_basic_data.dart';
 
+export './bill/list_bill_by_establishment.dart';
+
 export './blog/get_list_categories_blog.dart';
 export './blog/get_list_posts_blog.dart';
 
@@ -230,3 +232,8 @@ export './user/delete_account.dart';
 export './user/delete_user.dart';
 export './user/list_users.dart';
 export './user/update_user.dart';
+
+export './voucher/delete_voucher.dart';
+export './voucher/insert_voucher.dart';
+export './voucher/list_by_establishment_voucher.dart';
+export './voucher/update_voucher.dart';

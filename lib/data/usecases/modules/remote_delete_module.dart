@@ -1,5 +1,4 @@
 import 'package:plugin_pjmei_components/data/http/http.dart';
-import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
 import 'package:plugin_pjmei_components/domain/usecases/modules/delete_module.dart';
 
 class RemoteDeleteModule implements DeleteModule {
@@ -16,9 +15,12 @@ class RemoteDeleteModule implements DeleteModule {
         log: log,
         method: 'delete',
       );
+      if (httpResponse != null && (httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       return httpResponse == null;
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

@@ -14,11 +14,14 @@ class RemoteListAllModules implements ListAllModules {
         log: log,
         method: 'get',
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       return (httpResponse["success"] as List)
           .map((e) => ModulePjmei.fromMap(e))
           .toList();
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

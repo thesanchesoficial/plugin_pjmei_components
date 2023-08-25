@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/data/http/http.dart';
 import 'package:plugin_pjmei_components/domain/entities/pjmei_module_entity.dart';
-import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
 import 'package:plugin_pjmei_components/domain/usecases/modules/list_modules.dart';
 
 class RemoteListModules implements ListModules {
@@ -15,14 +14,14 @@ class RemoteListModules implements ListModules {
         log: log,
         method: 'get',
       );
-      if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
-        throw HttpError.notFound;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
       }
       return ((httpResponse['success']) as List)
           .map((e) => ModulePjmei.fromMap(e))
           .toList();
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

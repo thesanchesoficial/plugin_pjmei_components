@@ -15,9 +15,12 @@ class RemoteUpdateModule implements UpdateModule {
         method: 'put',
         body: item.toMap(),
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       return ModulePjmei.fromMap(httpResponse["success"]);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

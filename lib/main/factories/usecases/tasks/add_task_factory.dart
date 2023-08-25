@@ -4,4 +4,6 @@ import 'package:plugin_pjmei_components/main/factories/http/api_url_factory.dart
 import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.dart';
 
 AddTask makeRemoteAddTask() => RemoteAddTask(
-    httpClient: makeHttpAdapter(), url: makeApiUrl('venver/task'));
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/task'),
+);

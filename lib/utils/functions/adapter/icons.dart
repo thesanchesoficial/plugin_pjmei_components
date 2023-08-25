@@ -523,5 +523,6 @@ class IconAdapter {
     "Icons.storefront_outlined":Icons.storefront_outlined,
     "Icons.local_play_rounded":Icons.local_play_rounded,
     "Icons.wallet_outlined":Icons.wallet_outlined,
+    "Icons.calculate_outlined":Icons.calculate_outlined,
   };
 }

@@ -10,6 +10,8 @@ export './auth/remote_send_email_recover_password.dart';
 
 export './balance/remote_get_basic_data.dart';
 
+export './bill/list_bill_by_establishment.dart';
+
 export './blog/remote_get_list_categories_blog.dart';
 export './blog/remote_get_list_posts_blog.dart';
 
@@ -183,6 +185,11 @@ export './user/delete_account.dart';
 export './user/remote_delete_user.dart';
 export './user/remote_list_users.dart';
 export './user/remote_update_user.dart';
+
+export './voucher/remote_delete_voucher.dart';
+export './voucher/remote_insert_voucher.dart';
+export './voucher/remote_list_by_establishment_voucher.dart';
+export './voucher/remote_update_voucher.dart';
 
 export './das/remote_get_list_das_items.dart';
 
