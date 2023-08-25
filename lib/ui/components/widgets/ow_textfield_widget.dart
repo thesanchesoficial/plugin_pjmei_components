@@ -226,12 +226,7 @@ class OwTextField extends StatelessWidget {
         readOnly: readOnly,
         controller: controller,
         textInputAction: textInputAction ?? _textInputAction,
-        // onSaved: onSaved,
-        // validator: validator,
-        // onFieldSubmitted: (_) {
-        //   onFieldSubmitted?.call(_);
-        //   _goToNextFocusNode?.call();
-        // },
+        onSubmitted: onFieldSubmitted,
         enableSuggestions: true,
         focusNode: _focusNode,
         obscureText: obscureText,
