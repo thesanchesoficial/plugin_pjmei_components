@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 FindCompany makeRemoteFindCompany(String id) => RemoteFindCompany(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/empresa/consultar/$id')
+  url: makeApiUrl('venver/company/$id')
 );

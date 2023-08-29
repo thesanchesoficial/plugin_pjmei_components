@@ -40,19 +40,13 @@ export './das/get_list_das_item.dart';
 export './dasn/get_list_dasn_item.dart';
 export './dasn/post_dasn_item.dart';
 
-export './documents/create_document_filters.dart';
+export './documents/create_document_subtype.dart';
 export './documents/create_document_type.dart';
-export './documents/create_documents.dart';
-export './documents/delete_document_filters.dart';
-export './documents/delete_document_type.dart';
-export './documents/delete_documents.dart';
-export './documents/get_documentfilters.dart';
-export './documents/get_documents.dart';
-export './documents/get_documenttype.dart';
-export './documents/list_document_filters.dart';
+export './documents/create_document.dart';
+export './documents/list_document_subtype.dart';
 export './documents/list_document_type.dart';
 export './documents/list_documents.dart';
-export './documents/update_document_filters.dart';
+export './documents/update_document_subtype.dart';
 export './documents/update_document_type.dart';
 export './documents/update_documents.dart';
 
@@ -170,10 +164,6 @@ export './online_store/add_online_store.dart';
 export './online_store/find_online_store_by_company_id.dart';
 export './online_store/update_online_store.dart';
 export './online_store/update_online_store_categories.dart';
-
-export './page_bio/add_page_bio.dart';
-export './page_bio/get_page_bio.dart';
-export './page_bio/update_page_bio.dart';
 
 export './payment_assistant/list_transactions_by_date.dart';
 

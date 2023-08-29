@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class DiscoverMoreCard extends StatelessWidget {

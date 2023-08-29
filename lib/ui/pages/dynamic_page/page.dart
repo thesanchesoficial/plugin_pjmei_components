@@ -113,10 +113,10 @@ class _PageDynamicPageState extends State<PageDynamicPage> with AutomaticKeepAli
 
   void callApi() async {
     try {
-      modules = await makeRemoteGetListModules(params: {
+      modules = await  Api.module.list(params: {
         'screen': "${widget.module.params?["idDynamicPage"]}",
         'companyId': companySM.company?.id,
-      }).exec();
+      });
     } catch (e) {
       // e
     }

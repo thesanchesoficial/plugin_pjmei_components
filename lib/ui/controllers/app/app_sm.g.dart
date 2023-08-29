@@ -123,13 +123,13 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
       Atom(name: 'AppSMStoreBase.whiteLabel', context: context);
 
   @override
-  WhiteLabelApp? get whiteLabel {
+  WhiteLabelEntity? get whiteLabel {
     _$whiteLabelAtom.reportRead();
     return super.whiteLabel;
   }
 
   @override
-  set whiteLabel(WhiteLabelApp? value) {
+  set whiteLabel(WhiteLabelEntity? value) {
     _$whiteLabelAtom.reportWrite(value, super.whiteLabel, () {
       super.whiteLabel = value;
     });
@@ -232,7 +232,7 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
   }
 
   @override
-  void setWhiteLabel(WhiteLabelApp item) {
+  void setWhiteLabel(WhiteLabelEntity item) {
     final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
         name: 'AppSMStoreBase.setWhiteLabel');
     try {

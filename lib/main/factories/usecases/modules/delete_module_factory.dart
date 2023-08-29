@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 DeleteModule makeRemoteDeleteModule(String id) => RemoteDeleteModule(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('pjmei/modules/$id')
+  url: makeApiUrl('pjmei/modules/$id'),
 );

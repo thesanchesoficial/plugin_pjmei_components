@@ -1,37 +1,30 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
 
-
-class RemoteCreateDocuments implements CreateDocuments {
+class RemoteAddDocument implements AddDocument {
   final HttpClient httpClient;
   final String url;
 
-  RemoteCreateDocuments({
+  RemoteAddDocument({
     required this.httpClient,
     required this.url
   });
 
   @override
-  Future<bool> exec(DocumentEntity params, List<int>? file, {bool log = false}) async {
+  Future<DocumentEntity> exec(DocumentEntity params, {bool log = false}) async {
     try {
-      var req = http.MultipartRequest('POST', Uri.parse(url));
-      req.headers['Content-Type'] = 'multipart/form-data';
-      req.headers['x_api_key'] = '${Environment.current?.apiKey}';
-      req.headers['Authorization'] = 'Bearer ${userSM.user?.accessToken}';
-      req.files.add(http.MultipartFile.fromBytes(
-        'file', file!,
-        contentType: MediaType('application', 'pdf'),
-        filename: "arquivo.pdf"),
+      final httpResponse = await httpClient.request(
+        url: url,
+        log: log,
+        method: 'post',
+        body: params.toMap(),
+        newReturnErrorMsg: true,
       );
-      req.fields['cnpj'] = params.cnpj ?? '';
-      req.fields['due_date'] = params.dueDate?.toLocal().toString() ?? '';
-      req.fields['value'] = params.value.toString();
-      req.fields['status'] = 'devedor';
-      final streamedResponse = await req.send();
-      return streamedResponse.statusCode == 200;
-    } on HttpError catch(_) {
-      throw DomainError.unexpected;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return DocumentEntity.fromMap(httpResponse['success']['document']);
+    } catch (e) {
+      throw e;
     }
   }
 }

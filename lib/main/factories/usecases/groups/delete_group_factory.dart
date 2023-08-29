@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 DeleteModule makeRemoteDeleteGroup(String id) => RemoteDeleteModule(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/group/backoffice/$id')
+  url: makeApiUrl('venver/group/$id')
 );

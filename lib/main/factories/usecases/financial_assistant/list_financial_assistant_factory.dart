@@ -3,8 +3,7 @@ import 'package:plugin_pjmei_components/domain/usecases/financial_assistant/list
 
 import '../../factories.dart';
 
-ListFinancialAssistant makeRemoteListFinancialAssistant(String id) =>
-    RemoteListFinancialAssistant(
-      httpClient: makeHttpAdapter(),
-      url: makeApiUrl('venver/financial-assistant/$id/company'),
-    );
+ListFinancialAssistant makeRemoteListFinancialAssistant(String id) => RemoteListFinancialAssistant(
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/financial-assistant/company/$id'),
+);

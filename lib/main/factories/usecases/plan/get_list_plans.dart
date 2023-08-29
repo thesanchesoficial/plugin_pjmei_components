@@ -3,8 +3,7 @@ import 'package:plugin_pjmei_components/domain/usecases/plans/get_list_plans.dar
 
 import '../../factories.dart';
 
-GetListPlans makeRemoteGetListPlans({Map<String, dynamic>? params}) =>
-    RemoteGetListPlans(
-      httpClient: makeHttpAdapter(),
-      url: makeApiUrl('venver/plan-client', params: params),
-    );
+GetListPlans makeRemoteGetListPlans({Map<String, dynamic>? params}) => RemoteGetListPlans(
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/plan-client', params: params),
+);

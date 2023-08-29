@@ -3,9 +3,7 @@ import 'package:plugin_pjmei_components/domain/usecases/blog/get_list_categories
 
 import '../../factories.dart';
 
-GetListCategoriesBlog makeRemoteGetListCategoriesBlog(
-        {Map<String, dynamic>? params}) =>
-    RemoteGetListCategoriesBlog(
-      httpClient: makeHttpAdapter(),
-      url: 'https://www.pjmei.app/_functions/blog/categorias',
-    );
+GetListCategoriesBlog makeRemoteGetListCategoriesBlog({Map<String, dynamic>? params}) => RemoteGetListCategoriesBlog(
+  httpClient: makeHttpAdapter(),
+  url: 'https://www.pjmei.app/_functions/blog/categorias',
+);

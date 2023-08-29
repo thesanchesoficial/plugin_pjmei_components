@@ -39,6 +39,10 @@ class HttpAdapter implements HttpClient {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ${userSM.user?.accessToken}',
         'company': '${companySM.company?.id}',
+        'x-pjmei-environment': '${WhiteLabelEntity.current?.id}',
+        'x-pjmei-version': '$minimalVersion',
+        'x-pjmei-company': '${companySM.company?.id}',
+        'x-pjmei-user': '${userSM.user?.id}',
         'x-api-key': Environment.current!.apiKey,
       });
     }
@@ -137,9 +141,9 @@ class HttpAdapter implements HttpClient {
 
   Future<UserEntity> _newToken() async {
     try {
-      UserEntity user = await makeRefreshToken().exec();
+      UserEntity user = await Api.auth.newRefreshToken();
       userSM.setUser(user);
-      checkUserNotifier.value = user;
+      checkUserNotifier.value = userSM.user;
       return user;
     } catch (e) {
       userSM.user = null;

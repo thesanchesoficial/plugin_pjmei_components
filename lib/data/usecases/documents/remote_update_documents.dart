@@ -1,32 +1,33 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:http/http.dart' as http;
 
-class RemoteUpdateDocuments implements UpdateDocuments {
+class RemoteUpdateDocument implements UpdateDocument {
   final HttpClient httpClient;
   final String url;
 
-  RemoteUpdateDocuments({
+  RemoteUpdateDocument({
     required this.httpClient,
     required this.url
   });
 
   @override
-  Future<bool> exec(DocumentEntity params, {bool log = false}) async {
+  Future<DocumentEntity> exec(DocumentEntity params, {bool log = false}) async {
     try {
-      var req = http.MultipartRequest('PUT', Uri.parse(url));
-      req.headers['Content-Type'] = 'multipart/form-data';
-      req.headers['x_api_key'] = '${Environment.current?.apiKey}';
-      req.headers['Authorization'] = 'Bearer ${userSM.user?.accessToken}';
-      req.fields['cnpj'] = params.cnpj ?? '';
-      req.fields['due_date'] = params.dueDate?.toLocal().toString() ?? '';
-      req.fields['value'] = params.value.toString();
-      req.fields['status'] = 'devedor';
-      req.fields['url'] = params.url!;
-      final streamedResponse = await req.send();
-    
-      return streamedResponse.statusCode == 200;
-    } on HttpError catch(_) {
-      throw DomainError.unexpected;
+      final httpResponse = await httpClient.request(
+        url: url,
+        log: log,
+        method: 'put',
+        body: params.toMap(),
+        newReturnErrorMsg: true,
+      );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      if(httpResponse['success']['document'] != null) {
+        return DocumentEntity.fromMap(httpResponse['success']['document']);
+      }
+      return DocumentEntity.fromMap(httpResponse['success']);
+    } catch (e) {
+      throw e;
     }
   }
 }

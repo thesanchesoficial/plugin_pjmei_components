@@ -4,6 +4,6 @@ import 'package:plugin_pjmei_components/domain/usecases/stories/story_item/add_s
 import '../../../factories.dart';
 
 AddStoryItem makeRemoteAddStoryItem() => RemoteAddStoryItem(
-      httpClient: makeHttpAdapter(),
-      url: makeApiUrl('venver/story-item'),
-    );
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/story-item'),
+);

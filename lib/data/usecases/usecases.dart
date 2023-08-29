@@ -34,18 +34,9 @@ export './contacts/remote_update_contact.dart';
 
 export './coupon/remote_get_coupon.dart';
 
-export './documents/remote_create_document_filters.dart';
-export './documents/remote_create_document_type.dart';
 export './documents/remote_create_documents.dart';
-export './documents/remote_delete_documents.dart';
-export './documents/remote_delete_documents_filters.dart';
-export './documents/remote_delete_documets_type.dart';
-export './documents/remote_get_document.dart';
-export './documents/remote_get_document_filter.dart';
-export './documents/remote_get_document_type.dart';
-export './documents/remote_list_document_filters.dart';
-export './documents/remote_list_document_filters_by_type.dart';
-export './documents/remote_list_document_type.dart';
+export './documents/remote_list_documents.dart';
+export './documents/remote_update_documents.dart';
 
 export './extracts/remote_get_balance.dart';
 export './extracts/remote_list_payables.dart';
@@ -123,10 +114,6 @@ export './online_store/remote_add_online_store.dart';
 export './online_store/remote_find_online_store_by_company_id.dart';
 export './online_store/remote_update_online_store.dart';
 export './online_store/remote_update_online_store_categories.dart';
-
-export './page_bio/remote_add_page_bio.dart';
-export './page_bio/remote_get_page_bio.dart';
-export './page_bio/remote_update_page_bio.dart';
 
 export './payment_assistant/list_transactions_by_date.dart';
 

@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 ListBusines makeRemoteListBusiness(Map<String, dynamic> params) => RemoteListBusiness(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/empresa', params: params)
+  url: makeApiUrl('venver/company', params: params)
 );

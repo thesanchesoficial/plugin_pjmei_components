@@ -15,10 +15,4 @@ export 'package:shared_preferences/shared_preferences.dart';
 export 'package:flutter_tags/flutter_tags.dart';
 export 'package:jwt_decoder/jwt_decoder.dart';
 export 'package:url_launcher/url_launcher.dart';
-import 'plugin_pjmei_components_platform_interface.dart';
-
-class PluginPjmeiComponents {
-  Future<String?> getPlatformVersion() {
-    return PluginPjmeiComponentsPlatform.instance.getPlatformVersion();
-  }
-}
+export 'package:flutter_mobx/flutter_mobx.dart';

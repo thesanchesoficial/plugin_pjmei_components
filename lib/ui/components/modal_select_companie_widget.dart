@@ -54,7 +54,7 @@ class _ModalSelectCompanyWidgetState
                           ),
                         ),
                         Image.asset(
-                          '${WhiteLabelApp.current?.logoMenuWeb}',
+                          '${WhiteLabelEntity.current?.style.resource.logoMenuWeb}',
                           fit: BoxFit.fitHeight,
                           color: Theme.of(context).colorScheme.primary,
                           height: 15,
@@ -124,7 +124,7 @@ class _ModalSelectCompanyWidgetState
                                               CrossAxisAlignment.stretch,
                                           children: [
                                             OwText(
-                                              '${companySM.company?.nomeFantasia}',
+                                              '${companySM.company?.fantasyName}',
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .titleMedium,
@@ -191,18 +191,15 @@ class _ModalSelectCompanyWidgetState
                   );
                 },
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount:
-                    WhiteLabelApp.current?.settings.optionsModalBusiness.length,
-                itemBuilder: (context, index) {
-                  return WhiteLabelApp.current?.settings.optionsModalBusiness[index];
-                },
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              // ListView.builder(
+              //   shrinkWrap: true,
+              //   physics: const NeverScrollableScrollPhysics(),
+              //   itemCount: WhiteLabelEntity.current?.settings.optionsModalBusiness.length,
+              //   itemBuilder: (context, index) {
+              //     return WhiteLabelEntity.current?.settings.optionsModalBusiness[index];
+              //   },
+              // ),
+              const SizedBox(height: 16),
             ],
           ),
         ),
@@ -220,8 +217,7 @@ Future setModalSelectCompanieWidget(context, {bool isStore = false}) async {
         alignment: Alignment.topLeft,
         backgroundColor: Colors.transparent,
         insetPadding: EdgeInsets.zero,
-        contentPadding:
-            const EdgeInsets.fromLTRB(10, 10 + kToolbarHeight, 10, 10),
+        contentPadding: const EdgeInsets.fromLTRB(10, 10 + kToolbarHeight, 10, 10),
         content: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).scaffoldBackgroundColor,

@@ -1,216 +1,236 @@
-export './agendamento/get_agendamento_factory.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-export './auth/change_password_factory.dart';
-export './auth/check_if_user_exists_factory.dart';
-export './auth/login_factory.dart';
-export './auth/new_password_factory.dart';
-export './auth/new_refresh_token.dart';
-export './auth/register_factory.dart';
-export './auth/send_email_recover_password_factory.dart';
+import './auth/change_password_factory.dart';
+import './auth/check_if_user_exists_factory.dart';
+import './auth/login_factory.dart';
+import './auth/new_password_factory.dart';
+import './auth/new_refresh_token.dart';
+import './auth/register_factory.dart';
+import './auth/send_email_recover_password_factory.dart';
 
-export './balance/get_basic_data_factory.dart';
+import './blog/get_list_categories_blog.dart';
+import './blog/get_list_posts_blog.dart';
 
-export './bill/list_bill_by_establishment_factory.dart';
+import './ccmei/get_ccmei_factory.dart';
 
-export './blog/get_list_categories_blog.dart';
-export './blog/get_list_posts_blog.dart';
+import './cnpj/get_cnpj_factory.dart';
+import './cnpj/put_cnpj_factory.dart';
 
-export './cards/add_category_in_extras_services_factory.dart';
-export './cards/list_all_cards_factory.dart';
-export './cards/remove_category_by_id_in_extras_services_factory.dart';
-export './cards/update_category_by_id_in_extras_services_factory.dart';
+import './company/delete_company_factory.dart';
+import './company/list_business_factory.dart';
+import './company/list_company_factory.dart';
+import './company/update_company_factory.dart';
+import './company/insert_company_factory.dart';
+import './company/find_company_factory.dart';
+import './company/dashboard_basic_company_factory.dart';
 
-export './check-user/check_user_factory.dart';
+import './contacts/add_contact_factory.dart';
+import './contacts/delete_contact_factory.dart';
+import './contacts/list_contact_factory.dart';
+import './contacts/update_contact_factory.dart';
 
-export './company/delete_company_factory.dart';
-export './company/list_business_factory.dart';
-export './company/list_company_factory.dart';
-export './company/update_company_factory.dart';
-export './company/insert_company_factory.dart';
-export './company/find_company_factory.dart';
+import './das/get_das_factory.dart';
+import './das/update_das_factory.dart';
 
-export './contacts/add_contact_factory.dart';
-export './contacts/delete_contact_factory.dart';
-export './contacts/list_contact_factory.dart';
-export './contacts/update_contact_factory.dart';
+import './dasn/get_list_dasn_factory.dart';
+import './dasn/post_dasn_factory.dart';
 
-export './coupon/get_coupon.dart';
+import './documents/delete_document_factory.dart';
+import './documents/insert_document_factory.dart';
+import './documents/list_documents_factory.dart';
+import './documents/update_document_factory.dart';
 
-export './das/get_das_factory.dart';
-export './das/update_das_factory.dart';
-
-export './dasn/get_list_dasn_factory.dart';
-export './dasn/post_dasn_factory.dart';
-
-export './documents/create_document_filters_factory.dart';
-export './documents/create_document_type_factory.dart';
-export './documents/create_documents_factory.dart';
-export './documents/delete_document_factory.dart';
-export './documents/delete_document_filters_factory.dart';
-export './documents/delete_document_type_factory.dart';
-export './documents/list_document_filters_by_type_factory.dart';
-export './documents/list_document_filters_factory.dart';
-export './documents/list_document_type_factory.dart';
-export './documents/list_documents_by_filter_factory.dart';
-export './documents/list_documents_by_subtype_factory.dart';
-export './documents/list_documents_by_type_factory.dart';
-export './documents/list_documents_factory.dart';
-export './documents/update_document_factory.dart';
-export './documents/update_document_filters_factory.dart';
-export './documents/update_document_type_factory.dart';
-
-export './extracts/get_balance.dart';
-export './extracts/list_payables.dart';
-
-export './extras_services/add_category_in_extras_services_factory.dart';
-export './extras_services/extras_services_list_factory.dart';
-export './extras_services/list_categories_of_extra_services_factory.dart';
-export './extras_services/remove_category_by_id_in_extras_services_factory.dart';
-export './extras_services/update_category_by_id_in_extras_services_factory.dart';
+import './ecommerce/add_online_store_factory.dart';
+import './ecommerce/voucher/delete_voucher_factory.dart';
+import './ecommerce/voucher/insert_voucher_factory.dart';
+import './ecommerce/voucher/list_by_establishment_voucher_factory.dart';
+import './ecommerce/voucher/update_voucher_factory.dart';
+// TODO ////////////////////////////////////////////////////////
+export './ecommerce/product/duplicate_product_by_id_factory.dart';
+export './ecommerce/product/find_product_by_id_factory.dart';
+export './ecommerce/product/insert_product_factory.dart';
+export './ecommerce/product/list_products_by_establishment_id_factory.dart';
+export './ecommerce/product/list_products_by_establishment_id_lojinha_factory.dart';
+export './ecommerce/product/list_products_by_extras_services_id_factory.dart';
+export './ecommerce/product/remove_product_by_id_factory.dart';
+export './ecommerce/product/update_product_by_id.dart';
+export './ecommerce/pedido/get_pedido_factory.dart';
+export './ecommerce/extracts/get_balance.dart';
+export './ecommerce/extracts/list_payables.dart';
+export './ecommerce/recipients/find.dart';
+export './ecommerce/sales/list_sales.dart';
+export './ecommerce/sales/list_scheduling.dart';
+export './ecommerce/bill/list_bill_by_establishment_factory.dart';
 
 export './finance/finance.dart';
+////////////////////////////////////////////////////////////////
 
-export './financial_assistant/list_financial_assistant_factory.dart';
+import './financial_assistant/list_financial_assistant_factory.dart';
 
-export './financial_education/add_category_in_financial_education_factory.dart';
-export './financial_education/add_video_in_financial_education_factory.dart';
-export './financial_education/get_category_factory.dart';
-export './financial_education/get_video_factory.dart';
-export './financial_education/list_all_financial_education_videos_factory.dart';
-export './financial_education/list_financial_education_categories_factory.dart';
-export './financial_education/list_financial_education_videos_factory.dart';
-export './financial_education/list_videos_by_category_in_financial_education_factory.dart';
-export './financial_education/remove_category_by_id_factory.dart';
-export './financial_education/remove_video_by_id_factory.dart';
-export './financial_education/update_category_by_id_factory.dart';
-export './financial_education/update_video_by_id_factory.dart';
+import './financial_education/categories/add_category_in_financial_education_factory.dart';
+import './financial_education/videos/add_video_in_financial_education_factory.dart';
+import './financial_education/categories/get_category_factory.dart';
+import './financial_education/videos/get_video_factory.dart';
+import './financial_education/categories/list_financial_education_categories_factory.dart';
+import './financial_education/videos/list_financial_education_videos_factory.dart';
+import './financial_education/videos/list_videos_by_category_in_financial_education_factory.dart';
+import './financial_education/categories/remove_category_by_id_factory.dart';
+import './financial_education/videos/remove_video_by_id_factory.dart';
+import './financial_education/categories/update_category_by_id_factory.dart';
+import './financial_education/videos/update_video_by_id_factory.dart';
 
-export './groups/add_group_factory.dart';
-export './groups/delete_group_factory.dart';
-export './groups/list_groups_factory.dart';
-export './groups/update_group_factory.dart';
+import './groups/add_group_factory.dart';
+import './groups/delete_group_factory.dart';
+import './groups/list_groups_factory.dart';
+import './groups/update_group_factory.dart';
 
-export './help/get_list_categories_faq.dart';
-export './help/get_list_questions_by_categorie_faq.dart';
-export './help/get_list_questions_by_search_faq.dart';
+import './inbox/check_user_factory.dart';
 
-export './knowledge_base/add_category_in_knowledge_base_factory.dart';
-export './knowledge_base/add_question_in_knowledge_base_factory.dart';
-export './knowledge_base/list_categories_knowledge_base_factory.dart';
-export './knowledge_base/list_questions_knowledge_base_factory.dart';
-export './knowledge_base/remove_category_by_id_in_knowledge_base_factory.dart';
-export './knowledge_base/remove_question_by_id_in_knowledge_base_factory.dart';
-export './knowledge_base/update_category_by_id_in_knowledge_base_factory.dart';
-export './knowledge_base/update_question_by_id_in_knowledge_base_factory.dart';
+import './knowledge_base/add_category_in_knowledge_base_factory.dart';
+import './knowledge_base/add_question_in_knowledge_base_factory.dart';
+import './knowledge_base/list_categories_knowledge_base_factory.dart';
+import './knowledge_base/list_questions_by_search_faq_factory.dart';
+import './knowledge_base/list_questions_knowledge_base_factory.dart';
+import './knowledge_base/remove_category_by_id_in_knowledge_base_factory.dart';
+import './knowledge_base/remove_question_by_id_in_knowledge_base_factory.dart';
+import './knowledge_base/update_category_by_id_in_knowledge_base_factory.dart';
+import './knowledge_base/update_question_by_id_in_knowledge_base_factory.dart';
 
-export './links/add_link_factory.dart';
-export './links/delete_link_factory.dart';
-export './links/list_links_factory.dart';
-export './links/update_link_factory.dart';
+import './links/add_link_factory.dart';
+import './links/delete_link_factory.dart';
+import './links/list_links_factory.dart';
+import './links/update_link_factory.dart';
 
-export './media_manager/insert_image_factory.dart';
-export './media_manager/insert_image_aws_factory.dart';
-export './media_manager/list_files_media_manager_factory.dart';
+import './media_manager/insert_image_factory.dart';
+import './media_manager/insert_image_aws_factory.dart';
+import './media_manager/list_files_media_manager_factory.dart';
 
-export './mei_benefits/get_mei_benefits_factory.dart';
-export './mei_benefits/update_mei_benefits_factory.dart';
+import './mei_benefits/get_mei_benefits_factory.dart';
+import './mei_benefits/update_mei_benefits_factory.dart';
 
-export './mei_management/get_ccmei_factory.dart';
-export './mei_management/get_cnpj_factory.dart';
-export './mei_management/get_limitemei_factory.dart';
-export './mei_management/get_list_alls_data_das_factory.dart';
-export './mei_management/get_notafical_service_factory.dart';
-export './mei_management/get_relatorio_mei_factory.dart';
-export './mei_management/list_notafiscal_factory.dart';
-export './mei_management/post_notafiscal_factory.dart';
-export './mei_management/put_cnpj_factory.dart';
+import './mei_report/get_relatorio_mei_factory.dart';
 
-export './modules/delete_module_factory.dart';
-export './modules/list_all_modules_factory.dart';
-export './modules/list_modules.dart';
-export './modules/update_module_factory.dart';
+import './modules/delete_module_factory.dart';
+import './modules/list_all_modules_factory.dart';
+import './modules/list_modules.dart';
+import './modules/update_module_factory.dart';
 
-export './nota_fiscal/list_nota_fiscal_factory.dart';
-export './nota_fiscal/update_nota_fiscal_factory.dart';
+import './notifications/add_notifications_factory.dart';
+import './notifications/delete_notifications_factory.dart';
+import './notifications/get_list_notifications_factory.dart';
+import './notifications/update_notifications_factory.dart';
 
-export './notifications/add_notifications_factory.dart';
-export './notifications/delete_notifications_factory.dart';
-export './notifications/get_list_notifications_factory.dart';
-export './notifications/update_notifications_factory.dart';
+import './payment_assistant/list_transactions_by_date.dart';
 
-export './online_store/add_online_store_factory.dart';
-export './online_store/find_online_store_by_company_id_factory.dart';
-export './online_store/update_online_store_factory.dart';
-export './online_store/update_online_store_categories_factory.dart';
+import './plan/voucher/get_coupon.dart';
+import './plan/add_plan_factory.dart';
+import './plan/voucher/add_voucher_plan_factory.dart';
+import './plan/voucher/delete_voucher_factory.dart';
+import './plan/subscription/find_subscription.dart';
+import './plan/get_list_plans.dart';
+import './plan/subscription/get_my_plan.dart';
+import './plan/subscription/get_my_subscriptions.dart';
+import './plan/subscription/hire_plan.dart';
+import './plan/items/add_item_plan_factory.dart';
+import './plan/items/list_items_plans_factory.dart';
+import './plan/items/update_item_plan_factory.dart';
+import './plan/items/delete_item_plan_factory.dart';
+import './plan/list_plans_factory.dart';
+import './plan/subscription/list_transactions_by_subscriptions.dart';
+import './plan/voucher/list_vouchers_plans_factory.dart';
+import './plan/subscription/update_plan_by_subscription.dart';
+import './plan/update_plan_factory.dart';
+import './plan/voucher/update_voucher_plan_factory.dart';
 
-export './page_bio/add_page_bio_factory.dart';
-export './page_bio/get_page_bio_factory.dart';
-export './page_bio/update_page_bio_factory.dart';
+import './secrets/add_secret_factory.dart';
+import './secrets/delete_secret_factory.dart';
+import './secrets/list_secrets_factory.dart';
+import './secrets/update_secret_factory.dart';
 
-export './payment_assistant/list_transactions_by_date.dart';
+import './stories/story_item/add_story_item_factory.dart';
+import './stories/story_item/delete_story_item_factory.dart';
+import './stories/story_item/list_story_item_factory.dart';
+import './stories/story_item/list_story_item_by_view_factory.dart';
+import './stories/story_item/update_story_item_factory.dart';
+import './stories/story_view/add_story_view_factory.dart';
+import './stories/story_view/delete_story_view_factory.dart';
+import './stories/story_view/list_story_view_factory.dart';
+import './stories/story_view/list_story_view_by_owner_factory.dart';
+import './stories/story_view/update_story_view_factory.dart';
 
-export './pedido/get_pedido_factory.dart';
+import './tasks/add_task_factory.dart';
+import './tasks/delete_task_factory.dart';
+import './tasks/list_tasks_factory.dart';
+import './tasks/update_task_factory.dart';
 
-export './plan/add_plan_factory.dart';
-export './plan/add_voucher_plan_factory.dart';
-export './plan/delete_voucher_factory.dart';
-export './plan/find_subscription.dart';
-export './plan/get_list_plans.dart';
-export './plan/get_my_plan.dart';
-export './plan/get_my_subscriptions.dart';
-export './plan/hire_plan.dart';
-export './plan/items/add_item_plan_factory.dart';
-export './plan/items/list_items_plans_factory.dart';
-export './plan/items/update_item_plan_factory.dart';
-export './plan/items/delete_item_plan_factory.dart';
-export './plan/list_plans_factory.dart';
-export './plan/list_transactions_by_subscriptions.dart';
-export './plan/list_vouchers_plans_factory.dart';
-export './plan/update_plan_by_subscription.dart';
-export './plan/update_plan_factory.dart';
-export './plan/update_voucher_plan_factory.dart';
+import './user/delete_account_factory.dart';
+import './user/delete_user_factory.dart';
+import './user/list_users_factory.dart';
+import './user/update_user_factory.dart';
 
-export './product/duplicate_product_by_id_factory.dart';
-export './product/find_product_by_id_factory.dart';
-export './product/insert_product_factory.dart';
-export './product/list_products_by_establishment_id_factory.dart';
-export './product/list_products_by_establishment_id_lojinha_factory.dart';
-export './product/list_products_by_extras_services_id_factory.dart';
-export './product/remove_product_by_id_factory.dart';
-export './product/update_product_by_id.dart';
+part './auth/datasource.dart';
+part './blog/datasource.dart';
+part './ccmei/datasource.dart';
+part './cnpj/datasource.dart';
+part './company/datasource.dart';
+part './contacts/datasource.dart';
+part './das/datasource.dart';
+part './dasn/datasource.dart';
+part './documents/datasource.dart';
+part './ecommerce/datasource.dart';
+// part './finance/datasource.dart';
+part './financial_education/datasource.dart';
+part './financial_education/categories/datasource.dart';
+part './financial_education/videos/datasource.dart';
+part './groups/datasource.dart';
+part './inbox/datasource.dart';
+part './knowledge_base/datasource.dart';
+part './links/datasource.dart';
+part './media_manager/datasource.dart';
+part './mei_benefits/datasource.dart';
+part './mei_report/datasource.dart';
+part './modules/datasource.dart';
+part './notifications/datasource.dart';
+part './payment_assistant/datasource.dart';
+part './plan/datasource.dart';
+part './plan/voucher/datasource.dart';
+part './plan/subscription/datasource.dart';
+part './plan/items/datasource.dart';
+part './secrets/datasource.dart';
+part './stories/datasource.dart';
+part './stories/story_item/datasource.dart';
+part './stories/story_view/datasource.dart';
+part './tasks/datasource.dart';
+part './user/datasource.dart';
+part './ecommerce/voucher/datasource.dart';
 
-export './recipients/find.dart';
-
-export './sales/list_sales.dart';
-export './sales/list_scheduling.dart';
-
-export './secrets/add_secret_factory.dart';
-export './secrets/delete_secret_factory.dart';
-export './secrets/list_secrets_factory.dart';
-export './secrets/update_secret_factory.dart';
-
-export './stories/story_item/add_story_item_factory.dart';
-export './stories/story_item/delete_story_item_factory.dart';
-export './stories/story_item/list_story_item_factory.dart';
-export './stories/story_item/list_story_item_by_view_factory.dart';
-export './stories/story_item/update_story_item_factory.dart';
-export './stories/story_view/add_story_view_factory.dart';
-export './stories/story_view/delete_story_view_factory.dart';
-export './stories/story_view/list_story_view_factory.dart';
-export './stories/story_view/list_story_view_by_owner_factory.dart';
-export './stories/story_view/update_story_view_factory.dart';
-
-export './tasks/add_task_factory.dart';
-export './tasks/delete_task_factory.dart';
-export './tasks/list_tasks_factory.dart';
-export './tasks/update_task_factory.dart';
-
-export './user/delete_account_factory.dart';
-export './user/delete_user_factory.dart';
-export './user/list_users_factory.dart';
-export './user/update_user_factory.dart';
-
-export './voucher/delete_voucher_factory.dart';
-export './voucher/insert_voucher_factory.dart';
-export './voucher/list_by_establishment_voucher_factory.dart';
-export './voucher/update_voucher_factory.dart';
+class Api {
+  Api._();
+  static final auth = _AuthApi();
+  static final blog = _BlogApi();
+  static final ccmei = _CcmeiApi();
+  static final cnpj = _CnpjApi();
+  static final company = _CompanyApi();
+  static final contact = _ContactApi();
+  static final das = _DasApi();
+  static final dasn = _DasnApi();
+  static final document = _DocumentsApi();
+  static final ecommerce = _EcommerceApi();
+  // static final finance = _FinanceApi();
+  static final financialEducation = _FinancialEducationApi();
+  static final group = _GroupApi();
+  static final inbox = _InboxApi();
+  static final knowledgeBase = _KnowledgeBaseApi();
+  static final link = _LinksApi();
+  static final mediaManager = _MediaManagerApi();
+  static final meiBenefits = _MeiBenefitsApi();
+  static final meiReport = _MeiReportApi();
+  static final module = _ModuleApi();
+  static final notification = _NotificationsApi();
+  static final paymentAssistant = _PaymentAssistantApi();
+  static final plan = _PlanApi();
+  static final secret = _SecretsApi();
+  static final stories = _StoriesApi();
+  static final task = _TasksApi();
+  static final user = _UserApi();
+}

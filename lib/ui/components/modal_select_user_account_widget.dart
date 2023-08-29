@@ -54,7 +54,7 @@ class _ModalSelectUserAccountWidgetState
                           ),
                         ),
                         Image.asset(
-                          '${WhiteLabelApp.current?.logoMenuWeb}',
+                          '${WhiteLabelEntity.current?.style.resource.logoMenuWeb}',
                           fit: BoxFit.fitHeight,
                           color: Theme.of(context).colorScheme.primary,
                           height: 15,
@@ -170,19 +170,15 @@ class _ModalSelectUserAccountWidgetState
                   ],
                 ),
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount:
-                    WhiteLabelApp.current?.settings.optionsModalUser.length,
-                itemBuilder: (context, index) {
-                  return WhiteLabelApp
-                      .current?.settings.optionsModalUser[index];
-                },
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+              // ListView.builder(
+              //   shrinkWrap: true,
+              //   physics: const NeverScrollableScrollPhysics(),
+              //   itemCount: WhiteLabelApp.current?.settings.optionsModalUser.length,
+              //   itemBuilder: (context, index) {
+              //     return WhiteLabelApp.current?.settings.optionsModalUser[index];
+              //   },
+              // ),
+              const SizedBox(height: 16),
             ],
           ),
         ),

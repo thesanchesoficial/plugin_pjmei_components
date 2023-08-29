@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 UpdateCompany makeRemoteUpdateCompany(String id) => RemoteUpdateCompany(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/empresa/$id')
+  url: makeApiUrl('venver/company/$id')
 );

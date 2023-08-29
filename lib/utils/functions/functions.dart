@@ -13,7 +13,6 @@ export './f.dart';
 export './focus_node.dart';
 export './format.dart';
 export './geo.dart';
-export './get_variable_by_white_label.dart';
 export './masked_text_controller.dart';
 export './masked_text_formatter.dart';
 export './pesquisa.dart';

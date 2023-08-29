@@ -138,13 +138,11 @@ class EstablishmentEntity {
       tempoRetirada: int.tryParse(map['tempo_retirada'].toString()) ?? 0,
       aceitaCupom: map['aceita_cupom'] ?? true,
       bloqueado: map['bloqueado'] ?? false,
-      enderecos: map['endereco'] == null
-          ? map['enderecos'] == null
-              ? []
-              : List<AddressEntity>.from(
-                  map['enderecos']?.map((x) => AddressEntity.fromMap(x)))
-          : List<AddressEntity>.from(
-              map['endereco']?.map((x) => AddressEntity.fromMap(x))),
+      enderecos: map['endereco'] != null
+        ? AddressEntity.fromMap(map['endereco'])
+        :  map['enderecos'] != null
+          ? AddressEntity.fromMap(map['enderecos'])
+          : null,
       subcategorias: listaSubcategorias,
       createdAt:
           DateTime.tryParse(map['created_at'].toString())?.toLocal().toString(),
@@ -202,7 +200,7 @@ class EstablishmentEntity {
   bool? bloqueado;
   String? usuarioId;
   num? distancia;
-  List<AddressEntity>? enderecos;
+  AddressEntity? enderecos;
   // List<String> estabelecimentoCategoria;
   List<FiltroCategoria>? subcategorias;
   List<TimelineEntity>? cronogramasUtc; // adicionado
@@ -252,7 +250,7 @@ class EstablishmentEntity {
     bool? apagado,
     String? usuarioId,
     num? distancia,
-    List<AddressEntity>? enderecos,
+    AddressEntity? enderecos,
     List<FiltroCategoria>? subcategorias,
     String? createdAt,
     List<TimelineEntity>? cronogramasUtc,
@@ -273,13 +271,6 @@ class EstablishmentEntity {
       listaDestaques = [];
       this.destaques?.forEach((element) {
         listaDestaques.add(element.copyWith());
-      });
-    }
-    List<AddressEntity> listaEnderecos = [];
-    if (enderecos == null) {
-      listaEnderecos = [];
-      this.enderecos?.forEach((element) {
-        listaEnderecos.add(element.copyWith());
       });
     }
     List<TimelineEntity> listaCronogramasUtc = [];
@@ -343,7 +334,7 @@ class EstablishmentEntity {
         bloqueado: bloqueado ?? this.bloqueado,
         usuarioId: usuarioId ?? this.usuarioId,
         distancia: distancia ?? this.distancia,
-        enderecos: enderecos ?? listaEnderecos, // CopyWith
+        enderecos: enderecos ?? this.enderecos, // CopyWith
         subcategorias: subcategorias ?? listaSubcategorias, // CopyWith
         createdAt: createdAt ?? this.createdAt,
         cronogramasUtc: cronogramasUtc ?? listaCronogramasUtc, // CopyWith
@@ -403,8 +394,8 @@ class EstablishmentEntity {
       'aceita_cupom': aceitaCupom ?? true,
       'usuarioId': usuarioId,
       'distancia': distancia,
-      'enderecos': enderecos?.map((x) => x.toMap()).toList(),
-      'endereco': enderecos?.map((x) => x.toMap()).toList(),
+      'enderecos': enderecos,
+      'endereco': enderecos,
       'estabelecimentoCategoria': subcategorias?.map((x) => x.toMap()).toList(),
       'estabelecimento_categoria':
           subcategorias?.map((x) => x.toMap()).toList(),
@@ -437,12 +428,6 @@ class EstablishmentEntity {
   String toJson() => json.encode(toMap());
 
   Map<String, dynamic> toMapApi() {
-    final List<Map<String, dynamic>> listaEnderecos = [];
-    if (enderecos != null) {
-      enderecos?.forEach((element) {
-        listaEnderecos.add(element.toMapSemId());
-      });
-    }
     final List<Map<String, dynamic>> listaCronogramasUtcMap = [];
     if (cronogramasUtc != null) {
       cronogramasUtc?.forEach((element) {
@@ -479,7 +464,7 @@ class EstablishmentEntity {
       'tempo_retirada': tempoRetirada,
       'aceita_cupom': aceitaCupom ?? true,
       'bloqueado': bloqueado ?? false,
-      'endereco': listaEnderecos,
+      'endereco': enderecos,
       'estabelecimento_categoria': listaSubcategorias,
       'cronograma': listaCronogramasUtcMap,
       'politica_trocas_devolucoes': politicaTrocasDevolucoes,

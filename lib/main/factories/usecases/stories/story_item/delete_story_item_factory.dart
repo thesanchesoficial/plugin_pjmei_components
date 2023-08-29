@@ -4,6 +4,6 @@ import 'package:plugin_pjmei_components/domain/usecases/stories/story_item/delet
 import '../../../factories.dart';
 
 DeleteStoryItem makeRemoteDeleteStoryItem(String id) => RemoteDeleteStoryItem(
-      httpClient: makeHttpAdapter(),
-      url: makeApiUrl('venver/story-item/$id'),
-    );
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/story-item/$id'),
+);

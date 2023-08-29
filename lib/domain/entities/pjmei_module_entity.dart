@@ -395,7 +395,7 @@ class ModulePjmei {
 
 
   String? getSpotlightText(context) {
-    if ((minimalVersion) <= Environment.current!.minimalVersion) {
+    if ((minimalVersion) <= minimalVersion) {
       // entrou porque o aplicativo possui a versao minima para o modulo
       // funcionar
       if (toShortcuts(context).spotlight?.isNotEmpty ?? false) {
@@ -530,8 +530,7 @@ class ModulePjmei {
                 }
               } else {
                 // entrou por ser uma rota dentro do aplicativo
-                if ((minimalVersion) <=
-                    Environment.current!.minimalVersion) {
+                if ((minimalVersion) <= minimalVersion) {
                   // entrou porque o modulo roda na versão do aplicativo
                   if (child != null) {
                     // entrou porque passou o parametro child

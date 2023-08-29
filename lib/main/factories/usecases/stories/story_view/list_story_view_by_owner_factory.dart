@@ -3,8 +3,7 @@ import 'package:plugin_pjmei_components/domain/usecases/stories/story_view/list_
 
 import '../../../factories.dart';
 
-ListStoryViewByOwner makeRemoteListStoryViewByOwner(String id) =>
-    RemoteListStoryViewByOwner(
-      httpClient: makeHttpAdapter(),
-      url: makeApiUrl('venver/story-view/$id/user-or-company'),
-    );
+ListStoryViewByOwner makeRemoteListStoryViewByOwner(String id) => RemoteListStoryViewByOwner(
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/story-view/$id/user-or-company'),
+);

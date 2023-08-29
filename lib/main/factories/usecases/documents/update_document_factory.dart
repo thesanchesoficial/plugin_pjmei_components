@@ -1,8 +1,6 @@
-import 'package:plugin_pjmei_components/data/usecases/documents/remote_update_documents.dart';
-import 'package:plugin_pjmei_components/domain/usecases/documents/update_documents.dart';
-import 'package:plugin_pjmei_components/main/factories/factories.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-UpdateDocuments makeRemoteUpdateDocuments(String documentid) => RemoteUpdateDocuments(
+UpdateDocument makeRemoteUpdateDocument(String id) => RemoteUpdateDocument(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/document/$documentid')
+  url: makeApiUrl('venver/document/$id')
 );

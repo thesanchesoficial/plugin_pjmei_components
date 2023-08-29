@@ -4,4 +4,6 @@ import 'package:plugin_pjmei_components/main/factories/http/api_url_factory.dart
 import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.dart';
 
 UpdateLink makeRemoteUpdateLink(String id) => RemoteUpdateLink(
-    httpClient: makeHttpAdapter(), url: makeApiUrl('venver/linkCompany/$id'));
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/link-company/$id'),
+);

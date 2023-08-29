@@ -1,36 +1,26 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
+import 'package:plugin_pjmei_components/domain/entities/entities.dart';
 
 class DocumentTypeEntity {
-
+  String id;
+  String name;
+  List<DocumentSubtypeEntity>? subtype;
   DocumentTypeEntity({
-    this.id,
-    this.name,
-    // this.filters,
+    required this.id,
+    required this.name,
+    this.subtype,
   });
-
-  factory DocumentTypeEntity.fromMap(Map<String, dynamic> map) {
-    return DocumentTypeEntity(
-      id: map['id'] ?? '',
-      name: map['name'] ?? '',
-      // filters: map['filters'] ?? []
-    );
-  }
-
-  factory DocumentTypeEntity.fromJson(String source) =>
-      DocumentTypeEntity.fromMap(json.decode(source));
-  String? id;
-  String? name;
-  // List<String>? filters;
 
   DocumentTypeEntity copyWith({
     String? id,
     String? name,
-    // List<String>? filters,
+    List<DocumentSubtypeEntity>? subtype,
   }) {
     return DocumentTypeEntity(
       id: id ?? this.id,
       name: name ?? this.name,
-      // filters: filters ?? this.filters
+      subtype: subtype ?? this.subtype,
     );
   }
 
@@ -38,14 +28,35 @@ class DocumentTypeEntity {
     return {
       'id': id,
       'name': name,
-      // 'filters': filters,
+      'subtype': subtype?.map((x) => x.toMap()).toList(),
     };
+  }
+
+  factory DocumentTypeEntity.fromMap(Map<String, dynamic> map) {
+    return DocumentTypeEntity(
+      id: map['id'] ?? '',
+      name: map['name'] ?? '',
+      subtype: map['subtype'] != null ? List<DocumentSubtypeEntity>.from(map['subtype']?.map((x) => DocumentSubtypeEntity.fromMap(x))) : null,
+    );
   }
 
   String toJson() => json.encode(toMap());
 
+  factory DocumentTypeEntity.fromJson(String source) => DocumentTypeEntity.fromMap(json.decode(source));
+
   @override
-  String toString() {
-    return 'DocumentTypeEntity(id: $id, name: $name)';
+  String toString() => 'DocumentTypeEntity(id: $id, name: $name, subtype: $subtype)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is DocumentTypeEntity &&
+      other.id == id &&
+      other.name == name &&
+      listEquals(other.subtype, subtype);
   }
+
+  @override
+  int get hashCode => id.hashCode ^ name.hashCode ^ subtype.hashCode;
 }

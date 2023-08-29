@@ -4,6 +4,6 @@ import 'package:plugin_pjmei_components/domain/usecases/stories/story_view/add_s
 import '../../../factories.dart';
 
 AddStoryView makeRemoteAddStoryView() => RemoteAddStoryView(
-      httpClient: makeHttpAdapter(),
-      url: makeApiUrl('venver/story-view'),
-    );
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('venver/story-view'),
+);

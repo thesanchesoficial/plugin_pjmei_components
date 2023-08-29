@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 UpdateGroup makeRemoteUpdateGroup(String id) => RemoteUpdateGroup(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/group/backoffice/$id')
+  url: makeApiUrl('venver/group/$id')
 );

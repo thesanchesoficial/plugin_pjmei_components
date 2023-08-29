@@ -9,7 +9,7 @@ export './card/card_entity.dart';
 
 export './chat/chat_entity.dart';
 
-export './company/cnpj_entity.dart';
+export 'cnpj/cnpj_entity.dart';
 export './company/company_entity.dart';
 
 export './contact/contact_entity.dart';
@@ -20,8 +20,10 @@ export './dasn/dasn_declaration_entity.dart';
 export './dasn/dasn_item_entity.dart';
 
 export './document/document_entity.dart';
-export './document/document_filter_entity.dart';
 export './document/document_type_entity.dart';
+export './document/document_subtype_entity.dart';
+
+export './ecommerce/ecommerce_entity.dart';
 
 export './establishment/establishment_entity.dart';
 export './establishment/establishment_subcategory_entity.dart';
@@ -54,7 +56,6 @@ export './financial_education/video_entity.dart';
 export './financial_education/video_session_entity.dart';
 
 export './green_pages/link_entity.dart';
-export './green_pages/page_bio_entity.dart';
 
 export './group/group_entity.dart';
 
@@ -108,6 +109,15 @@ export './task/task_entity.dart';
 export './user/user_entity.dart';
 
 export './voucher/voucher_entity.dart';
+
+export './white_label/environment_white_label_entity.dart';
+export './white_label/item_environment_white_label_entity.dart';
+export './white_label/link_white_label_entity.dart';
+export './white_label/resource_white_label_entity.dart';
+export './white_label/setting_white_label_entity.dart';
+export './white_label/style_white_label_entity.dart';
+export './white_label/validation_white_label_entity.dart';
+export './white_label/white_label_entity.dart';
 
 export './basic_dashboard_entity.dart';
 export './card_entity.dart';

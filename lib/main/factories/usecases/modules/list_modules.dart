@@ -3,8 +3,7 @@ import 'package:plugin_pjmei_components/domain/usecases/modules/list_modules.dar
 
 import '../../factories.dart';
 
-ListModules makeRemoteGetListModules({Map<String, dynamic>? params}) =>
-    RemoteListModules(
-      httpClient: makeHttpAdapter(),
-      url: makeApiUrl('pjmei/modules/filter', params: params),
-    );
+ListModules makeRemoteGetListModules({Map<String, dynamic>? params}) => RemoteListModules(
+  httpClient: makeHttpAdapter(),
+  url: makeApiUrl('pjmei/modules/filter', params: params),
+);

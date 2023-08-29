@@ -5,13 +5,13 @@ class RemoteAddStoryItem implements AddStoryItem {
   final HttpClient httpClient;
   final String url;
 
-  Future<StoryItemEntity> exec(Map params, {bool log = false}) async {
+  Future<StoryItemEntity> exec(StoryItemEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
         method: 'post',
-        body: params,
+        body: params.toMap(),
         newReturnErrorMsg: true,
       );
       return StoryItemEntity.fromMap(httpResponse['success']);
