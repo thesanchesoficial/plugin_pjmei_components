@@ -14,7 +14,7 @@ class AddressEntity {
   String? updatedAt;
   num? latitude;
   num? longitude;
-  bool main;
+  bool? main;
   AddressEntity({
     this.id,
     this.nickname,
@@ -29,7 +29,7 @@ class AddressEntity {
     this.updatedAt,
     this.latitude,
     this.longitude,
-    required this.main,
+    this.main,
   });
 
   AddressEntity copyWith({

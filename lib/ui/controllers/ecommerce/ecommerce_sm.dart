@@ -8,7 +8,7 @@ class EcommerceSMStore = EcommerceSMStoreBase with _$EcommerceSMStore;
 abstract class EcommerceSMStoreBase with Store {
 
   @observable
-  EstablishmentEntity? establishment;
+  EcommerceEntity? establishment;
   
   @observable
   int selectedIndex = 0;
@@ -43,7 +43,7 @@ abstract class EcommerceSMStoreBase with Store {
   bool setShowMenu(bool value) => showMenu = value;
 
   @action
-  void setEstablishment(EstablishmentEntity item) {
+  void setEstablishment(EcommerceEntity item) {
     establishment = item;
   }
 }

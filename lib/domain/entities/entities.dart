@@ -67,6 +67,7 @@ export './image/file_media_manager_entity.dart';
 export './image/image_entity.dart';
 
 export './inbox/chat_entity.dart';
+export './inbox/check_user_entity.dart';
 
 export './mei_benefits/mei_benefits_entity.dart';
 

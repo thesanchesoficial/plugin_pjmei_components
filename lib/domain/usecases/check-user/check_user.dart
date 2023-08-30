@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/main/factories/usecases/inbox/check_user_factory.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 abstract class CheckUser {
   Future<CheckUserEntity> exec({bool log = false});

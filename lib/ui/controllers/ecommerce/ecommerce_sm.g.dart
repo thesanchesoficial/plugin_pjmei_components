@@ -13,13 +13,13 @@ mixin _$EcommerceSMStore on EcommerceSMStoreBase, Store {
       Atom(name: 'EcommerceSMStoreBase.establishment', context: context);
 
   @override
-  EstablishmentEntity? get establishment {
+  EcommerceEntity? get establishment {
     _$establishmentAtom.reportRead();
     return super.establishment;
   }
 
   @override
-  set establishment(EstablishmentEntity? value) {
+  set establishment(EcommerceEntity? value) {
     _$establishmentAtom.reportWrite(value, super.establishment, () {
       super.establishment = value;
     });
@@ -164,7 +164,7 @@ mixin _$EcommerceSMStore on EcommerceSMStoreBase, Store {
   }
 
   @override
-  void setEstablishment(EstablishmentEntity item) {
+  void setEstablishment(EcommerceEntity item) {
     final _$actionInfo = _$EcommerceSMStoreBaseActionController.startAction(
         name: 'EcommerceSMStoreBase.setEstablishment');
     try {

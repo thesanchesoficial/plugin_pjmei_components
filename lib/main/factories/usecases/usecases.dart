@@ -55,6 +55,8 @@ export './ecommerce/product/list_products_by_extras_services_id_factory.dart';
 export './ecommerce/product/remove_product_by_id_factory.dart';
 export './ecommerce/product/update_product_by_id.dart';
 export './ecommerce/pedido/get_pedido_factory.dart';
+export './ecommerce/agendamento/get_agendamento_factory.dart';
+export './ecommerce/assessments/answer_review_factory.dart';
 export './ecommerce/extracts/get_balance.dart';
 export './ecommerce/extracts/list_payables.dart';
 export './ecommerce/recipients/find.dart';
