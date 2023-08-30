@@ -11,6 +11,7 @@ class SettingWhiteLabelEntity {
   String redirectOrigin;
   LinkWhiteLabelEntity link;
   EnvironmentWhiteLabelEntity environment;
+  FunctionalityWhiteLabelEntity functionality;
   SettingWhiteLabelEntity({
     required this.companyId,
     required this.supportId,
@@ -20,6 +21,7 @@ class SettingWhiteLabelEntity {
     required this.redirectOrigin,
     required this.link,
     required this.environment,
+    required this.functionality,
   });
 
   SettingWhiteLabelEntity copyWith({
@@ -31,6 +33,7 @@ class SettingWhiteLabelEntity {
     String? redirectOrigin,
     LinkWhiteLabelEntity? link,
     EnvironmentWhiteLabelEntity? environment,
+    FunctionalityWhiteLabelEntity? functionality,
   }) {
     return SettingWhiteLabelEntity(
       companyId: companyId ?? this.companyId,
@@ -41,6 +44,7 @@ class SettingWhiteLabelEntity {
       redirectOrigin: redirectOrigin ?? this.redirectOrigin,
       link: link ?? this.link,
       environment: environment ?? this.environment,
+      functionality: functionality ?? this.functionality,
     );
   }
 
@@ -54,6 +58,7 @@ class SettingWhiteLabelEntity {
       'redirectOrigin': redirectOrigin,
       'link': link.toMap(),
       'environment': environment.toMap(),
+      'functionality': functionality.toMap(),
     };
   }
 
@@ -67,6 +72,7 @@ class SettingWhiteLabelEntity {
       redirectOrigin: map['redirectOrigin'] ?? '',
       link: LinkWhiteLabelEntity.fromMap(map['link']),
       environment: EnvironmentWhiteLabelEntity.fromMap(map['environment']),
+      functionality: FunctionalityWhiteLabelEntity.fromMap(map['functionality']),
     );
   }
 
@@ -76,7 +82,7 @@ class SettingWhiteLabelEntity {
 
   @override
   String toString() {
-    return 'SettingWhiteLabelEntity(companyId: $companyId, supportId: $supportId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintscreen: $disabledPrintscreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment)';
+    return 'SettingWhiteLabelEntity(companyId: $companyId, supportId: $supportId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintscreen: $disabledPrintscreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
   }
 
   @override
@@ -91,7 +97,8 @@ class SettingWhiteLabelEntity {
       other.urlWebApplication == urlWebApplication &&
       other.redirectOrigin == redirectOrigin &&
       other.link == link &&
-      other.environment == environment;
+      other.environment == environment &&
+      other.functionality == functionality;
   }
 
   @override
@@ -103,6 +110,7 @@ class SettingWhiteLabelEntity {
       urlWebApplication.hashCode ^
       redirectOrigin.hashCode ^
       link.hashCode ^
-      environment.hashCode;
+      environment.hashCode ^
+      functionality.hashCode;
   }
 }

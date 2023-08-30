@@ -27,6 +27,18 @@ WhiteLabelEntity pjmeiDev = WhiteLabelEntity(
         limit: 10,
       ),
     ),
+    functionality: FunctionalityWhiteLabelEntity(
+      companies: true,
+      financialEducation: true,
+      groups: true,
+      inbox: true,
+      knowledgeBase: true,
+      master: true,
+      modules: true,
+      notifications: true,
+      plans: true,
+      users: true,
+    ),
   ),
   style: StyleWhiteLabelEntity(
     lightColorScheme: '',

@@ -10,14 +10,14 @@ class WhiteLabelEntity {
   String description;
   StyleWhiteLabelEntity style;
   SettingWhiteLabelEntity setting;
-  List<ValidationWhiteLabelEntity> validations;
+  List<ValidationWhiteLabelEntity>? validations;
   WhiteLabelEntity({
     required this.id,
     required this.name,
     required this.description,
     required this.style,
     required this.setting,
-    required this.validations,
+    this.validations,
   }) {
     current = this;
   }
@@ -48,7 +48,7 @@ class WhiteLabelEntity {
       'description': description,
       'style': style.toMap(),
       'setting': setting.toMap(),
-      'validations': validations.map((x) => x.toMap()).toList(),
+      'validations': validations?.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -59,7 +59,7 @@ class WhiteLabelEntity {
       description: map['description'] ?? '',
       style: StyleWhiteLabelEntity.fromMap(map['style']),
       setting: SettingWhiteLabelEntity.fromMap(map['setting']),
-      validations: List<ValidationWhiteLabelEntity>.from(map['validations']?.map((x) => ValidationWhiteLabelEntity.fromMap(x))),
+      validations: map['validations'] == null ? [] : List<ValidationWhiteLabelEntity>.from(map['validations']?.map((x) => ValidationWhiteLabelEntity.fromMap(x))),
     );
   }
 

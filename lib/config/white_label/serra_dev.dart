@@ -27,6 +27,18 @@ WhiteLabelEntity serraDev = WhiteLabelEntity(
         limit: 10,
       ),
     ),
+    functionality: FunctionalityWhiteLabelEntity(
+      companies: true,
+      financialEducation: true,
+      groups: false,
+      inbox: true,
+      knowledgeBase: true,
+      master: false,
+      modules: true,
+      notifications: true,
+      plans: false,
+      users: true,
+    ),
   ),
   style: StyleWhiteLabelEntity(
     lightColorScheme: '',

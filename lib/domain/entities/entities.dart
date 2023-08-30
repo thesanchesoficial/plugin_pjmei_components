@@ -112,6 +112,7 @@ export './user/user_entity.dart';
 export './voucher/voucher_entity.dart';
 
 export './white_label/environment_white_label_entity.dart';
+export './white_label/functionality_white_label_entity.dart';
 export './white_label/item_environment_white_label_entity.dart';
 export './white_label/link_white_label_entity.dart';
 export './white_label/resource_white_label_entity.dart';
