@@ -14,7 +14,7 @@ class UserEntity {
   String? cpf;
   String? birth;
   String? phone;
-  List<ImageEntity>? image;
+  // List<ImageEntity>? image;
   String? owner;
   List<AddressEntity>? address;
   final String? createdAt;
@@ -31,7 +31,7 @@ class UserEntity {
     this.cpf,
     this.birth,
     this.phone,
-    this.image,
+    // this.image,
     this.owner,
     this.address,
     this.createdAt,
@@ -83,7 +83,7 @@ class UserEntity {
       cpf: cpf ?? this.cpf,
       birth: birth ?? this.birth,
       phone: phone ?? this.phone,
-      image: image ?? this.image,
+      // image: image ?? this.image,
       owner: owner ?? this.owner,
       address: address ?? this.address,
       createdAt: createdAt ?? this.createdAt,
@@ -105,7 +105,7 @@ class UserEntity {
       'birth': birth,
       'phone': phone,
       'owner': owner,
-      'image': image?.map((x) => x.toMap()).toList(),
+      // 'image': image?.map((x) => x.toMap()).toList(),
       'address': address?.map((x) => x.toMap()).toList(),
       'createdAt': createdAt,
       'updatedAt': updatedAt,
@@ -125,7 +125,7 @@ class UserEntity {
       cpf: map['cpf'],
       birth: map['birth'] ?? map['nascimento'],
       phone: map['phone'] ?? map['telefone'],
-      image: map['image'] != null ? List<ImageEntity>.from(map['image']?.map((x) => ImageEntity.fromMap(x))) : [],
+      // image: map['image'] != null ? List<ImageEntity>.from(map['image']?.map((x) => ImageEntity.fromMap(x))) : [],
       owner: map['owner'] ?? map['id'],
       address: map['address'] != null ? List<AddressEntity>.from(map['address']?.map((x) => AddressEntity.fromMap(x))) : [],
       createdAt: map['createdAt'] ?? map['created_at'],
@@ -141,7 +141,7 @@ class UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, paymentId: $paymentId, paymentStatus: $paymentStatus, name: $name, email: $email, loginEmail: $loginEmail, cpf: $cpf, birth: $birth, phone: $phone, image: $image, owner: $owner, address: $address, createdAt: $createdAt, updatedAt: $updatedAt, accessToken: $accessToken, refreshToken: $refreshToken)';
+    return 'UserEntity(id: $id, paymentId: $paymentId, paymentStatus: $paymentStatus, name: $name, email: $email, loginEmail: $loginEmail, cpf: $cpf, birth: $birth, phone: $phone, owner: $owner, address: $address, createdAt: $createdAt, updatedAt: $updatedAt, accessToken: $accessToken, refreshToken: $refreshToken)';
   }
 
   @override
@@ -159,7 +159,7 @@ class UserEntity {
       other.birth == birth &&
       other.phone == phone &&
       other.owner == owner &&
-      listEquals(other.image, image) &&
+      // listEquals(other.image, image) &&
       listEquals(other.address, address) &&
       other.createdAt == createdAt &&
       other.updatedAt == updatedAt &&
@@ -178,7 +178,7 @@ class UserEntity {
       cpf.hashCode ^
       birth.hashCode ^
       phone.hashCode ^
-      image.hashCode ^
+      // image.hashCode ^
       owner.hashCode ^
       address.hashCode ^
       createdAt.hashCode ^

@@ -1,16 +1,16 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-WhiteLabelEntity pjmeiWhiteLabelSettingsApp = WhiteLabelEntity(
+WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
   name: 'PJMEI',
   description: '',
-  id: 'f327226e-709b-4c6a-ab5e-5c4b25e551e1',
+  id: '7408f412-ca74-47bb-ad02-5ef12de848bd',
   setting: SettingWhiteLabelEntity(
-    companyId: 'd286430b-83cf-4057-8f11-4204411f8b48',
-    supportId: 'SUPPORT1-SAND-0000-0000-00000000PJMEI',
+    companyId: 'f327226e-709b-4c6a-ab5e-5c4b25e551e1',
+    supportId: 'SUPPORT1-0000-0000-0000-00000000PJMEI',
     disabledPrintscreen: false,
     forceAuthenticationStart: false,
-    redirectOrigin: 'https://dev.pjmei.app',
-    urlWebApplication: 'https://dev.pjmei.app',
+    redirectOrigin: 'https://portal.pjmei.app',
+    urlWebApplication: 'https://portal.pjmei.app',
     link: LinkWhiteLabelEntity(
       termsOfUse: 'https://www.pjmei.app/termos-de-uso',
       privacyPolicy: 'https://www.pjmei.app/politica-de-privacidade',

@@ -6,8 +6,12 @@ class _WhiteLabelApi {
     return makeRemoteFindWhiteLabel(id).exec();
   }
 
-  Future<List<WhiteLabelEntity>> listByCompany({required String id}) {
-    return makeRemoteListWhiteLabel(id).exec();
+  Future<List<WhiteLabelEntity>> list() {
+    return makeRemoteListWhiteLabel().exec();
+  }
+
+  Future<List<WhiteLabelEntity>> listByUser({required String id}) {
+    return makeRemoteListWhiteLabelByUser(id).exec();
   }
 
   Future<WhiteLabelEntity> insert({required WhiteLabelEntity data}) {

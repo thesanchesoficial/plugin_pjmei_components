@@ -173,6 +173,7 @@ import './user/update_user_factory.dart';
 import './white_label/add_white_label_factory.dart';
 import './white_label/delete_white_label_factory.dart';
 import './white_label/find_white_label_factory.dart';
+import './white_label/list_white_label_by_user_factory.dart';
 import './white_label/list_white_label_factory.dart';
 import './white_label/update_white_label_factory.dart';
 

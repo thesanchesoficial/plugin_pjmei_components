@@ -3,7 +3,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:plugin_pjmei_components_example/settings/settings.dart';
 
 void main() => Main.local(
-  whiteLabel: pjmeiWhiteLabelSettingsApp,
+  whiteLabel: pjmeiDev,
   environment: EnvironmentType.development,
   listenUser: _updateUserListener,
   minimalVersionApp: 11,
