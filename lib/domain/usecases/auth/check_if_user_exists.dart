@@ -5,8 +5,8 @@ abstract class CheckIfUserExists {
 class CheckIfUserExistsParams {
   CheckIfUserExistsParams({
     required this.email,
-    required this.nome,
+    required this.name,
   });
   String email;
-  String nome;
+  String name;
 }

@@ -2,19 +2,19 @@ import 'dart:convert';
 
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class ResourceWhiteLabelEntity {
-  ItemResourceWhiteLabelEntity individual;
-  ItemResourceWhiteLabelEntity company;
-  ResourceWhiteLabelEntity({
+class EnvironmentWhiteLabelEntity {
+  ItemEnvironmentWhiteLabelEntity individual;
+  ItemEnvironmentWhiteLabelEntity company;
+  EnvironmentWhiteLabelEntity({
     required this.individual,
     required this.company,
   });
 
-  ResourceWhiteLabelEntity copyWith({
-    ItemResourceWhiteLabelEntity? individual,
-    ItemResourceWhiteLabelEntity? company,
+  EnvironmentWhiteLabelEntity copyWith({
+    ItemEnvironmentWhiteLabelEntity? individual,
+    ItemEnvironmentWhiteLabelEntity? company,
   }) {
-    return ResourceWhiteLabelEntity(
+    return EnvironmentWhiteLabelEntity(
       individual: individual ?? this.individual,
       company: company ?? this.company,
     );
@@ -27,16 +27,16 @@ class ResourceWhiteLabelEntity {
     };
   }
 
-  factory ResourceWhiteLabelEntity.fromMap(Map<String, dynamic> map) {
-    return ResourceWhiteLabelEntity(
-      individual: ItemResourceWhiteLabelEntity.fromMap(map['individual']),
-      company: ItemResourceWhiteLabelEntity.fromMap(map['company']),
+  factory EnvironmentWhiteLabelEntity.fromMap(Map<String, dynamic> map) {
+    return EnvironmentWhiteLabelEntity(
+      individual: ItemEnvironmentWhiteLabelEntity.fromMap(map['individual']),
+      company: ItemEnvironmentWhiteLabelEntity.fromMap(map['company']),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory ResourceWhiteLabelEntity.fromJson(String source) => ResourceWhiteLabelEntity.fromMap(json.decode(source));
+  factory EnvironmentWhiteLabelEntity.fromJson(String source) => EnvironmentWhiteLabelEntity.fromMap(json.decode(source));
 
   @override
   String toString() => 'EnvironmentWhiteLabelEntity(individual: $individual, company: $company)';
@@ -45,7 +45,7 @@ class ResourceWhiteLabelEntity {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
   
-    return other is ResourceWhiteLabelEntity &&
+    return other is EnvironmentWhiteLabelEntity &&
       other.individual == individual &&
       other.company == company;
   }

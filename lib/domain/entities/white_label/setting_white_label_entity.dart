@@ -10,7 +10,7 @@ class SettingWhiteLabelEntity {
   String urlWebApplication;
   String redirectOrigin;
   LinkWhiteLabelEntity link;
-  ResourceWhiteLabelEntity resource;
+  EnvironmentWhiteLabelEntity environment;
   FunctionalityWhiteLabelEntity functionality;
   SettingWhiteLabelEntity({
     required this.companyId,
@@ -20,7 +20,7 @@ class SettingWhiteLabelEntity {
     required this.urlWebApplication,
     required this.redirectOrigin,
     required this.link,
-    required this.resource,
+    required this.environment,
     required this.functionality,
   });
 
@@ -32,7 +32,7 @@ class SettingWhiteLabelEntity {
     String? urlWebApplication,
     String? redirectOrigin,
     LinkWhiteLabelEntity? link,
-    ResourceWhiteLabelEntity? resource,
+    EnvironmentWhiteLabelEntity? environment,
     FunctionalityWhiteLabelEntity? functionality,
   }) {
     return SettingWhiteLabelEntity(
@@ -43,7 +43,7 @@ class SettingWhiteLabelEntity {
       urlWebApplication: urlWebApplication ?? this.urlWebApplication,
       redirectOrigin: redirectOrigin ?? this.redirectOrigin,
       link: link ?? this.link,
-      resource: resource ?? this.resource,
+      environment: environment ?? this.environment,
       functionality: functionality ?? this.functionality,
     );
   }
@@ -57,7 +57,7 @@ class SettingWhiteLabelEntity {
       'urlWebApplication': urlWebApplication,
       'redirectOrigin': redirectOrigin,
       'link': link.toMap(),
-      'resource': resource.toMap(),
+      'environment': environment.toMap(),
       'functionality': functionality.toMap(),
     };
   }
@@ -71,7 +71,7 @@ class SettingWhiteLabelEntity {
       urlWebApplication: map['urlWebApplication'] ?? '',
       redirectOrigin: map['redirectOrigin'] ?? '',
       link: LinkWhiteLabelEntity.fromMap(map['link']),
-      resource: ResourceWhiteLabelEntity.fromMap(map['resource']),
+      environment: EnvironmentWhiteLabelEntity.fromMap(map['environment']),
       functionality: FunctionalityWhiteLabelEntity.fromMap(map['functionality']),
     );
   }
@@ -92,7 +92,7 @@ class SettingWhiteLabelEntity {
       other.urlWebApplication == urlWebApplication &&
       other.redirectOrigin == redirectOrigin &&
       other.link == link &&
-      other.resource == resource &&
+      other.environment == environment &&
       other.functionality == functionality;
   }
 
@@ -105,12 +105,12 @@ class SettingWhiteLabelEntity {
       urlWebApplication.hashCode ^
       redirectOrigin.hashCode ^
       link.hashCode ^
-      resource.hashCode ^
+      environment.hashCode ^
       functionality.hashCode;
   }
 
   @override
   String toString() {
-    return 'SettingWhiteLabelEntity(companyId: $companyId, supportId: $supportId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintscreen: $disabledPrintscreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, resource: $resource, functionality: $functionality)';
+    return 'SettingWhiteLabelEntity(companyId: $companyId, supportId: $supportId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintscreen: $disabledPrintscreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
   }
 }

@@ -17,12 +17,12 @@ WhiteLabelEntity pjmeiDev = WhiteLabelEntity(
       lgpd: 'https://www.pjmei.app/lgpd',
       website: 'https://www.pjmei.app',
     ),
-    resource: ResourceWhiteLabelEntity(
-      individual: ItemResourceWhiteLabelEntity(
+    environment: EnvironmentWhiteLabelEntity(
+      individual: ItemEnvironmentWhiteLabelEntity(
         enabled: true,
         limit: 1,
       ),
-      company: ItemResourceWhiteLabelEntity(
+      company: ItemEnvironmentWhiteLabelEntity(
         enabled: true,
         limit: 10,
       ),

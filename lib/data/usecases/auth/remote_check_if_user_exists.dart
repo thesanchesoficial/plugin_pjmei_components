@@ -31,25 +31,24 @@ class RemoteCheckIfUserExists implements CheckIfUserExists {
 class RemoteCheckIfUserExistsParams {
   RemoteCheckIfUserExistsParams({
     required this.email,
-    required this.nome,
+    required this.name,
   });
 
   factory RemoteCheckIfUserExistsParams.fromMap(Map<String, dynamic> map) {
     return RemoteCheckIfUserExistsParams(
       email: map['email'] ?? '',
-      nome: map['nome'] ?? '',
+      name: map['name'] ?? '',
     );
   }
 
-  factory RemoteCheckIfUserExistsParams.fromJson(String source) =>
-      RemoteCheckIfUserExistsParams.fromMap(json.decode(source));
+  factory RemoteCheckIfUserExistsParams.fromJson(String source) => RemoteCheckIfUserExistsParams.fromMap(json.decode(source));
   String email;
-  String nome;
+  String name;
 
   Map<String, dynamic> toMap() {
     return {
       'email': email,
-      'nome': nome,
+      'name': name,
     };
   }
 
@@ -58,7 +57,7 @@ class RemoteCheckIfUserExistsParams {
   CheckIfUserExistsParams toEntity() {
     return CheckIfUserExistsParams(
       email: email,
-      nome: nome,
+      name: name,
     );
   }
 }
