@@ -5,22 +5,22 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 class StyleWhiteLabelEntity {
   String lightColorScheme;
   String darkColorScheme;
-  ResourceWhiteLabelEntity resource;
+  ImageWhiteLabelEntity image;
   StyleWhiteLabelEntity({
     required this.lightColorScheme,
     required this.darkColorScheme,
-    required this.resource,
+    required this.image,
   });
 
   StyleWhiteLabelEntity copyWith({
     String? lightColorScheme,
     String? darkColorScheme,
-    ResourceWhiteLabelEntity? resource,
+    ImageWhiteLabelEntity? image,
   }) {
     return StyleWhiteLabelEntity(
       lightColorScheme: lightColorScheme ?? this.lightColorScheme,
       darkColorScheme: darkColorScheme ?? this.darkColorScheme,
-      resource: resource ?? this.resource,
+      image: image ?? this.image,
     );
   }
 
@@ -28,7 +28,7 @@ class StyleWhiteLabelEntity {
     return {
       'lightColorScheme': lightColorScheme,
       'darkColorScheme': darkColorScheme,
-      'resource': resource.toMap(),
+      'image': image.toMap(),
     };
   }
 
@@ -36,7 +36,7 @@ class StyleWhiteLabelEntity {
     return StyleWhiteLabelEntity(
       lightColorScheme: map['lightColorScheme'] ?? '',
       darkColorScheme: map['darkColorScheme'] ?? '',
-      resource: ResourceWhiteLabelEntity.fromMap(map['resource']),
+      image: ImageWhiteLabelEntity.fromMap(map['image']),
     );
   }
 
@@ -45,7 +45,7 @@ class StyleWhiteLabelEntity {
   factory StyleWhiteLabelEntity.fromJson(String source) => StyleWhiteLabelEntity.fromMap(json.decode(source));
 
   @override
-  String toString() => 'StyleWhiteLabelEntity(lightColorScheme: $lightColorScheme, darkColorScheme: $darkColorScheme, resource: $resource)';
+  String toString() => 'StyleWhiteLabelEntity(lightColorScheme: $lightColorScheme, darkColorScheme: $darkColorScheme, image: $image)';
 
   @override
   bool operator ==(Object other) {
@@ -54,9 +54,9 @@ class StyleWhiteLabelEntity {
     return other is StyleWhiteLabelEntity &&
       other.lightColorScheme == lightColorScheme &&
       other.darkColorScheme == darkColorScheme &&
-      other.resource == resource;
+      other.image == image;
   }
 
   @override
-  int get hashCode => lightColorScheme.hashCode ^ darkColorScheme.hashCode ^ resource.hashCode;
+  int get hashCode => lightColorScheme.hashCode ^ darkColorScheme.hashCode ^ image.hashCode;
 }

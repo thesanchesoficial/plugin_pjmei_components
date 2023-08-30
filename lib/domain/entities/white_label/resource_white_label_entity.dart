@@ -1,52 +1,36 @@
 import 'dart:convert';
 
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+
 class ResourceWhiteLabelEntity {
-  String logoMenuWeb;
-  String logoMenuMobile;
-  String logoSplash;
-  String favicon;
-  String icon;
+  ItemResourceWhiteLabelEntity individual;
+  ItemResourceWhiteLabelEntity company;
   ResourceWhiteLabelEntity({
-    required this.logoMenuWeb,
-    required this.logoMenuMobile,
-    required this.logoSplash,
-    required this.favicon,
-    required this.icon,
+    required this.individual,
+    required this.company,
   });
 
   ResourceWhiteLabelEntity copyWith({
-    String? logoMenuWeb,
-    String? logoMenuMobile,
-    String? logoSplash,
-    String? favicon,
-    String? icon,
+    ItemResourceWhiteLabelEntity? individual,
+    ItemResourceWhiteLabelEntity? company,
   }) {
     return ResourceWhiteLabelEntity(
-      logoMenuWeb: logoMenuWeb ?? this.logoMenuWeb,
-      logoMenuMobile: logoMenuMobile ?? this.logoMenuMobile,
-      logoSplash: logoSplash ?? this.logoSplash,
-      favicon: favicon ?? this.favicon,
-      icon: icon ?? this.icon,
+      individual: individual ?? this.individual,
+      company: company ?? this.company,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'logoMenuWeb': logoMenuWeb,
-      'logoMenuMobile': logoMenuMobile,
-      'logoSplash': logoSplash,
-      'favicon': favicon,
-      'icon': icon,
+      'individual': individual.toMap(),
+      'company': company.toMap(),
     };
   }
 
   factory ResourceWhiteLabelEntity.fromMap(Map<String, dynamic> map) {
     return ResourceWhiteLabelEntity(
-      logoMenuWeb: map['logoMenuWeb'] ?? '',
-      logoMenuMobile: map['logoMenuMobile'] ?? '',
-      logoSplash: map['logoSplash'] ?? '',
-      favicon: map['favicon'] ?? '',
-      icon: map['icon'] ?? '',
+      individual: ItemResourceWhiteLabelEntity.fromMap(map['individual']),
+      company: ItemResourceWhiteLabelEntity.fromMap(map['company']),
     );
   }
 
@@ -55,28 +39,17 @@ class ResourceWhiteLabelEntity {
   factory ResourceWhiteLabelEntity.fromJson(String source) => ResourceWhiteLabelEntity.fromMap(json.decode(source));
 
   @override
-  String toString() {
-    return 'ResourceWhiteLabelEntity(logoMenuWeb: $logoMenuWeb, logoMenuMobile: $logoMenuMobile, logoSplash: $logoSplash, favicon: $favicon, icon: $icon)';
-  }
+  String toString() => 'EnvironmentWhiteLabelEntity(individual: $individual, company: $company)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
   
     return other is ResourceWhiteLabelEntity &&
-      other.logoMenuWeb == logoMenuWeb &&
-      other.logoMenuMobile == logoMenuMobile &&
-      other.logoSplash == logoSplash &&
-      other.favicon == favicon &&
-      other.icon == icon;
+      other.individual == individual &&
+      other.company == company;
   }
 
   @override
-  int get hashCode {
-    return logoMenuWeb.hashCode ^
-      logoMenuMobile.hashCode ^
-      logoSplash.hashCode ^
-      favicon.hashCode ^
-      icon.hashCode;
-  }
+  int get hashCode => individual.hashCode ^ company.hashCode;
 }

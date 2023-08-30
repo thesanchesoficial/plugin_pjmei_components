@@ -17,12 +17,12 @@ WhiteLabelEntity pjmeiDev = WhiteLabelEntity(
       lgpd: 'https://www.pjmei.app/lgpd',
       website: 'https://www.pjmei.app',
     ),
-    environment: EnvironmentWhiteLabelEntity(
-      individual: ItemEnvironmentWhiteLabelEntity(
+    resource: ResourceWhiteLabelEntity(
+      individual: ItemResourceWhiteLabelEntity(
         enabled: true,
         limit: 1,
       ),
-      company: ItemEnvironmentWhiteLabelEntity(
+      company: ItemResourceWhiteLabelEntity(
         enabled: true,
         limit: 10,
       ),
@@ -43,7 +43,7 @@ WhiteLabelEntity pjmeiDev = WhiteLabelEntity(
   style: StyleWhiteLabelEntity(
     lightColorScheme: '',
     darkColorScheme: '',
-    resource: ResourceWhiteLabelEntity(
+    image: ImageWhiteLabelEntity(
       favicon: 'assets/images/logo-pjmei.png',
       icon: 'assets/images/logo-pjmei.png',
       logoMenuMobile: 'assets/images/logo-pjmei.png',

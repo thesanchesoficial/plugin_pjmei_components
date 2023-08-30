@@ -54,7 +54,7 @@ class _ModalSelectCompanyWidgetState
                           ),
                         ),
                         Image.asset(
-                          '${WhiteLabelEntity.current?.style.resource.logoMenuWeb}',
+                          '${WhiteLabelEntity.current?.style.image.logoMenuWeb}',
                           fit: BoxFit.fitHeight,
                           color: Theme.of(context).colorScheme.primary,
                           height: 15,

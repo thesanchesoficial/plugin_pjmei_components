@@ -1,18 +1,18 @@
 import 'dart:convert';
 
-class ItemEnvironmentWhiteLabelEntity {
+class ItemResourceWhiteLabelEntity {
   bool enabled;
   int limit;
-  ItemEnvironmentWhiteLabelEntity({
+  ItemResourceWhiteLabelEntity({
     required this.enabled,
     required this.limit,
   });
 
-  ItemEnvironmentWhiteLabelEntity copyWith({
+  ItemResourceWhiteLabelEntity copyWith({
     bool? enabled,
     int? limit,
   }) {
-    return ItemEnvironmentWhiteLabelEntity(
+    return ItemResourceWhiteLabelEntity(
       enabled: enabled ?? this.enabled,
       limit: limit ?? this.limit,
     );
@@ -25,8 +25,8 @@ class ItemEnvironmentWhiteLabelEntity {
     };
   }
 
-  factory ItemEnvironmentWhiteLabelEntity.fromMap(Map<String, dynamic> map) {
-    return ItemEnvironmentWhiteLabelEntity(
+  factory ItemResourceWhiteLabelEntity.fromMap(Map<String, dynamic> map) {
+    return ItemResourceWhiteLabelEntity(
       enabled: map['enabled'] ?? false,
       limit: map['limit']?.toInt() ?? 0,
     );
@@ -34,16 +34,16 @@ class ItemEnvironmentWhiteLabelEntity {
 
   String toJson() => json.encode(toMap());
 
-  factory ItemEnvironmentWhiteLabelEntity.fromJson(String source) => ItemEnvironmentWhiteLabelEntity.fromMap(json.decode(source));
+  factory ItemResourceWhiteLabelEntity.fromJson(String source) => ItemResourceWhiteLabelEntity.fromMap(json.decode(source));
 
   @override
-  String toString() => 'ItemEnvironmentWhiteLabelEntity(enabled: $enabled, limit: $limit)';
+  String toString() => 'ItemResourceWhiteLabelEntity(enabled: $enabled, limit: $limit)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
   
-    return other is ItemEnvironmentWhiteLabelEntity &&
+    return other is ItemResourceWhiteLabelEntity &&
       other.enabled == enabled &&
       other.limit == limit;
   }
