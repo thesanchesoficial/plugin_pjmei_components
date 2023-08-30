@@ -34,6 +34,11 @@ export './contacts/remote_update_contact.dart';
 
 export './coupon/remote_get_coupon.dart';
 
+export './das/remote_get_list_das_items.dart';
+
+export './dasn/remote_get_list_dasn_items.dart';
+export './dasn/remote_post_dasn_item.dart';
+
 export './documents/remote_create_documents.dart';
 export './documents/remote_list_documents.dart';
 export './documents/remote_update_documents.dart';
@@ -173,12 +178,12 @@ export './user/remote_delete_user.dart';
 export './user/remote_list_users.dart';
 export './user/remote_update_user.dart';
 
+export './white_label/add_white_label.dart';
+export './white_label/find_white_label.dart';
+export './white_label/list_white_label.dart';
+export './white_label/update_white_label.dart';
+
 export './voucher/remote_delete_voucher.dart';
 export './voucher/remote_insert_voucher.dart';
 export './voucher/remote_list_by_establishment_voucher.dart';
 export './voucher/remote_update_voucher.dart';
-
-export './das/remote_get_list_das_items.dart';
-
-export './dasn/remote_get_list_dasn_items.dart';
-export './dasn/remote_post_dasn_item.dart';

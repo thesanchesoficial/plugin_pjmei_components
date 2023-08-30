@@ -170,6 +170,12 @@ import './user/delete_user_factory.dart';
 import './user/list_users_factory.dart';
 import './user/update_user_factory.dart';
 
+import './white_label/add_white_label_factory.dart';
+import './white_label/delete_white_label_factory.dart';
+import './white_label/find_white_label_factory.dart';
+import './white_label/list_white_label_factory.dart';
+import './white_label/update_white_label_factory.dart';
+
 part './auth/datasource.dart';
 part './blog/datasource.dart';
 part './ccmei/datasource.dart';
@@ -180,6 +186,7 @@ part './das/datasource.dart';
 part './dasn/datasource.dart';
 part './documents/datasource.dart';
 part './ecommerce/datasource.dart';
+part './ecommerce/voucher/datasource.dart';
 // part './finance/datasource.dart';
 part './financial_education/datasource.dart';
 part './financial_education/categories/datasource.dart';
@@ -204,7 +211,7 @@ part './stories/story_item/datasource.dart';
 part './stories/story_view/datasource.dart';
 part './tasks/datasource.dart';
 part './user/datasource.dart';
-part './ecommerce/voucher/datasource.dart';
+part './white_label/datasource.dart';
 
 class Api {
   Api._();
@@ -235,4 +242,5 @@ class Api {
   static final stories = _StoriesApi();
   static final task = _TasksApi();
   static final user = _UserApi();
+  static final whiteLabel = _WhiteLabelApi();
 }

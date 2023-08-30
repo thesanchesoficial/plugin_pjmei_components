@@ -227,3 +227,8 @@ export './voucher/delete_voucher.dart';
 export './voucher/insert_voucher.dart';
 export './voucher/list_by_establishment_voucher.dart';
 export './voucher/update_voucher.dart';
+
+export './white_label/add_white_label.dart';
+export './white_label/find_white_label.dart';
+export './white_label/list_white_label.dart';
+export './white_label/update_white_label.dart';
