@@ -12,8 +12,8 @@ class AddressEntity {
   String? number;
   String? createdAt;
   String? updatedAt;
-  num? latitude;
-  num? longitude;
+  String? latitude;
+  String? longitude;
   bool? main;
   AddressEntity({
     this.id,
@@ -44,8 +44,8 @@ class AddressEntity {
     String? number,
     String? createdAt,
     String? updatedAt,
-    num? latitude,
-    num? longitude,
+    String? latitude,
+    String? longitude,
     bool? main,
   }) {
     return AddressEntity(
