@@ -7,7 +7,7 @@ class RemoteAddVoucherPlan implements AddVoucherPlan {
   RemoteAddVoucherPlan({required this.httpClient, required this.url});
 
   @override
-  Future<VoucherEntity> exec(VoucherEntity params, {bool log = false}) async {
+  Future<VoucherPlanEntity> exec(VoucherPlanEntity params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
@@ -15,7 +15,7 @@ class RemoteAddVoucherPlan implements AddVoucherPlan {
         method: 'post',
         body: params.toMap(),
       );
-      return VoucherEntity.fromMap(httpResponse["success"]["coupon"]);
+      return VoucherPlanEntity.fromMap(httpResponse["success"]["coupon"]);
     } on HttpError catch (_) {
       throw DomainError.unexpected;
     }

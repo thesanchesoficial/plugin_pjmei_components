@@ -7,7 +7,7 @@ class RemoteUpdateVoucherPlan implements UpdateVoucherPlan {
   RemoteUpdateVoucherPlan({required this.httpClient, required this.url});
 
   @override
-  Future<VoucherEntity> exec(VoucherEntity item, {bool log = false}) async {
+  Future<VoucherPlanEntity> exec(VoucherPlanEntity item, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
@@ -15,7 +15,7 @@ class RemoteUpdateVoucherPlan implements UpdateVoucherPlan {
         method: 'put',
         body: item.toMap(),
       );
-      return VoucherEntity.fromMap(httpResponse["success"]["coupon"]);
+      return VoucherPlanEntity.fromMap(httpResponse["success"]["coupon"]);
     } on HttpError catch (_) {
       throw DomainError.unexpected;
     }

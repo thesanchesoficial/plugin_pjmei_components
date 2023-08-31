@@ -6,15 +6,15 @@ class _VoucherPlanApi {
     return makeRemoteGetCoupon(id).exec();
   }
 
-  Future<List<VoucherEntity>> listByPlan({required Map<String, dynamic> query}) {
+  Future<List<VoucherPlanEntity>> listByPlan({required Map<String, dynamic> query}) {
     return makeRemoteListVouchersPlans(params: query).exec();
   }
 
-  Future<VoucherEntity> insert({required VoucherEntity data}) {
+  Future<VoucherPlanEntity> insert({required VoucherPlanEntity data}) {
     return makeRemoteAddVoucherPlan().exec(data);
   }
 
-  Future<VoucherEntity> update({required String id, required VoucherEntity data}) {
+  Future<VoucherPlanEntity> update({required String id, required VoucherPlanEntity data}) {
     return makeRemoteUpdateVoucherPlan(id).exec(data);
   }
 

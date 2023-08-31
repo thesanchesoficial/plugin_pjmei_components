@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 ListUsers makeRemoteListUsers() => RemoteListUsers(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/usuario')
+  url: makeApiUrl('venver/user')
 );
