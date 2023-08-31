@@ -26,7 +26,7 @@ class HttpAdapter implements HttpClient {
             await _newToken();
           } catch (e) {
             userSM.user = null;
-            navigatorKey.currentContext?.push('/home');
+            navigatorKey.currentContext?.go(logoutRedirect);
             throw HttpError.serverError;
           }
         }
@@ -38,11 +38,10 @@ class HttpAdapter implements HttpClient {
         'accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ${userSM.user?.accessToken}',
-        'company': '${companySM.company?.id}',
-        'x-pjmei-environment': '${WhiteLabelEntity.current?.id}',
-        'x-pjmei-version': '$minimalVersion',
-        'x-pjmei-company': '${companySM.company?.id}',
-        'x-pjmei-user': '${userSM.user?.id}',
+        'X-Pjmei-Environment': '${WhiteLabelEntity.current?.id}',
+        'X-Pjmei-Version': '$minimalVersion',
+        'X-Pjmei-Company': '${companySM.company?.id}',
+        'X-Pjmei-Ecommerce': '${ecommerceSM.establishment?.id}',
         'x-api-key': Environment.current!.apiKey,
       });
     }

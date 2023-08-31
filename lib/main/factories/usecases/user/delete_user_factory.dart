@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 DeleteUser makeRemoteDeleteUser(String id) => RemoteDeleteUser(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/usuario/$id')
+  url: makeApiUrl('venver/user/$id')
 );

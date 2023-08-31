@@ -11,7 +11,7 @@ class CompanyEntity {
   String cnpj;
   String phone;
   String email;
-  PlanEntity plan;
+  PlanEntity? plan;
   String whiteLabel;
   String? logo;
   String? color;
@@ -82,7 +82,7 @@ class CompanyEntity {
       'cnpj': cnpj,
       'phone': phone,
       'email': email,
-      'plan': plan.toMap(),
+      'plan': plan?.toMap(),
       'whiteLabel': whiteLabel,
       'logo': logo,
       'color': color,
@@ -102,7 +102,7 @@ class CompanyEntity {
       cnpj: map['cnpj'] ?? '',
       phone: map['phone'] ?? '',
       email: map['email'] ?? '',
-      plan: PlanEntity.fromMap(map['plan']),
+      plan: map['plan'] != null ? PlanEntity.fromMap(map['plan']) : null,
       whiteLabel: map['whiteLabel'] ?? '',
       logo: map['logo'],
       color: map['color'],

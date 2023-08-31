@@ -20,6 +20,7 @@ class Main {
     void Function()? listenUser,
     required int minimalVersionApp,
     FirebaseOptions? firebaseOptions,
+    required String logoutPathRedirect,
   }) async {
     WidgetsFlutterBinding.ensureInitialized();
     try {
@@ -40,6 +41,7 @@ class Main {
       Environment.current = Production();
     }
     minimalVersion = minimalVersionApp;
+    logoutRedirect = logoutPathRedirect;
     
     try {
       if (isFirstLoading) {

@@ -6,7 +6,7 @@ class SettingWhiteLabelEntity {
   String companyId;
   String supportId;
   bool forceAuthenticationStart;
-  bool disabledPrintscreen;
+  bool disabledPrintScreen;
   String urlWebApplication;
   String redirectOrigin;
   LinkWhiteLabelEntity link;
@@ -16,7 +16,7 @@ class SettingWhiteLabelEntity {
     required this.companyId,
     required this.supportId,
     required this.forceAuthenticationStart,
-    required this.disabledPrintscreen,
+    required this.disabledPrintScreen,
     required this.urlWebApplication,
     required this.redirectOrigin,
     required this.link,
@@ -28,7 +28,7 @@ class SettingWhiteLabelEntity {
     String? companyId,
     String? supportId,
     bool? forceAuthenticationStart,
-    bool? disabledPrintscreen,
+    bool? disabledPrintScreen,
     String? urlWebApplication,
     String? redirectOrigin,
     LinkWhiteLabelEntity? link,
@@ -39,7 +39,7 @@ class SettingWhiteLabelEntity {
       companyId: companyId ?? this.companyId,
       supportId: supportId ?? this.supportId,
       forceAuthenticationStart: forceAuthenticationStart ?? this.forceAuthenticationStart,
-      disabledPrintscreen: disabledPrintscreen ?? this.disabledPrintscreen,
+      disabledPrintScreen: disabledPrintScreen ?? this.disabledPrintScreen,
       urlWebApplication: urlWebApplication ?? this.urlWebApplication,
       redirectOrigin: redirectOrigin ?? this.redirectOrigin,
       link: link ?? this.link,
@@ -53,7 +53,7 @@ class SettingWhiteLabelEntity {
       'companyId': companyId,
       'supportId': supportId,
       'forceAuthenticationStart': forceAuthenticationStart,
-      'disabledPrintscreen': disabledPrintscreen,
+      'disabledPrintscreen': disabledPrintScreen,
       'urlWebApplication': urlWebApplication,
       'redirectOrigin': redirectOrigin,
       'link': link.toMap(),
@@ -67,7 +67,7 @@ class SettingWhiteLabelEntity {
       companyId: map['companyId'] ?? '',
       supportId: map['supportId'] ?? '',
       forceAuthenticationStart: map['forceAuthenticationStart'] ?? false,
-      disabledPrintscreen: map['disabledPrintscreen'] ?? false,
+      disabledPrintScreen: map['disabledPrintScreen'] ?? false,
       urlWebApplication: map['urlWebApplication'] ?? '',
       redirectOrigin: map['redirectOrigin'] ?? '',
       link: LinkWhiteLabelEntity.fromMap(map['link']),
@@ -88,7 +88,7 @@ class SettingWhiteLabelEntity {
       other.companyId == companyId &&
       other.supportId == supportId &&
       other.forceAuthenticationStart == forceAuthenticationStart &&
-      other.disabledPrintscreen == disabledPrintscreen &&
+      other.disabledPrintScreen == disabledPrintScreen &&
       other.urlWebApplication == urlWebApplication &&
       other.redirectOrigin == redirectOrigin &&
       other.link == link &&
@@ -101,7 +101,7 @@ class SettingWhiteLabelEntity {
     return companyId.hashCode ^
       supportId.hashCode ^
       forceAuthenticationStart.hashCode ^
-      disabledPrintscreen.hashCode ^
+      disabledPrintScreen.hashCode ^
       urlWebApplication.hashCode ^
       redirectOrigin.hashCode ^
       link.hashCode ^
@@ -111,6 +111,6 @@ class SettingWhiteLabelEntity {
 
   @override
   String toString() {
-    return 'SettingWhiteLabelEntity(companyId: $companyId, supportId: $supportId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintscreen: $disabledPrintscreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
+    return 'SettingWhiteLabelEntity(companyId: $companyId, supportId: $supportId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
   }
 }

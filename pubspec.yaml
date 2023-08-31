@@ -1,6 +1,6 @@
 name: plugin_pjmei_components
 description: A new Flutter plugin project.
-version: 0.0.75
+version: 0.0.76
 homepage:
 
 environment:
@@ -208,7 +208,6 @@ dependency_overrides:
     git:
       url: https://github.com/asionbo/flutter_datetime_picker_fork
       ref: master
-
 
 dev_dependencies:
   flutter_test:

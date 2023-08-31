@@ -13,6 +13,7 @@ bool hidePrintApplication = true;
 bool isWebApplication = true;
 double webStartsWithWidth = 500;
 int minimalVersion = 1;
+String logoutRedirect = '/login';
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 Map<String, Widget Function(BuildContext)> routersApp = {};
 final ValueNotifier<UserEntity?> checkUserNotifier = ValueNotifier(userSM.user);

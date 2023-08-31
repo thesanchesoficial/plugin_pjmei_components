@@ -7,7 +7,7 @@ WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
   setting: SettingWhiteLabelEntity(
     companyId: 'f327226e-709b-4c6a-ab5e-5c4b25e551e1',
     supportId: 'SUPPORT1-0000-0000-0000-00000000PJMEI',
-    disabledPrintscreen: false,
+    disabledPrintScreen: false,
     forceAuthenticationStart: false,
     redirectOrigin: 'https://portal.pjmei.app',
     urlWebApplication: 'https://portal.pjmei.app',

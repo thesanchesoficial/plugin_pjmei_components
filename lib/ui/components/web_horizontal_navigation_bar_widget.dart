@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class WebHorizontalNavigationBar extends StatelessWidget {
-  const WebHorizontalNavigationBar({super.key, required this.screens});
+  const WebHorizontalNavigationBar({super.key, required this.screens, this.header, this.footer});
   final List<TabModuleWidget> screens;
+  final Widget? header;
+  final Widget? footer;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class WebHorizontalNavigationBar extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            header ?? const SizedBox(),
             Expanded(
               child: SingleChildScrollView(
                 child: ListView.separated(
