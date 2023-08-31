@@ -25,31 +25,37 @@ class WebHorizontalNavigationBar extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            header ?? const SizedBox(),
             Expanded(
               child: SingleChildScrollView(
-                child: ListView.separated(
-                  padding: const EdgeInsets.all(25),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: screens.length,
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(height: 10);
-                  },
-                  itemBuilder: (context, index) {
-                    return Observer(
-                      builder: (context) {
-                        return ButtonMenuWeb(
-                          label: screens[index].title,
-                          icon: screens[index].icon,
-                          selected: appSM.selectedIndex == index,
-                          onPressed: () {
-                            appSM.setSelectedIndex(index);
-                          },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    header ?? const SizedBox(),
+                    ListView.separated(
+                      padding: const EdgeInsets.all(25),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: screens.length,
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(height: 10);
+                      },
+                      itemBuilder: (context, index) {
+                        return Observer(
+                          builder: (context) {
+                            return ButtonMenuWeb(
+                              label: screens[index].title,
+                              icon: screens[index].icon,
+                              selected: appSM.selectedIndex == index,
+                              onPressed: () {
+                                appSM.setSelectedIndex(index);
+                              },
+                            );
+                          }
                         );
-                      }
-                    );
-                  },
+                      },
+                    ),
+                    footer ?? const SizedBox(),
+                  ],
                 ),
               ),
             ),
