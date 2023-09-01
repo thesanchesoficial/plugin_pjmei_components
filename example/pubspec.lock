@@ -1506,7 +1506,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.83"
+    version: "0.0.84"
   plugin_platform_interface:
     dependency: transitive
     description:
