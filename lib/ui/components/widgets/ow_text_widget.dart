@@ -60,7 +60,7 @@ class OwTextWidget extends StatelessWidget {
     String textTemp = "";
     bool containsSecret = false;
     
-    textTemp = convertString(text ?? "", additionals: {});
+    textTemp = convertString(text ?? "", additionals: {}) ?? '';
 
     if(textTemp.contains("{{") && textTemp.contains("}}")) {
       containsSecret = true;
