@@ -14,9 +14,11 @@ class RemoteListUsers implements ListUsers {
         log: log,
         method: 'get',
       );
-      return (httpResponse["success"] as List)
-          .map((e) => UserEntity.fromMap(e))
-          .toList();
+      if(httpResponse["success"]["user"] != null) {
+        return (httpResponse["success"]["user"] as List).map((e) => UserEntity.fromMap(e)).toList();
+      } else {
+        return (httpResponse["success"] as List).map((e) => UserEntity.fromMap(e)).toList();
+      }
     } on HttpError catch (_) {
       throw DomainError.unexpected;
     }

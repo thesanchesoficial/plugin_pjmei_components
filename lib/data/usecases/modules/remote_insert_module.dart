@@ -11,7 +11,7 @@ class RemoteAddModule implements AddModule {
         url: url,
         log: log,
         method: 'post',
-        body: params.toMap(),
+        body: params.toMap()..removeWhere((key, value) => key == 'id'),
         newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {

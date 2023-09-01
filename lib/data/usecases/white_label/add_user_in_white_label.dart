@@ -19,7 +19,7 @@ class RemoteAddUserInWhiteLabel implements AddUserInWhiteLabel {
       if (httpResponse != null && (httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return httpResponse != null;
+      return httpResponse != null || httpResponse["code"] == 204;
     } catch (e) {
       throw e;
     }
