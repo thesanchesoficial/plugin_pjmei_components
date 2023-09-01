@@ -14,7 +14,7 @@ class _ModuleApi {
     return makeRemoteListAllModules(params).exec();
   }
 
-  Future<ModulePjmei> insert({required ModulePjmei data}) {
+  Future<ModulePjmei> insert({required Map<String, dynamic> data}) {
     return makeRemoteAddModule().exec(data);
   }
 

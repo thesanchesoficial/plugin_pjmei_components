@@ -5,13 +5,13 @@ class RemoteAddModule implements AddModule {
   final HttpClient httpClient;
   final String url;
 
-  Future<ModulePjmei> exec(ModulePjmei params, {bool log = false}) async {
+  Future<ModulePjmei> exec(Map<String, dynamic> params, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
         method: 'post',
-        body: params.toMap()..removeWhere((key, value) => key == 'id'),
+        body: params,
         newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
