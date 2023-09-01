@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 ListAllModules makeRemoteListAllModules(Map<String, dynamic> params) => RemoteListAllModules(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('pjmei/modules/all', params: params)
+  url: makeApiUrl('pjmei/modules', params: params)
 );

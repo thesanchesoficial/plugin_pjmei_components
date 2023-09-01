@@ -1,13 +1,13 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class RemoteListAllModules implements ListAllModules {
+class RemoteFindModule implements FindModule {
   final HttpClient httpClient;
   final String url;
 
-  RemoteListAllModules({required this.httpClient, required this.url});
+  RemoteFindModule({required this.httpClient, required this.url});
 
   @override
-  Future<List<ModulePjmei>> exec({bool log = false}) async {
+  Future<ModulePjmei> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
@@ -17,7 +17,11 @@ class RemoteListAllModules implements ListAllModules {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return (httpResponse["success"] as List).map((e) => ModulePjmei.fromMap(e)).toList();
+      if(httpResponse['success']['module'] != null) {
+        return ModulePjmei.fromMap(httpResponse['success']['module']);
+      } else {
+        return ModulePjmei.fromMap(httpResponse['success']);
+      }
     } catch (e) {
       throw e;
     }

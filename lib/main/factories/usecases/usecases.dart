@@ -116,6 +116,8 @@ import './modules/delete_module_factory.dart';
 import './modules/list_all_modules_factory.dart';
 import './modules/list_modules.dart';
 import './modules/update_module_factory.dart';
+import './modules/find_module_factory.dart';
+import './modules/insert_module_factory.dart';
 
 import './notifications/add_notifications_factory.dart';
 import './notifications/delete_notifications_factory.dart';
@@ -170,6 +172,7 @@ import './user/delete_user_factory.dart';
 import './user/list_users_factory.dart';
 import './user/update_user_factory.dart';
 
+import './white_label/add_user_in_white_label_factory.dart';
 import './white_label/add_white_label_factory.dart';
 import './white_label/delete_white_label_factory.dart';
 import './white_label/find_white_label_factory.dart';

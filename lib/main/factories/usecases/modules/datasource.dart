@@ -2,9 +2,9 @@ part of '../usecases.dart';
 
 class _ModuleApi {
 
-  // Future<CompanyEntity> find({required String id}) {
-  //   return makeRemoteFindCompany(id).exec();
-  // }
+  Future<ModulePjmei> find({required String id}) {
+    return makeRemoteFindModule(id).exec();
+  }
 
   Future<List<ModulePjmei>> list({required Map<String, dynamic> params}) {
     return makeRemoteGetListModules(params: params).exec();
@@ -14,9 +14,9 @@ class _ModuleApi {
     return makeRemoteListAllModules(params).exec();
   }
 
-  // Future<ModulePjmei> insert({required ModulePjmei data}) {
-  //   return makeRemoteAddVoucher().exec(data);
-  // }
+  Future<ModulePjmei> insert({required ModulePjmei data}) {
+    return makeRemoteAddModule().exec(data);
+  }
 
   Future<ModulePjmei> update({required String id, required ModulePjmei data}) {
     return makeRemoteUpdateModule(id).exec(data);

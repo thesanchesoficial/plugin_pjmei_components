@@ -102,8 +102,10 @@ export './mei_management/remote_list_all_das_years.dart';
 export './mei_management/remote_notafiscal_service.dart';
 export './mei_management/remote_post_notafiscal.dart';
 
-export './modules/list_modules.dart';
+export './modules/remote_list_modules.dart';
 export './modules/remote_delete_module.dart';
+export './modules/remote_find_module.dart';
+export './modules/remote_insert_module.dart';
 export './modules/remote_list_all_modules.dart';
 export './modules/remote_update_module.dart';
 
@@ -178,6 +180,7 @@ export './user/remote_delete_user.dart';
 export './user/remote_list_users.dart';
 export './user/remote_update_user.dart';
 
+export './white_label/add_user_in_white_label.dart';
 export './white_label/add_white_label.dart';
 export './white_label/find_white_label.dart';
 export './white_label/list_white_label.dart';

@@ -151,6 +151,8 @@ export './modules/delete_module.dart';
 export './modules/list_all_modules.dart';
 export './modules/list_modules.dart';
 export './modules/update_module.dart';
+export './modules/find_module.dart';
+export './modules/insert_module.dart';
 
 export './nota_fiscal/list_notas_fiscais.dart';
 export './nota_fiscal/update_nota_fiscal.dart';
@@ -228,6 +230,7 @@ export './voucher/insert_voucher.dart';
 export './voucher/list_by_establishment_voucher.dart';
 export './voucher/update_voucher.dart';
 
+export './white_label/add_user_in_white_label.dart';
 export './white_label/add_white_label.dart';
 export './white_label/find_white_label.dart';
 export './white_label/list_white_label.dart';

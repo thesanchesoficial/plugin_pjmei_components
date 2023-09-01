@@ -22,8 +22,26 @@ class _CompanyApi {
     return makeRemoteListBusiness(params).exec();
   }
 
-  Future<bool> register({required Map<String, dynamic> body}) {
-    return makeRemoteInsertCompany().exec(body);
+  Future<bool> register({
+    required String fantasyName,
+    required String corporateName,
+    required String cnpj,
+    required String phone,
+    required String email,
+    String? logo,
+    String? description,
+    String? color,
+  }) {
+    return makeRemoteInsertCompany().exec(<String, dynamic>{
+      "fantasyName": fantasyName,
+      "corporateName": corporateName,
+      "cnpj": cnpj,
+      "phone": phone,
+      "email": email,
+      "logo": logo,
+      "description": description,
+      "color": color,
+    });
   }
 
   Future<CompanyEntity> update({required String id, required CompanyEntity data}) {

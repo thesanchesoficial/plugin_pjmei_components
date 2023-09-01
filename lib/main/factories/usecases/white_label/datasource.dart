@@ -18,6 +18,10 @@ class _WhiteLabelApi {
     return makeRemoteAddWhiteLabel().exec(data);
   }
 
+  Future<bool> addUser({required String id, required List<String> data}) {
+    return makeRemoteAddUserInWhiteLabel(id).exec(data);
+  }
+
   Future<WhiteLabelEntity> update({required String id, required WhiteLabelEntity data}) {
     return makeRemoteUpdateWhiteLabel(id).exec(data);
   }
