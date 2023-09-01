@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -45,82 +46,82 @@ class ModulePjmei {
 
 
   factory ModulePjmei.fromMap(Map<String, dynamic> map) {
-    // final int minimalVersion = map['minimalVersion'] ?? 0;
-    // final int maximalVersion = map['maximalVersion'] ?? 9999999999;
+    final int minimalVersion = map['minimalVersion'] ?? 0;
+    final int maximalVersion = map['maximalVersion'] ?? 9999999999;
 
-    // final Map<String, dynamic> params = Map<String, dynamic>.from(map['params'] ?? {});
-    // final bool isWeb = params['isWeb'] ?? true;
-    // final bool isAndroid = params['isAndroid'] ?? true;
-    // final bool isIos = params['isIos'] ?? true;
-    // final bool smallScreen = params['smallScreen'] ?? true;
-    // final bool largeScreen = params['largeScreen'] ?? true;
+    final Map<String, dynamic> params = Map<String, dynamic>.from(map['params'] ?? {});
+    final bool isWeb = params['isWeb'] ?? true;
+    final bool isAndroid = params['isAndroid'] ?? true;
+    final bool isIos = params['isIos'] ?? true;
+    final bool smallScreen = params['smallScreen'] ?? true;
+    final bool largeScreen = params['largeScreen'] ?? true;
 
-    // if (minimalVersion > Environment.current!.minimalVersion ||
-    //     maximalVersion < Environment.current!.minimalVersion) {
-    //   return ModulePjmei(
-    //     displayType: 'DEVELOPMENT',
-    //     title: '-',
-    //     index: 999,
-    //     params: {},
-    //   );
-    // }
+    if (minimalVersion > minimalVersion || maximalVersion <minimalVersion) {
+      return ModulePjmei(
+        displayType: 'DEVELOPMENT',
+        title: '-',
+        index: 999,
+        params: {},
+        whiteLabel: '${WhiteLabelEntity.current?.id}',
+      );
+    }
 
-    // if (kIsWeb) {
-    //   if (!isWeb) {
-    //     return ModulePjmei(
-    //       displayType: 'DEVELOPMENT',
-    //       title: '-',
-    //       index: 999,
-    //       params: {},
-    //     );
-    //   }
-    // } else {
-    //   if (Platform.isAndroid && !isAndroid) {
-    //     return ModulePjmei(
-    //       displayType: 'DEVELOPMENT',
-    //       title: '-',
-    //       index: 999,
-    //       params: {},
-    //     );
-    //   } else if (Platform.isIOS && !isIos) {
-    //     return ModulePjmei(
-    //       displayType: 'DEVELOPMENT',
-    //       title: '-',
-    //       index: 999,
-    //       params: {},
-    //     );
-    //   }
-    // }
+    if (kIsWeb) {
+      if (!isWeb) {
+        return ModulePjmei(
+          displayType: 'DEVELOPMENT',
+          title: '-',
+          index: 999,
+          params: {},
+          whiteLabel: '${WhiteLabelEntity.current?.id}',
+        );
+      }
+    } else {
+      if (Platform.isAndroid && !isAndroid) {
+        return ModulePjmei(
+          displayType: 'DEVELOPMENT',
+          title: '-',
+          index: 999,
+          params: {},
+          whiteLabel: '${WhiteLabelEntity.current?.id}',
+        );
+      } else if (Platform.isIOS && !isIos) {
+        return ModulePjmei(
+          displayType: 'DEVELOPMENT',
+          title: '-',
+          index: 999,
+          params: {},
+          whiteLabel: '${WhiteLabelEntity.current?.id}',
+        );
+      }
+    }
 
-    // if (appSM.isWeb) {
-    //   if (!largeScreen) {
-    //     return ModulePjmei(
-    //       displayType: 'DEVELOPMENT',
-    //       title: '-',
-    //       index: 999,
-    //       params: {},
-    //     );
-    //   }
-    // } else {
-    //   if (!smallScreen) {
-    //     return ModulePjmei(
-    //       displayType: 'DEVELOPMENT',
-    //       title: '-',
-    //       index: 999,
-    //       params: {},
-    //     );
-    //   }
-    // }
+    if (appSM.isWeb) {
+      if (!largeScreen) {
+        return ModulePjmei(
+          displayType: 'DEVELOPMENT',
+          title: '-',
+          index: 999,
+          params: {},
+          whiteLabel: '${WhiteLabelEntity.current?.id}',
+        );
+      }
+    } else {
+      if (!smallScreen) {
+        return ModulePjmei(
+          displayType: 'DEVELOPMENT',
+          title: '-',
+          index: 999,
+          params: {},
+          whiteLabel: '${WhiteLabelEntity.current?.id}',
+        );
+      }
+    }
 
     final Map<String, dynamic> paramsDynamic = {
       '#moduleId': map['id'],
     };
-
-    final Map<String, dynamic> paramsTemp = map;
-    paramsTemp.addAll(Map<String, dynamic>.from(
-      map['params'] ?? {},
-    ));
-
+    
     return ModulePjmei(
       id: map['id'] ?? '',
       title: convertString(map['title'], additionals: paramsDynamic),
@@ -134,7 +135,7 @@ class ModulePjmei {
         map['sessions']?.map((x) => SessionPjmei.fromMap(x)),
       ),
       minimalVersion: map['minimalVersion'] ?? 0,
-      params: paramsTemp,
+      params: params,
       whiteLabel: map['whiteLabel'],
       maximalVersion: map['maximal_version'] == null ? map['maximalVersion']?.toInt() : map['maximal_version']?.toInt() ?? 999999999,
       typeScreen: (map['typeScreen'] ?? map['type_screen'] ?? '').toString(),
