@@ -1,7 +1,7 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 String makeApiUrl(String router, {Map<String, dynamic>? params}) {
-  String urlParams = '?api_key=${Environment.current?.apiKey}&version_app=$minimalVersion&appName=${WhiteLabelEntity.current?.name}';
+  String urlParams = '?api_key=${Environment.current?.apiKey}';
 
   params?.forEach((key, value) {
     urlParams = urlParams + '&$key=$value';

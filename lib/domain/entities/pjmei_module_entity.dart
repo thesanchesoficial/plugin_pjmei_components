@@ -7,7 +7,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 class ModulePjmei {
   String? id;
   String? title;
-  String appName;
+  String whiteLabel;
   String? description;
   String displayType;
   int index;
@@ -26,7 +26,7 @@ class ModulePjmei {
   ModulePjmei({
     this.id,
     this.title,
-    this.appName = 'pjmei',
+    required this.whiteLabel,
     this.description,
     required this.displayType,
     this.index = 0,
@@ -135,9 +135,9 @@ class ModulePjmei {
       ),
       minimalVersion: map['minimalVersion'] ?? 0,
       params: paramsTemp,
-      appName: map['appName'],
+      whiteLabel: map['whiteLabel'],
       maximalVersion: map['maximal_version'] == null ? map['maximalVersion']?.toInt() : map['maximal_version']?.toInt() ?? 999999999,
-      typeScreen: (map['typeScreen'] ??  map['type_screen'] ?? '').toString(),
+      typeScreen: (map['typeScreen'] ?? map['type_screen'] ?? '').toString(),
       hideOnPlans: map['hideOnPlans'] == null ? [] : List<String>.from(map['hideOnPlans']),
       activeOnPlans: map['activeOnPlans'] == null ? [] : List<String>.from(map['activeOnPlans']),
       groups: map['groups'] == null ? [] : List<String>.from(map['groups']),
@@ -158,7 +158,7 @@ class ModulePjmei {
     List<SessionPjmei>? sessions,
     int? minimalVersion,
     Map<String, dynamic>? params,
-    String? appName,
+    String? whiteLabel,
     int? maximalVersion,
     String? typeScreen,
     List<String>? hideOnPlans,
@@ -177,7 +177,7 @@ class ModulePjmei {
       sessions: sessions ?? this.sessions,
       minimalVersion: minimalVersion ?? this.minimalVersion,
       params: params ?? this.params,
-      appName: appName ?? this.appName,
+      whiteLabel: whiteLabel ?? this.whiteLabel,
       typeScreen: typeScreen ?? this.typeScreen,
       activeOnPlans: activeOnPlans ?? this.activeOnPlans,
       groups: groups ?? this.groups,
@@ -195,6 +195,7 @@ class ModulePjmei {
       'index': index,
       'image': image,
       'route': route,
+      'whiteLabel': whiteLabel,
       'spotlight': spotlight,
       'sessions': sessions?.map((x) => x.toMap()).toList(),
       'minimalVersion': minimalVersion,
@@ -219,6 +220,7 @@ class ModulePjmei {
         other.description == description &&
         other.displayType == displayType &&
         other.index == index &&
+        other.whiteLabel == whiteLabel &&
         mapEquals(other.image, image) &&
         mapEquals(other.params, params) &&
         other.route == route &&
@@ -233,6 +235,7 @@ class ModulePjmei {
         description.hashCode ^
         displayType.hashCode ^
         index.hashCode ^
+        whiteLabel.hashCode ^
         image.hashCode ^
         params.hashCode ^
         route.hashCode ^
