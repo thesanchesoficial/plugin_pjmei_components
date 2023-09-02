@@ -102,17 +102,12 @@ class _ModalSelectCompanyWidgetState
                                       Container(
                                         padding: const EdgeInsets.all(8),
                                         decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondaryContainer,
+                                          color: Theme.of(context).colorScheme.secondaryContainer,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Icon(
                                           Icons.store_outlined,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .displayLarge
-                                              ?.color,
+                                          color: Theme.of(context).textTheme.displayLarge?.color,
                                         ),
                                       ),
                                       const SizedBox(
@@ -120,18 +115,15 @@ class _ModalSelectCompanyWidgetState
                                       ),
                                       Expanded(
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
+                                          crossAxisAlignment: CrossAxisAlignment.stretch,
                                           children: [
                                             OwText(
                                               '${companySM.company?.fantasyName}',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleMedium,
+                                              style: Theme.of(context).textTheme.titleMedium,
                                             ),
                                             const SizedBox(height: 2),
                                             OwText(
-                                              '${OwFormat.cnpj(companySM.company?.cnpj)}',
+                                              '${OwFormat.cpfCnpj(companySM.company?.documentNumber)}',
                                               style: const TextStyle(
                                                 fontSize: 12,
                                               ),

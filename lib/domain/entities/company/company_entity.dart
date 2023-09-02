@@ -8,7 +8,8 @@ class CompanyEntity {
   String? updatedAt;
   String fantasyName;
   String corporateName;
-  String cnpj;
+  String documentNumber;
+  String documentType;
   String phone;
   String email;
   PlanEntity? plan;
@@ -16,6 +17,7 @@ class CompanyEntity {
   String? logo;
   String? color;
   String? description;
+  String? type;
   EcommerceEntity? ecommerce;
   CompanyEntity({
     this.id,
@@ -24,7 +26,8 @@ class CompanyEntity {
     this.updatedAt,
     required this.fantasyName,
     required this.corporateName,
-    required this.cnpj,
+    required this.documentNumber,
+    required this.documentType,
     required this.phone,
     required this.email,
     required this.plan,
@@ -32,6 +35,7 @@ class CompanyEntity {
     this.logo,
     this.color,
     this.description,
+    this.type,
     this.ecommerce,
   });
 
@@ -42,7 +46,8 @@ class CompanyEntity {
     String? updatedAt,
     String? fantasyName,
     String? corporateName,
-    String? cnpj,
+    String? documentNumber,
+    String? documentType,
     String? phone,
     String? email,
     PlanEntity? plan,
@@ -50,6 +55,7 @@ class CompanyEntity {
     String? logo,
     String? color,
     String? description,
+    String? type,
     EcommerceEntity? ecommerce,
   }) {
     return CompanyEntity(
@@ -59,7 +65,8 @@ class CompanyEntity {
       updatedAt: updatedAt ?? this.updatedAt,
       fantasyName: fantasyName ?? this.fantasyName,
       corporateName: corporateName ?? this.corporateName,
-      cnpj: cnpj ?? this.cnpj,
+      documentNumber: documentNumber ?? this.documentNumber,
+      documentType: documentType ?? this.documentType,
       phone: phone ?? this.phone,
       email: email ?? this.email,
       plan: plan ?? this.plan,
@@ -67,6 +74,7 @@ class CompanyEntity {
       logo: logo ?? this.logo,
       color: color ?? this.color,
       description: description ?? this.description,
+      type: type ?? this.type,
       ecommerce: ecommerce ?? this.ecommerce,
     );
   }
@@ -79,7 +87,8 @@ class CompanyEntity {
       'updatedAt': updatedAt,
       'fantasyName': fantasyName,
       'corporateName': corporateName,
-      'cnpj': cnpj,
+      'documentNumber': documentNumber,
+      'documentType': documentType,
       'phone': phone,
       'email': email,
       'plan': plan?.toMap(),
@@ -87,6 +96,7 @@ class CompanyEntity {
       'logo': logo,
       'color': color,
       'description': description,
+      'type': type,
       'ecommerce': ecommerce?.toMap(),
     };
   }
@@ -99,7 +109,8 @@ class CompanyEntity {
       updatedAt: map['updatedAt'],
       fantasyName: map['fantasyName'] ?? '',
       corporateName: map['corporateName'] ?? '',
-      cnpj: map['cnpj'] ?? '',
+      documentType: map['documentType'] ?? '',
+      documentNumber: map['documentNumber'] ?? '',
       phone: map['phone'] ?? '',
       email: map['email'] ?? '',
       plan: map['plan'] != null ? PlanEntity.fromMap(map['plan']) : null,
@@ -107,6 +118,7 @@ class CompanyEntity {
       logo: map['logo'],
       color: map['color'],
       description: map['description'],
+      type: map['type'],
       ecommerce: map['ecommerce'] != null ? EcommerceEntity.fromMap(map['ecommerce']) : null,
     );
   }
@@ -117,7 +129,7 @@ class CompanyEntity {
 
   @override
   String toString() {
-    return 'CompanyEntity(id: $id, owner: $owner, createdAt: $createdAt, updatedAt: $updatedAt, fantasyName: $fantasyName, corporateName: $corporateName, cnpj: $cnpj, phone: $phone, email: $email, plan: $plan, whiteLabel: $whiteLabel, logo: $logo, color: $color, description: $description, ecommerce: $ecommerce)';
+    return 'CompanyEntity(id: $id, owner: $owner, createdAt: $createdAt, updatedAt: $updatedAt, fantasyName: $fantasyName, corporateName: $corporateName, documentType: $documentType, documentNumber: $documentNumber, phone: $phone, email: $email, type: $type, plan: $plan, whiteLabel: $whiteLabel, logo: $logo, color: $color, description: $description, ecommerce: $ecommerce)';
   }
 
   @override
@@ -131,13 +143,15 @@ class CompanyEntity {
       other.updatedAt == updatedAt &&
       other.fantasyName == fantasyName &&
       other.corporateName == corporateName &&
-      other.cnpj == cnpj &&
+      other.documentNumber == documentNumber &&
+      other.documentType == documentType &&
       other.phone == phone &&
       other.email == email &&
       other.plan == plan &&
       other.whiteLabel == whiteLabel &&
       other.logo == logo &&
       other.color == color &&
+      other.type == type &&
       other.description == description &&
       other.ecommerce == ecommerce;
   }
@@ -150,9 +164,11 @@ class CompanyEntity {
       updatedAt.hashCode ^
       fantasyName.hashCode ^
       corporateName.hashCode ^
-      cnpj.hashCode ^
+      documentType.hashCode ^
+      documentNumber.hashCode ^
       phone.hashCode ^
       email.hashCode ^
+      type.hashCode ^
       plan.hashCode ^
       whiteLabel.hashCode ^
       logo.hashCode ^

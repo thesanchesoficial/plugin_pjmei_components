@@ -11,10 +11,10 @@ class UserEntity {
   String name;
   String? email;
   String? loginEmail;
-  String? cpf;
+  String? documentNumber;
+  String? documentType;
   String? birth;
   String? phone;
-  // List<ImageEntity>? image;
   String? owner;
   List<AddressEntity>? address;
   final String? createdAt;
@@ -28,7 +28,8 @@ class UserEntity {
     required this.name,
     this.email,
     this.loginEmail,
-    this.cpf,
+    this.documentNumber,
+    this.documentType,
     this.birth,
     this.phone,
     // this.image,
@@ -62,7 +63,8 @@ class UserEntity {
     String? name,
     String? email,
     String? loginEmail,
-    String? cpf,
+    String? documentNumber,
+    String? documentType,
     String? birth,
     String? phone,
     List<ImageEntity>? image,
@@ -80,10 +82,10 @@ class UserEntity {
       name: name ?? this.name,
       email: email ?? this.email,
       loginEmail: loginEmail ?? this.loginEmail,
-      cpf: cpf ?? this.cpf,
+      documentNumber: documentNumber ?? this.documentNumber,
+      documentType: documentType ?? this.documentType,
       birth: birth ?? this.birth,
       phone: phone ?? this.phone,
-      // image: image ?? this.image,
       owner: owner ?? this.owner,
       address: address ?? this.address,
       createdAt: createdAt ?? this.createdAt,
@@ -101,11 +103,11 @@ class UserEntity {
       'name': name,
       'email': email,
       'loginEmail': loginEmail,
-      'cpf': cpf,
+      'documentNumber': documentNumber,
+      'documentType': documentType,
       'birth': birth,
       'phone': phone,
       'owner': owner,
-      // 'image': image?.map((x) => x.toMap()).toList(),
       'address': address?.map((x) => x.toMap()).toList(),
       'createdAt': createdAt,
       'updatedAt': updatedAt,
@@ -122,10 +124,10 @@ class UserEntity {
       name: map['name'] ?? map['nome'] ?? '',
       email: map['email'],
       loginEmail: map['loginEmail'] ?? map['login_email'],
-      cpf: map['cpf'],
+      documentNumber: map['documentNumber'],
+      documentType: map['documentType'],
       birth: map['birth'] ?? map['nascimento'],
       phone: map['phone'] ?? map['telefone'],
-      // image: map['image'] != null ? List<ImageEntity>.from(map['image']?.map((x) => ImageEntity.fromMap(x))) : [],
       owner: map['owner'] ?? map['id'],
       address: map['address'] != null ? List<AddressEntity>.from(map['address']?.map((x) => AddressEntity.fromMap(x))) : [],
       createdAt: map['createdAt'] ?? map['created_at'],
@@ -141,7 +143,7 @@ class UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, paymentId: $paymentId, paymentStatus: $paymentStatus, name: $name, email: $email, loginEmail: $loginEmail, cpf: $cpf, birth: $birth, phone: $phone, owner: $owner, address: $address, createdAt: $createdAt, updatedAt: $updatedAt, accessToken: $accessToken, refreshToken: $refreshToken)';
+    return 'UserEntity(id: $id, paymentId: $paymentId, paymentStatus: $paymentStatus, name: $name, email: $email, loginEmail: $loginEmail, documentType: $documentType, documentNumber: $documentNumber, birth: $birth, phone: $phone, owner: $owner, address: $address, createdAt: $createdAt, updatedAt: $updatedAt, accessToken: $accessToken, refreshToken: $refreshToken)';
   }
 
   @override
@@ -155,11 +157,11 @@ class UserEntity {
       other.name == name &&
       other.email == email &&
       other.loginEmail == loginEmail &&
-      other.cpf == cpf &&
+      other.documentType == documentType &&
+      other.documentNumber == documentNumber &&
       other.birth == birth &&
       other.phone == phone &&
       other.owner == owner &&
-      // listEquals(other.image, image) &&
       listEquals(other.address, address) &&
       other.createdAt == createdAt &&
       other.updatedAt == updatedAt &&
@@ -175,10 +177,10 @@ class UserEntity {
       name.hashCode ^
       email.hashCode ^
       loginEmail.hashCode ^
-      cpf.hashCode ^
+      documentType.hashCode ^
+      documentNumber.hashCode ^
       birth.hashCode ^
       phone.hashCode ^
-      // image.hashCode ^
       owner.hashCode ^
       address.hashCode ^
       createdAt.hashCode ^
