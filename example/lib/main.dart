@@ -8,7 +8,8 @@ void main() => Main.local(
   listenUser: _updateUserListener,
   minimalVersionApp: 11,
   home: const HomeSettings(),
-  logoutPathRedirect: '/home'
+  logoutPathRedirect: '/home',
+  pathProfileUser: '',
 );
 
 void _updateUserListener() {

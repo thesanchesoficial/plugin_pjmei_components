@@ -88,9 +88,7 @@ class _ModalSelectUserAccountWidgetState
                                   top: Radius.circular(30),
                                 ),
                                 onTap: () {
-                                  setState(() {
-                                    isShowOthersAccount = !isShowOthersAccount;
-                                  });
+                                  context.push(userProfile);
                                 },
                                 child: Container(
                                   padding: const EdgeInsets.all(16),
@@ -120,14 +118,11 @@ class _ModalSelectUserAccountWidgetState
                                       const SizedBox(width: 16),
                                       Expanded(
                                         child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
+                                          crossAxisAlignment: CrossAxisAlignment.stretch,
                                           children: [
                                             OwText(
                                               '${userSM.user?.name}',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleMedium,
+                                              style: Theme.of(context).textTheme.titleMedium,
                                             ),
                                             const SizedBox(
                                               height: 2,
@@ -141,8 +136,10 @@ class _ModalSelectUserAccountWidgetState
                                           ],
                                         ),
                                       ),
-                                      const SizedBox(
-                                        width: 0,
+                                      const SizedBox(width: 8),
+                                      Icon(
+                                        EvaIcons.arrowIosForwardOutline,
+                                        color: Theme.of(context).textTheme.titleMedium?.color,
                                       ),
                                     ],
                                   ),
@@ -154,12 +151,11 @@ class _ModalSelectUserAccountWidgetState
                                 horizontal: 16,
                               ),
                               height: 40,
-                              labelText: 'Gerenciar minha conta',
+                              labelText: 'Sair da conta',
                               onPressed: () {
                                 Navigator.pop(context);
-                                context.push(
-                                  '/user/profile',
-                                );
+                                userSM.user = null;
+                                context.push('${logoutRedirect}');
                               },
                             ),
                             const SizedBox(height: 12),

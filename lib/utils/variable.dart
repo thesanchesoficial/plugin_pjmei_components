@@ -14,6 +14,7 @@ bool isWebApplication = true;
 double webStartsWithWidth = 500;
 int minimalVersion = 1;
 String logoutRedirect = '/login';
+String userProfile = '/user/home';
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 Map<String, Widget Function(BuildContext)> routersApp = {};
 final ValueNotifier<UserEntity?> checkUserNotifier = ValueNotifier(userSM.user);

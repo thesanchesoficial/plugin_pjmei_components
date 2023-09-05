@@ -21,6 +21,7 @@ class Main {
     required int minimalVersionApp,
     FirebaseOptions? firebaseOptions,
     required String logoutPathRedirect,
+    required String pathProfileUser,
   }) async {
     WidgetsFlutterBinding.ensureInitialized();
     try {
@@ -42,6 +43,7 @@ class Main {
     }
     minimalVersion = minimalVersionApp;
     logoutRedirect = logoutPathRedirect;
+    userProfile = pathProfileUser;
     
     try {
       if (isFirstLoading) {
