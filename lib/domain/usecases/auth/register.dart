@@ -7,14 +7,16 @@ abstract class Register {
 }
 
 class RegisterParams {
-  String cpf;
+  String documentNumber;
+  String documentType;
   String name;
   String email;
   String password;
   String birth;
   String phone;
   RegisterParams({
-    required this.cpf,
+    required this.documentNumber,
+    required this.documentType,
     required this.name,
     required this.email,
     required this.password,
@@ -23,7 +25,8 @@ class RegisterParams {
   });
 
   RegisterParams copyWith({
-    String? cpf,
+    String? documentNumber,
+    String? documentType,
     String? name,
     String? email,
     String? password,
@@ -31,7 +34,8 @@ class RegisterParams {
     String? phone,
   }) {
     return RegisterParams(
-      cpf: cpf ?? this.cpf,
+      documentNumber: documentNumber ?? this.documentNumber,
+      documentType: documentType ?? this.documentType,
       name: name ?? this.name,
       email: email ?? this.email,
       password: password ?? this.password,
@@ -42,7 +46,8 @@ class RegisterParams {
 
   Map<String, dynamic> toMap() {
     return {
-      'cpf': cpf,
+      'documentNumber': documentNumber,
+      'documentType': documentType,
       'name': name,
       'email': email,
       'password': password,
@@ -53,7 +58,8 @@ class RegisterParams {
 
   factory RegisterParams.fromMap(Map<String, dynamic> map) {
     return RegisterParams(
-      cpf: map['cpf'] ?? '',
+      documentNumber: map['documentNumber'] ?? '',
+      documentType: map['documentType'] ?? '',
       name: map['name'] ?? '',
       email: map['email'] ?? '',
       password: map['password'] ?? '',
@@ -68,7 +74,7 @@ class RegisterParams {
 
   @override
   String toString() {
-    return 'RegisterParams(cpf: $cpf, name: $name, email: $email, password: $password, birth: $birth, phone: $phone)';
+    return 'RegisterParams(documentNumber: $documentNumber, documentType: $documentType, name: $name, email: $email, password: $password, birth: $birth, phone: $phone)';
   }
 
   @override
@@ -76,7 +82,8 @@ class RegisterParams {
     if (identical(this, other)) return true;
   
     return other is RegisterParams &&
-      other.cpf == cpf &&
+      other.documentNumber == documentNumber &&
+      other.documentType == documentType &&
       other.name == name &&
       other.email == email &&
       other.password == password &&
@@ -86,7 +93,8 @@ class RegisterParams {
 
   @override
   int get hashCode {
-    return cpf.hashCode ^
+    return documentNumber.hashCode ^
+      documentType.hashCode ^
       name.hashCode ^
       email.hashCode ^
       password.hashCode ^
