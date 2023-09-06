@@ -15,6 +15,9 @@ class RemoteFindCompany implements FindCompany {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
+      if(httpResponse['success']['company']) {
+        return CompanyEntity.fromMap(httpResponse['success']['company']);
+      }
       return CompanyEntity.fromMap(httpResponse['success']);
     } catch (errorMsg) {
       throw errorMsg;

@@ -4,5 +4,5 @@ import 'package:plugin_pjmei_components/main/factories/factories.dart';
 
 GetCcmei makeRemoteGetCcmei() => RemoteGetCcmei(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/ccmei'),
+  url: makeApiUrl('venver/mei'),
 );
