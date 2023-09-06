@@ -1,13 +1,12 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
 
 class CnpjEntity {
-  String? cnpjBasico;
-  String? cnpjOrdem;
-  String? cnpjDv;
+  String? cnpj;
   String? matriz;
+  String? nomeEmpresarial;
   String? nomeFantasia;
-  String? razaoSocial;
   String? motivo;
   String? enteFederativo;
   String? natureza;
@@ -24,20 +23,17 @@ class CnpjEntity {
   String? ddd1;
   String? telefone1;
   String? email;
-  String? dataInicio;
-  String? situacao;
-  String? dataSituacao;
-  String? situacaoEsp;
-  String? dataSituacaoEsp;
-  String updatedAt;
-
+  String? dataAbertura;
+  String? situacaoCadastral;
+  String? dataSituacaoCadastral;
+  String? situacaoEspecial;
+  String? dataSituacaoEspecial;
+  String? updatedAt;
   CnpjEntity({
-    this.cnpjBasico,
-    this.cnpjOrdem,
-    this.cnpjDv,
+    this.cnpj,
     this.matriz,
+    this.nomeEmpresarial,
     this.nomeFantasia,
-    this.razaoSocial,
     this.motivo,
     this.enteFederativo,
     this.natureza,
@@ -54,21 +50,20 @@ class CnpjEntity {
     this.ddd1,
     this.telefone1,
     this.email,
-    this.dataInicio,
-    this.situacao,
-    this.dataSituacao,
-    this.situacaoEsp,
-    this.dataSituacaoEsp,
-    required this.updatedAt,
+    this.dataAbertura,
+    this.situacaoCadastral,
+    this.dataSituacaoCadastral,
+    this.situacaoEspecial,
+    this.dataSituacaoEspecial,
+    this.updatedAt,
   });
 
+
   CnpjEntity copyWith({
-    String? cnpjBasico,
-    String? cnpjOrdem,
-    String? cnpjDv,
+    String? cnpj,
     String? matriz,
+    String? nomeEmpresarial,
     String? nomeFantasia,
-    String? razaoSocial,
     String? motivo,
     String? enteFederativo,
     String? natureza,
@@ -85,20 +80,18 @@ class CnpjEntity {
     String? ddd1,
     String? telefone1,
     String? email,
-    String? dataInicio,
-    String? situacao,
-    String? dataSituacao,
-    String? situacaoEsp,
-    String? dataSituacaoEsp,
+    String? dataAbertura,
+    String? situacaoCadastral,
+    String? dataSituacaoCadastral,
+    String? situacaoEspecial,
+    String? dataSituacaoEspecial,
     String? updatedAt,
   }) {
     return CnpjEntity(
-      cnpjBasico: cnpjBasico ?? this.cnpjBasico,
-      cnpjOrdem: cnpjOrdem ?? this.cnpjOrdem,
-      cnpjDv: cnpjDv ?? this.cnpjDv,
+      cnpj: cnpj ?? this.cnpj,
       matriz: matriz ?? this.matriz,
+      nomeEmpresarial: nomeEmpresarial ?? this.nomeEmpresarial,
       nomeFantasia: nomeFantasia ?? this.nomeFantasia,
-      razaoSocial: razaoSocial ?? this.razaoSocial,
       motivo: motivo ?? this.motivo,
       enteFederativo: enteFederativo ?? this.enteFederativo,
       natureza: natureza ?? this.natureza,
@@ -115,23 +108,21 @@ class CnpjEntity {
       ddd1: ddd1 ?? this.ddd1,
       telefone1: telefone1 ?? this.telefone1,
       email: email ?? this.email,
-      dataInicio: dataInicio ?? this.dataInicio,
-      situacao: situacao ?? this.situacao,
-      dataSituacao: dataSituacao ?? this.dataSituacao,
-      situacaoEsp: situacaoEsp ?? this.situacaoEsp,
-      dataSituacaoEsp: dataSituacaoEsp ?? this.dataSituacaoEsp,
+      dataAbertura: dataAbertura ?? this.dataAbertura,
+      situacaoCadastral: situacaoCadastral ?? this.situacaoCadastral,
+      dataSituacaoCadastral: dataSituacaoCadastral ?? this.dataSituacaoCadastral,
+      situacaoEspecial: situacaoEspecial ?? this.situacaoEspecial,
+      dataSituacaoEspecial: dataSituacaoEspecial ?? this.dataSituacaoEspecial,
       updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'cnpjBasico': cnpjBasico,
-      'cnpjOrdem': cnpjOrdem,
-      'cnpjDv': cnpjDv,
+    return {
+      'cnpj': cnpj,
       'matriz': matriz,
+      'nomeEmpresarial': nomeEmpresarial,
       'nomeFantasia': nomeFantasia,
-      'razaoSocial': razaoSocial,
       'motivo': motivo,
       'enteFederativo': enteFederativo,
       'natureza': natureza,
@@ -148,55 +139,115 @@ class CnpjEntity {
       'ddd1': ddd1,
       'telefone1': telefone1,
       'email': email,
-      'dataInicio': dataInicio,
-      'situacao': situacao,
-      'dataSituacao': dataSituacao,
-      'situacaoEsp': situacaoEsp,
-      'dataSituacaoEsp': dataSituacaoEsp,
+      'dataAbertura': dataAbertura,
+      'situacaoCadastral': situacaoCadastral,
+      'dataSituacaoCadastral': dataSituacaoCadastral,
+      'situacaoEspecial': situacaoEspecial,
+      'dataSituacaoEspecial': dataSituacaoEspecial,
       'updatedAt': updatedAt,
     };
   }
 
   factory CnpjEntity.fromMap(Map<String, dynamic> map) {
     return CnpjEntity(
-      cnpjBasico: map['cnpjBasico'] ?? map['cnpj_basico'] ?? '',
-      cnpjOrdem: map['cnpjOrdem'] ?? map['cnpj_ordem'] ?? '',
-      cnpjDv: map['cnpjDv'] ?? map['cnpj_dv'] ?? '',
-      matriz: map['matriz'] ?? '',
-      nomeFantasia: map['nomeFantasia'] ?? map['nome_fantasia'] ?? '',
-      razaoSocial: map['razaoSocial'] ?? map['razao_social'] ?? '',
-      motivo: map['motivo'] ?? '',
-      enteFederativo: map['enteFederativo'] ?? map['ente_federativo'] ?? '',
-      natureza: map['natureza'] ?? '',
-      cnaePrincipal: map['cnaePrincipal'] == null ? map['cnae_principal'] == null ? null : CnaeEntity.fromMap(map['cnae_principal']) : CnaeEntity.fromMap(map['cnaePrincipal']),
-      cnaeSecundario: map['cnaesSecundario'] == null ? map['cnaes_secundario'] == null ? [] : List<CnaeEntity>.from(map['cnaes_secundario']?.map((x) => CnaeEntity.fromMap(x))) : List<CnaeEntity>.from(map['cnaesSecundario']?.map((x) => CnaeEntity.fromMap(x))),
-      porte: map['porte'] ?? '',
-      municipio: map['municipio'] ?? '',
-      cep: map['cep'] ?? '',
-      uf: map['uf'] ?? '',
-      numero: map['numero'] ?? '',
-      complemento: map['complemento'] ?? '',
-      logradouro: map['logradouro'] ?? '',
-      bairro: map['bairro'] ?? '',
-      ddd1: map['ddd1'] ?? '',
-      telefone1: map['telefone1'] ?? '',
-      email: map['email'] ?? '',
-      dataInicio: map['dataInicio'] ?? map['data_inicio'] ?? '',
-      situacao: map['situacao'] ?? '',
-      dataSituacao: map['dataSituacao'] ?? map['data_situacao'] ?? '',
-      situacaoEsp: map['situacaoEsp'] ?? map['situacao_esp'] ?? '',
-      dataSituacaoEsp: map['dataSituacaoEsp'] ?? map['data_situacao_esp'] ?? '',
-      updatedAt: map['updatedAt'] ?? map['updatedAt'] ?? '',
+      cnpj: map['cnpj'],
+      matriz: map['matriz'],
+      nomeEmpresarial: map['nomeEmpresarial'],
+      nomeFantasia: map['nomeFantasia'],
+      motivo: map['motivo'],
+      enteFederativo: map['enteFederativo'],
+      natureza: map['natureza'],
+      cnaePrincipal: map['cnaePrincipal'] != null ? CnaeEntity.fromMap(map['cnaePrincipal']) : null,
+      cnaeSecundario: map['cnaeSecundario'] != null ? List<CnaeEntity>.from(map['cnaeSecundario']?.map((x) => CnaeEntity.fromMap(x))) : null,
+      porte: map['porte'],
+      municipio: map['municipio'],
+      cep: map['cep'],
+      uf: map['uf'],
+      numero: map['numero'],
+      complemento: map['complemento'],
+      logradouro: map['logradouro'],
+      bairro: map['bairro'],
+      ddd1: map['ddd1'],
+      telefone1: map['telefone1'],
+      email: map['email'],
+      dataAbertura: map['dataAbertura'],
+      situacaoCadastral: map['situacaoCadastral'],
+      dataSituacaoCadastral: map['dataSituacaoCadastral'],
+      situacaoEspecial: map['situacaoEspecial'],
+      dataSituacaoEspecial: map['dataSituacaoEspecial'],
+      updatedAt: map['updatedAt'] ?? '',
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory CnpjEntity.fromJson(String source) =>
-      CnpjEntity.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory CnpjEntity.fromJson(String source) => CnpjEntity.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'CnpjEntity(cnpjBasico: $cnpjBasico, cnpjOrdem: $cnpjOrdem, cnpjDv: $cnpjDv, matriz: $matriz, nomeFantasia: $nomeFantasia, razaoSocial: $razaoSocial, motivo: $motivo, enteFederativo: $enteFederativo, natureza: $natureza, cnaePrincipal: $cnaePrincipal, cnaeSecundario: $cnaeSecundario, porte: $porte, municipio: $municipio, cep: $cep, uf: $uf, numero: $numero, complemento: $complemento, logradouro: $logradouro, bairro: $bairro, ddd1: $ddd1, telefone1: $telefone1, email: $email, dataInicio: $dataInicio, situacao: $situacao, dataSituacao: $dataSituacao, situacaoEsp: $situacaoEsp, dataSituacaoEsp: $dataSituacaoEsp)';
+    return 'CnpjEntity(cnpj: $cnpj, matriz: $matriz, nomeEmpresarial: $nomeEmpresarial, nomeFantasia: $nomeFantasia, motivo: $motivo, enteFederativo: $enteFederativo, natureza: $natureza, cnaePrincipal: $cnaePrincipal, cnaeSecundario: $cnaeSecundario, porte: $porte, municipio: $municipio, cep: $cep, uf: $uf, numero: $numero, complemento: $complemento, logradouro: $logradouro, bairro: $bairro, ddd1: $ddd1, telefone1: $telefone1, email: $email, dataAbertura: $dataAbertura, situacaoCadastral: $situacaoCadastral, dataSituacaoCadastral: $dataSituacaoCadastral, situacaoEspecial: $situacaoEspecial, dataSituacaoEspecial: $dataSituacaoEspecial, updatedAt: $updatedAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is CnpjEntity &&
+      other.cnpj == cnpj &&
+      other.matriz == matriz &&
+      other.nomeEmpresarial == nomeEmpresarial &&
+      other.nomeFantasia == nomeFantasia &&
+      other.motivo == motivo &&
+      other.enteFederativo == enteFederativo &&
+      other.natureza == natureza &&
+      other.cnaePrincipal == cnaePrincipal &&
+      listEquals(other.cnaeSecundario, cnaeSecundario) &&
+      other.porte == porte &&
+      other.municipio == municipio &&
+      other.cep == cep &&
+      other.uf == uf &&
+      other.numero == numero &&
+      other.complemento == complemento &&
+      other.logradouro == logradouro &&
+      other.bairro == bairro &&
+      other.ddd1 == ddd1 &&
+      other.telefone1 == telefone1 &&
+      other.email == email &&
+      other.dataAbertura == dataAbertura &&
+      other.situacaoCadastral == situacaoCadastral &&
+      other.dataSituacaoCadastral == dataSituacaoCadastral &&
+      other.situacaoEspecial == situacaoEspecial &&
+      other.dataSituacaoEspecial == dataSituacaoEspecial &&
+      other.updatedAt == updatedAt;
+  }
+
+  @override
+  int get hashCode {
+    return cnpj.hashCode ^
+      matriz.hashCode ^
+      nomeEmpresarial.hashCode ^
+      nomeFantasia.hashCode ^
+      motivo.hashCode ^
+      enteFederativo.hashCode ^
+      natureza.hashCode ^
+      cnaePrincipal.hashCode ^
+      cnaeSecundario.hashCode ^
+      porte.hashCode ^
+      municipio.hashCode ^
+      cep.hashCode ^
+      uf.hashCode ^
+      numero.hashCode ^
+      complemento.hashCode ^
+      logradouro.hashCode ^
+      bairro.hashCode ^
+      ddd1.hashCode ^
+      telefone1.hashCode ^
+      email.hashCode ^
+      dataAbertura.hashCode ^
+      situacaoCadastral.hashCode ^
+      dataSituacaoCadastral.hashCode ^
+      situacaoEspecial.hashCode ^
+      dataSituacaoEspecial.hashCode ^
+      updatedAt.hashCode;
   }
 }
