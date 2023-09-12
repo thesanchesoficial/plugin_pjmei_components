@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 // ignore: must_be_immutable

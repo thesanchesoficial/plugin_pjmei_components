@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-
+import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class ModalSelectUserAccountWidget extends StatefulWidget {

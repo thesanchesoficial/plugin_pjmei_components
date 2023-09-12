@@ -1,4 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 class OwMaskedController {
   OwMaskedController._();

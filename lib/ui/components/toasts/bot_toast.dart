@@ -1,4 +1,4 @@
-import 'package:bot_toast/bot_toast.dart';
+import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 

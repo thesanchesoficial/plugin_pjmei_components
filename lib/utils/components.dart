@@ -2,10 +2,8 @@ library components;
 
 import 'dart:developer';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:bot_toast/bot_toast.dart';
+import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 GlobalKey<NavigatorState> navigatorGlobalKey = GlobalKey<NavigatorState>();

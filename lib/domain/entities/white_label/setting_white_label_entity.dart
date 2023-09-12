@@ -53,7 +53,7 @@ class SettingWhiteLabelEntity {
       'companyId': companyId,
       'supportId': supportId,
       'forceAuthenticationStart': forceAuthenticationStart,
-      'disabledPrintscreen': disabledPrintScreen,
+      'disabledPrintScreen': disabledPrintScreen,
       'urlWebApplication': urlWebApplication,
       'redirectOrigin': redirectOrigin,
       'link': link.toMap(),

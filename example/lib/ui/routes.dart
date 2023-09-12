@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:plugin_pjmei_components_example/settings/settings.dart';
 import 'package:plugin_pjmei_components_example/ui/bottom_app_bar.dart';
 import 'package:plugin_pjmei_components_example/ui/buttons.dart';

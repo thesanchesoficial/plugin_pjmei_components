@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
-import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 // ignore: must_be_immutable
 class OwAppBar extends StatelessWidget implements PreferredSizeWidget {
