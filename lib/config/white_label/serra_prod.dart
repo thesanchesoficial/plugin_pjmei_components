@@ -1,16 +1,16 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
-  name: 'PJMEI',
+WhiteLabelEntity serraProd = WhiteLabelEntity(
+  name: 'Ciampe Digital',
   description: '',
-  id: '8653819c-2072-4a5a-91fe-25166883d0c7',
+  id: '2b688184-b0b8-4b6f-b726-dbfb269a8215',
   setting: SettingWhiteLabelEntity(
-    companyId: 'f327226e-709b-4c6a-ab5e-5c4b25e551e1',
-    supportId: 'SUPPORT1-0000-0000-0000-00000000PJMEI',
+    companyId: '0e2cee1f-306e-49b4-bc5d-bea2e624a31b',
+    supportId: 'SUPPORT1-PROD-0000-0000-00CIAMPESERRA',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
-    redirectOrigin: 'https://portal.pjmei.app',
-    urlWebApplication: 'https://portal.pjmei.app',
+    redirectOrigin: 'https://dev.pjmei.app',
+    urlWebApplication: 'https://dev.pjmei.app',
     link: LinkWhiteLabelEntity(
       termsOfUse: 'https://www.pjmei.app/termos-de-uso',
       privacyPolicy: 'https://www.pjmei.app/politica-de-privacidade',
@@ -19,36 +19,36 @@ WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
     ),
     environment: EnvironmentWhiteLabelEntity(
       individual: ItemEnvironmentWhiteLabelEntity(
-        enabled: true,
+        enabled: false,
         limit: 1,
       ),
       company: ItemEnvironmentWhiteLabelEntity(
         enabled: true,
-        limit: 10,
+        limit: 1,
       ),
     ),
     functionality: FunctionalityWhiteLabelEntity(
       companies: true,
       financialEducation: true,
-      groups: true,
+      groups: false,
       inbox: true,
       knowledgeBase: true,
-      master: true,
+      master: false,
       modules: true,
       notifications: true,
-      plans: true,
+      plans: false,
       users: true,
     ),
   ),
   style: StyleWhiteLabelEntity(
-    lightColorScheme: '',
-    darkColorScheme: '',
+    lightColorScheme: '0059C8',
+    darkColorScheme: '0059C8',
     image: ImageWhiteLabelEntity(
-      favicon: 'assets/images/logo-pjmei.png',
-      icon: 'assets/images/logo-pjmei.png',
-      logoMenuMobile: 'assets/images/logo-pjmei.png',
-      logoMenuWeb: 'assets/images/logo-pjmei.png',
-      logoSplash: 'assets/images/logo-pjmei.png',
+      favicon: 'assets/images/serra.png',
+      icon: 'assets/images/serra.png',
+      logoMenuMobile: 'assets/images/serra.png',
+      logoMenuWeb: 'assets/images/serra.png',
+      logoSplash: 'assets/images/serra.png',
     ),
   ),
   validations: [],
