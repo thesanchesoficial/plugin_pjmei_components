@@ -1,7 +1,7 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 WhiteLabelEntity serraDev = WhiteLabelEntity(
-  name: 'Serra Digital',
+  name: 'Ciampe Digital',
   description: '',
   id: 'ca6fd5b4-ff0a-40e7-97c4-4d438ceeb967',
   setting: SettingWhiteLabelEntity(
@@ -19,12 +19,12 @@ WhiteLabelEntity serraDev = WhiteLabelEntity(
     ),
     environment: EnvironmentWhiteLabelEntity(
       individual: ItemEnvironmentWhiteLabelEntity(
-        enabled: true,
+        enabled: false,
         limit: 1,
       ),
       company: ItemEnvironmentWhiteLabelEntity(
         enabled: true,
-        limit: 10,
+        limit: 1,
       ),
     ),
     functionality: FunctionalityWhiteLabelEntity(
@@ -41,14 +41,14 @@ WhiteLabelEntity serraDev = WhiteLabelEntity(
     ),
   ),
   style: StyleWhiteLabelEntity(
-    lightColorScheme: '',
-    darkColorScheme: '',
+    lightColorScheme: '0059C8',
+    darkColorScheme: '0059C8',
     image: ImageWhiteLabelEntity(
-      favicon: 'assets/images/logo-pjmei.png',
-      icon: 'assets/images/logo-pjmei.png',
-      logoMenuMobile: 'assets/images/logo-pjmei.png',
-      logoMenuWeb: 'assets/images/logo-pjmei.png',
-      logoSplash: 'assets/images/logo-pjmei.png',
+      favicon: 'assets/images/serra.png',
+      icon: 'assets/images/serra.png',
+      logoMenuMobile: 'assets/images/serra.png',
+      logoMenuWeb: 'assets/images/serra.png',
+      logoSplash: 'assets/images/serra.png',
     ),
   ),
   validations: [],
