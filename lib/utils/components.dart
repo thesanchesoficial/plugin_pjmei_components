@@ -106,6 +106,8 @@ class Main {
     } catch (e) {
       log('error initializing state management');
     }
+    
+    WhiteLabelEntity.current = pjmeiDev;
 
     try {
       WhiteLabelEntity temp = await Api.whiteLabel.find(id: whiteLabel);

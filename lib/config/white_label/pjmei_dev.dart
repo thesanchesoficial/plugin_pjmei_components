@@ -3,7 +3,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 WhiteLabelEntity pjmeiDev = WhiteLabelEntity(
   name: 'PJMEI',
   description: '',
-  id: 'ff4e94d6-912d-4acf-b335-0736ca5a2882',
+  id: '8653819c-2072-4a5a-91fe-25166883d0c7',
   setting: SettingWhiteLabelEntity(
     companyId: 'd286430b-83cf-4057-8f11-4204411f8b48',
     supportId: 'SUPPORT1-SAND-0000-0000-00000000PJMEI',
