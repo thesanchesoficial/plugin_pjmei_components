@@ -3,7 +3,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 WhiteLabelEntity serraDev = WhiteLabelEntity(
   name: 'Ciampe Digital',
   description: '',
-  id: 'ca6fd5b4-ff0a-40e7-97c4-4d438ceeb967',
+  id: '2b688184-b0b8-4b6f-b726-dbfb269a8215',
   setting: SettingWhiteLabelEntity(
     companyId: '0e2cee1f-306e-49b4-bc5d-bea2e624a31b',
     supportId: 'SUPPORT1-SAND-0000-0000-00CIAMPESERRA',
