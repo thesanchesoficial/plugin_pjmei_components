@@ -15,7 +15,7 @@ class RemoteGetCcmei implements GetCcmei {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return CcmeiEntity.fromMap(httpResponse['success']['ccmei']);
+      return CcmeiEntity.fromMap(httpResponse['success']['mei']);
     } catch (errorMsg) {
       throw errorMsg;
     }
