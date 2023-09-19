@@ -3,28 +3,138 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
+class MessageChatEntity {
+  String? id;
+  String type;
+  String value;
+  String? extra;
+  ParticipantChat? owner;
+  List<ParticipantChat> readBy;
+  List<ReactionChatEntity>? reactions;
+  MessageChatEntity? replyMessage;
+  Timestamp createdDate;
+  Timestamp updatedDate;
+  MessageChatEntity({
+    this.id,
+    required this.type,
+    required this.value,
+    this.extra,
+    this.owner,
+    required this.readBy,
+    this.reactions,
+    required this.createdDate,
+    required this.updatedDate,
+  });
+
+  MessageChatEntity copyWith({
+    String? id,
+    String? type,
+    String? value,
+    String? extra,
+    ParticipantChat? owner,
+    List<ParticipantChat>? readBy,
+    List<ReactionChatEntity>? reactions,
+    Timestamp? createdDate,
+    Timestamp? updatedDate,
+  }) {
+    return MessageChatEntity(
+      id: id ?? this.id,
+      type: type ?? this.type,
+      value: value ?? this.value,
+      extra: extra ?? this.extra,
+      owner: owner ?? this.owner,
+      readBy: readBy ?? this.readBy,
+      reactions: reactions ?? this.reactions,
+      createdDate: createdDate ?? this.createdDate,
+      updatedDate: updatedDate ?? this.updatedDate,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'type': type,
+      'value': value,
+      'extra': extra,
+      'owner': owner?.toMap(),
+      'readBy': readBy.map((x) => x.toMap()).toList(),
+      'reactions': reactions?.map((x) => x.toMap()).toList(),
+      'createdDate': createdDate,
+      'updatedDate': updatedDate,
+    };
+  }
+
+  factory MessageChatEntity.fromMap(Map<String, dynamic> map) {
+    return MessageChatEntity(
+      id: map['id'],
+      type: map['type'] ?? '',
+      value: map['value'] ?? '',
+      extra: map['extra'],
+      owner: map['owner'] != null ? ParticipantChat.fromMap(map['owner']) : null,
+      readBy: List<ParticipantChat>.from(map['readBy']?.map((x) => ParticipantChat.fromMap(x))),
+      reactions: map['reactions'] != null ? List<ReactionChatEntity>.from(map['reactions']?.map((x) => ReactionChatEntity.fromMap(x))) : null,
+      createdDate: (map['createdDate']),
+      updatedDate: (map['updatedDate']),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory MessageChatEntity.fromJson(String source) => MessageChatEntity.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'MessageChatEntity(id: $id, type: $type, value: $value, extra: $extra, owner: $owner, readBy: $readBy, reactions: $reactions, createdDate: $createdDate, updatedDate: $updatedDate)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is MessageChatEntity &&
+      other.id == id &&
+      other.type == type &&
+      other.value == value &&
+      other.extra == extra &&
+      other.owner == owner &&
+      listEquals(other.readBy, readBy) &&
+      listEquals(other.reactions, reactions) &&
+      other.createdDate == createdDate &&
+      other.updatedDate == updatedDate;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+      type.hashCode ^
+      value.hashCode ^
+      extra.hashCode ^
+      owner.hashCode ^
+      readBy.hashCode ^
+      reactions.hashCode ^
+      createdDate.hashCode ^
+      updatedDate.hashCode;
+  }
+}
+
 class ChatEntity {
   String? id;
-  String? senderId;
   String? chatTitle;
   String? chatDescription;
   String? communityId;
   ParticipantChat createdBy;
   Timestamp createdDate;
   Timestamp updatedDate;
-  String? lastMessage;
-  String origin;
+  MessageChatEntity? lastMessage;
   List<ParticipantChat> administrators;
   List<ParticipantChat> participants;
-  List<String> participantsList;
   bool? canMembersEditGroupData;
   bool? membersCanMessage;
   bool isPublic;
+  bool archived;
   AdditionalChat? additional;
-
   ChatEntity({
     this.id,
-    this.senderId,
     this.chatTitle,
     this.chatDescription,
     this.communityId,
@@ -32,38 +142,34 @@ class ChatEntity {
     required this.createdDate,
     required this.updatedDate,
     this.lastMessage,
-    required this.origin,
     required this.administrators,
     required this.participants,
-    required this.participantsList,
     this.canMembersEditGroupData,
     this.membersCanMessage,
     required this.isPublic,
+    required this.archived,
     this.additional,
   });
 
   ChatEntity copyWith({
     String? id,
-    String? senderId,
     String? chatTitle,
     String? chatDescription,
     String? communityId,
     ParticipantChat? createdBy,
     Timestamp? createdDate,
     Timestamp? updatedDate,
-    String? lastMessage,
-    String? origin,
+    MessageChatEntity? lastMessage,
     List<ParticipantChat>? administrators,
     List<ParticipantChat>? participants,
-    List<String>? participantsList,
     bool? canMembersEditGroupData,
     bool? membersCanMessage,
     bool? isPublic,
+    bool? archived,
     AdditionalChat? additional,
   }) {
     return ChatEntity(
       id: id ?? this.id,
-      senderId: senderId ?? this.senderId,
       chatTitle: chatTitle ?? this.chatTitle,
       chatDescription: chatDescription ?? this.chatDescription,
       communityId: communityId ?? this.communityId,
@@ -71,13 +177,12 @@ class ChatEntity {
       createdDate: createdDate ?? this.createdDate,
       updatedDate: updatedDate ?? this.updatedDate,
       lastMessage: lastMessage ?? this.lastMessage,
-      origin: origin ?? this.origin,
       administrators: administrators ?? this.administrators,
       participants: participants ?? this.participants,
-      participantsList: participantsList ?? this.participantsList,
       canMembersEditGroupData: canMembersEditGroupData ?? this.canMembersEditGroupData,
       membersCanMessage: membersCanMessage ?? this.membersCanMessage,
       isPublic: isPublic ?? this.isPublic,
+      archived: archived ?? this.archived,
       additional: additional ?? this.additional,
     );
   }
@@ -85,44 +190,40 @@ class ChatEntity {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'senderId': senderId,
       'chatTitle': chatTitle,
       'chatDescription': chatDescription,
       'communityId': communityId,
       'createdBy': createdBy.toMap(),
       'createdDate': createdDate,
       'updatedDate': updatedDate,
-      'lastMessage': lastMessage,
-      'origin': origin,
+      'lastMessage': lastMessage?.toMap(),
       'administrators': administrators.map((x) => x.toMap()).toList(),
       'participants': participants.map((x) => x.toMap()).toList(),
-      'participantsList': participantsList.map((x) => x).toList(),
       'canMembersEditGroupData': canMembersEditGroupData,
       'membersCanMessage': membersCanMessage,
       'isPublic': isPublic,
+      'archived': archived,
       'additional': additional?.toMap(),
     };
   }
 
   factory ChatEntity.fromMap(Map<String, dynamic> map) {
     return ChatEntity(
-      id: map['id'] ?? '',
-      senderId: map['senderId'] ?? '',
-      chatTitle: map['chatTitle'] ?? '',
-      chatDescription: map['chatDescription'] ?? '',
-      communityId: map['communityId'] ?? '',
+      id: map['id'],
+      chatTitle: map['chatTitle'],
+      chatDescription: map['chatDescription'],
+      communityId: map['communityId'],
       createdBy: ParticipantChat.fromMap(map['createdBy']),
-      createdDate: map['createdDate'],
-      updatedDate: map['updatedDate'],
-      lastMessage: map['lastMessage'] ?? '',
-      origin: map['origin'] ?? '',
+      createdDate: (map['createdDate']),
+      updatedDate: (map['updatedDate']),
+      lastMessage: map['lastMessage'] != null ? MessageChatEntity.fromMap(map['lastMessage']) : null,
       administrators: List<ParticipantChat>.from(map['administrators']?.map((x) => ParticipantChat.fromMap(x))),
       participants: List<ParticipantChat>.from(map['participants']?.map((x) => ParticipantChat.fromMap(x))),
-      participantsList: List<String>.from(map['participantsList']),
-      canMembersEditGroupData: map['canMembersEditGroupData'] ?? false,
-      membersCanMessage: map['membersCanMessage'] ?? false,
+      canMembersEditGroupData: map['canMembersEditGroupData'],
+      membersCanMessage: map['membersCanMessage'],
       isPublic: map['isPublic'] ?? false,
-      additional: map['additional'] == null ? null : AdditionalChat.fromMap(map['additional']),
+      archived: map['archived'] ?? false,
+      additional: map['additional'] != null ? AdditionalChat.fromMap(map['additional']) : null,
     );
   }
 
@@ -132,7 +233,7 @@ class ChatEntity {
 
   @override
   String toString() {
-    return 'ChatEntity(id: $id, senderId: $senderId, chatTitle: $chatTitle, chatDescription: $chatDescription, communityId: $communityId, createdDate: $createdDate, updatedDate: $updatedDate, lastMessage: $lastMessage, origin: $origin, administrators: $administrators, participants: $participants, canMembersEditGroupData: $canMembersEditGroupData, membersCanMessage: $membersCanMessage, isPublic: $isPublic)';
+    return 'ChatEntity(id: $id, chatTitle: $chatTitle, chatDescription: $chatDescription, communityId: $communityId, createdBy: $createdBy, createdDate: $createdDate, updatedDate: $updatedDate, lastMessage: $lastMessage, administrators: $administrators, participants: $participants, canMembersEditGroupData: $canMembersEditGroupData, membersCanMessage: $membersCanMessage, isPublic: $isPublic, archived: $archived, additional: $additional)';
   }
 
   @override
@@ -141,7 +242,6 @@ class ChatEntity {
   
     return other is ChatEntity &&
       other.id == id &&
-      other.senderId == senderId &&
       other.chatTitle == chatTitle &&
       other.chatDescription == chatDescription &&
       other.communityId == communityId &&
@@ -149,19 +249,18 @@ class ChatEntity {
       other.createdDate == createdDate &&
       other.updatedDate == updatedDate &&
       other.lastMessage == lastMessage &&
-      other.origin == origin &&
       listEquals(other.administrators, administrators) &&
       listEquals(other.participants, participants) &&
       other.canMembersEditGroupData == canMembersEditGroupData &&
       other.membersCanMessage == membersCanMessage &&
-      other.additional == additional &&
-      other.isPublic == isPublic;
+      other.isPublic == isPublic &&
+      other.archived == archived &&
+      other.additional == additional;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      senderId.hashCode ^
       chatTitle.hashCode ^
       chatDescription.hashCode ^
       communityId.hashCode ^
@@ -169,13 +268,13 @@ class ChatEntity {
       createdDate.hashCode ^
       updatedDate.hashCode ^
       lastMessage.hashCode ^
-      origin.hashCode ^
       administrators.hashCode ^
       participants.hashCode ^
       canMembersEditGroupData.hashCode ^
       membersCanMessage.hashCode ^
-      additional.hashCode ^
-      isPublic.hashCode;
+      isPublic.hashCode ^
+      archived.hashCode ^
+      additional.hashCode;
   }
 }
 
@@ -184,7 +283,6 @@ class ParticipantChat {
   String id;
   String type;
   Timestamp createdDate;
-
   ParticipantChat({
     required this.name,
     required this.id,
@@ -220,7 +318,7 @@ class ParticipantChat {
       name: map['name'] ?? '',
       id: map['id'] ?? '',
       type: map['type'] ?? '',
-      createdDate: map['createdDate'],
+      createdDate: (map['createdDate']),
     );
   }
 
@@ -250,114 +348,6 @@ class ParticipantChat {
       id.hashCode ^
       type.hashCode ^
       createdDate.hashCode;
-  }
-}
-
-class MessageChatEntity {
-  Timestamp createdDate;
-  Timestamp updatedDate;
-  String owner;
-  String message;
-  String senderId;
-  String type;
-  List<ReactionChatEntity>? reactions;
-  List<ParticipantChat>? readBy;
-  MessageChatEntity? replyMessage;
-
-  MessageChatEntity({
-    required this.createdDate,
-    required this.updatedDate,
-    required this.owner,
-    required this.message,
-    required this.senderId,
-    required this.type,
-    this.reactions,
-    this.readBy,
-    this.replyMessage,
-  });
-
-  MessageChatEntity copyWith({
-    Timestamp? createdDate,
-    Timestamp? updatedDate,
-    String? owner,
-    String? message,
-    String? senderId,
-    String? type,
-    List<ReactionChatEntity>? reactions,
-    List<ParticipantChat>? readBy,
-  }) {
-    return MessageChatEntity(
-      createdDate: createdDate ?? this.createdDate,
-      updatedDate: updatedDate ?? this.updatedDate,
-      owner: owner ?? this.owner,
-      message: message ?? this.message,
-      senderId: senderId ?? this.senderId,
-      type: type ?? this.type,
-      reactions: reactions ?? this.reactions,
-      readBy: readBy ?? this.readBy,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'createdDate': createdDate,
-      'updatedDate': updatedDate,
-      'owner': owner,
-      'message': message,
-      'senderId': senderId,
-      'type': type,
-      'reactions': reactions == null ? [] : reactions!.map((x) => x.toMap()).toList(),
-      'readBy': readBy == null ? [] : readBy!.map((x) => x.toMap()).toList(),
-    };
-  }
-
-  factory MessageChatEntity.fromMap(Map<String, dynamic> map) {
-    return MessageChatEntity(
-      createdDate: map['createdDate'],
-      updatedDate: map['updatedDate'],
-      owner: map['owner'] ?? '',
-      message: map['message'] ?? '',
-      senderId: map['senderId'] ?? '',
-      type: map['type'] ?? '',
-      reactions: List<ReactionChatEntity>.from(map['reactions']?.map((x) => ReactionChatEntity.fromMap(x))),
-      readBy: List<ParticipantChat>.from(map['readBy']?.map((x) => ParticipantChat.fromMap(x))),
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory MessageChatEntity.fromJson(String source) => MessageChatEntity.fromMap(json.decode(source));
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-  
-    return other is MessageChatEntity &&
-      other.createdDate == createdDate &&
-      other.updatedDate == updatedDate &&
-      other.owner == owner &&
-      other.message == message &&
-      other.senderId == senderId &&
-      other.type == type &&
-      listEquals(other.reactions, reactions) &&
-      listEquals(other.readBy, readBy);
-  }
-
-  @override
-  int get hashCode {
-    return createdDate.hashCode ^
-      updatedDate.hashCode ^
-      message.hashCode ^
-      owner.hashCode ^
-      senderId.hashCode ^
-      type.hashCode ^
-      reactions.hashCode ^
-      readBy.hashCode;
-  }
-
-  @override
-  String toString() {
-    return 'MessageChatEntity(createdDate: $createdDate, updatedDate: $updatedDate, message: $message, senderId: $senderId, type: $type, reactions: $reactions, readBy: $readBy)';
   }
 }
 
