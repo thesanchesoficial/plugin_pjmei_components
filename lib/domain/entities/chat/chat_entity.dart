@@ -122,6 +122,7 @@ class ChatEntity {
   String? chatTitle;
   String? chatDescription;
   String? communityId;
+  String origin;
   ParticipantChat createdBy;
   Timestamp createdDate;
   Timestamp updatedDate;
@@ -138,6 +139,7 @@ class ChatEntity {
     this.chatTitle,
     this.chatDescription,
     this.communityId,
+    required this.origin,
     required this.createdBy,
     required this.createdDate,
     required this.updatedDate,
@@ -156,6 +158,7 @@ class ChatEntity {
     String? chatTitle,
     String? chatDescription,
     String? communityId,
+    String? origin,
     ParticipantChat? createdBy,
     Timestamp? createdDate,
     Timestamp? updatedDate,
@@ -173,6 +176,7 @@ class ChatEntity {
       chatTitle: chatTitle ?? this.chatTitle,
       chatDescription: chatDescription ?? this.chatDescription,
       communityId: communityId ?? this.communityId,
+      origin: origin ?? this.origin,
       createdBy: createdBy ?? this.createdBy,
       createdDate: createdDate ?? this.createdDate,
       updatedDate: updatedDate ?? this.updatedDate,
@@ -193,6 +197,7 @@ class ChatEntity {
       'chatTitle': chatTitle,
       'chatDescription': chatDescription,
       'communityId': communityId,
+      'origin': origin,
       'createdBy': createdBy.toMap(),
       'createdDate': createdDate,
       'updatedDate': updatedDate,
@@ -213,6 +218,7 @@ class ChatEntity {
       chatTitle: map['chatTitle'],
       chatDescription: map['chatDescription'],
       communityId: map['communityId'],
+      origin: map['origin'] ?? '',
       createdBy: ParticipantChat.fromMap(map['createdBy']),
       createdDate: (map['createdDate']),
       updatedDate: (map['updatedDate']),
@@ -233,7 +239,7 @@ class ChatEntity {
 
   @override
   String toString() {
-    return 'ChatEntity(id: $id, chatTitle: $chatTitle, chatDescription: $chatDescription, communityId: $communityId, createdBy: $createdBy, createdDate: $createdDate, updatedDate: $updatedDate, lastMessage: $lastMessage, administrators: $administrators, participants: $participants, canMembersEditGroupData: $canMembersEditGroupData, membersCanMessage: $membersCanMessage, isPublic: $isPublic, archived: $archived, additional: $additional)';
+    return 'ChatEntity(id: $id, chatTitle: $chatTitle, chatDescription: $chatDescription, communityId: $communityId, origin: $origin, createdBy: $createdBy, createdDate: $createdDate, updatedDate: $updatedDate, lastMessage: $lastMessage, administrators: $administrators, participants: $participants, canMembersEditGroupData: $canMembersEditGroupData, membersCanMessage: $membersCanMessage, isPublic: $isPublic, archived: $archived, additional: $additional)';
   }
 
   @override
@@ -245,6 +251,7 @@ class ChatEntity {
       other.chatTitle == chatTitle &&
       other.chatDescription == chatDescription &&
       other.communityId == communityId &&
+      other.origin == origin &&
       other.createdBy == createdBy &&
       other.createdDate == createdDate &&
       other.updatedDate == updatedDate &&
@@ -264,6 +271,7 @@ class ChatEntity {
       chatTitle.hashCode ^
       chatDescription.hashCode ^
       communityId.hashCode ^
+      origin.hashCode ^
       createdBy.hashCode ^
       createdDate.hashCode ^
       updatedDate.hashCode ^
