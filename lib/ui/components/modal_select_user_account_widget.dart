@@ -4,19 +4,14 @@ import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.da
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class ModalSelectUserAccountWidget extends StatefulWidget {
-  const ModalSelectUserAccountWidget({Key? key, required this.isPf})
-      : super(key: key);
+  const ModalSelectUserAccountWidget({Key? key, required this.isPf}) : super(key: key);
   final bool isPf;
-
   @override
-  State<ModalSelectUserAccountWidget> createState() =>
-      _ModalSelectUserAccountWidgetState();
+  State<ModalSelectUserAccountWidget> createState() => _ModalSelectUserAccountWidgetState();
 }
 
-class _ModalSelectUserAccountWidgetState
-    extends State<ModalSelectUserAccountWidget> {
+class _ModalSelectUserAccountWidgetState extends State<ModalSelectUserAccountWidget> {
   bool isShowOthersAccount = false;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,6 +83,7 @@ class _ModalSelectUserAccountWidgetState
                                   top: Radius.circular(30),
                                 ),
                                 onTap: () {
+                                  Navigator.pop(context);
                                   context.push(userProfile);
                                 },
                                 child: Container(
@@ -102,17 +98,12 @@ class _ModalSelectUserAccountWidgetState
                                       Container(
                                         padding: const EdgeInsets.all(8),
                                         decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondaryContainer,
+                                          color: Theme.of(context).colorScheme.secondaryContainer,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Icon(
                                           EvaIcons.personOutline,
-                                          color: Theme.of(context)
-                                              .textTheme
-                                              .displayLarge
-                                              ?.color,
+                                          color: Theme.of(context).textTheme.displayLarge?.color,
                                         ),
                                       ),
                                       const SizedBox(width: 16),
@@ -136,26 +127,20 @@ class _ModalSelectUserAccountWidgetState
                                           ],
                                         ),
                                       ),
-                                      const SizedBox(width: 8),
-                                      Icon(
-                                        EvaIcons.arrowIosForwardOutline,
-                                        color: Theme.of(context).textTheme.titleMedium?.color,
-                                      ),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
-                            OwButton(
+                            OwButton.outline(
                               margin: const EdgeInsets.symmetric(
                                 horizontal: 16,
                               ),
                               height: 40,
-                              labelText: 'Sair da conta',
+                              labelText: 'Gerenciar minha conta',
                               onPressed: () {
                                 Navigator.pop(context);
-                                userSM.user = null;
-                                context.push('${logoutRedirect}');
+                                context.push(userProfile);
                               },
                             ),
                             const SizedBox(height: 12),
@@ -166,14 +151,24 @@ class _ModalSelectUserAccountWidgetState
                   ],
                 ),
               ),
-              // ListView.builder(
-              //   shrinkWrap: true,
-              //   physics: const NeverScrollableScrollPhysics(),
-              //   itemCount: WhiteLabelApp.current?.settings.optionsModalUser.length,
-              //   itemBuilder: (context, index) {
-              //     return WhiteLabelApp.current?.settings.optionsModalUser[index];
-              //   },
-              // ),
+              ItemModalWidget(
+                title: 'Configurações',
+                icon: EvaIcons.settings2Outline,
+                onPressed: () {
+                  Navigator.pop(context);
+                  userSM.user = null;
+                  context.push('${logoutRedirect}');
+                }
+              ),
+              ItemModalWidget(
+                title: 'Sair da conta',
+                icon: EvaIcons.logOutOutline,
+                onPressed: () {
+                  Navigator.pop(context);
+                  userSM.user = null;
+                  context.push('${logoutRedirect}');
+                }
+              ),
               const SizedBox(height: 16),
             ],
           ),

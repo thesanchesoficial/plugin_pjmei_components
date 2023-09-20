@@ -6,19 +6,21 @@ class ItemModalWidget extends StatelessWidget {
   const ItemModalWidget({
     Key? key,
     required this.title,
-    required this.route,
+    this.route = '/',
     required this.icon,
+    this.onPressed,
   }) : super(key: key);
   final String title;
   final String route;
   final IconData icon;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () {
+        onTap: onPressed ?? () {
           Navigator.pop(context);
           context.push(route);
         },
