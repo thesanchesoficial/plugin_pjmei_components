@@ -132,7 +132,7 @@ class _ModalSelectUserAccountWidgetState extends State<ModalSelectUserAccountWid
                                 ),
                               ),
                             ),
-                            OwButton.outline(
+                            OwButton(
                               margin: const EdgeInsets.symmetric(
                                 horizontal: 16,
                               ),
