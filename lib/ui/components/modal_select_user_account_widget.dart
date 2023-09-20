@@ -156,8 +156,7 @@ class _ModalSelectUserAccountWidgetState extends State<ModalSelectUserAccountWid
                 icon: EvaIcons.settings2Outline,
                 onPressed: () {
                   Navigator.pop(context);
-                  userSM.user = null;
-                  context.push('${logoutRedirect}');
+                  context.push('/settings');
                 }
               ),
               ItemModalWidget(
