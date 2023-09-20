@@ -12,6 +12,7 @@ class RemoteFindCompany implements FindCompany {
         url: url,
         log: log,
         method: method,
+        newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
