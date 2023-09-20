@@ -22,6 +22,7 @@ import './company/list_company_factory.dart';
 import './company/update_company_factory.dart';
 import './company/insert_company_factory.dart';
 import './company/find_company_factory.dart';
+import './company/find_receita_federal_factory.dart';
 import './company/dashboard_basic_company_factory.dart';
 
 import './contacts/add_contact_factory.dart';

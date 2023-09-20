@@ -6,6 +6,10 @@ class _CompanyApi {
     return makeRemoteFindCompany(id).exec();
   }
 
+  Future<CompanyEntity> findInReceitaFederalByUser() {
+    return makeRemoteFindCompanyReceitaFederal().exec();
+  }
+
   Future<BasicDashboardEntity> dashboard({required String id}) {
     return makeRemoteDashboard(id).exec();
   }
