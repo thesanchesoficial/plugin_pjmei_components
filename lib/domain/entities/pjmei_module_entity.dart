@@ -460,6 +460,8 @@ class ModulePjmei {
     if (onPressed != null) {
       // entrou porque passou a funcao de onPressed
       onPressed();
+    } else if (route == 'off' || route == '/off') {
+      //
     } else {
       if (params?['isDynamicPage'] == true || route.toString().startsWith('/dynamic-page')) {
         if (params?['openLink'] == true) {
@@ -501,7 +503,7 @@ class ModulePjmei {
         } else {
           if (toShortcuts(context).onTap == null) {
             // entrou por nao possuir uma funcao especifica de clique
-            if(route != null) {
+            if(route.toString() != "null") {
               route = convertStringAlls(route!, additionals: {
                 '#moduleId': id,
                 '#moduleName': title,

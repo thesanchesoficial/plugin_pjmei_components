@@ -30,7 +30,7 @@ class HighlightMessageCard extends StatelessWidget {
               vertical: 2,
             ),
             decoration: BoxDecoration(
-              color: colors.background,
+              color: colors.spotlightColor,
               borderRadius: const BorderRadius.all(
                 Radius.circular(5),
               ),
@@ -40,7 +40,7 @@ class HighlightMessageCard extends StatelessWidget {
                 '$text',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: colors.onBackground,
+                  color: colors.onSpotlightColor,
                   overflow: TextOverflow.fade
                 ),
               ),
