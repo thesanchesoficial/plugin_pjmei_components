@@ -11,6 +11,10 @@ class _EcommerceApi {
     return makeRemoteFindEcommerce(id).exec();
   }
 
+  Future<EcommerceEntity> findByCompany({required String id}) {
+    return makeRemoteFindEcommerceByCompany(id).exec();
+  }
+
   Future<EcommerceEntity> create({
     required String documentType,
     required String documentNumber,

@@ -60,6 +60,7 @@ import 'ecommerce/schedule/update_schedule_factory.dart';
 import 'ecommerce/add_ecommerce_factory.dart';
 import 'ecommerce/update_ecommerce_factory.dart';
 import 'ecommerce/find_ecommerce_factory.dart';
+import 'ecommerce/find_ecommerce_by_company_factory.dart';
 import 'ecommerce/delete_ecommerce_factory.dart';
 import './ecommerce/voucher/delete_voucher_factory.dart';
 import './ecommerce/voucher/insert_voucher_factory.dart';
