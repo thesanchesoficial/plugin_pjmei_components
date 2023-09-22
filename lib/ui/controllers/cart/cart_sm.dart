@@ -1,7 +1,5 @@
 import 'package:mobx/mobx.dart';
-import 'package:plugin_pjmei_components/domain/entities/establishment/establishment_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/product/product_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/voucher/voucher_entity.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 part 'cart_sm.g.dart';
 
 class CartSMStore = CartSMStoreBase with _$CartSMStore;
@@ -9,24 +7,24 @@ class CartSMStore = CartSMStoreBase with _$CartSMStore;
 abstract class CartSMStoreBase with Store {
 
   @observable
-  List<ProductEntity> products = [];
+  List<ProductEcommerceEntity> products = [];
 
   @observable
-  List<ProductEntity> buyToo = [];
+  List<ProductEcommerceEntity> buyToo = [];
 
   @observable
-  EstablishmentEntity? establishment;
+  EcommerceEntity? ecommerce;
 
   @observable
   VoucherEntity? voucher;
 
   @action
-  void addProductInCart(ProductEntity item) {
+  void addProductInCart(ProductEcommerceEntity item) {
     products.add(item);
   }
 
   @action
-  void addProductInBuyToo(ProductEntity item) {
+  void addProductInBuyToo(ProductEcommerceEntity item) {
     buyToo.add(item);
   }
 
@@ -39,7 +37,7 @@ abstract class CartSMStoreBase with Store {
   void clearCart() {
     products = [];
     buyToo = [];
-    establishment = null;
+    ecommerce = null;
     voucher = null;
   }
 
@@ -49,8 +47,8 @@ abstract class CartSMStoreBase with Store {
   }
 
   @action
-  void setEstablishment(EstablishmentEntity item) {
-    establishment = item;
+  void setEstablishment(EcommerceEntity item) {
+    ecommerce = item;
   }
 
 }

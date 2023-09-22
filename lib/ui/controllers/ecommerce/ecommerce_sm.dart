@@ -9,6 +9,22 @@ abstract class EcommerceSMStoreBase with Store {
 
   @observable
   EcommerceEntity? establishment;
+
+  @observable
+  ProductCategoryEcommerceEntity? productCategory;
+
+  @observable
+  ProductEcommerceEntity? product;
+
+  @action
+  void setProduct(ProductEcommerceEntity? item) {
+    product = item;
+  }
+
+  @action
+  void setProductCategory(ProductCategoryEcommerceEntity? item) {
+    productCategory = item;
+  }
   
   @observable
   int selectedIndex = 0;

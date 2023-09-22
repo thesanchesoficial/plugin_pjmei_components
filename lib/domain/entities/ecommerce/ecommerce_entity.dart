@@ -1,241 +1,225 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
+import 'package:plugin_pjmei_components/domain/entities/ecommerce/bank_account/bank_account_entity.dart';
+import 'package:plugin_pjmei_components/domain/entities/ecommerce/schedule/schedule_entity.dart';
 
 class EcommerceEntity {
-  String? id;
+  String id;
+  String name;
+  String email;
+  String phone;
   String documentType;
   String documentNumber;
-  String? paymentType;
-  String? paymentId;
-  String? paymentStatus;
-  String? email;
-  String? phone;
   String url;
-  String name;
-  String? description;
-  String? logo;
-  String? cover;
-  String? type;
-  String? exchangeAndReturnPolicy;
-  String? refundPolicy;
-  String? createdAt;
-  String? updatedAt;
-  bool available;
   bool availableForScheduling;
-  bool enabled;
   bool voucherEnabled;
   bool verified;
   bool acceptPaymentInstallments;
-  num minimumOrderValue;
-  num minimumOrderValueToDeliveryFree;
+  bool ecommercePaysFees;
+  bool visibility;
+  bool available;
+  bool blocked;
+  String type;
+  List<String> deliveryMethods;
+  List<String> tags;
+  List<String> paymentMethods;
   num takeoutTime;
   num deliveryTime;
   num preparationTime;
+  String? description;
+  String? color;
+  String? logo;
+  String? cover;
+  String? exchangeAndReturnPolicy;
+  String? refundPolicy;
+  num? minimumOrderValue;
+  num? minimumOrderValueToDeliveryFree;
+  List<ScheduleEntity> schedules;
   AddressEntity address;
-  List? categories;
-  List? shifts;
-  List? tags;
-  List? paymentMethods;
-  List? deliveryMethods; // delivery/retirada
-  List? deliveryFee; // frete
+  BankAccountEntity? bankAccount;
   EcommerceEntity({
-    this.id,
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.phone,
     required this.documentType,
     required this.documentNumber,
-    this.paymentType,
-    this.paymentId,
-    this.paymentStatus,
-    this.email,
-    this.phone,
     required this.url,
-    required this.name,
-    this.description,
-    this.logo,
-    this.cover,
-    this.type,
-    this.exchangeAndReturnPolicy,
-    this.refundPolicy,
-    this.createdAt,
-    this.updatedAt,
-    required this.available,
     required this.availableForScheduling,
-    required this.enabled,
     required this.voucherEnabled,
     required this.verified,
     required this.acceptPaymentInstallments,
-    required this.minimumOrderValue,
-    required this.minimumOrderValueToDeliveryFree,
+    required this.ecommercePaysFees,
+    required this.visibility,
+    required this.available,
+    required this.blocked,
+    required this.type,
+    required this.deliveryMethods,
+    required this.tags,
+    required this.paymentMethods,
     required this.takeoutTime,
     required this.deliveryTime,
     required this.preparationTime,
+    this.description,
+    this.color,
+    this.logo,
+    this.cover,
+    this.exchangeAndReturnPolicy,
+    this.refundPolicy,
+    this.minimumOrderValue,
+    this.minimumOrderValueToDeliveryFree,
+    required this.schedules,
     required this.address,
-    this.categories,
-    this.shifts,
-    this.tags,
-    this.paymentMethods,
-    this.deliveryMethods,
-    this.deliveryFee,
+    this.bankAccount,
   });
-  
 
   EcommerceEntity copyWith({
     String? id,
-    String? documentType,
-    String? documentNumber,
-    String? paymentType,
-    String? paymentId,
-    String? paymentStatus,
+    String? name,
     String? email,
     String? phone,
+    String? documentType,
+    String? documentNumber,
     String? url,
-    String? name,
-    String? description,
-    String? logo,
-    String? cover,
-    String? type,
-    String? exchangeAndReturnPolicy,
-    String? refundPolicy,
-    String? createdAt,
-    String? updatedAt,
-    bool? available,
     bool? availableForScheduling,
-    bool? enabled,
     bool? voucherEnabled,
     bool? verified,
     bool? acceptPaymentInstallments,
-    num? minimumOrderValue,
-    num? minimumOrderValueToDeliveryFree,
+    bool? ecommercePaysFees,
+    bool? visibility,
+    bool? available,
+    bool? blocked,
+    String? type,
+    List<String>? deliveryMethods,
+    List<String>? tags,
+    List<String>? paymentMethods,
     num? takeoutTime,
     num? deliveryTime,
     num? preparationTime,
+    String? description,
+    String? color,
+    String? logo,
+    String? cover,
+    String? exchangeAndReturnPolicy,
+    String? refundPolicy,
+    num? minimumOrderValue,
+    num? minimumOrderValueToDeliveryFree,
+    List<ScheduleEntity>? schedules,
     AddressEntity? address,
-    List? categories,
-    List? shifts,
-    List? tags,
-    List? paymentMethods,
-    List? deliveryMethods,
-    List? deliveryFee,
+    BankAccountEntity? bankAccount,
   }) {
     return EcommerceEntity(
       id: id ?? this.id,
-      documentType: documentType ?? this.documentType,
-      documentNumber: documentNumber ?? this.documentNumber,
-      paymentType: paymentType ?? this.paymentType,
-      paymentId: paymentId ?? this.paymentId,
-      paymentStatus: paymentStatus ?? this.paymentStatus,
+      name: name ?? this.name,
       email: email ?? this.email,
       phone: phone ?? this.phone,
+      documentType: documentType ?? this.documentType,
+      documentNumber: documentNumber ?? this.documentNumber,
       url: url ?? this.url,
-      name: name ?? this.name,
-      description: description ?? this.description,
-      logo: logo ?? this.logo,
-      cover: cover ?? this.cover,
-      type: type ?? this.type,
-      exchangeAndReturnPolicy: exchangeAndReturnPolicy ?? this.exchangeAndReturnPolicy,
-      refundPolicy: refundPolicy ?? this.refundPolicy,
-      createdAt: createdAt ?? this.createdAt,
-      updatedAt: updatedAt ?? this.updatedAt,
-      available: available ?? this.available,
       availableForScheduling: availableForScheduling ?? this.availableForScheduling,
-      enabled: enabled ?? this.enabled,
       voucherEnabled: voucherEnabled ?? this.voucherEnabled,
       verified: verified ?? this.verified,
       acceptPaymentInstallments: acceptPaymentInstallments ?? this.acceptPaymentInstallments,
-      minimumOrderValue: minimumOrderValue ?? this.minimumOrderValue,
-      minimumOrderValueToDeliveryFree: minimumOrderValueToDeliveryFree ?? this.minimumOrderValueToDeliveryFree,
+      ecommercePaysFees: ecommercePaysFees ?? this.ecommercePaysFees,
+      visibility: visibility ?? this.visibility,
+      available: available ?? this.available,
+      blocked: blocked ?? this.blocked,
+      type: type ?? this.type,
+      deliveryMethods: deliveryMethods ?? this.deliveryMethods,
+      tags: tags ?? this.tags,
+      paymentMethods: paymentMethods ?? this.paymentMethods,
       takeoutTime: takeoutTime ?? this.takeoutTime,
       deliveryTime: deliveryTime ?? this.deliveryTime,
       preparationTime: preparationTime ?? this.preparationTime,
+      description: description ?? this.description,
+      color: color ?? this.color,
+      logo: logo ?? this.logo,
+      cover: cover ?? this.cover,
+      exchangeAndReturnPolicy: exchangeAndReturnPolicy ?? this.exchangeAndReturnPolicy,
+      refundPolicy: refundPolicy ?? this.refundPolicy,
+      minimumOrderValue: minimumOrderValue ?? this.minimumOrderValue,
+      minimumOrderValueToDeliveryFree: minimumOrderValueToDeliveryFree ?? this.minimumOrderValueToDeliveryFree,
+      schedules: schedules ?? this.schedules,
       address: address ?? this.address,
-      categories: categories ?? this.categories,
-      shifts: shifts ?? this.shifts,
-      tags: tags ?? this.tags,
-      paymentMethods: paymentMethods ?? this.paymentMethods,
-      deliveryMethods: deliveryMethods ?? this.deliveryMethods,
-      deliveryFee: deliveryFee ?? this.deliveryFee,
+      bankAccount: bankAccount ?? this.bankAccount,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'documentType': documentType,
-      'documentNumber': documentNumber,
-      'paymentType': paymentType,
-      'paymentId': paymentId,
-      'paymentStatus': paymentStatus,
+      'name': name,
       'email': email,
       'phone': phone,
+      'documentType': documentType,
+      'documentNumber': documentNumber,
       'url': url,
-      'name': name,
-      'description': description,
-      'logo': logo,
-      'cover': cover,
-      'type': type,
-      'exchangeAndReturnPolicy': exchangeAndReturnPolicy,
-      'refundPolicy': refundPolicy,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
-      'available': available,
       'availableForScheduling': availableForScheduling,
-      'enabled': enabled,
       'voucherEnabled': voucherEnabled,
       'verified': verified,
       'acceptPaymentInstallments': acceptPaymentInstallments,
-      'minimumOrderValue': minimumOrderValue,
-      'minimumOrderValueToDeliveryFree': minimumOrderValueToDeliveryFree,
+      'ecommercePaysFees': ecommercePaysFees,
+      'visibility': visibility,
+      'available': available,
+      'blocked': blocked,
+      'type': type,
+      'deliveryMethods': deliveryMethods,
+      'tags': tags,
+      'paymentMethods': paymentMethods,
       'takeoutTime': takeoutTime,
       'deliveryTime': deliveryTime,
       'preparationTime': preparationTime,
+      'description': description,
+      'color': color,
+      'logo': logo,
+      'cover': cover,
+      'exchangeAndReturnPolicy': exchangeAndReturnPolicy,
+      'refundPolicy': refundPolicy,
+      'minimumOrderValue': minimumOrderValue,
+      'minimumOrderValueToDeliveryFree': minimumOrderValueToDeliveryFree,
+      'schedules': schedules.map((x) => x.toMap()).toList(),
       'address': address.toMap(),
-      // 'categories': categories?.toMap(),
-      // 'shifts': shifts?.toMap(),
-      // 'tags': tags?.toMap(),
-      // 'paymentMethods': paymentMethods?.toMap(),
-      // 'deliveryMethods': deliveryMethods?.toMap(),
-      // 'deliveryFee': deliveryFee?.toMap(),
+      'bankAccount': bankAccount?.toMap(),
     };
   }
 
   factory EcommerceEntity.fromMap(Map<String, dynamic> map) {
     return EcommerceEntity(
-      id: map['id'],
+      id: map['id'] ?? '',
+      name: map['name'] ?? '',
+      email: map['email'] ?? '',
+      phone: map['phone'] ?? '',
       documentType: map['documentType'] ?? '',
       documentNumber: map['documentNumber'] ?? '',
-      paymentType: map['paymentType'],
-      paymentId: map['paymentId'],
-      paymentStatus: map['paymentStatus'],
-      email: map['email'],
-      phone: map['phone'],
       url: map['url'] ?? '',
-      name: map['name'] ?? '',
-      description: map['description'],
-      logo: map['logo'],
-      cover: map['cover'],
-      type: map['type'],
-      exchangeAndReturnPolicy: map['exchangeAndReturnPolicy'],
-      refundPolicy: map['refundPolicy'],
-      createdAt: map['createdAt'],
-      updatedAt: map['updatedAt'],
-      available: map['available'] ?? false,
       availableForScheduling: map['availableForScheduling'] ?? false,
-      enabled: map['enabled'] ?? false,
       voucherEnabled: map['voucherEnabled'] ?? false,
       verified: map['verified'] ?? false,
       acceptPaymentInstallments: map['acceptPaymentInstallments'] ?? false,
-      minimumOrderValue: map['minimumOrderValue'] ?? 0,
-      minimumOrderValueToDeliveryFree: map['minimumOrderValueToDeliveryFree'] ?? 0,
+      ecommercePaysFees: map['ecommercePaysFees'] ?? false,
+      visibility: map['visibility'] ?? false,
+      available: map['available'] ?? false,
+      blocked: map['blocked'] ?? false,
+      type: map['type'] ?? '',
+      deliveryMethods: map['deliveryMethods'] == null ? [] : List<String>.from(map['deliveryMethods']),
+      tags: map['tags'] == null ? [] : List<String>.from(map['tags']),
+      paymentMethods: map['paymentMethods'] == null ? [] : List<String>.from(map['paymentMethods']),
       takeoutTime: map['takeoutTime'] ?? 0,
       deliveryTime: map['deliveryTime'] ?? 0,
       preparationTime: map['preparationTime'] ?? 0,
+      description: map['description'],
+      color: map['color'],
+      logo: map['logo'],
+      cover: map['cover'],
+      exchangeAndReturnPolicy: map['exchangeAndReturnPolicy'],
+      refundPolicy: map['refundPolicy'],
+      minimumOrderValue: map['minimumOrderValue'],
+      minimumOrderValueToDeliveryFree: map['minimumOrderValueToDeliveryFree'],
+      schedules: map['schedules'] == null ? [] : List<ScheduleEntity>.from(map['schedules']?.map((x) => ScheduleEntity.fromMap(x))),
       address: AddressEntity.fromMap(map['address']),
-      // categories: map['categories'] != null ? List.fromMap(map['categories']) : null,
-      // shifts: map['shifts'] != null ? List.fromMap(map['shifts']) : null,
-      // tags: map['tags'] != null ? List.fromMap(map['tags']) : null,
-      // paymentMethods: map['paymentMethods'] != null ? List.fromMap(map['paymentMethods']) : null,
-      // deliveryMethods: map['deliveryMethods'] != null ? List.fromMap(map['deliveryMethods']) : null,
-      // deliveryFee: map['deliveryFee'] != null ? List.fromMap(map['deliveryFee']) : null,
+      bankAccount: map['bankAccount'] != null ? BankAccountEntity.fromMap(map['bankAccount']) : null,
     );
   }
 
@@ -245,7 +229,7 @@ class EcommerceEntity {
 
   @override
   String toString() {
-    return 'EcommerceEntity(id: $id, documentType: $documentType, documentNumber: $documentNumber, paymentType: $paymentType, paymentId: $paymentId, paymentStatus: $paymentStatus, email: $email, phone: $phone, url: $url, name: $name, description: $description, logo: $logo, cover: $cover, type: $type, exchangeAndReturnPolicy: $exchangeAndReturnPolicy, refundPolicy: $refundPolicy, createdAt: $createdAt, updatedAt: $updatedAt, available: $available, availableForScheduling: $availableForScheduling, enabled: $enabled, voucherEnabled: $voucherEnabled, verified: $verified, acceptPaymentInstallments: $acceptPaymentInstallments, minimumOrderValue: $minimumOrderValue, minimumOrderValueToDeliveryFree: $minimumOrderValueToDeliveryFree, takeoutTime: $takeoutTime, deliveryTime: $deliveryTime, preparationTime: $preparationTime, address: $address, categories: $categories, shifts: $shifts, tags: $tags, paymentMethods: $paymentMethods, deliveryMethods: $deliveryMethods, deliveryFee: $deliveryFee)';
+    return 'EcommerceEntity(id: $id, name: $name, email: $email, phone: $phone, documentType: $documentType, documentNumber: $documentNumber, url: $url, availableForScheduling: $availableForScheduling, voucherEnabled: $voucherEnabled, verified: $verified, acceptPaymentInstallments: $acceptPaymentInstallments, ecommercePaysFees: $ecommercePaysFees, visibility: $visibility, available: $available, blocked: $blocked, type: $type, deliveryMethods: $deliveryMethods, tags: $tags, paymentMethods: $paymentMethods, takeoutTime: $takeoutTime, deliveryTime: $deliveryTime, preparationTime: $preparationTime, description: $description, color: $color, logo: $logo, cover: $cover, exchangeAndReturnPolicy: $exchangeAndReturnPolicy, refundPolicy: $refundPolicy, minimumOrderValue: $minimumOrderValue, minimumOrderValueToDeliveryFree: $minimumOrderValueToDeliveryFree, schedules: $schedules, address: $address, bankAccount: $bankAccount)';
   }
 
   @override
@@ -254,80 +238,74 @@ class EcommerceEntity {
   
     return other is EcommerceEntity &&
       other.id == id &&
-      other.documentType == documentType &&
-      other.documentNumber == documentNumber &&
-      other.paymentType == paymentType &&
-      other.paymentId == paymentId &&
-      other.paymentStatus == paymentStatus &&
+      other.name == name &&
       other.email == email &&
       other.phone == phone &&
+      other.documentType == documentType &&
+      other.documentNumber == documentNumber &&
       other.url == url &&
-      other.name == name &&
-      other.description == description &&
-      other.logo == logo &&
-      other.cover == cover &&
-      other.type == type &&
-      other.exchangeAndReturnPolicy == exchangeAndReturnPolicy &&
-      other.refundPolicy == refundPolicy &&
-      other.createdAt == createdAt &&
-      other.updatedAt == updatedAt &&
-      other.available == available &&
       other.availableForScheduling == availableForScheduling &&
-      other.enabled == enabled &&
       other.voucherEnabled == voucherEnabled &&
       other.verified == verified &&
       other.acceptPaymentInstallments == acceptPaymentInstallments &&
-      other.minimumOrderValue == minimumOrderValue &&
-      other.minimumOrderValueToDeliveryFree == minimumOrderValueToDeliveryFree &&
+      other.ecommercePaysFees == ecommercePaysFees &&
+      other.visibility == visibility &&
+      other.available == available &&
+      other.blocked == blocked &&
+      other.type == type &&
+      listEquals(other.deliveryMethods, deliveryMethods) &&
+      listEquals(other.tags, tags) &&
+      listEquals(other.paymentMethods, paymentMethods) &&
       other.takeoutTime == takeoutTime &&
       other.deliveryTime == deliveryTime &&
       other.preparationTime == preparationTime &&
+      other.description == description &&
+      other.color == color &&
+      other.logo == logo &&
+      other.cover == cover &&
+      other.exchangeAndReturnPolicy == exchangeAndReturnPolicy &&
+      other.refundPolicy == refundPolicy &&
+      other.minimumOrderValue == minimumOrderValue &&
+      other.minimumOrderValueToDeliveryFree == minimumOrderValueToDeliveryFree &&
+      listEquals(other.schedules, schedules) &&
       other.address == address &&
-      other.categories == categories &&
-      other.shifts == shifts &&
-      other.tags == tags &&
-      other.paymentMethods == paymentMethods &&
-      other.deliveryMethods == deliveryMethods &&
-      other.deliveryFee == deliveryFee;
+      other.bankAccount == bankAccount;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      documentType.hashCode ^
-      documentNumber.hashCode ^
-      paymentType.hashCode ^
-      paymentId.hashCode ^
-      paymentStatus.hashCode ^
+      name.hashCode ^
       email.hashCode ^
       phone.hashCode ^
+      documentType.hashCode ^
+      documentNumber.hashCode ^
       url.hashCode ^
-      name.hashCode ^
-      description.hashCode ^
-      logo.hashCode ^
-      cover.hashCode ^
-      type.hashCode ^
-      exchangeAndReturnPolicy.hashCode ^
-      refundPolicy.hashCode ^
-      createdAt.hashCode ^
-      updatedAt.hashCode ^
-      available.hashCode ^
       availableForScheduling.hashCode ^
-      enabled.hashCode ^
       voucherEnabled.hashCode ^
       verified.hashCode ^
       acceptPaymentInstallments.hashCode ^
-      minimumOrderValue.hashCode ^
-      minimumOrderValueToDeliveryFree.hashCode ^
+      ecommercePaysFees.hashCode ^
+      visibility.hashCode ^
+      available.hashCode ^
+      blocked.hashCode ^
+      type.hashCode ^
+      deliveryMethods.hashCode ^
+      tags.hashCode ^
+      paymentMethods.hashCode ^
       takeoutTime.hashCode ^
       deliveryTime.hashCode ^
       preparationTime.hashCode ^
+      description.hashCode ^
+      color.hashCode ^
+      logo.hashCode ^
+      cover.hashCode ^
+      exchangeAndReturnPolicy.hashCode ^
+      refundPolicy.hashCode ^
+      minimumOrderValue.hashCode ^
+      minimumOrderValueToDeliveryFree.hashCode ^
+      schedules.hashCode ^
       address.hashCode ^
-      categories.hashCode ^
-      shifts.hashCode ^
-      tags.hashCode ^
-      paymentMethods.hashCode ^
-      deliveryMethods.hashCode ^
-      deliveryFee.hashCode;
+      bankAccount.hashCode;
   }
 }

@@ -11,8 +11,8 @@ class CheckUserEntity {
 
   factory CheckUserEntity.fromMap(Map<String, dynamic> map) {
     return CheckUserEntity(
-      establishment: List<EstablishmentEntity>.from(
-          map['establishment']?.map((x) => EstablishmentEntity.fromMap(x))),
+      establishment: List<EcommerceEntity>.from(
+          map['establishment']?.map((x) => EcommerceEntity.fromMap(x))),
       companies: List<CompanyEntity>.from(
           map['companies']?.map((x) => CompanyEntity.fromMap(x))),
       user: List<UserEntity>.from(
@@ -20,14 +20,13 @@ class CheckUserEntity {
     );
   }
 
-  factory CheckUserEntity.fromJson(String source) =>
-      CheckUserEntity.fromMap(json.decode(source));
-  List<EstablishmentEntity> establishment;
+  factory CheckUserEntity.fromJson(String source) => CheckUserEntity.fromMap(json.decode(source));
+  List<EcommerceEntity> establishment;
   List<CompanyEntity> companies;
   List<UserEntity> user;
 
   CheckUserEntity copyWith({
-    List<EstablishmentEntity>? establishment,
+    List<EcommerceEntity>? establishment,
     List<CompanyEntity>? companies,
     List<UserEntity>? user,
   }) {
@@ -49,8 +48,7 @@ class CheckUserEntity {
   String toJson() => json.encode(toMap());
 
   @override
-  String toString() =>
-      'CheckUserEntity(establishment: $establishment, companies: $companies, user: $user)';
+  String toString() => 'CheckUserEntity(establishment: $establishment, companies: $companies, user: $user)';
 
   @override
   bool operator ==(Object other) {

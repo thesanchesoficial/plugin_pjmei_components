@@ -13,13 +13,13 @@ mixin _$CartSMStore on CartSMStoreBase, Store {
       Atom(name: 'CartSMStoreBase.products', context: context);
 
   @override
-  List<ProductEntity> get products {
+  List<ProductEcommerceEntity> get products {
     _$productsAtom.reportRead();
     return super.products;
   }
 
   @override
-  set products(List<ProductEntity> value) {
+  set products(List<ProductEcommerceEntity> value) {
     _$productsAtom.reportWrite(value, super.products, () {
       super.products = value;
     });
@@ -29,31 +29,31 @@ mixin _$CartSMStore on CartSMStoreBase, Store {
       Atom(name: 'CartSMStoreBase.buyToo', context: context);
 
   @override
-  List<ProductEntity> get buyToo {
+  List<ProductEcommerceEntity> get buyToo {
     _$buyTooAtom.reportRead();
     return super.buyToo;
   }
 
   @override
-  set buyToo(List<ProductEntity> value) {
+  set buyToo(List<ProductEcommerceEntity> value) {
     _$buyTooAtom.reportWrite(value, super.buyToo, () {
       super.buyToo = value;
     });
   }
 
-  late final _$establishmentAtom =
-      Atom(name: 'CartSMStoreBase.establishment', context: context);
+  late final _$ecommerceAtom =
+      Atom(name: 'CartSMStoreBase.ecommerce', context: context);
 
   @override
-  EstablishmentEntity? get establishment {
-    _$establishmentAtom.reportRead();
-    return super.establishment;
+  EcommerceEntity? get ecommerce {
+    _$ecommerceAtom.reportRead();
+    return super.ecommerce;
   }
 
   @override
-  set establishment(EstablishmentEntity? value) {
-    _$establishmentAtom.reportWrite(value, super.establishment, () {
-      super.establishment = value;
+  set ecommerce(EcommerceEntity? value) {
+    _$ecommerceAtom.reportWrite(value, super.ecommerce, () {
+      super.ecommerce = value;
     });
   }
 
@@ -77,7 +77,7 @@ mixin _$CartSMStore on CartSMStoreBase, Store {
       ActionController(name: 'CartSMStoreBase', context: context);
 
   @override
-  void addProductInCart(ProductEntity item) {
+  void addProductInCart(ProductEcommerceEntity item) {
     final _$actionInfo = _$CartSMStoreBaseActionController.startAction(
         name: 'CartSMStoreBase.addProductInCart');
     try {
@@ -88,7 +88,7 @@ mixin _$CartSMStore on CartSMStoreBase, Store {
   }
 
   @override
-  void addProductInBuyToo(ProductEntity item) {
+  void addProductInBuyToo(ProductEcommerceEntity item) {
     final _$actionInfo = _$CartSMStoreBaseActionController.startAction(
         name: 'CartSMStoreBase.addProductInBuyToo');
     try {
@@ -132,7 +132,7 @@ mixin _$CartSMStore on CartSMStoreBase, Store {
   }
 
   @override
-  void setEstablishment(EstablishmentEntity item) {
+  void setEstablishment(EcommerceEntity item) {
     final _$actionInfo = _$CartSMStoreBaseActionController.startAction(
         name: 'CartSMStoreBase.setEstablishment');
     try {
@@ -147,7 +147,7 @@ mixin _$CartSMStore on CartSMStoreBase, Store {
     return '''
 products: ${products},
 buyToo: ${buyToo},
-establishment: ${establishment},
+ecommerce: ${ecommerce},
 voucher: ${voucher}
     ''';
   }

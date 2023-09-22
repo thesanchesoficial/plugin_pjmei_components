@@ -1,6 +1,6 @@
 name: plugin_pjmei_components
 description: A new Flutter plugin project.
-version: 0.0.102
+version: 0.0.103
 homepage:
 
 environment:
@@ -19,6 +19,15 @@ dependency_overrides:
       url: https://bitbucket.org/olawolffdevs/pjmei_white_label_dependencies
       ref: master
       publish_to: none
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: ^5.0.16
+  mobx_codegen: ^2.0.1+2
+  build_runner: ^2.1.2
+  recase: ^4.1.0
+  lints: ^2.0.1
 
 flutter:
   uses-material-design: true

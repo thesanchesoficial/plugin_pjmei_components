@@ -11,8 +11,6 @@ export './auth/send_email_recover_password.dart';
 export './balance/get_balance.dart';
 export './balance/get_basic_data.dart';
 
-export './bill/list_bill_by_establishment.dart';
-
 export './blog/get_list_categories_blog.dart';
 export './blog/get_list_posts_blog.dart';
 
@@ -162,14 +160,25 @@ export './notifications/delete_notifications.dart';
 export './notifications/list_all_notifications.dart';
 export './notifications/update_notifications.dart';
 
-export './online_store/add_online_store.dart';
-export './online_store/find_online_store_by_company_id.dart';
-export './online_store/update_online_store.dart';
-export './online_store/update_online_store_categories.dart';
+export 'ecommerce/product/add_product_ecommerce.dart';
+export 'ecommerce/product/find_product_ecommerce.dart';
+export 'ecommerce/product/list_product_by_ecommerce.dart';
+export 'ecommerce/product/update_product_ecommerce.dart';
+export 'ecommerce/product_category/add_product_category_ecommerce.dart';
+export 'ecommerce/product_category/find_product_category_ecommerce.dart';
+export 'ecommerce/product_category/list_product_category_by_ecommerce.dart';
+export 'ecommerce/product_category/update_product_category_ecommerce.dart';
+export 'ecommerce/schedule/add_schedule.dart';
+export 'ecommerce/schedule/find_schedule.dart';
+export 'ecommerce/schedule/list_schedule_by_ecommerce.dart';
+export 'ecommerce/schedule/list_schedule_by_product.dart';
+export 'ecommerce/schedule/update_schedule.dart';
+export 'ecommerce/add_ecommerce.dart';
+export 'ecommerce/update_ecommerce.dart';
+export 'ecommerce/find_ecommerce.dart';
+export 'ecommerce/find_ecommerce_by_company_id.dart';
 
 export './payment_assistant/list_transactions_by_date.dart';
-
-export './pedido/get_pedido.dart';
 
 export './plans/add_plan.dart';
 export './plans/add_voucher_plan.dart';
@@ -189,17 +198,7 @@ export './plans/list_vouchers_plans.dart';
 export './plans/update_plan.dart';
 export './plans/update_voucher_plan.dart';
 
-export './product/duplicate_product_by_id.dart';
-export './product/find_product_by_id.dart';
-export './product/insert_product.dart';
-export './product/list_products_by_establishment_id.dart';
-export './product/list_products_by_extras_services_id.dart';
-export './product/remove_product_by_id.dart';
-export './product/update_product_by_id.dart';
-
 export './recipient/get_recipient.dart';
-
-export './sales/list_sales_orders.dart';
 
 export './secrets/add_secret.dart';
 export './secrets/list_secrets.dart';

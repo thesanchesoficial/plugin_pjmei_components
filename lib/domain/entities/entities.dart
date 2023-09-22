@@ -1,7 +1,5 @@
 export './address/address_entity.dart';
 
-export './bill/bill_entity.dart';
-
 export './blog/category_blog_entity.dart';
 export './blog/post_blog_entity.dart';
 
@@ -24,12 +22,15 @@ export './document/document_type_entity.dart';
 export './document/document_subtype_entity.dart';
 
 export './ecommerce/ecommerce_entity.dart';
-
-export './establishment/establishment_entity.dart';
-export './establishment/establishment_subcategory_entity.dart';
-export './establishment/product_category_entity.dart';
-export './establishment/shipping_entity.dart';
-export './establishment/timeline_entity.dart';
+export './ecommerce/bank_account/bank_account_entity.dart';
+export './ecommerce/order/order_ecommerce_entity.dart';
+export './ecommerce/product/product_ecommerce_entity.dart';
+export './ecommerce/product_additional_information/product_additional_information_entity.dart';
+export './ecommerce/product_category/product_category_ecommerce_entity.dart';
+export './ecommerce/product_option/product_option_entity.dart';
+export './ecommerce/product_option/product_option_item_entity.dart';
+export './ecommerce/schedule/schedule_entity.dart';
+export './ecommerce/shifts/shifts_ecommerce_entity.dart';
 
 export './filtro/filtro_categoria.dart';
 export './filtro/filtro_subcategoria.dart';
@@ -84,18 +85,6 @@ export './mei/relatorio_mei_entity.dart';
 export './nota_fiscal/nota_fiscal_entity.dart';
 
 export './notification/notification_entity.dart';
-
-export './order/order_entity.dart';
-export './order/order_history_entity.dart';
-export './order/order_products_entity.dart';
-export './order/order_rating_entity.dart';
-export './order/order_scheduling_entity.dart';
-
-export './product/additional_product_information_entity.dart';
-export './product/product_entity.dart';
-export './product/product_option_items_entity.dart';
-export './product/product_options_entity.dart';
-export './product/scheduling_entity.dart';
 
 export './secrets/secret_entity.dart';
 

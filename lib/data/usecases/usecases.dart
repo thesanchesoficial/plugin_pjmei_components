@@ -10,8 +10,6 @@ export './auth/remote_send_email_recover_password.dart';
 
 export './balance/remote_get_basic_data.dart';
 
-export './bill/list_bill_by_establishment.dart';
-
 export './blog/remote_get_list_categories_blog.dart';
 export './blog/remote_get_list_posts_blog.dart';
 
@@ -117,14 +115,25 @@ export './notifications/delete_notifications.dart';
 export './notifications/list_all_notifications.dart';
 export './notifications/update_notifications.dart';
 
-export './online_store/remote_add_online_store.dart';
-export './online_store/remote_find_online_store_by_company_id.dart';
-export './online_store/remote_update_online_store.dart';
-export './online_store/remote_update_online_store_categories.dart';
+export 'ecommerce/product/remote_add_product.dart';
+export 'ecommerce/product/remote_find_product.dart';
+export 'ecommerce/product/remote_list_product_by_ecommerce.dart';
+export 'ecommerce/product/remote_update_product.dart';
+export 'ecommerce/product_category/remote_add_product_category.dart';
+export 'ecommerce/product_category/remote_find_product_category.dart';
+export 'ecommerce/product_category/remote_list_product_category_by_ecommerce.dart';
+export 'ecommerce/product_category/remote_update_product_category.dart';
+export 'ecommerce/schedule/remote_add_schedule.dart';
+export 'ecommerce/schedule/remote_find_schedule.dart';
+export 'ecommerce/schedule/remote_list_schedule_by_ecommerce.dart';
+export 'ecommerce/schedule/remote_list_schedule_by_product.dart';
+export 'ecommerce/schedule/remote_update_schedule.dart';
+export 'ecommerce/remote_add_ecommerce.dart';
+export 'ecommerce/remote_find_ecommerce.dart';
+export 'ecommerce/remote_find_ecommerce_by_company_id.dart';
+export 'ecommerce/remote_update_ecommerce.dart';
 
 export './payment_assistant/list_transactions_by_date.dart';
-
-export './pedido/remote_get_pedido.dart';
 
 export './plan/items/remote_add_item_plan.dart';
 export './plan/items/remote_list_items_plan.dart';
@@ -144,17 +153,7 @@ export './plan/remote_update_plan_by_subscription.dart';
 export './plan/update_plan.dart';
 export './plan/update_voucher_plan.dart';
 
-export './product/remote_duplicate_product_by_id.dart';
-export './product/remote_find_product_by_id.dart';
-export './product/remote_insert_product.dart';
-export './product/remote_list_products_by_establishment_id.dart';
-export './product/remote_list_products_by_extras_services_id.dart';
-export './product/remote_remove_product_by_id.dart';
-export './product/remote_update_product_by_id.dart';
-
 export './recipient/remote_get_recipient.dart';
-
-export './sales/remote_list_sales_orders.dart';
 
 export './secrets/remote_add_secret.dart';
 export './secrets/remote_list_secrets.dart';

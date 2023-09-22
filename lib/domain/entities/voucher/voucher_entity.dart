@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-import 'package:plugin_pjmei_components/domain/entities/establishment/establishment_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/product/product_entity.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class VoucherEntity {
   VoucherEntity({
@@ -45,8 +44,8 @@ class VoucherEntity {
       descontoDinheiro: num.tryParse(map['desconto_dinheiro'].toString()),
       estabelecimento: map['estabelecimento'] == null
           ? null
-          : EstablishmentEntity.fromMap(map['estabelecimento']),
-      produto: map['produto'] == null ? null : ProductEntity.fromMap(map['produto']),
+          : EcommerceEntity.fromMap(map['estabelecimento']),
+      produto: map['produto'] == null ? null : ProductEcommerceEntity.fromMap(map['produto']),
     );
   }
 
@@ -67,8 +66,8 @@ class VoucherEntity {
   bool? expirado;
   int? descontoPorcentagem;
   num? descontoDinheiro;
-  EstablishmentEntity? estabelecimento;
-  ProductEntity? produto;
+  EcommerceEntity? estabelecimento;
+  ProductEcommerceEntity? produto;
 
   VoucherEntity copyWith({
     String? id,
@@ -87,8 +86,8 @@ class VoucherEntity {
     bool? expirado,
     int? descontoPorcentagem,
     num? descontoDinheiro,
-    EstablishmentEntity? estabelecimento,
-    ProductEntity? produto,
+    EcommerceEntity? estabelecimento,
+    ProductEcommerceEntity? produto,
   }) {
     return VoucherEntity(
       id: id ?? this.id,

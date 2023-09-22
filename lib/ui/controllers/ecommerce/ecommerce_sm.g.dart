@@ -25,6 +25,38 @@ mixin _$EcommerceSMStore on EcommerceSMStoreBase, Store {
     });
   }
 
+  late final _$productCategoryAtom =
+      Atom(name: 'EcommerceSMStoreBase.productCategory', context: context);
+
+  @override
+  ProductCategoryEcommerceEntity? get productCategory {
+    _$productCategoryAtom.reportRead();
+    return super.productCategory;
+  }
+
+  @override
+  set productCategory(ProductCategoryEcommerceEntity? value) {
+    _$productCategoryAtom.reportWrite(value, super.productCategory, () {
+      super.productCategory = value;
+    });
+  }
+
+  late final _$productAtom =
+      Atom(name: 'EcommerceSMStoreBase.product', context: context);
+
+  @override
+  ProductEcommerceEntity? get product {
+    _$productAtom.reportRead();
+    return super.product;
+  }
+
+  @override
+  set product(ProductEcommerceEntity? value) {
+    _$productAtom.reportWrite(value, super.product, () {
+      super.product = value;
+    });
+  }
+
   late final _$selectedIndexAtom =
       Atom(name: 'EcommerceSMStoreBase.selectedIndex', context: context);
 
@@ -109,6 +141,28 @@ mixin _$EcommerceSMStore on EcommerceSMStoreBase, Store {
       ActionController(name: 'EcommerceSMStoreBase', context: context);
 
   @override
+  void setProduct(ProductEcommerceEntity? item) {
+    final _$actionInfo = _$EcommerceSMStoreBaseActionController.startAction(
+        name: 'EcommerceSMStoreBase.setProduct');
+    try {
+      return super.setProduct(item);
+    } finally {
+      _$EcommerceSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setProductCategory(ProductCategoryEcommerceEntity? item) {
+    final _$actionInfo = _$EcommerceSMStoreBaseActionController.startAction(
+        name: 'EcommerceSMStoreBase.setProductCategory');
+    try {
+      return super.setProductCategory(item);
+    } finally {
+      _$EcommerceSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setSelectedIndex(int item) {
     final _$actionInfo = _$EcommerceSMStoreBaseActionController.startAction(
         name: 'EcommerceSMStoreBase.setSelectedIndex');
@@ -178,6 +232,8 @@ mixin _$EcommerceSMStore on EcommerceSMStoreBase, Store {
   String toString() {
     return '''
 establishment: ${establishment},
+productCategory: ${productCategory},
+product: ${product},
 selectedIndex: ${selectedIndex},
 childGlobal: ${childGlobal},
 isWeb: ${isWeb},

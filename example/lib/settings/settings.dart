@@ -85,23 +85,6 @@ class _MyAppState extends State<MyApp> {
               Observer(builder: (context) => Text('${userSM.user?.name}')),
               const SizedBox(height: 25),
               ElevatedButton(
-                child: const Text("Login"),
-                onPressed: () async {
-                  try {
-                    OwBotToast.loading();
-                    Api.ecommerce.find(id: 'id');
-                    UserEntity user = await Api.auth.login(
-                      email: 'danzi@pjmei.app',
-                      password: 'W6SO/anFo/UqNg/zmN27KjvY9ks48jUK1dcV7NBMi1dFGsdFH+8PCa1Irpoak24k3ifQDBPbKpl0DPgbKnapoq783HiTdqU/ddSzUjfqWzTKzpVD65lLDRbSZ0z2PhgwWZPA8c1LBBjiAPkDzKjWonh2OFuyiM5CVH+gCtwEHaTc2aVBjislRuQatHmf+irlIbnU6u8wzQRiQu2DNXrQF0Lj57fVccbmV7XOffEOE2TGaD9NL9mDFTWQSBWWZ8wisLFh5Z02qI2+V+C7kfvBlZln9nkGak3QvE1lnFBPcEHZZiMfqY0YVHxv8EdAoyAg8+J/4CoppRHoVAy/rIJfHA==',
-                    );
-                    userSM.setUser(user);
-                  } catch (e) {
-                    OwBotToast.close();
-                    OwBotToast.toast(e.toString());
-                  }
-                },
-              ),
-              ElevatedButton(
                 child: const Text("Test"),
                 onPressed: () => context.push("/test/sadfgasgs/arroz/fasdfsd"),
               ),

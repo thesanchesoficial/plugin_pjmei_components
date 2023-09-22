@@ -7,7 +7,15 @@ class ModuleSMStore = ModuleSMStoreBase with _$ModuleSMStore;
 abstract class ModuleSMStoreBase with Store {
   
   @observable
+  ModulePjmei? module;
+
+  @observable
   List<ModulePjmei>? modules;
+
+  @action
+  void setModule(ModulePjmei? item) {
+    module = item;
+  }
 
   @action
   void addModule(ModulePjmei item) {
