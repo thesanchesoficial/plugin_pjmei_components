@@ -7,25 +7,25 @@ class ProductCategoryEcommerceEntity {
   String id;
   String name;
   int index;
-  List<ProductEcommerceEntity>? items;
+  List<ProductEcommerceEntity>? product;
   ProductCategoryEcommerceEntity({
     required this.id,
     required this.name,
     required this.index,
-    this.items,
+    this.product,
   });
 
   ProductCategoryEcommerceEntity copyWith({
     String? id,
     String? name,
     int? index,
-    List<ProductEcommerceEntity>? items,
+    List<ProductEcommerceEntity>? product,
   }) {
     return ProductCategoryEcommerceEntity(
       id: id ?? this.id,
       name: name ?? this.name,
       index: index ?? this.index,
-      items: items ?? this.items,
+      product: product ?? this.product,
     );
   }
 
@@ -34,7 +34,7 @@ class ProductCategoryEcommerceEntity {
       'id': id,
       'name': name,
       'index': index,
-      'items': items?.map((x) => x.toMap()).toList(),
+      'product': product?.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -43,7 +43,7 @@ class ProductCategoryEcommerceEntity {
       id: map['id'] ?? '',
       name: map['name'] ?? '',
       index: map['index']?.toInt() ?? 0,
-      items: map['items'] != null ? List<ProductEcommerceEntity>.from(map['items']?.map((x) => ProductEcommerceEntity.fromMap(x))) : null,
+      product: map['product'] != null ? List<ProductEcommerceEntity>.from(map['product']?.map((x) => ProductEcommerceEntity.fromMap(x))) : null,
     );
   }
 
@@ -53,7 +53,7 @@ class ProductCategoryEcommerceEntity {
 
   @override
   String toString() {
-    return 'ProductCategoryEcommerceEntity(id: $id, name: $name, index: $index, items: $items)';
+    return 'ProductCategoryEcommerceEntity(id: $id, name: $name, index: $index, product: $product)';
   }
 
   @override
@@ -64,7 +64,7 @@ class ProductCategoryEcommerceEntity {
       other.id == id &&
       other.name == name &&
       other.index == index &&
-      listEquals(other.items, items);
+      listEquals(other.product, product);
   }
 
   @override
@@ -72,6 +72,6 @@ class ProductCategoryEcommerceEntity {
     return id.hashCode ^
       name.hashCode ^
       index.hashCode ^
-      items.hashCode;
+      product.hashCode;
   }
 }

@@ -6,7 +6,7 @@ WhiteLabelEntity serraDev = WhiteLabelEntity(
   id: '2b688184-b0b8-4b6f-b726-dbfb269a8215',
   setting: SettingWhiteLabelEntity(
     companyId: '0e2cee1f-306e-49b4-bc5d-bea2e624a31b',
-    supportId: 'SUPPORT1-SAND-0000-0000-00CIAMPESERRA',
+    ecommerceId: 'a5dd8021-8285-431f-97f1-85e1234a8e0a',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
     redirectOrigin: 'https://dev.pjmei.app',

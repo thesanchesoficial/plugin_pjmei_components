@@ -4,7 +4,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class SettingWhiteLabelEntity {
   String companyId;
-  String supportId;
+  String ecommerceId;
   bool forceAuthenticationStart;
   bool disabledPrintScreen;
   String urlWebApplication;
@@ -14,7 +14,7 @@ class SettingWhiteLabelEntity {
   FunctionalityWhiteLabelEntity functionality;
   SettingWhiteLabelEntity({
     required this.companyId,
-    required this.supportId,
+    required this.ecommerceId,
     required this.forceAuthenticationStart,
     required this.disabledPrintScreen,
     required this.urlWebApplication,
@@ -26,7 +26,7 @@ class SettingWhiteLabelEntity {
 
   SettingWhiteLabelEntity copyWith({
     String? companyId,
-    String? supportId,
+    String? ecommerceId,
     bool? forceAuthenticationStart,
     bool? disabledPrintScreen,
     String? urlWebApplication,
@@ -37,7 +37,7 @@ class SettingWhiteLabelEntity {
   }) {
     return SettingWhiteLabelEntity(
       companyId: companyId ?? this.companyId,
-      supportId: supportId ?? this.supportId,
+      ecommerceId: ecommerceId ?? this.ecommerceId,
       forceAuthenticationStart: forceAuthenticationStart ?? this.forceAuthenticationStart,
       disabledPrintScreen: disabledPrintScreen ?? this.disabledPrintScreen,
       urlWebApplication: urlWebApplication ?? this.urlWebApplication,
@@ -51,7 +51,7 @@ class SettingWhiteLabelEntity {
   Map<String, dynamic> toMap() {
     return {
       'companyId': companyId,
-      'supportId': supportId,
+      'ecommerceId': ecommerceId,
       'forceAuthenticationStart': forceAuthenticationStart,
       'disabledPrintScreen': disabledPrintScreen,
       'urlWebApplication': urlWebApplication,
@@ -65,7 +65,7 @@ class SettingWhiteLabelEntity {
   factory SettingWhiteLabelEntity.fromMap(Map<String, dynamic> map) {
     return SettingWhiteLabelEntity(
       companyId: map['companyId'] ?? '',
-      supportId: map['supportId'] ?? '',
+      ecommerceId: map['ecommerceId'] ?? '',
       forceAuthenticationStart: map['forceAuthenticationStart'] ?? false,
       disabledPrintScreen: map['disabledPrintScreen'] ?? false,
       urlWebApplication: map['urlWebApplication'] ?? '',
@@ -86,7 +86,7 @@ class SettingWhiteLabelEntity {
   
     return other is SettingWhiteLabelEntity &&
       other.companyId == companyId &&
-      other.supportId == supportId &&
+      other.ecommerceId == ecommerceId &&
       other.forceAuthenticationStart == forceAuthenticationStart &&
       other.disabledPrintScreen == disabledPrintScreen &&
       other.urlWebApplication == urlWebApplication &&
@@ -99,7 +99,7 @@ class SettingWhiteLabelEntity {
   @override
   int get hashCode {
     return companyId.hashCode ^
-      supportId.hashCode ^
+      ecommerceId.hashCode ^
       forceAuthenticationStart.hashCode ^
       disabledPrintScreen.hashCode ^
       urlWebApplication.hashCode ^
@@ -111,6 +111,6 @@ class SettingWhiteLabelEntity {
 
   @override
   String toString() {
-    return 'SettingWhiteLabelEntity(companyId: $companyId, supportId: $supportId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
+    return 'SettingWhiteLabelEntity(companyId: $companyId, ecommerceId: $ecommerceId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
   }
 }

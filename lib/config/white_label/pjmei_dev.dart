@@ -6,7 +6,7 @@ WhiteLabelEntity pjmeiDev = WhiteLabelEntity(
   id: '8653819c-2072-4a5a-91fe-25166883d0c7',
   setting: SettingWhiteLabelEntity(
     companyId: 'd286430b-83cf-4057-8f11-4204411f8b48',
-    supportId: 'SUPPORT1-SAND-0000-0000-00000000PJMEI',
+    ecommerceId: 'a5dd8021-8285-431f-97f1-85e1234a8e0a',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
     redirectOrigin: 'https://dev.pjmei.app',
