@@ -5,8 +5,13 @@ class _ProductCategoryEcommerceApi {
   Future<ProductCategoryEcommerceEntity> find({required String id}) {
     return makeRemoteFindProductCategory(id).exec();
   }
+
   Future<List<ProductCategoryEcommerceEntity>> listByEcommerce({required String id}) {
     return makeRemoteListProductCategoryByEcommerce(id).exec();
+  }
+
+  Future<List<ProductCategoryEcommerceEntity>> listByEcommerceWithProducts({required String id}) {
+    return makeRemoteListProductCategoryWithProductsByEcommerce(id).exec();
   }
 
   Future<ProductCategoryEcommerceEntity> insert({

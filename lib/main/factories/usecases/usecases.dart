@@ -50,6 +50,7 @@ import 'ecommerce/product_category/add_product_category_ecommerce_factory.dart';
 import 'ecommerce/product_category/delete_product_category_ecommerce_factory.dart';
 import 'ecommerce/product_category/find_product_category_ecommerce_factory.dart';
 import 'ecommerce/product_category/list_product_category_ecommerce_factory.dart';
+import 'ecommerce/product_category/list_product_category_products_ecommerce_factory.dart';
 import 'ecommerce/product_category/update_product_category_ecommerce_factory.dart';
 import 'ecommerce/schedule/add_schedule_factory.dart';
 import 'ecommerce/schedule/delete_schedule_factory.dart';
