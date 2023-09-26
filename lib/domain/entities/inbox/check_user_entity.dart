@@ -4,43 +4,43 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class CheckUserEntity {
   CheckUserEntity({
-    this.establishment = const [],
-    this.companies = const [],
+    this.ecommerce = const [],
+    this.company = const [],
     this.user = const [],
   });
 
   factory CheckUserEntity.fromMap(Map<String, dynamic> map) {
     return CheckUserEntity(
-      establishment: List<EcommerceEntity>.from(
-          map['establishment']?.map((x) => EcommerceEntity.fromMap(x))),
-      companies: List<CompanyEntity>.from(
-          map['companies']?.map((x) => CompanyEntity.fromMap(x))),
+      ecommerce: List<EcommerceEntity>.from(
+          map['ecommerce']?.map((x) => EcommerceEntity.fromMap(x))),
+      company: List<CompanyEntity>.from(
+          map['company']?.map((x) => CompanyEntity.fromMap(x))),
       user: List<UserEntity>.from(
           map['user']?.map((x) => UserEntity.fromMap(x))),
     );
   }
 
   factory CheckUserEntity.fromJson(String source) => CheckUserEntity.fromMap(json.decode(source));
-  List<EcommerceEntity> establishment;
-  List<CompanyEntity> companies;
+  List<EcommerceEntity> ecommerce;
+  List<CompanyEntity> company;
   List<UserEntity> user;
 
   CheckUserEntity copyWith({
-    List<EcommerceEntity>? establishment,
-    List<CompanyEntity>? companies,
+    List<EcommerceEntity>? ecommerce,
+    List<CompanyEntity>? company,
     List<UserEntity>? user,
   }) {
     return CheckUserEntity(
-      establishment: establishment ?? this.establishment,
-      companies: companies ?? this.companies,
+      ecommerce: ecommerce ?? this.ecommerce,
+      company: company ?? this.company,
       user: user ?? this.user,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'establishment': establishment.map((x) => x.toMap()).toList(),
-      'companies': companies.map((x) => x.toMap()).toList(),
+      'ecommerce': ecommerce.map((x) => x.toMap()).toList(),
+      'company': company.map((x) => x.toMap()).toList(),
       'user': user.map((x) => x.toMap()).toList(),
     };
   }
@@ -48,19 +48,19 @@ class CheckUserEntity {
   String toJson() => json.encode(toMap());
 
   @override
-  String toString() => 'CheckUserEntity(establishment: $establishment, companies: $companies, user: $user)';
+  String toString() => 'CheckUserEntity(ecommerce: $ecommerce, company: $company, user: $user)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
     return other is CheckUserEntity &&
-        listEquals(other.establishment, establishment) &&
-        listEquals(other.companies, companies) &&
+        listEquals(other.ecommerce, ecommerce) &&
+        listEquals(other.company, company) &&
         listEquals(other.user, user);
   }
 
   @override
   int get hashCode =>
-      establishment.hashCode ^ companies.hashCode ^ user.hashCode;
+      ecommerce.hashCode ^ company.hashCode ^ user.hashCode;
 }

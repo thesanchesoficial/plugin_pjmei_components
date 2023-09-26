@@ -11,10 +11,14 @@ class RemoteCheckUser implements CheckUser {
         url: url,
         log: log,
         method: 'get',
+        newReturnErrorMsg: true,
       );
-      return CheckUserEntity.fromMap(httpResponse['success']['itens']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return CheckUserEntity.fromMap(httpResponse['success']['items']);
+    } catch (e) {
+      throw e;
     }
   }
 }
