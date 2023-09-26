@@ -26,14 +26,13 @@ class LGM03 extends StatelessWidget {
             itemCount: modules.length,
             numbersInRowAccordingToWidgth: [
               150,
-              300,
+              330,
               450,
               600,
               750,
               900,
               1050,
-              1200,
-              1350
+              1300,
             ],
             itemBuilder: (context, index) {
               if (modules[index].toShortcuts(context).isValid()) {
