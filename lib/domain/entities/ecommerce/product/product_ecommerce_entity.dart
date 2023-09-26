@@ -9,7 +9,7 @@ class ProductEcommerceEntity {
   String name;
   String description;
   num amount;
-  ProductCategoryEcommerceEntity productCategory;
+  ProductCategoryEcommerceEntity? productCategory;
   bool visibility;
   bool highlight;
   bool legalAge;
@@ -28,7 +28,7 @@ class ProductEcommerceEntity {
     required this.name,
     required this.description,
     required this.amount,
-    required this.productCategory,
+    this.productCategory,
     required this.visibility,
     required this.highlight,
     required this.legalAge,
@@ -92,7 +92,7 @@ class ProductEcommerceEntity {
       'name': name,
       'description': description,
       'amount': amount,
-      'productCategory': productCategory.toMap(),
+      'productCategory': productCategory?.toMap(),
       'visibility': visibility,
       'highlight': highlight,
       'legalAge': legalAge,
@@ -115,15 +115,15 @@ class ProductEcommerceEntity {
       name: map['name'] ?? '',
       description: map['description'] ?? '',
       amount: map['amount'] ?? 0,
-      productCategory: ProductCategoryEcommerceEntity.fromMap(map['productCategory']),
+      productCategory: map['productCategory'] != null ? ProductCategoryEcommerceEntity.fromMap(map['productCategory']) : null,
       visibility: map['visibility'] ?? false,
       highlight: map['highlight'] ?? false,
       legalAge: map['legalAge'] ?? false,
-      discountType: map['discountType'] ?? '',
+      discountType: map['discountType'] ?? 'money',
       discountValue: map['discountValue'] ?? 0,
       amountWithDiscount: map['amountWithDiscount'] ?? 0,
       type: map['type'] ?? '',
-      servicesMethods: List<String>.from(map['servicesMethods']),
+      servicesMethods: map['servicesMethods'] == null ? [] : List<String>.from(map['servicesMethods']),
       serviceDuration: map['serviceDuration'],
       maxParticipantsByService: map['maxParticipantsByService']?.toInt(),
       breakBetweenSessions: map['breakBetweenSessions']?.toInt(),
