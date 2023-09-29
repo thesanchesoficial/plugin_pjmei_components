@@ -8,13 +8,18 @@ class RemoteUpdateSecret implements UpdateSecret {
   Future<SecretEntity> exec(SecretEntity params, {bool log = false}) async {
     try {
       final String? passwordCrypt = await encriptarTexto(params.password);
-      final httpResponse =
-          await httpClient.request(url: url, log: log, method: 'put', body: {
-        'id': params.id,
-        'description': params.description,
-        'username': params.username,
-        'password': passwordCrypt,
-      });
+      final httpResponse = await httpClient.request(
+        url: url,
+        log: log,
+        method: 'put',
+        body: {
+          'id': params.id,
+          'description': params.description,
+          'username': params.username,
+          'password': passwordCrypt,
+        }
+        newReturnErrorMsg: true,
+      );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }

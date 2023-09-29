@@ -8,13 +8,18 @@ class RemoteAddSecret implements AddSecret {
   Future<SecretEntity> exec(SecretEntity params, {bool log = false}) async {
     try {
       final String? passwordCrypt = await encriptarTexto(params.password);
-      final httpResponse =
-          await httpClient.request(url: url, log: log, method: 'post', body: {
-        'description': params.description,
-        'username': params.username,
-        'password': passwordCrypt,
-        'company_id': companySM.company?.id,
-      });
+      final httpResponse = await httpClient.request(
+          url: url,
+          log: log,
+          method: 'post',
+          body: {
+          'description': params.description,
+          'username': params.username,
+          'password': passwordCrypt,
+          'company_id': companySM.company?.id,
+        },
+        newReturnErrorMsg: true,
+      );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
