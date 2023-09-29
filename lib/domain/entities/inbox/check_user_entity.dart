@@ -11,12 +11,9 @@ class CheckUserEntity {
 
   factory CheckUserEntity.fromMap(Map<String, dynamic> map) {
     return CheckUserEntity(
-      ecommerce: List<EcommerceEntity>.from(
-          map['ecommerce']?.map((x) => EcommerceEntity.fromMap(x))),
-      company: List<CompanyEntity>.from(
-          map['company']?.map((x) => CompanyEntity.fromMap(x))),
-      user: List<UserEntity>.from(
-          map['user']?.map((x) => UserEntity.fromMap(x))),
+      ecommerce: map['ecommerce'] == null ? [] : List<EcommerceEntity>.from(map['ecommerce']?.map((x) => EcommerceEntity.fromMap(x))),
+      company: map['company'] == null ? [] : List<CompanyEntity>.from(map['company']?.map((x) => CompanyEntity.fromMap(x))),
+      user: map['user'] == null ? [] : List<UserEntity>.from(map['user']?.map((x) => UserEntity.fromMap(x))),
     );
   }
 

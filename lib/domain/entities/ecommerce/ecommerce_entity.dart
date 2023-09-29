@@ -2,8 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:plugin_pjmei_components/domain/domain.dart';
-import 'package:plugin_pjmei_components/domain/entities/ecommerce/bank_account/bank_account_entity.dart';
-import 'package:plugin_pjmei_components/domain/entities/ecommerce/schedule/schedule_entity.dart';
 
 class EcommerceEntity {
   String id;
@@ -37,7 +35,7 @@ class EcommerceEntity {
   num? minimumOrderValue;
   num? minimumOrderValueToDeliveryFree;
   List<ScheduleEntity> schedules;
-  AddressEntity address;
+  AddressEntity? address;
   BankAccountEntity? bankAccount;
   EcommerceEntity({
     required this.id,
@@ -71,7 +69,7 @@ class EcommerceEntity {
     this.minimumOrderValue,
     this.minimumOrderValueToDeliveryFree,
     required this.schedules,
-    required this.address,
+    this.address,
     this.bankAccount,
   });
 
@@ -180,7 +178,7 @@ class EcommerceEntity {
       'minimumOrderValue': minimumOrderValue,
       'minimumOrderValueToDeliveryFree': minimumOrderValueToDeliveryFree,
       'schedules': schedules.map((x) => x.toMap()).toList(),
-      'address': address.toMap(),
+      'address': address?.toMap(),
       'bankAccount': bankAccount?.toMap(),
     };
   }
@@ -218,7 +216,7 @@ class EcommerceEntity {
       minimumOrderValue: map['minimumOrderValue'],
       minimumOrderValueToDeliveryFree: map['minimumOrderValueToDeliveryFree'],
       schedules: map['schedules'] == null ? [] : List<ScheduleEntity>.from(map['schedules']?.map((x) => ScheduleEntity.fromMap(x))),
-      address: AddressEntity.fromMap(map['address']),
+      address: map['address'] == null ? null : AddressEntity.fromMap(map['address']),
       bankAccount: map['bankAccount'] != null ? BankAccountEntity.fromMap(map['bankAccount']) : null,
     );
   }
