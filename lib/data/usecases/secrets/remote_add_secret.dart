@@ -9,14 +9,14 @@ class RemoteAddSecret implements AddSecret {
     try {
       final String? passwordCrypt = await encriptarTexto(params.password);
       final httpResponse = await httpClient.request(
-          url: url,
-          log: log,
-          method: 'post',
-          body: {
+        url: url,
+        log: log,
+        method: 'post',
+        body: {
           'description': params.description,
           'username': params.username,
           'password': passwordCrypt,
-          'company_id': companySM.company?.id,
+          'companyId': companySM.company?.id,
         },
         newReturnErrorMsg: true,
       );
