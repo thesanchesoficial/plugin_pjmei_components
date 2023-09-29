@@ -8,6 +8,7 @@ export './validators/validators.dart';
 
 export './components.dart';
 export './filter_mask.dart';
+export './hash_permanent.dart';
 export './init.dart';
 export './map_categorias_subcategorias.dart';
 export './mask_type.dart';
