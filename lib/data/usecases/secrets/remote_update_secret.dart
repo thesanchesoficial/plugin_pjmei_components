@@ -17,7 +17,7 @@ class RemoteUpdateSecret implements UpdateSecret {
           'description': params.description,
           'username': params.username,
           'password': passwordCrypt,
-        }
+        },
         newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
