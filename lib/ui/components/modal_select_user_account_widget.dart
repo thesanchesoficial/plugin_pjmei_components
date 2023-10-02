@@ -164,8 +164,8 @@ class _ModalSelectUserAccountWidgetState extends State<ModalSelectUserAccountWid
                 icon: EvaIcons.logOutOutline,
                 onPressed: () {
                   Navigator.pop(context);
+                  context.go('${logoutRedirect}');
                   userSM.user = null;
-                  context.push('${logoutRedirect}');
                 }
               ),
               const SizedBox(height: 16),
