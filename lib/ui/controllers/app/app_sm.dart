@@ -17,6 +17,9 @@ abstract class AppSMStoreBase with Store {
   bool dataSavingMode = false;
 
   @observable
+  bool dynamicColor = false;
+
+  @observable
   bool hideAmount = false;
 
   @observable
@@ -24,6 +27,9 @@ abstract class AppSMStoreBase with Store {
 
   @observable
   bool closeWebMenu = false;
+
+  @observable
+  VisualDensity visualDensity = VisualDensity.compact;
 
   @observable
   Environment? environment = Environment.current;
@@ -38,6 +44,11 @@ abstract class AppSMStoreBase with Store {
   bool setIsHideAmount(bool value) => hideAmount = value;
   
   @action
+  void setVisualDensity(VisualDensity item) {
+    visualDensity = item;
+  }
+
+  @action
   void setThemeMode(ThemeMode item) {
     themeMode = item;
   }
@@ -50,6 +61,11 @@ abstract class AppSMStoreBase with Store {
   @action
   void setDataSavingMode(bool item) {
     dataSavingMode = item;
+  }
+
+  @action
+  void setDynamicColor(bool item) {
+    dynamicColor = item;
   }
 
   @action
