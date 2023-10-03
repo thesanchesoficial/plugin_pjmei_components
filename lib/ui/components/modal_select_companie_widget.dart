@@ -57,7 +57,7 @@ class _ModalSelectCompanyWidgetState
                           '${WhiteLabelEntity.current?.style.image.logoMenuWeb}',
                           fit: BoxFit.fitHeight,
                           color: Theme.of(context).colorScheme.primary,
-                          height: 15,
+                          height: 45,
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 16),
