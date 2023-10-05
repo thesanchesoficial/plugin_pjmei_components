@@ -1,3 +1,8 @@
+export './address/find_address.dart';
+export './address/insert_address.dart';
+export './address/list_address_by_user.dart';
+export './address/update_address.dart';
+
 export './agendamento/remote_get_agendamento.dart';
 
 export './auth/remote_change_password.dart';
@@ -115,6 +120,7 @@ export './notifications/delete_notifications.dart';
 export './notifications/list_all_notifications.dart';
 export './notifications/update_notifications.dart';
 
+export 'ecommerce/order/remote_create_order.dart';
 export 'ecommerce/product/remote_add_product.dart';
 export 'ecommerce/product/remote_find_product.dart';
 export 'ecommerce/product/remote_list_product_by_ecommerce.dart';

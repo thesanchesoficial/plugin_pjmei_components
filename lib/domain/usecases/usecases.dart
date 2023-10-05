@@ -1,5 +1,10 @@
 export './agendamento/get_agendamento.dart';
 
+export './address/find_address.dart';
+export './address/list_address_by_user.dart';
+export './address/insert_address.dart';
+export './address/update_address.dart';
+
 export './auth/change_password.dart';
 export './auth/check_if_user_exists.dart';
 export './auth/login.dart';
@@ -160,6 +165,7 @@ export './notifications/delete_notifications.dart';
 export './notifications/list_all_notifications.dart';
 export './notifications/update_notifications.dart';
 
+export 'ecommerce/order/create_order.dart';
 export 'ecommerce/product/add_product_ecommerce.dart';
 export 'ecommerce/product/find_product_ecommerce.dart';
 export 'ecommerce/product/list_product_by_ecommerce.dart';

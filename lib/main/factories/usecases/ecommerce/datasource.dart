@@ -4,7 +4,7 @@ class _EcommerceApi {
   final vouchers = _VoucherEcommerceApi();
   final products = _ProductEcommerceApi();
   final productCategory = _ProductCategoryEcommerceApi();
-  final orders = _VoucherEcommerceApi();
+  final orders = _OrderEcommerceApi();
   final schedule = _ScheduleApi();
 
   Future<EcommerceEntity> find({required String id}) {

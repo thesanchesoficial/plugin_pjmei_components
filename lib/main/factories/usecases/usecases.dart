@@ -1,3 +1,7 @@
+import 'package:plugin_pjmei_components/main/factories/usecases/address/find_address_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/address/insert_address_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/address/delete_address_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/address/update_address_factory.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 import './auth/change_password_factory.dart';
@@ -41,6 +45,7 @@ import './documents/insert_document_factory.dart';
 import './documents/list_documents_factory.dart';
 import './documents/update_document_factory.dart';
 
+import 'ecommerce/order/create_order_factory.dart';
 import 'ecommerce/product/add_product_ecommerce_factory.dart';
 import 'ecommerce/product/delete_product_ecommerce_factory.dart';
 import 'ecommerce/product/find_product_ecommerce_factory.dart';
@@ -189,6 +194,7 @@ import './white_label/list_white_label_by_user_factory.dart';
 import './white_label/list_white_label_factory.dart';
 import './white_label/update_white_label_factory.dart';
 
+part './address/datasource.dart';
 part './auth/datasource.dart';
 part './blog/datasource.dart';
 part './ccmei/datasource.dart';
@@ -199,11 +205,11 @@ part './das/datasource.dart';
 part './dasn/datasource.dart';
 part './documents/datasource.dart';
 part './ecommerce/datasource.dart';
+part './ecommerce/order/datasource.dart';
 part './ecommerce/voucher/datasource.dart';
 part './ecommerce/product/datasource.dart';
 part './ecommerce/product_category/datasource.dart';
 part './ecommerce/schedule/datasource.dart';
-// part './finance/datasource.dart';
 part './financial_education/datasource.dart';
 part './financial_education/categories/datasource.dart';
 part './financial_education/videos/datasource.dart';

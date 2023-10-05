@@ -1,95 +1,202 @@
-// import 'dart:convert';
-// import 'package:flutter/foundation.dart';
-// import 'package:plugin_pjmei_components/domain/entities/product/product_entity.dart';
-// import 'package:plugin_pjmei_components/domain/entities/product/product_options_entity.dart';
+import 'dart:convert';
 
-// class OrderProductsEntity {
-//   OrderProductsEntity({
-//     this.id,
-//     this.quantidade,
-//     this.observacao,
-//     this.opcoes,
-//     this.produto,
-//     this.valor,
-//   });
+import 'package:flutter/foundation.dart';
 
-//   factory OrderProductsEntity.fromMap(Map<String, dynamic> map) {
-//     return OrderProductsEntity(
-//       id: map['id'].toString(),
-//       quantidade: map['quantidade'],
-//       observacao: map['observacao'].toString(),
-//       opcoes: map['opcoes'] == null
-//           ? []
-//           : List<ProductOptionsEntity>.from(
-//               map['opcoes']?.map((x) => ProductOptionsEntity.fromMap(x))),
-//       produto: ProductEntity.fromMap(map['produto']),
-//       valor: num.tryParse(map['valor'].toString()),
-//     );
-//   }
+class OrderProductsEntity {
+  String id;
+  int quantity;
+  String? observation;
+  num amount;
+  List<OrderProductOptionsEntity> options;
+  OrderProductsEntity({
+    required this.id,
+    required this.quantity,
+    this.observation,
+    required this.amount,
+    this.options = const [],
+  });
 
-//   factory OrderProductsEntity.fromJson(String source) =>
-//       OrderProductsEntity.fromMap(json.decode(source));
-//   String? id;
-//   int? quantidade;
-//   num? valor;
-//   String? observacao;
-//   List<ProductOptionsEntity>? opcoes;
-//   ProductEntity? produto;
+  OrderProductsEntity copyWith({
+    String? id,
+    int? quantity,
+    String? observation,
+    num? amount,
+    List<OrderProductOptionsEntity>? options,
+  }) {
+    return OrderProductsEntity(
+      id: id ?? this.id,
+      quantity: quantity ?? this.quantity,
+      observation: observation ?? this.observation,
+      amount: amount ?? this.amount,
+      options: options ?? this.options,
+    );
+  }
 
-//   OrderProductsEntity copyWith({
-//     String? id,
-//     int? quantidade,
-//     String? observacao,
-//     List<ProductOptionsEntity>? opcoes,
-//     ProductEntity? produto,
-//     num? valor,
-//   }) {
-//     return OrderProductsEntity(
-//       id: id ?? this.id,
-//       quantidade: quantidade ?? this.quantidade,
-//       observacao: observacao ?? this.observacao,
-//       opcoes: opcoes ?? this.opcoes,
-//       produto: produto ?? this.produto,
-//       valor: valor ?? this.valor,
-//     );
-//   }
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'quantity': quantity,
+      'observation': observation,
+      'amount': amount,
+      'options': options.map((x) => x.toMap()).toList(),
+    };
+  }
 
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'id': id,
-//       'quantidade': quantidade,
-//       'observacao': observacao,
-//       'opcoes': opcoes?.map((x) => x.toMap()).toList(),
-//       'produto': produto?.toMap(),
-//       'valor': valor
-//     };
-//   }
+  factory OrderProductsEntity.fromMap(Map<String, dynamic> map) {
+    return OrderProductsEntity(
+      id: map['id'] ?? '',
+      quantity: map['quantity']?.toInt() ?? 0,
+      observation: map['observation'],
+      amount: map['amount'] ?? 0,
+      options: List<OrderProductOptionsEntity>.from(map['options']?.map((x) => OrderProductOptionsEntity.fromMap(x))),
+    );
+  }
 
-//   String toJson() => json.encode(toMap());
+  String toJson() => json.encode(toMap());
 
-//   @override
-//   String toString() {
-//     return 'OrderProductsEntity(id: $id, quantidade: $quantidade, observacao: $observacao, opcoes: $opcoes, produto: $produto)';
-//   }
+  factory OrderProductsEntity.fromJson(String source) => OrderProductsEntity.fromMap(json.decode(source));
 
-//   @override
-//   bool operator ==(Object o) {
-//     if (identical(this, o)) return true;
+  @override
+  String toString() {
+    return 'OrderProductsEntity(id: $id, quantity: $quantity, observation: $observation, amount: $amount, options: $options)';
+  }
 
-//     return o is OrderProductsEntity &&
-//         o.id == id &&
-//         o.quantidade == quantidade &&
-//         o.observacao == observacao &&
-//         listEquals(o.opcoes, opcoes) &&
-//         o.produto == produto;
-//   }
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is OrderProductsEntity &&
+      other.id == id &&
+      other.quantity == quantity &&
+      other.observation == observation &&
+      other.amount == amount &&
+      listEquals(other.options, options);
+  }
 
-//   @override
-//   int get hashCode {
-//     return id.hashCode ^
-//         quantidade.hashCode ^
-//         observacao.hashCode ^
-//         opcoes.hashCode ^
-//         produto.hashCode;
-//   }
-// }
+  @override
+  int get hashCode {
+    return id.hashCode ^
+      quantity.hashCode ^
+      observation.hashCode ^
+      amount.hashCode ^
+      options.hashCode;
+  }
+}
+
+class OrderProductOptionsEntity {
+  String id;
+  int quantity;
+  List<OrderProductItemOptionEntity> items;
+  OrderProductOptionsEntity({
+    required this.id,
+    required this.quantity,
+    required this.items,
+  });
+
+  OrderProductOptionsEntity copyWith({
+    String? id,
+    int? quantity,
+    List<OrderProductItemOptionEntity>? items,
+  }) {
+    return OrderProductOptionsEntity(
+      id: id ?? this.id,
+      quantity: quantity ?? this.quantity,
+      items: items ?? this.items,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'quantity': quantity,
+      'items': items.map((x) => x.toMap()).toList(),
+    };
+  }
+
+  factory OrderProductOptionsEntity.fromMap(Map<String, dynamic> map) {
+    return OrderProductOptionsEntity(
+      id: map['id'] ?? '',
+      quantity: map['quantity']?.toInt() ?? 0,
+      items: List<OrderProductItemOptionEntity>.from(map['items']?.map((x) => OrderProductItemOptionEntity.fromMap(x))),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory OrderProductOptionsEntity.fromJson(String source) => OrderProductOptionsEntity.fromMap(json.decode(source));
+
+  @override
+  String toString() => 'OrderProductOptionsEntity(id: $id, quantity: $quantity, items: $items)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is OrderProductOptionsEntity &&
+      other.id == id &&
+      other.quantity == quantity &&
+      listEquals(other.items, items);
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ quantity.hashCode ^ items.hashCode;
+}
+
+class OrderProductItemOptionEntity {
+  final String id;
+  final int quantity;
+  final num amount;
+  OrderProductItemOptionEntity({
+    required this.id,
+    required this.quantity,
+    required this.amount,
+  });
+
+  OrderProductItemOptionEntity copyWith({
+    String? id,
+    int? quantity,
+    num? amount,
+  }) {
+    return OrderProductItemOptionEntity(
+      id: id ?? this.id,
+      quantity: quantity ?? this.quantity,
+      amount: amount ?? this.amount,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'quantity': quantity,
+      'amount': amount,
+    };
+  }
+
+  factory OrderProductItemOptionEntity.fromMap(Map<String, dynamic> map) {
+    return OrderProductItemOptionEntity(
+      id: map['id'] ?? '',
+      quantity: map['quantity']?.toInt() ?? 0,
+      amount: map['amount'] ?? 0,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory OrderProductItemOptionEntity.fromJson(String source) => OrderProductItemOptionEntity.fromMap(json.decode(source));
+
+  @override
+  String toString() => 'OrderProductItemOptionEntity(id: $id, quantity: $quantity, amount: $amount)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is OrderProductItemOptionEntity &&
+      other.id == id &&
+      other.quantity == quantity &&
+      other.amount == amount;
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ quantity.hashCode ^ amount.hashCode;
+}
