@@ -1,6 +1,6 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-WhiteLabelEntity serraProd = WhiteLabelEntity(
+WhiteLabelEntity cachoeiroProd = WhiteLabelEntity(
   name: 'Cachoeiro Empreendedor',
   description: '',
   id: '75673bcb-5599-4a88-ad26-3f434b28a713',
