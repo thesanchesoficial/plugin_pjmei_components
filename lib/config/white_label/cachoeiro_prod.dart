@@ -38,6 +38,7 @@ WhiteLabelEntity serraProd = WhiteLabelEntity(
       notifications: true,
       plans: false,
       users: true,
+      ecommerce: true,
     ),
   ),
   style: StyleWhiteLabelEntity(

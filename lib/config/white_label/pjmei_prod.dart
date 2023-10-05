@@ -38,6 +38,7 @@ WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
       notifications: true,
       plans: true,
       users: true,
+      ecommerce: true,
     ),
   ),
   style: StyleWhiteLabelEntity(
