@@ -1,21 +1,21 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-WhiteLabelEntity serraDev = WhiteLabelEntity(
-  name: 'Ciampe Digital',
+WhiteLabelEntity serraProd = WhiteLabelEntity(
+  name: 'Cachoeiro Empreendedor',
   description: '',
-  id: '2b688184-b0b8-4b6f-b726-dbfb269a8215',
+  id: '75673bcb-5599-4a88-ad26-3f434b28a713',
   setting: SettingWhiteLabelEntity(
-    companyId: '0e2cee1f-306e-49b4-bc5d-bea2e624a31b',
+    companyId: '4e5f5e16-fd62-4f36-9c1a-1323ce9599ee',
     ecommerceId: 'a5dd8021-8285-431f-97f1-85e1234a8e0a',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
-    redirectOrigin: 'https://dev.pjmei.app',
-    urlWebApplication: 'https://dev.pjmei.app',
+    redirectOrigin: 'https://www.cachoeiro.es.gov.br/',
+    urlWebApplication: 'https://empreendedor.cachoeiro.es.gov.br/',
     link: LinkWhiteLabelEntity(
       termsOfUse: 'https://www.pjmei.app/termos-de-uso',
       privacyPolicy: 'https://www.pjmei.app/politica-de-privacidade',
       lgpd: 'https://www.pjmei.app/lgpd',
-      website: 'https://www.pjmei.app',
+      website: 'https://www.cachoeiro.es.gov.br/',
     ),
     environment: EnvironmentWhiteLabelEntity(
       individual: ItemEnvironmentWhiteLabelEntity(
@@ -41,14 +41,14 @@ WhiteLabelEntity serraDev = WhiteLabelEntity(
     ),
   ),
   style: StyleWhiteLabelEntity(
-    lightColorScheme: '0059C8',
-    darkColorScheme: '0059C8',
+    lightColorScheme: '019CDE',
+    darkColorScheme: '019CDE',
     image: ImageWhiteLabelEntity(
-      favicon: 'assets/images/serra.png',
-      icon: 'assets/images/serra.png',
-      logoMenuMobile: 'assets/images/serra.png',
-      logoMenuWeb: 'assets/images/serra.png',
-      logoSplash: 'assets/images/serra.png',
+      favicon: 'assets/white_label/icon/icon.png',
+      icon: 'assets/white_label/icon/icon.png',
+      logoMenuMobile: 'assets/white_label/splash/splash.png',
+      logoMenuWeb: 'assets/white_label/splash/splash.png',
+      logoSplash: 'assets/white_label/splash/splash.png',
     ),
   ),
   validations: [],

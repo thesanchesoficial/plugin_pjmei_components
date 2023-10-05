@@ -1,7 +1,7 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 WhiteLabelEntity serraProd = WhiteLabelEntity(
-  name: 'Ciampe Digital',
+  name: 'Ciampe Serra Virtual',
   description: '',
   id: '2b688184-b0b8-4b6f-b726-dbfb269a8215',
   setting: SettingWhiteLabelEntity(
@@ -9,13 +9,13 @@ WhiteLabelEntity serraProd = WhiteLabelEntity(
     ecommerceId: 'a5dd8021-8285-431f-97f1-85e1234a8e0a',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
-    redirectOrigin: 'https://dev.pjmei.app',
-    urlWebApplication: 'https://dev.pjmei.app',
+    redirectOrigin: 'http://serra.es.gov.br/',
+    urlWebApplication: 'https://ciampe.serra.es.gov.br/',
     link: LinkWhiteLabelEntity(
       termsOfUse: 'https://www.pjmei.app/termos-de-uso',
       privacyPolicy: 'https://www.pjmei.app/politica-de-privacidade',
       lgpd: 'https://www.pjmei.app/lgpd',
-      website: 'https://www.pjmei.app',
+      website: 'http://serra.es.gov.br/',
     ),
     environment: EnvironmentWhiteLabelEntity(
       individual: ItemEnvironmentWhiteLabelEntity(

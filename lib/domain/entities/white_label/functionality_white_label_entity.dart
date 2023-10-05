@@ -11,6 +11,7 @@ class FunctionalityWhiteLabelEntity {
   bool knowledgeBase;
   bool notifications;
   bool financialEducation;
+  bool ecommerce;
   FunctionalityWhiteLabelEntity({
     required this.inbox,
     required this.plans,
@@ -22,6 +23,7 @@ class FunctionalityWhiteLabelEntity {
     required this.knowledgeBase,
     required this.notifications,
     required this.financialEducation,
+    required this.ecommerce,
   });
 
   FunctionalityWhiteLabelEntity copyWith({
@@ -35,6 +37,7 @@ class FunctionalityWhiteLabelEntity {
     bool? knowledgeBase,
     bool? notifications,
     bool? financialEducation,
+    bool? ecommerce,
   }) {
     return FunctionalityWhiteLabelEntity(
       inbox: inbox ?? this.inbox,
@@ -47,6 +50,7 @@ class FunctionalityWhiteLabelEntity {
       knowledgeBase: knowledgeBase ?? this.knowledgeBase,
       notifications: notifications ?? this.notifications,
       financialEducation: financialEducation ?? this.financialEducation,
+      ecommerce: ecommerce ?? this.ecommerce,
     );
   }
 
@@ -62,6 +66,7 @@ class FunctionalityWhiteLabelEntity {
       'knowledgeBase': knowledgeBase,
       'notifications': notifications,
       'financialEducation': financialEducation,
+      'ecommerce': ecommerce,
     };
   }
 
@@ -77,6 +82,7 @@ class FunctionalityWhiteLabelEntity {
       knowledgeBase: map['knowledgeBase'] ?? false,
       notifications: map['notifications'] ?? false,
       financialEducation: map['financialEducation'] ?? false,
+      ecommerce: map['ecommerce'] ?? false,
     );
   }
 
@@ -86,7 +92,7 @@ class FunctionalityWhiteLabelEntity {
 
   @override
   String toString() {
-    return 'FunctionalityWhiteLabelEntity(inbox: $inbox, plans: $plans, users: $users, groups: $groups, master: $master, modules: $modules, companies: $companies, knowledgeBase: $knowledgeBase, notifications: $notifications, financialEducation: $financialEducation)';
+    return 'FunctionalityWhiteLabelEntity(inbox: $inbox, plans: $plans, users: $users, ecommerce: $ecommerce, groups: $groups, master: $master, modules: $modules, companies: $companies, knowledgeBase: $knowledgeBase, notifications: $notifications, financialEducation: $financialEducation)';
   }
 
   @override
@@ -103,6 +109,7 @@ class FunctionalityWhiteLabelEntity {
       other.companies == companies &&
       other.knowledgeBase == knowledgeBase &&
       other.notifications == notifications &&
+      other.ecommerce == ecommerce &&
       other.financialEducation == financialEducation;
   }
 
@@ -117,6 +124,7 @@ class FunctionalityWhiteLabelEntity {
       companies.hashCode ^
       knowledgeBase.hashCode ^
       notifications.hashCode ^
+      ecommerce.hashCode ^
       financialEducation.hashCode;
   }
 }
