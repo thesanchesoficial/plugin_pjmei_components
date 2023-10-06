@@ -3,13 +3,13 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 class OrderProductsEntity {
-  String id;
+  String? id;
   int quantity;
   String? observation;
   num amount;
   List<OrderProductOptionsEntity> options;
   OrderProductsEntity({
-    required this.id,
+    this.id,
     required this.quantity,
     this.observation,
     required this.amount,
@@ -44,7 +44,7 @@ class OrderProductsEntity {
 
   factory OrderProductsEntity.fromMap(Map<String, dynamic> map) {
     return OrderProductsEntity(
-      id: map['id'] ?? '',
+      id: map['id'],
       quantity: map['quantity']?.toInt() ?? 0,
       observation: map['observation'],
       amount: map['amount'] ?? 0,

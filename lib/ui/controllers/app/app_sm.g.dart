@@ -56,6 +56,22 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
     });
   }
 
+  late final _$dynamicColorAtom =
+      Atom(name: 'AppSMStoreBase.dynamicColor', context: context);
+
+  @override
+  bool get dynamicColor {
+    _$dynamicColorAtom.reportRead();
+    return super.dynamicColor;
+  }
+
+  @override
+  set dynamicColor(bool value) {
+    _$dynamicColorAtom.reportWrite(value, super.dynamicColor, () {
+      super.dynamicColor = value;
+    });
+  }
+
   late final _$hideAmountAtom =
       Atom(name: 'AppSMStoreBase.hideAmount', context: context);
 
@@ -100,6 +116,22 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
   set closeWebMenu(bool value) {
     _$closeWebMenuAtom.reportWrite(value, super.closeWebMenu, () {
       super.closeWebMenu = value;
+    });
+  }
+
+  late final _$visualDensityAtom =
+      Atom(name: 'AppSMStoreBase.visualDensity', context: context);
+
+  @override
+  VisualDensity get visualDensity {
+    _$visualDensityAtom.reportRead();
+    return super.visualDensity;
+  }
+
+  @override
+  set visualDensity(VisualDensity value) {
+    _$visualDensityAtom.reportWrite(value, super.visualDensity, () {
+      super.visualDensity = value;
     });
   }
 
@@ -166,6 +198,17 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
   }
 
   @override
+  void setVisualDensity(VisualDensity item) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setVisualDensity');
+    try {
+      return super.setVisualDensity(item);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void setThemeMode(ThemeMode item) {
     final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
         name: 'AppSMStoreBase.setThemeMode');
@@ -193,6 +236,17 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
         name: 'AppSMStoreBase.setDataSavingMode');
     try {
       return super.setDataSavingMode(item);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setDynamicColor(bool item) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setDynamicColor');
+    try {
+      return super.setDynamicColor(item);
     } finally {
       _$AppSMStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -259,9 +313,11 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
 themeMode: ${themeMode},
 color: ${color},
 dataSavingMode: ${dataSavingMode},
+dynamicColor: ${dynamicColor},
 hideAmount: ${hideAmount},
 isWeb: ${isWeb},
 closeWebMenu: ${closeWebMenu},
+visualDensity: ${visualDensity},
 environment: ${environment},
 whiteLabel: ${whiteLabel},
 selectedIndex: ${selectedIndex}

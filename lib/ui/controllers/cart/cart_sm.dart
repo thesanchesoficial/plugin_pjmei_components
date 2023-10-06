@@ -7,48 +7,16 @@ class CartSMStore = CartSMStoreBase with _$CartSMStore;
 abstract class CartSMStoreBase with Store {
 
   @observable
-  List<ProductEcommerceEntity> products = [];
-
-  @observable
-  List<ProductEcommerceEntity> buyToo = [];
-
-  @observable
-  EcommerceEntity? ecommerce;
-
-  @observable
-  VoucherEntity? voucher;
+  OrderEcommerceEntity? order;
 
   @action
-  void addProductInCart(ProductEcommerceEntity item) {
-    products.add(item);
-  }
-
-  @action
-  void addProductInBuyToo(ProductEcommerceEntity item) {
-    buyToo.add(item);
-  }
-
-  @action
-  void addVoucher(VoucherEntity item) {
-    voucher = item;
+  void setOrder(OrderEcommerceEntity? item) {
+    order = item;
   }
 
   @action
   void clearCart() {
-    products = [];
-    buyToo = [];
-    ecommerce = null;
-    voucher = null;
-  }
-
-  @action
-  void clearVoucher() {
-    voucher = null;
-  }
-
-  @action
-  void setEstablishment(EcommerceEntity item) {
-    ecommerce = item;
+    order = null;
   }
 
 }

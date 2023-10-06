@@ -24,6 +24,7 @@ export './document/document_subtype_entity.dart';
 export './ecommerce/ecommerce_entity.dart';
 export './ecommerce/bank_account/bank_account_entity.dart';
 export './ecommerce/order/order_ecommerce_entity.dart';
+export './ecommerce/order/order_products_entity.dart';
 export './ecommerce/product/product_ecommerce_entity.dart';
 export './ecommerce/product_additional_information/product_additional_information_entity.dart';
 export './ecommerce/product_category/product_category_ecommerce_entity.dart';

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:plugin_pjmei_components/domain/entities/ecommerce/order/order_products_entity.dart';
 
 class OrderEcommerceEntity {
+  String? id;
   final String ecommerceId;
   final String addressId;
   final String origin;
@@ -22,6 +23,7 @@ class OrderEcommerceEntity {
   String? document;
   List<OrderProductsEntity> products;
   OrderEcommerceEntity({
+    this.id,
     required this.ecommerceId,
     required this.addressId,
     required this.origin,
@@ -42,6 +44,7 @@ class OrderEcommerceEntity {
   });
 
   OrderEcommerceEntity copyWith({
+    String? id,
     String? ecommerceId,
     String? addressId,
     String? origin,
@@ -61,6 +64,7 @@ class OrderEcommerceEntity {
     List<OrderProductsEntity>? products,
   }) {
     return OrderEcommerceEntity(
+      id: id ?? this.id,
       ecommerceId: ecommerceId ?? this.ecommerceId,
       addressId: addressId ?? this.addressId,
       origin: origin ?? this.origin,
@@ -83,6 +87,7 @@ class OrderEcommerceEntity {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'ecommerceId': ecommerceId,
       'addressId': addressId,
       'origin': origin,
@@ -105,6 +110,7 @@ class OrderEcommerceEntity {
 
   factory OrderEcommerceEntity.fromMap(Map<String, dynamic> map) {
     return OrderEcommerceEntity(
+      id: map['id'],
       ecommerceId: map['ecommerceId'] ?? '',
       addressId: map['addressId'] ?? '',
       origin: map['origin'] ?? '',
@@ -131,7 +137,7 @@ class OrderEcommerceEntity {
 
   @override
   String toString() {
-    return 'OrderEcommerceEntity(ecommerceId: $ecommerceId, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, document: $document, products: $products)';
+    return 'OrderEcommerceEntity(id: $id, ecommerceId: $ecommerceId, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, document: $document, products: $products)';
   }
 
   @override
@@ -139,6 +145,7 @@ class OrderEcommerceEntity {
     if (identical(this, other)) return true;
   
     return other is OrderEcommerceEntity &&
+      other.id == id &&
       other.ecommerceId == ecommerceId &&
       other.addressId == addressId &&
       other.origin == origin &&
@@ -161,6 +168,7 @@ class OrderEcommerceEntity {
   @override
   int get hashCode {
     return ecommerceId.hashCode ^
+      id.hashCode ^
       addressId.hashCode ^
       origin.hashCode ^
       serviceLocation.hashCode ^
