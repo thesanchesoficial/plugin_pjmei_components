@@ -14,14 +14,14 @@ class RemoteGetListDasnItem implements GetListDasnItem {
         method: method,
         newReturnErrorMsg: true,
       );
+      if(httpResponse == null) {
+        throw DomainError.waitingInfoSimples;
+      }
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         if(httpResponse['error']['errors'][0]['type'] == "no_mei") {
           throw DomainError.noMei;
         }
         throw httpResponse['error']['message'];
-      }
-      if(httpResponse['success'] == null) {
-        throw DomainError.waitingInfoSimples;
       }
       return ((httpResponse['success']['dasn']) as List).map((e) => DasnItemEntity.fromMap(e)).toList();
     } catch (errorMsg) {

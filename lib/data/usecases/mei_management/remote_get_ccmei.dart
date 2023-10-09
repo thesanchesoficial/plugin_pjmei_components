@@ -12,14 +12,14 @@ class RemoteGetCcmei implements GetCcmei {
         method: 'get',
         newReturnErrorMsg: true,
       );
+      if(httpResponse == null) {
+        throw DomainError.waitingInfoSimples;
+      }
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         if(httpResponse['error']['errors'][0]['type'] == "no_mei") {
           throw DomainError.noMei;
         }
         throw httpResponse['error']['message'];
-      }
-      if(httpResponse['success'] == null) {
-        throw DomainError.waitingInfoSimples;
       }
       return CcmeiEntity.fromMap(httpResponse['success']['mei']);
     } catch (errorMsg) {

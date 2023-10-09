@@ -14,14 +14,14 @@ class RemotePostDasnItem implements PostDasnItem {
         newReturnErrorMsg: true,
         body: dasn.toMap(),
       );
+      if(httpResponse == null) {
+        throw DomainError.waitingInfoSimples;
+      }
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         if(httpResponse['error']['errors'][0]['type'] == "no_mei") {
           throw DomainError.noMei;
         }
         throw httpResponse['error']['message'];
-      }
-      if(httpResponse['success'] == null) {
-        throw DomainError.waitingInfoSimples;
       }
       if(httpResponse['success']['dasn'] != null) {
         return DasnItemEntity.fromMap(httpResponse['success']['dasn']);
