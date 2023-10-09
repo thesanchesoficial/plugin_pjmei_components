@@ -5,5 +5,7 @@ enum DomainError {
   accessDenied,
   productNotFound,
   userNotFound,
-  documentInUse
+  documentInUse,
+  waitingInfoSimples,
+  noMei,
 }
