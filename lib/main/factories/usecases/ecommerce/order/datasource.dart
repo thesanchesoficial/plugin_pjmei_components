@@ -19,7 +19,7 @@ class _OrderEcommerceApi {
     String? last4DigitsOfTheCreditCard,
     String? startDate,
     String? document,
-    required List<OrderEcommerceEntity> products,
+    required List<OrderProductsEntity> products,
   }) {
     return makeRemoteCreateOrder().exec({
       "ecommerceId": ecommerceId,
