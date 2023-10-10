@@ -5,8 +5,8 @@ WhiteLabelEntity serraProd = WhiteLabelEntity(
   description: '',
   id: '2b688184-b0b8-4b6f-b726-dbfb269a8215',
   setting: SettingWhiteLabelEntity(
-    companyId: '0e2cee1f-306e-49b4-bc5d-bea2e624a31b',
-    ecommerceId: 'a5dd8021-8285-431f-97f1-85e1234a8e0a',
+    companyId: '9d456812-6203-48dc-89cf-bcf88d502589',
+    ecommerceId: '58a52819-1c7b-4b88-81ba-562282bc9e78',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
     redirectOrigin: 'http://serra.es.gov.br/',
