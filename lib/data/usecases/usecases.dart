@@ -120,6 +120,7 @@ export './notifications/delete_notifications.dart';
 export './notifications/list_all_notifications.dart';
 export './notifications/update_notifications.dart';
 
+export 'ecommerce/order/remote_list_orders.dart';
 export 'ecommerce/order/remote_create_order.dart';
 export 'ecommerce/product/remote_add_product.dart';
 export 'ecommerce/product/remote_find_product.dart';

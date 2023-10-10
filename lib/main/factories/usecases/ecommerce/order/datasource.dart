@@ -41,4 +41,8 @@ class _OrderEcommerceApi {
       "products": products.map((e) => e.toMap()).toList(),
     });
   }
+
+  Future<List<OrderEcommerceEntity>> listByUser() {
+    return makeRemoteListOrdersByUser().exec();
+  }
 }

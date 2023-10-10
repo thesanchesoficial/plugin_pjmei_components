@@ -45,6 +45,7 @@ import './documents/insert_document_factory.dart';
 import './documents/list_documents_factory.dart';
 import './documents/update_document_factory.dart';
 
+import 'ecommerce/order/list_orders_by_user_factory.dart';
 import 'ecommerce/order/create_order_factory.dart';
 import 'ecommerce/product/add_product_ecommerce_factory.dart';
 import 'ecommerce/product/delete_product_ecommerce_factory.dart';
