@@ -1,17 +1,21 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:plugin_pjmei_components/domain/entities/ecommerce/order/order_products_entity.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class OrderEcommerceEntity {
   String? id;
-  final String ecommerceId;
-  final String addressId;
-  final String origin;
-  final String serviceLocation;
-  final String type;
-  final String paymentType;
-  final String paymentMethod;
+  String? ecommerceId;
+  String? orderId;
+  EcommerceEntity? ecommerce;
+  AddressEntity? address;
+  String addressId;
+  String origin;
+  String serviceLocation;
+  String type;
+  String paymentType;
+  String paymentMethod;
+  String? paymentStatus;
   num total;
   num subtotal;
   num change;
@@ -20,17 +24,26 @@ class OrderEcommerceEntity {
   String? cardId;
   String? last4DigitsOfTheCreditCard;
   String? startDate;
+  String? endDate;
+  String? transactionId;
+  String? pix;
   String? document;
+  String? createdAt;
+  String? updatedAt;
   List<OrderProductsEntity> products;
   OrderEcommerceEntity({
     this.id,
-    required this.ecommerceId,
+    this.ecommerceId,
+    this.orderId,
+    this.ecommerce,
+    this.address,
     required this.addressId,
     required this.origin,
     required this.serviceLocation,
     required this.type,
     required this.paymentType,
     required this.paymentMethod,
+    this.paymentStatus,
     this.total = 0,
     this.subtotal = 0,
     this.change = 0,
@@ -39,19 +52,28 @@ class OrderEcommerceEntity {
     this.cardId,
     this.last4DigitsOfTheCreditCard,
     this.startDate,
+    this.endDate,
+    this.transactionId,
+    this.pix,
     this.document,
+    this.createdAt,
+    this.updatedAt,
     required this.products,
   });
 
   OrderEcommerceEntity copyWith({
     String? id,
     String? ecommerceId,
+    String? orderId,
+    EcommerceEntity? ecommerce,
+    AddressEntity? address,
     String? addressId,
     String? origin,
     String? serviceLocation,
     String? type,
     String? paymentType,
     String? paymentMethod,
+    String? paymentStatus,
     num? total,
     num? subtotal,
     num? change,
@@ -60,18 +82,27 @@ class OrderEcommerceEntity {
     String? cardId,
     String? last4DigitsOfTheCreditCard,
     String? startDate,
+    String? endDate,
+    String? transactionId,
+    String? pix,
     String? document,
+    String? createdAt,
+    String? updatedAt,
     List<OrderProductsEntity>? products,
   }) {
     return OrderEcommerceEntity(
       id: id ?? this.id,
       ecommerceId: ecommerceId ?? this.ecommerceId,
+      orderId: orderId ?? this.orderId,
+      ecommerce: ecommerce ?? this.ecommerce,
+      address: address ?? this.address,
       addressId: addressId ?? this.addressId,
       origin: origin ?? this.origin,
       serviceLocation: serviceLocation ?? this.serviceLocation,
       type: type ?? this.type,
       paymentType: paymentType ?? this.paymentType,
       paymentMethod: paymentMethod ?? this.paymentMethod,
+      paymentStatus: paymentStatus ?? this.paymentStatus,
       total: total ?? this.total,
       subtotal: subtotal ?? this.subtotal,
       change: change ?? this.change,
@@ -80,7 +111,12 @@ class OrderEcommerceEntity {
       cardId: cardId ?? this.cardId,
       last4DigitsOfTheCreditCard: last4DigitsOfTheCreditCard ?? this.last4DigitsOfTheCreditCard,
       startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      transactionId: transactionId ?? this.transactionId,
+      pix: pix ?? this.pix,
       document: document ?? this.document,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
       products: products ?? this.products,
     );
   }
@@ -89,12 +125,16 @@ class OrderEcommerceEntity {
     return {
       'id': id,
       'ecommerceId': ecommerceId,
+      'orderId': orderId,
+      'ecommerce': ecommerce?.toMap(),
+      'address': address?.toMap(),
       'addressId': addressId,
       'origin': origin,
       'serviceLocation': serviceLocation,
       'type': type,
       'paymentType': paymentType,
       'paymentMethod': paymentMethod,
+      'paymentStatus': paymentStatus,
       'total': total,
       'subtotal': subtotal,
       'change': change,
@@ -103,7 +143,12 @@ class OrderEcommerceEntity {
       'cardId': cardId,
       'last4DigitsOfTheCreditCard': last4DigitsOfTheCreditCard,
       'startDate': startDate,
+      'endDate': endDate,
+      'transactionId': transactionId,
+      'pix': pix,
       'document': document,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
       'products': products.map((x) => x.toMap()).toList(),
     };
   }
@@ -111,13 +156,17 @@ class OrderEcommerceEntity {
   factory OrderEcommerceEntity.fromMap(Map<String, dynamic> map) {
     return OrderEcommerceEntity(
       id: map['id'],
-      ecommerceId: map['ecommerceId'] ?? '',
+      ecommerceId: map['ecommerceId'],
+      orderId: map['orderId'],
+      ecommerce: map['ecommerce'] != null ? EcommerceEntity.fromMap(map['ecommerce']) : null,
+      address: map['address'] != null ? AddressEntity.fromMap(map['address']) : null,
       addressId: map['addressId'] ?? '',
       origin: map['origin'] ?? '',
       serviceLocation: map['serviceLocation'] ?? '',
       type: map['type'] ?? '',
       paymentType: map['paymentType'] ?? '',
       paymentMethod: map['paymentMethod'] ?? '',
+      paymentStatus: map['paymentStatus'],
       total: map['total'] ?? 0,
       subtotal: map['subtotal'] ?? 0,
       change: map['change'] ?? 0,
@@ -126,8 +175,17 @@ class OrderEcommerceEntity {
       cardId: map['cardId'],
       last4DigitsOfTheCreditCard: map['last4DigitsOfTheCreditCard'],
       startDate: map['startDate'],
+      endDate: map['endDate'],
+      transactionId: map['transactionId'],
+      pix: map['pix'],
       document: map['document'],
-      products: List<OrderProductsEntity>.from(map['products']?.map((x) => OrderProductsEntity.fromMap(x))),
+      createdAt: map['createdAt'],
+      updatedAt: map['updatedAt'],
+      products: map['products'] == null
+        ? map['orderProducts'] == null
+          ? []
+          : List<OrderProductsEntity>.from(map['orderProducts']?.map((x) => OrderProductsEntity.fromMap(x)))
+        : List<OrderProductsEntity>.from(map['products']?.map((x) => OrderProductsEntity.fromMap(x))),
     );
   }
 
@@ -137,7 +195,7 @@ class OrderEcommerceEntity {
 
   @override
   String toString() {
-    return 'OrderEcommerceEntity(id: $id, ecommerceId: $ecommerceId, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, document: $document, products: $products)';
+    return 'OrderEcommerceEntity(id: $id, ecommerceId: $ecommerceId, orderId: $orderId, ecommerce: $ecommerce, address: $address, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, paymentStatus: $paymentStatus, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, endDate: $endDate, transactionId: $transactionId, pix: $pix, document: $document, createdAt: $createdAt, updatedAt: $updatedAt, products: $products)';
   }
 
   @override
@@ -147,12 +205,16 @@ class OrderEcommerceEntity {
     return other is OrderEcommerceEntity &&
       other.id == id &&
       other.ecommerceId == ecommerceId &&
+      other.orderId == orderId &&
+      other.ecommerce == ecommerce &&
+      other.address == address &&
       other.addressId == addressId &&
       other.origin == origin &&
       other.serviceLocation == serviceLocation &&
       other.type == type &&
       other.paymentType == paymentType &&
       other.paymentMethod == paymentMethod &&
+      other.paymentStatus == paymentStatus &&
       other.total == total &&
       other.subtotal == subtotal &&
       other.change == change &&
@@ -161,20 +223,29 @@ class OrderEcommerceEntity {
       other.cardId == cardId &&
       other.last4DigitsOfTheCreditCard == last4DigitsOfTheCreditCard &&
       other.startDate == startDate &&
+      other.endDate == endDate &&
+      other.transactionId == transactionId &&
+      other.pix == pix &&
       other.document == document &&
+      other.createdAt == createdAt &&
+      other.updatedAt == updatedAt &&
       listEquals(other.products, products);
   }
 
   @override
   int get hashCode {
-    return ecommerceId.hashCode ^
-      id.hashCode ^
+    return id.hashCode ^
+      ecommerceId.hashCode ^
+      orderId.hashCode ^
+      ecommerce.hashCode ^
+      address.hashCode ^
       addressId.hashCode ^
       origin.hashCode ^
       serviceLocation.hashCode ^
       type.hashCode ^
       paymentType.hashCode ^
       paymentMethod.hashCode ^
+      paymentStatus.hashCode ^
       total.hashCode ^
       subtotal.hashCode ^
       change.hashCode ^
@@ -183,7 +254,12 @@ class OrderEcommerceEntity {
       cardId.hashCode ^
       last4DigitsOfTheCreditCard.hashCode ^
       startDate.hashCode ^
+      endDate.hashCode ^
+      transactionId.hashCode ^
+      pix.hashCode ^
       document.hashCode ^
+      createdAt.hashCode ^
+      updatedAt.hashCode ^
       products.hashCode;
   }
 }

@@ -54,7 +54,7 @@ class OrderProductsEntity {
       quantity: map['quantity']?.toInt() ?? 0,
       observation: map['observation'],
       amount: map['amount'] ?? 0,
-      options: List<OrderProductOptionsEntity>.from(map['options']?.map((x) => OrderProductOptionsEntity.fromMap(x))),
+      options: map['options'] == null ? [] : List<OrderProductOptionsEntity>.from(map['options']?.map((x) => OrderProductOptionsEntity.fromMap(x))),
       product: ProductEcommerceEntity.fromMap(map['product']),
     );
   }
@@ -127,7 +127,7 @@ class OrderProductOptionsEntity {
     return OrderProductOptionsEntity(
       id: map['id'] ?? '',
       quantity: map['quantity']?.toInt() ?? 0,
-      items: List<OrderProductItemOptionEntity>.from(map['items']?.map((x) => OrderProductItemOptionEntity.fromMap(x))),
+      items: map['items'] == null ? [] : List<OrderProductItemOptionEntity>.from(map['items']?.map((x) => OrderProductItemOptionEntity.fromMap(x))),
     );
   }
 
