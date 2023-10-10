@@ -6,7 +6,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 class OrderEcommerceEntity {
   String? id;
   String? ecommerceId;
-  String? orderId;
+  int? orderId;
   EcommerceEntity? ecommerce;
   AddressEntity? address;
   String addressId;
@@ -64,7 +64,7 @@ class OrderEcommerceEntity {
   OrderEcommerceEntity copyWith({
     String? id,
     String? ecommerceId,
-    String? orderId,
+    int? orderId,
     EcommerceEntity? ecommerce,
     AddressEntity? address,
     String? addressId,
