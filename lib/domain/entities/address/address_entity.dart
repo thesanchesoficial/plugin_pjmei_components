@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+
 class AddressEntity {
   String? id;
   String? nickname;
@@ -103,6 +105,8 @@ class AddressEntity {
       main: map['main'] ?? false,
     );
   }
+
+  String toBasic() => '$street, $number - ${Valid.text(neighborhood) ? '$neighborhood' : '$city'}';
 
   String toJson() => json.encode(toMap());
 

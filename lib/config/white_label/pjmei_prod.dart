@@ -2,11 +2,11 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
   name: 'PJMEI',
-  description: '',
+  description: 'Ser PJMEI é juntar soluções desde a abertura da empresa, montar sua própria loja virtual, gestão do negócio e finanças, educação financeira, recebíveis, contabilidade, pagamento online e muito mais.',
   id: '8653819c-2072-4a5a-91fe-25166883d0c7',
   setting: SettingWhiteLabelEntity(
-    companyId: 'f327226e-709b-4c6a-ab5e-5c4b25e551e1',
-    ecommerceId: 'a5dd8021-8285-431f-97f1-85e1234a8e0a',
+    companyId: '936900bf-28e0-4445-8932-310b94d19f7a',
+    ecommerceId: '9dd3f999-0453-44df-b254-96192075137c',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
     redirectOrigin: 'https://portal.pjmei.app',

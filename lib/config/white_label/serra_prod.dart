@@ -2,7 +2,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 WhiteLabelEntity serraProd = WhiteLabelEntity(
   name: 'Ciampe Serra Virtual',
-  description: '',
+  description: 'Com o intuito de diminuir a burocracia para a abertura de empresas, a Prefeitura da Serra possui o Centro Integrado de Apoio à Micro e Pequena Empresa (Ciampe). O objetivo é criar um ambiente de fomento aos novos negócios, com atendimento personalizado aos futuros empreendedores, além de agilizar as documentações para a regulamentação e gestão da sua empresa.',
   id: '2b688184-b0b8-4b6f-b726-dbfb269a8215',
   setting: SettingWhiteLabelEntity(
     companyId: '9d456812-6203-48dc-89cf-bcf88d502589',

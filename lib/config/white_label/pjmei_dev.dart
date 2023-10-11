@@ -2,7 +2,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 WhiteLabelEntity pjmeiDev = WhiteLabelEntity(
   name: 'PJMEI',
-  description: '',
+  description: 'Ser PJMEI é juntar soluções desde a abertura da empresa, montar sua própria loja virtual, gestão do negócio e finanças, educação financeira, recebíveis, contabilidade, pagamento online e muito mais.',
   id: '8653819c-2072-4a5a-91fe-25166883d0c7',
   setting: SettingWhiteLabelEntity(
     companyId: 'd286430b-83cf-4057-8f11-4204411f8b48',
