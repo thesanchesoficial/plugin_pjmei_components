@@ -5,6 +5,8 @@ export './blog/post_blog_entity.dart';
 
 export './card/card_entity.dart';
 
+export './credit_card/credit_card_entity.dart';
+
 export './chat/chat_entity.dart';
 
 export 'cnpj/cnpj_entity.dart';

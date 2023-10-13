@@ -185,6 +185,8 @@ export 'ecommerce/update_ecommerce.dart';
 export 'ecommerce/find_ecommerce.dart';
 export 'ecommerce/find_ecommerce_by_company_id.dart';
 
+export './payment/create_credit_card.dart';
+
 export './payment_assistant/list_transactions_by_date.dart';
 
 export './plans/add_plan.dart';

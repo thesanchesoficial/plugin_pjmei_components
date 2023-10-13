@@ -141,6 +141,8 @@ import './notifications/delete_notifications_factory.dart';
 import './notifications/get_list_notifications_factory.dart';
 import './notifications/update_notifications_factory.dart';
 
+import './payment/create_credit_card_factory.dart';
+
 import './payment_assistant/list_transactions_by_date.dart';
 
 import './plan/voucher/get_coupon.dart';
@@ -225,6 +227,7 @@ part './mei_benefits/datasource.dart';
 part './mei_report/datasource.dart';
 part './modules/datasource.dart';
 part './notifications/datasource.dart';
+part './payment/datasource.dart';
 part './payment_assistant/datasource.dart';
 part './plan/datasource.dart';
 part './plan/voucher/datasource.dart';
@@ -262,6 +265,7 @@ class Api {
   static final meiReport = _MeiReportApi();
   static final module = _ModuleApi();
   static final notification = _NotificationsApi();
+  static final payment = _PaymentApi();
   static final paymentAssistant = _PaymentAssistantApi();
   static final plan = _PlanApi();
   static final secret = _SecretsApi();

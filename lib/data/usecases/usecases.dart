@@ -140,6 +140,8 @@ export 'ecommerce/remote_find_ecommerce.dart';
 export 'ecommerce/remote_find_ecommerce_by_company_id.dart';
 export 'ecommerce/remote_update_ecommerce.dart';
 
+export './payment/create_credit_card.dart';
+
 export './payment_assistant/list_transactions_by_date.dart';
 
 export './plan/items/remote_add_item_plan.dart';
