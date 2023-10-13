@@ -20,7 +20,7 @@ class EcommerceEntity {
   bool available;
   bool blocked;
   String type;
-  List<String> deliveryMethods;
+  List<String> serviceMethods;
   List<String> tags;
   List<String> paymentMethods;
   num takeoutTime;
@@ -54,7 +54,7 @@ class EcommerceEntity {
     required this.available,
     required this.blocked,
     required this.type,
-    required this.deliveryMethods,
+    required this.serviceMethods,
     required this.tags,
     required this.paymentMethods,
     required this.takeoutTime,
@@ -90,7 +90,7 @@ class EcommerceEntity {
     bool? available,
     bool? blocked,
     String? type,
-    List<String>? deliveryMethods,
+    List<String>? serviceMethods,
     List<String>? tags,
     List<String>? paymentMethods,
     num? takeoutTime,
@@ -125,7 +125,7 @@ class EcommerceEntity {
       available: available ?? this.available,
       blocked: blocked ?? this.blocked,
       type: type ?? this.type,
-      deliveryMethods: deliveryMethods ?? this.deliveryMethods,
+      serviceMethods: serviceMethods ?? this.serviceMethods,
       tags: tags ?? this.tags,
       paymentMethods: paymentMethods ?? this.paymentMethods,
       takeoutTime: takeoutTime ?? this.takeoutTime,
@@ -163,7 +163,7 @@ class EcommerceEntity {
       'available': available,
       'blocked': blocked,
       'type': type,
-      'deliveryMethods': deliveryMethods,
+      'serviceMethods': serviceMethods,
       'tags': tags,
       'paymentMethods': paymentMethods,
       'takeoutTime': takeoutTime,
@@ -201,7 +201,7 @@ class EcommerceEntity {
       available: map['available'] ?? false,
       blocked: map['blocked'] ?? false,
       type: map['type'] ?? '',
-      deliveryMethods: map['deliveryMethods'] == null ? [] : List<String>.from(map['deliveryMethods']),
+      serviceMethods: map['serviceMethods'] == null ? [] : List<String>.from(map['serviceMethods']),
       tags: map['tags'] == null ? [] : List<String>.from(map['tags']),
       paymentMethods: map['paymentMethods'] == null ? [] : List<String>.from(map['paymentMethods']),
       takeoutTime: map['takeoutTime'] ?? 0,
@@ -227,7 +227,7 @@ class EcommerceEntity {
 
   @override
   String toString() {
-    return 'EcommerceEntity(id: $id, name: $name, email: $email, phone: $phone, documentType: $documentType, documentNumber: $documentNumber, url: $url, availableForScheduling: $availableForScheduling, voucherEnabled: $voucherEnabled, verified: $verified, acceptPaymentInstallments: $acceptPaymentInstallments, ecommercePaysFees: $ecommercePaysFees, visibility: $visibility, available: $available, blocked: $blocked, type: $type, deliveryMethods: $deliveryMethods, tags: $tags, paymentMethods: $paymentMethods, takeoutTime: $takeoutTime, deliveryTime: $deliveryTime, preparationTime: $preparationTime, description: $description, color: $color, logo: $logo, cover: $cover, exchangeAndReturnPolicy: $exchangeAndReturnPolicy, refundPolicy: $refundPolicy, minimumOrderValue: $minimumOrderValue, minimumOrderValueToDeliveryFree: $minimumOrderValueToDeliveryFree, schedules: $schedules, address: $address, bankAccount: $bankAccount)';
+    return 'EcommerceEntity(id: $id, name: $name, email: $email, phone: $phone, documentType: $documentType, documentNumber: $documentNumber, url: $url, availableForScheduling: $availableForScheduling, voucherEnabled: $voucherEnabled, verified: $verified, acceptPaymentInstallments: $acceptPaymentInstallments, ecommercePaysFees: $ecommercePaysFees, visibility: $visibility, available: $available, blocked: $blocked, type: $type, serviceMethods: $serviceMethods, tags: $tags, paymentMethods: $paymentMethods, takeoutTime: $takeoutTime, deliveryTime: $deliveryTime, preparationTime: $preparationTime, description: $description, color: $color, logo: $logo, cover: $cover, exchangeAndReturnPolicy: $exchangeAndReturnPolicy, refundPolicy: $refundPolicy, minimumOrderValue: $minimumOrderValue, minimumOrderValueToDeliveryFree: $minimumOrderValueToDeliveryFree, schedules: $schedules, address: $address, bankAccount: $bankAccount)';
   }
 
   @override
@@ -251,7 +251,7 @@ class EcommerceEntity {
       other.available == available &&
       other.blocked == blocked &&
       other.type == type &&
-      listEquals(other.deliveryMethods, deliveryMethods) &&
+      listEquals(other.serviceMethods, serviceMethods) &&
       listEquals(other.tags, tags) &&
       listEquals(other.paymentMethods, paymentMethods) &&
       other.takeoutTime == takeoutTime &&
@@ -288,7 +288,7 @@ class EcommerceEntity {
       available.hashCode ^
       blocked.hashCode ^
       type.hashCode ^
-      deliveryMethods.hashCode ^
+      serviceMethods.hashCode ^
       tags.hashCode ^
       paymentMethods.hashCode ^
       takeoutTime.hashCode ^
