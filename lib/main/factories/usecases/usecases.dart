@@ -1,8 +1,10 @@
-import 'package:plugin_pjmei_components/main/factories/usecases/address/find_address_factory.dart';
-import 'package:plugin_pjmei_components/main/factories/usecases/address/insert_address_factory.dart';
-import 'package:plugin_pjmei_components/main/factories/usecases/address/delete_address_factory.dart';
-import 'package:plugin_pjmei_components/main/factories/usecases/address/update_address_factory.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+
+import './address/delete_address_factory.dart';
+import './address/find_address_factory.dart';
+import './address/insert_address_factory.dart';
+import './address/update_address_factory.dart';
+import './address/list_address_by_user_factory.dart';
 
 import './auth/change_password_factory.dart';
 import './auth/check_if_user_exists_factory.dart';

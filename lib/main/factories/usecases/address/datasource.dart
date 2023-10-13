@@ -6,6 +6,10 @@ class _AddressApi {
     return makeRemoteFindAddress(id).exec();
   }
 
+  Future<List<AddressEntity>> listByUser({required String id}) {
+    return makeRemoteGetListAddressByUser(id).exec();
+  }
+
   Future<AddressEntity> register({
     required String zipCode,
     required String state,
