@@ -240,6 +240,7 @@ part './white_label/datasource.dart';
 
 class Api {
   Api._();
+  static final address = _AddressApi();
   static final auth = _AuthApi();
   static final blog = _BlogApi();
   static final ccmei = _CcmeiApi();
