@@ -39,7 +39,7 @@ class SmartSuggestionCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Visibility(
-                visible: Valid.text(title),
+                visible: Valid.text(title, length: 1),
                 child: OwText(
                   '${title}',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
@@ -48,11 +48,11 @@ class SmartSuggestionCard extends StatelessWidget {
                 ),
               ),
               Visibility(
-                visible: Valid.text(title) && Valid.text(description),
+                visible: Valid.text(title, length: 1) && Valid.text(description, length: 1),
                 child: const SizedBox(height: 10),
               ),
               Visibility(
-                visible: Valid.text(description),
+                visible: Valid.text(description, length: 1),
                 child: OwText(
                   '${description}',
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(

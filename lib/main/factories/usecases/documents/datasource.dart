@@ -14,7 +14,11 @@ class _DocumentsApi {
     return makeRemoteDeleteDocument(id).exec();
   }
 
-  Future<List<DocumentEntity>> list({required Map<String, dynamic> query}) {
-    return makeRemoteListDocuments().exec();
+  Future<List<DocumentEntity>> list({Map<String, dynamic>? query}) {
+    return makeRemoteListDocuments(params: query).exec();
+  }
+
+  Future<List<DocumentEntity>> listByCompany({required String cnpj, Map<String, dynamic>? query}) {
+    return makeRemoteListDocumentsByCnpj(cnpj, params: query).exec();
   }
 }

@@ -71,7 +71,7 @@ class RoundCard extends StatelessWidget {
               ],
             ),
             OwVisibility(
-              visible: Valid.text(title),
+              visible: Valid.text(title, length: 1),
               child: OwText(
                 '$title',
                 padding: const EdgeInsets.only(top: 8),

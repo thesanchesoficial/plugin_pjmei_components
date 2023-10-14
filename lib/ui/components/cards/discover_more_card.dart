@@ -82,7 +82,7 @@ class DiscoverMoreCard extends StatelessWidget {
                         ),
                         Expanded(
                           child: Visibility(
-                            visible: Valid.text(title),
+                            visible: Valid.text(title, length: 1),
                             child: OwText(
                               '${title}',
                               style: Theme.of(context).textTheme.titleLarge!.copyWith(
@@ -96,11 +96,11 @@ class DiscoverMoreCard extends StatelessWidget {
                       ],
                     ),
                     Visibility(
-                      visible: (leading != null || Valid.text(title)),
+                      visible: (leading != null || Valid.text(title, length: 1)),
                       child: const SizedBox(height: 10),
                     ),
                     Visibility(
-                      visible: Valid.text(description),
+                      visible: Valid.text(description, length: 1),
                       child: OwText(
                         '$description',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(

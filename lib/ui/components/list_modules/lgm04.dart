@@ -48,7 +48,7 @@ class LGM04 extends StatelessWidget {
                         ),
                       ),
                       Visibility(
-                        visible: Valid.text(module.title),
+                        visible: Valid.text(module.title, length: 1),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: OwText(
@@ -58,7 +58,7 @@ class LGM04 extends StatelessWidget {
                         ),
                       ),
                       Visibility(
-                        visible: Valid.text(module.description),
+                        visible: Valid.text(module.description, length: 1),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: OwText(

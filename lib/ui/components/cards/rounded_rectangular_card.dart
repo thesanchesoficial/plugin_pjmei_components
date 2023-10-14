@@ -58,7 +58,7 @@ class RoundedRectangularCard extends StatelessWidget {
               ),
               Expanded(
                 child: Visibility(
-                  visible: Valid.text(title),
+                  visible: Valid.text(title, length: 1),
                   child: OwText(
                     title ?? '',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(

@@ -42,7 +42,7 @@ class BasicHorizontalCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Visibility(
-                    visible: Valid.text(title),
+                    visible: Valid.text(title, length: 1),
                     child: OwText(
                       '$title',
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
@@ -52,11 +52,11 @@ class BasicHorizontalCard extends StatelessWidget {
                     ),
                   ),
                   Visibility(
-                    visible: Valid.text(title) && Valid.text(description),
+                    visible: Valid.text(title, length: 1) && Valid.text(description, length: 1),
                     child: const SizedBox(height: 4),
                   ),
                   Visibility(
-                    visible: Valid.text(description),
+                    visible: Valid.text(description, length: 1),
                     child: OwText(
                       '$description',
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(

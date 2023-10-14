@@ -79,7 +79,7 @@ class LHM02 extends StatelessWidget {
                                     ),
                                   ),
                                   Visibility(
-                                    visible: Valid.text(module.title),
+                                    visible: Valid.text(module.title, length: 1),
                                     child: OwText(
                                       module.title ?? '',
                                       style: Theme.of(context)

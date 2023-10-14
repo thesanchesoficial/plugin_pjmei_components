@@ -63,7 +63,7 @@ class RoundedSquareCard extends StatelessWidget {
                     child: child,
                   ),
                   OwVisibility(
-                    visible: Valid.text(title),
+                    visible: Valid.text(title, length: 1),
                     child: OwText(
                       '$title',
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(

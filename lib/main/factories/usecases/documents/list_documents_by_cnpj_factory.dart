@@ -1,6 +1,6 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-ListDocuments makeRemoteListDocuments(String cnpj) => RemoteListDocuments(
+ListDocuments makeRemoteListDocumentsByCnpj(String cnpj, {Map<String, dynamic>? params}) => RemoteListDocuments(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/document/cnpj/$cnpj')
+  url: makeApiUrl('venver/document/cnpj/$cnpj', params: params)
 );

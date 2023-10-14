@@ -68,7 +68,7 @@ class FullRectangularCard extends StatelessWidget {
                         ),
                       ),
                       Visibility(
-                        visible: Valid.text(title),
+                        visible: Valid.text(title, length: 1),
                         child: OwText(
                           '${title}',
                           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
@@ -78,11 +78,11 @@ class FullRectangularCard extends StatelessWidget {
                         ),
                       ),
                       Visibility(
-                        visible: Valid.text(title) && Valid.text(description),
+                        visible: Valid.text(title, length: 1) && Valid.text(description, length: 1),
                         child: const SizedBox(height: 14),
                       ),
                       Visibility(
-                        visible: Valid.text(description),
+                        visible: Valid.text(description, length: 1),
                         child: OwText(
                           '${description}',
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(

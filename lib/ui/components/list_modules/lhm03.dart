@@ -66,7 +66,7 @@ class LHM03 extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Visibility(
-                                        visible: Valid.text(module.spotlight),
+                                        visible: Valid.text(module.spotlight, length: 1),
                                         child: Padding(
                                           padding: const EdgeInsets.only(
                                             bottom: 15,
@@ -78,7 +78,7 @@ class LHM03 extends StatelessWidget {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: Valid.text(module.title),
+                                        visible: Valid.text(module.title, length: 1),
                                         child: OwText(
                                           '${module.title}',
                                           style: Theme.of(context)
@@ -90,13 +90,13 @@ class LHM03 extends StatelessWidget {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: (Valid.text(module.title)) &&
-                                                (Valid.text(module.description))
+                                        height: (Valid.text(module.title, length: 1)) &&
+                                                (Valid.text(module.description, length: 1))
                                             ? 10
                                             : 0,
                                       ),
                                       Visibility(
-                                        visible: Valid.text(module.description),
+                                        visible: Valid.text(module.description, length: 1),
                                         child: OwText(
                                           '${module.description}',
                                           style: Theme.of(context)

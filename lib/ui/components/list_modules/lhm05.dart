@@ -75,7 +75,7 @@ class LHM05 extends StatelessWidget {
                                         CrossAxisAlignment.stretch,
                                     children: [
                                       Visibility(
-                                        visible: Valid.text(module.title),
+                                        visible: Valid.text(module.title, length: 1),
                                         child: OwText(
                                           '${module.title}',
                                           style: Theme.of(context)
@@ -87,14 +87,14 @@ class LHM05 extends StatelessWidget {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: Valid.text(module.title) &&
-                                            Valid.text(module.description),
+                                        visible: Valid.text(module.title, length: 1) &&
+                                            Valid.text(module.description, length: 1),
                                         child: const SizedBox(
                                           height: 8,
                                         ),
                                       ),
                                       Visibility(
-                                        visible: Valid.text(module.description),
+                                        visible: Valid.text(module.description, length: 1),
                                         child: HtmlWidget(
                                           '${module.description}',
                                           onErrorBuilder: (context, element, error) => OwText('$element error: $error'),

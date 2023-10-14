@@ -82,7 +82,7 @@ class LVM02 extends StatelessWidget {
                                     children: [
                                       Visibility(
                                         visible:
-                                            Valid.text(modules[index].title),
+                                            Valid.text(modules[index].title, length: 1),
                                         child: OwText(
                                           '${modules[index].title}',
                                           style: Theme.of(context)
@@ -95,14 +95,14 @@ class LVM02 extends StatelessWidget {
                                       ),
                                       Visibility(
                                         visible:
-                                            Valid.text(modules[index].title) &&
+                                            Valid.text(modules[index].title, length: 1) &&
                                                 Valid.text(
-                                                    modules[index].description),
+                                                    modules[index].description, length: 1),
                                         child: const SizedBox(height: 4),
                                       ),
                                       Visibility(
                                         visible: Valid.text(
-                                            modules[index].description),
+                                            modules[index].description, length: 1),
                                         child: OwText(
                                           '${modules[index].description}',
                                           style: Theme.of(context)
