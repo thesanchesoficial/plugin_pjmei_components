@@ -45,4 +45,8 @@ class _OrderEcommerceApi {
   Future<List<OrderEcommerceEntity>> listByUser() {
     return makeRemoteListOrdersByUser().exec();
   }
+
+  Future<List<OrderEcommerceEntity>> listByEcommerce({required String id}) {
+    return makeRemoteListOrdersByEcommerce(id).exec();
+  }
 }

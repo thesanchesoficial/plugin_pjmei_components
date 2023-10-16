@@ -8,6 +8,7 @@ class OrderEcommerceEntity {
   String? ecommerceId;
   int? orderId;
   EcommerceEntity? ecommerce;
+  UserEntity? user;
   AddressEntity? address;
   String addressId;
   String origin;
@@ -31,12 +32,14 @@ class OrderEcommerceEntity {
   String? createdAt;
   String? updatedAt;
   List<OrderProductsEntity> products;
+  List<OrderHistoricEntity> orderHistoric;
   OrderEcommerceEntity({
     this.id,
     this.ecommerceId,
     this.orderId,
     this.ecommerce,
     this.address,
+    this.user,
     required this.addressId,
     required this.origin,
     required this.serviceLocation,
@@ -59,6 +62,7 @@ class OrderEcommerceEntity {
     this.createdAt,
     this.updatedAt,
     required this.products,
+    required this.orderHistoric,
   });
 
   OrderEcommerceEntity copyWith({
@@ -67,6 +71,7 @@ class OrderEcommerceEntity {
     int? orderId,
     EcommerceEntity? ecommerce,
     AddressEntity? address,
+    UserEntity? user,
     String? addressId,
     String? origin,
     String? serviceLocation,
@@ -89,12 +94,14 @@ class OrderEcommerceEntity {
     String? createdAt,
     String? updatedAt,
     List<OrderProductsEntity>? products,
+    List<OrderHistoricEntity>? orderHistoric,
   }) {
     return OrderEcommerceEntity(
       id: id ?? this.id,
       ecommerceId: ecommerceId ?? this.ecommerceId,
       orderId: orderId ?? this.orderId,
       ecommerce: ecommerce ?? this.ecommerce,
+      user: user ?? this.user,
       address: address ?? this.address,
       addressId: addressId ?? this.addressId,
       origin: origin ?? this.origin,
@@ -118,6 +125,7 @@ class OrderEcommerceEntity {
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       products: products ?? this.products,
+      orderHistoric: orderHistoric ?? this.orderHistoric,
     );
   }
 
@@ -126,6 +134,7 @@ class OrderEcommerceEntity {
       'id': id,
       'ecommerceId': ecommerceId,
       'orderId': orderId,
+      'user': user?.toMap(),
       'ecommerce': ecommerce?.toMap(),
       'address': address?.toMap(),
       'addressId': addressId,
@@ -150,6 +159,7 @@ class OrderEcommerceEntity {
       'createdAt': createdAt,
       'updatedAt': updatedAt,
       'products': products.map((x) => x.toMap()).toList(),
+      'orderHistoric': orderHistoric.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -160,6 +170,7 @@ class OrderEcommerceEntity {
       orderId: map['orderId'],
       ecommerce: map['ecommerce'] != null ? EcommerceEntity.fromMap(map['ecommerce']) : null,
       address: map['address'] != null ? AddressEntity.fromMap(map['address']) : null,
+      user: map['user'] != null ? UserEntity.fromMap(map['user']) : null,
       addressId: map['addressId'] ?? '',
       origin: map['origin'] ?? '',
       serviceLocation: map['serviceLocation'] ?? '',
@@ -186,6 +197,11 @@ class OrderEcommerceEntity {
           ? []
           : List<OrderProductsEntity>.from(map['orderProducts']?.map((x) => OrderProductsEntity.fromMap(x)))
         : List<OrderProductsEntity>.from(map['products']?.map((x) => OrderProductsEntity.fromMap(x))),
+      orderHistoric: map['historic'] == null
+        ? map['orderHistoric'] == null
+          ? []
+          : List<OrderHistoricEntity>.from(map['orderHistoric']?.map((x) => OrderHistoricEntity.fromMap(x)))
+        : List<OrderHistoricEntity>.from(map['historic']?.map((x) => OrderHistoricEntity.fromMap(x))),
     );
   }
 
@@ -195,7 +211,7 @@ class OrderEcommerceEntity {
 
   @override
   String toString() {
-    return 'OrderEcommerceEntity(id: $id, ecommerceId: $ecommerceId, orderId: $orderId, ecommerce: $ecommerce, address: $address, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, paymentStatus: $paymentStatus, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, endDate: $endDate, transactionId: $transactionId, pix: $pix, document: $document, createdAt: $createdAt, updatedAt: $updatedAt, products: $products)';
+    return 'OrderEcommerceEntity(id: $id, ecommerceId: $ecommerceId, user: $user, orderId: $orderId, ecommerce: $ecommerce, address: $address, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, paymentStatus: $paymentStatus, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, endDate: $endDate, transactionId: $transactionId, pix: $pix, document: $document, createdAt: $createdAt, updatedAt: $updatedAt, products: $products)';
   }
 
   @override
@@ -207,6 +223,7 @@ class OrderEcommerceEntity {
       other.ecommerceId == ecommerceId &&
       other.orderId == orderId &&
       other.ecommerce == ecommerce &&
+      other.user == user &&
       other.address == address &&
       other.addressId == addressId &&
       other.origin == origin &&
@@ -229,7 +246,8 @@ class OrderEcommerceEntity {
       other.document == document &&
       other.createdAt == createdAt &&
       other.updatedAt == updatedAt &&
-      listEquals(other.products, products);
+      listEquals(other.products, products) &&
+      listEquals(other.orderHistoric, orderHistoric);
   }
 
   @override
@@ -237,6 +255,7 @@ class OrderEcommerceEntity {
     return id.hashCode ^
       ecommerceId.hashCode ^
       orderId.hashCode ^
+      user.hashCode ^
       ecommerce.hashCode ^
       address.hashCode ^
       addressId.hashCode ^
@@ -260,6 +279,7 @@ class OrderEcommerceEntity {
       document.hashCode ^
       createdAt.hashCode ^
       updatedAt.hashCode ^
+      orderHistoric.hashCode ^
       products.hashCode;
   }
 }

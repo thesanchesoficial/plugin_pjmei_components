@@ -5,6 +5,7 @@ class _ProductEcommerceApi {
   Future<ProductEcommerceEntity> find({required String id}) {
     return makeRemoteFindProduct(id).exec();
   }
+  
   Future<List<ProductEcommerceEntity>> listByEcommerce({required String id}) {
     return makeRemoteListProductByEcommerce(id).exec();
   }
