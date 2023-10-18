@@ -29,6 +29,7 @@ class CnpjEntity {
   String? situacaoEspecial;
   String? dataSituacaoEspecial;
   String? updatedAt;
+  String? url;
   CnpjEntity({
     this.cnpj,
     this.matriz,
@@ -56,6 +57,7 @@ class CnpjEntity {
     this.situacaoEspecial,
     this.dataSituacaoEspecial,
     this.updatedAt,
+    this.url,
   });
 
 
@@ -86,6 +88,7 @@ class CnpjEntity {
     String? situacaoEspecial,
     String? dataSituacaoEspecial,
     String? updatedAt,
+    String? url,
   }) {
     return CnpjEntity(
       cnpj: cnpj ?? this.cnpj,
@@ -114,6 +117,7 @@ class CnpjEntity {
       situacaoEspecial: situacaoEspecial ?? this.situacaoEspecial,
       dataSituacaoEspecial: dataSituacaoEspecial ?? this.dataSituacaoEspecial,
       updatedAt: updatedAt ?? this.updatedAt,
+      url: url ?? this.url,
     );
   }
 
@@ -145,6 +149,7 @@ class CnpjEntity {
       'situacaoEspecial': situacaoEspecial,
       'dataSituacaoEspecial': dataSituacaoEspecial,
       'updatedAt': updatedAt,
+      'url': url,
     };
   }
 
@@ -176,6 +181,7 @@ class CnpjEntity {
       situacaoEspecial: map['situacaoEspecial'],
       dataSituacaoEspecial: map['dataSituacaoEspecial'],
       updatedAt: map['updatedAt'] ?? '',
+      url: map['url'],
     );
   }
 
@@ -185,7 +191,7 @@ class CnpjEntity {
 
   @override
   String toString() {
-    return 'CnpjEntity(cnpj: $cnpj, matriz: $matriz, nomeEmpresarial: $nomeEmpresarial, nomeFantasia: $nomeFantasia, motivo: $motivo, enteFederativo: $enteFederativo, natureza: $natureza, cnaePrincipal: $cnaePrincipal, cnaeSecundario: $cnaeSecundario, porte: $porte, municipio: $municipio, cep: $cep, uf: $uf, numero: $numero, complemento: $complemento, logradouro: $logradouro, bairro: $bairro, ddd1: $ddd1, telefone1: $telefone1, email: $email, dataAbertura: $dataAbertura, situacaoCadastral: $situacaoCadastral, dataSituacaoCadastral: $dataSituacaoCadastral, situacaoEspecial: $situacaoEspecial, dataSituacaoEspecial: $dataSituacaoEspecial, updatedAt: $updatedAt)';
+    return 'CnpjEntity(cnpj: $cnpj, matriz: $matriz, nomeEmpresarial: $nomeEmpresarial, nomeFantasia: $nomeFantasia, motivo: $motivo, enteFederativo: $enteFederativo, natureza: $natureza, cnaePrincipal: $cnaePrincipal, cnaeSecundario: $cnaeSecundario, porte: $porte, municipio: $municipio, cep: $cep, uf: $uf, numero: $numero, complemento: $complemento, logradouro: $logradouro, bairro: $bairro, ddd1: $ddd1, telefone1: $telefone1, email: $email, dataAbertura: $dataAbertura, situacaoCadastral: $situacaoCadastral, dataSituacaoCadastral: $dataSituacaoCadastral, situacaoEspecial: $situacaoEspecial, dataSituacaoEspecial: $dataSituacaoEspecial, updatedAt: $updatedAt, url: $url)';
   }
 
   @override
@@ -218,6 +224,7 @@ class CnpjEntity {
       other.dataSituacaoCadastral == dataSituacaoCadastral &&
       other.situacaoEspecial == situacaoEspecial &&
       other.dataSituacaoEspecial == dataSituacaoEspecial &&
+      other.url == url &&
       other.updatedAt == updatedAt;
   }
 
@@ -248,6 +255,7 @@ class CnpjEntity {
       dataSituacaoCadastral.hashCode ^
       situacaoEspecial.hashCode ^
       dataSituacaoEspecial.hashCode ^
+      url.hashCode ^
       updatedAt.hashCode;
   }
 }
