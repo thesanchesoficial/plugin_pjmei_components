@@ -166,6 +166,7 @@ export './notifications/list_all_notifications.dart';
 export './notifications/update_notifications.dart';
 
 export 'ecommerce/order/list_orders.dart';
+export 'ecommerce/order/find_order.dart';
 export 'ecommerce/order/create_order.dart';
 export 'ecommerce/product/add_product_ecommerce.dart';
 export 'ecommerce/product/find_product_ecommerce.dart';

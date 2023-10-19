@@ -42,6 +42,10 @@ class _OrderEcommerceApi {
     });
   }
 
+  Future<OrderEcommerceEntity> find({required String id}) {
+    return makeRemoteFindOrder(id).exec();
+  }
+
   Future<List<OrderEcommerceEntity>> listByUser() {
     return makeRemoteListOrdersByUser().exec();
   }
