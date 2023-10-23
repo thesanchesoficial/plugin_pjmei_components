@@ -2,6 +2,8 @@ part of '../../usecases.dart';
 
 class _OrderEcommerceApi {
 
+  final historic = _HistoricOrderEcommerceApi();
+
   Future<OrderEcommerceEntity> create({
     required String ecommerceId,
     required String addressId,

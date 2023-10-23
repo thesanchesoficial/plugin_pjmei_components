@@ -165,6 +165,7 @@ export './notifications/delete_notifications.dart';
 export './notifications/list_all_notifications.dart';
 export './notifications/update_notifications.dart';
 
+export 'ecommerce/order/historic/create_order_historic.dart';
 export 'ecommerce/order/list_orders.dart';
 export 'ecommerce/order/find_order.dart';
 export 'ecommerce/order/create_order.dart';

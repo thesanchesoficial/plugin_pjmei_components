@@ -50,6 +50,7 @@ import './documents/insert_document_factory.dart';
 import './documents/list_documents_factory.dart';
 import './documents/update_document_factory.dart';
 
+import 'ecommerce/order/historic/create_historic_order_factory.dart';
 import 'ecommerce/order/list_orders_by_user_factory.dart';
 import 'ecommerce/order/create_order_factory.dart';
 import 'ecommerce/product/add_product_ecommerce_factory.dart';
@@ -213,6 +214,7 @@ part './das/datasource.dart';
 part './dasn/datasource.dart';
 part './documents/datasource.dart';
 part './ecommerce/datasource.dart';
+part './ecommerce/order/historic/datasource.dart';
 part './ecommerce/order/datasource.dart';
 part './ecommerce/voucher/datasource.dart';
 part './ecommerce/product/datasource.dart';
