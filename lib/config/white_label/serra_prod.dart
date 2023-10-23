@@ -19,7 +19,7 @@ WhiteLabelEntity serraProd = WhiteLabelEntity(
     ),
     environment: EnvironmentWhiteLabelEntity(
       individual: ItemEnvironmentWhiteLabelEntity(
-        enabled: false,
+        enabled: true,
         limit: 1,
       ),
       company: ItemEnvironmentWhiteLabelEntity(
