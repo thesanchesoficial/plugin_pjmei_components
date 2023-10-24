@@ -44,6 +44,17 @@ class _OrderEcommerceApi {
     });
   }
 
+  Future<OrderEcommerceEntity> update({
+    required String orderId,
+    String? description,
+    String? paymentStatus,
+  }) {
+    return makeRemoteUpdateOrder(orderId).exec({
+      'description': description,
+      'paymentStatus': paymentStatus,
+    });
+  }
+
   Future<OrderEcommerceEntity> find({required String id}) {
     return makeRemoteFindOrder(id).exec();
   }
