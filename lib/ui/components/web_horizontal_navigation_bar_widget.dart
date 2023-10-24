@@ -60,39 +60,6 @@ class WebHorizontalNavigationBar extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              width: MediaQuery.sizeOf(context).width,
-              constraints: const BoxConstraints(maxWidth: 400, minWidth: 140),
-              height: 2,
-              color: Theme.of(context).colorScheme.secondaryContainer,
-            ),
-            Container(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 25,
-                vertical: 20,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ButtonMenuWeb(
-                    label: 'Me ajuda',
-                    icon: EvaIcons.questionMarkCircleOutline,
-                    onPressed: () {
-                      context.push('/me-ajuda');
-                    },
-                  ),
-                  ButtonMenuWeb(
-                    label: 'Configurações',
-                    icon: EvaIcons.settings2Outline,
-                    onPressed: () {
-                      context.push('/settings');
-                    },
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       );
