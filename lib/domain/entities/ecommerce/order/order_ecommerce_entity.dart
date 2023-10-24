@@ -5,6 +5,7 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class OrderEcommerceEntity {
   String? id;
+  String? description;
   String? ecommerceId;
   int? orderId;
   EcommerceEntity? ecommerce;
@@ -35,6 +36,7 @@ class OrderEcommerceEntity {
   List<OrderHistoricEntity> orderHistoric;
   OrderEcommerceEntity({
     this.id,
+    this.description,
     this.ecommerceId,
     this.orderId,
     this.ecommerce,
@@ -68,6 +70,7 @@ class OrderEcommerceEntity {
   OrderEcommerceEntity copyWith({
     String? id,
     String? ecommerceId,
+    String? description,
     int? orderId,
     EcommerceEntity? ecommerce,
     AddressEntity? address,
@@ -98,6 +101,7 @@ class OrderEcommerceEntity {
   }) {
     return OrderEcommerceEntity(
       id: id ?? this.id,
+      description: description ?? this.description,
       ecommerceId: ecommerceId ?? this.ecommerceId,
       orderId: orderId ?? this.orderId,
       ecommerce: ecommerce ?? this.ecommerce,
@@ -132,6 +136,7 @@ class OrderEcommerceEntity {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
+      'description': description,
       'ecommerceId': ecommerceId,
       'orderId': orderId,
       'user': user?.toMap(),
@@ -166,6 +171,7 @@ class OrderEcommerceEntity {
   factory OrderEcommerceEntity.fromMap(Map<String, dynamic> map) {
     return OrderEcommerceEntity(
       id: map['id'],
+      description: map['description'],
       ecommerceId: map['ecommerceId'],
       orderId: map['orderId'],
       ecommerce: map['ecommerce'] != null ? EcommerceEntity.fromMap(map['ecommerce']) : null,
@@ -211,7 +217,7 @@ class OrderEcommerceEntity {
 
   @override
   String toString() {
-    return 'OrderEcommerceEntity(id: $id, ecommerceId: $ecommerceId, user: $user, orderId: $orderId, ecommerce: $ecommerce, address: $address, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, paymentStatus: $paymentStatus, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, endDate: $endDate, transactionId: $transactionId, pix: $pix, document: $document, createdAt: $createdAt, updatedAt: $updatedAt, products: $products)';
+    return 'OrderEcommerceEntity(id: $id, description: $description, ecommerceId: $ecommerceId, user: $user, orderId: $orderId, ecommerce: $ecommerce, address: $address, addressId: $addressId, origin: $origin, serviceLocation: $serviceLocation, type: $type, paymentType: $paymentType, paymentMethod: $paymentMethod, paymentStatus: $paymentStatus, total: $total, subtotal: $subtotal, change: $change, deliveryFee: $deliveryFee, serviceFee: $serviceFee, cardId: $cardId, last4DigitsOfTheCreditCard: $last4DigitsOfTheCreditCard, startDate: $startDate, endDate: $endDate, transactionId: $transactionId, pix: $pix, document: $document, createdAt: $createdAt, updatedAt: $updatedAt, products: $products)';
   }
 
   @override
@@ -220,6 +226,7 @@ class OrderEcommerceEntity {
   
     return other is OrderEcommerceEntity &&
       other.id == id &&
+      other.description == description &&
       other.ecommerceId == ecommerceId &&
       other.orderId == orderId &&
       other.ecommerce == ecommerce &&
@@ -253,6 +260,7 @@ class OrderEcommerceEntity {
   @override
   int get hashCode {
     return id.hashCode ^
+      description.hashCode ^
       ecommerceId.hashCode ^
       orderId.hashCode ^
       user.hashCode ^
