@@ -160,6 +160,14 @@ class _ModalSelectUserAccountWidgetState extends State<ModalSelectUserAccountWid
                 }
               ),
               ItemModalWidget(
+                title: 'Segurança',
+                icon: EvaIcons.lockOutline,
+                onPressed: () {
+                  Navigator.pop(context);
+                  context.push('/security');
+                }
+              ),
+              ItemModalWidget(
                 title: 'Sair da conta',
                 icon: EvaIcons.logOutOutline,
                 onPressed: () {
