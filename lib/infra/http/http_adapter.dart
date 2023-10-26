@@ -1,7 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 class HttpAdapter implements HttpClient {
 
@@ -34,17 +37,64 @@ class HttpAdapter implements HttpClient {
       }
     }
 
+
     if(!url.contains('pjmei.app/_functions/')) {
+      DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+      final test = await deviceInfo.deviceInfo;
+      String? userAgent;
+      Map<String, String> info = {};
+      if(kIsWeb) {
+        WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
+        userAgent = webBrowserInfo.userAgent;
+      } else {
+        if(Platform.isAndroid) {
+          AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+          info = {
+            "device": androidInfo.device,
+            "brand": androidInfo.brand,
+            "hardware": androidInfo.hardware,
+            "id": androidInfo.id,
+            "model": androidInfo.model,
+            "isPhysicalDevice": androidInfo.isPhysicalDevice.toString(),
+          };
+        } else if(Platform.isIOS) {
+          IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+          info = {
+            "name": iosInfo.name,
+            "systemName": iosInfo.systemName,
+            "systemVersion": iosInfo.systemVersion,
+            "model": iosInfo.model,
+            "isPhysicalDevice": iosInfo.isPhysicalDevice.toString(),
+          };
+        }
+      }
+      String? data;
+      try {
+        data = jsonEncode(test.data);
+      } catch (e) {
+        //
+      }
       defaultHeaders = headers?.cast<String, String>() ?? {}..addAll({
         'accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ${userSM.user?.accessToken}',
         'X-Pjmei-Environment': '${WhiteLabelEntity.current?.id}',
+        'X-Info': '${jsonEncode(info)}',
         'X-Pjmei-Version': '$minimalVersion',
         'X-Pjmei-Company': '${companySM.company?.id}',
         'X-Pjmei-Ecommerce': '${ecommerceSM.establishment?.id}',
         'x-api-key': Environment.current!.apiKey,
       });
+      if(Valid.text(userAgent)) {
+        defaultHeaders.addAll({
+          'User-Agent': '${userAgent}',
+        });
+      }
+      if(Valid.text(data)) {
+        defaultHeaders.addAll({
+          'X-Device-Info': '$data',
+        });
+      }
     }
     final jsonBody = body != null ? jsonEncode(body) : null;
     var response = Response('', 500);
