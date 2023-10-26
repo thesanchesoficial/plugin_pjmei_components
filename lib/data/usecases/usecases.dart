@@ -105,6 +105,7 @@ export './mei_management/remote_get_relatorio.dart';
 export './mei_management/remote_list_all_das_years.dart';
 export './mei_management/remote_notafiscal_service.dart';
 export './mei_management/remote_post_notafiscal.dart';
+export './mei_management/remote_put_ccmei.dart';
 
 export './modules/remote_list_modules.dart';
 export './modules/remote_delete_module.dart';

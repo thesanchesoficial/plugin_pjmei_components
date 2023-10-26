@@ -150,6 +150,7 @@ export './mei_management/get_notafiscal_service.dart';
 export './mei_management/get_relatoriomei_entity.dart';
 export './mei_management/list_all_das_years.dart';
 export './mei_management/post_notafiscal.dart';
+export './mei_management/put_ccmei.dart';
 
 export './modules/delete_module.dart';
 export './modules/list_all_modules.dart';

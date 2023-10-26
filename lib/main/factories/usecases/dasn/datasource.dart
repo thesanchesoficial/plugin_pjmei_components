@@ -10,4 +10,8 @@ class _DasnApi {
     return makePostDasn(params: query).exec(data);
   }
 
+  Future<bool> update({Map<String, dynamic>? query}) {
+    return makePutDasn(params: query).exec();
+  }
+
 }

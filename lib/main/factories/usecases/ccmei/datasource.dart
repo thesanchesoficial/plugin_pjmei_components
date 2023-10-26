@@ -6,4 +6,8 @@ class _CcmeiApi {
     return makeRemoteGetCcmei().exec();
   }
 
+  Future<bool> update() {
+    return makePutCcmei().exec();
+  }
+
 }
