@@ -16,11 +16,9 @@ class RemoteGetListDasnItem implements GetListDasnItem {
       );
       if(httpResponse == null) {
         throw DomainError.waitingInfoSimples;
-      }
-      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
-        if(httpResponse['error']['errors'][0]['type'] == "no_mei") {
-          throw DomainError.noMei;
-        }
+      } else if(httpResponse is String) {
+        throw httpResponse;
+      } else if((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
       return ((httpResponse['success']['dasn']) as List).map((e) => DasnItemEntity.fromMap(e)).toList();

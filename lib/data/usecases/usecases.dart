@@ -40,6 +40,7 @@ export './coupon/remote_get_coupon.dart';
 export './das/remote_get_list_das_items.dart';
 
 export './dasn/remote_get_list_dasn_items.dart';
+export './dasn/remote_put_dasn_items.dart';
 export './dasn/remote_post_dasn_item.dart';
 
 export './documents/remote_create_documents.dart';

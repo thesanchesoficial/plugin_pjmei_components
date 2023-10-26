@@ -125,6 +125,17 @@ class HttpAdapter implements HttpClient {
           throw HttpError.notFound;
         }
       }
+      case 406: {
+        if(newReturnErrorMsg) {
+          if(response.body.isEmpty) {
+            throw HttpError.notAcceptable;
+          } else {
+            return jsonDecode(response.body);
+          }
+        } else {
+          throw HttpError.notAcceptable;
+        }
+      }
       default: {
         if(newReturnErrorMsg) {
           if(response.body.isEmpty) {

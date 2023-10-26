@@ -41,6 +41,7 @@ export './coupon/get_coupon.dart';
 export './das/get_list_das_item.dart';
 
 export './dasn/get_list_dasn_item.dart';
+export './dasn/put_dasn_item.dart';
 export './dasn/post_dasn_item.dart';
 
 export './documents/create_document_subtype.dart';

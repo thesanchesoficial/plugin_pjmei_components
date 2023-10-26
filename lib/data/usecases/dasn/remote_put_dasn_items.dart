@@ -1,24 +1,23 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-class RemotePostDasnItem implements PostDasnItem {
+class RemotePutDasnItem implements PutDasnItem {
   final HttpClient httpClient;
   final String url;
+  final String method;
 
-  RemotePostDasnItem({required this.httpClient, required this.url});
+  RemotePutDasnItem({required this.httpClient, required this.url, this.method = 'put'});
 
-  Future<bool> exec(DasnDeclaration dasn, {bool log = false}) async {
+  Future<bool> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
-        method: 'post',
+        method: method,
         newReturnErrorMsg: true,
-        body: dasn.toMap(),
       );
       if(httpResponse == null) {
         return true;
-      } else if(httpResponse is String) {
-        throw httpResponse;
-      } else if((httpResponse as Map<String, dynamic>).containsKey('error')) {
+      }
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
       return false;

@@ -6,7 +6,7 @@ class _DasnApi {
     return makeGetListDasn(params: params).exec();
   }
 
-  Future<DasnItemEntity> insert({Map<String, dynamic>? query, required DasnDeclaration data}) {
+  Future<bool> insert({Map<String, dynamic>? query, required DasnDeclaration data}) {
     return makePostDasn(params: query).exec(data);
   }
 
