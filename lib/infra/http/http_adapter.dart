@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 
 class HttpAdapter implements HttpClient {
 
@@ -46,13 +45,26 @@ class HttpAdapter implements HttpClient {
       if(kIsWeb) {
         WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
         userAgent = webBrowserInfo.userAgent;
+        info = {
+          "browserName": webBrowserInfo.browserName.name,
+          "appName": webBrowserInfo.appName ?? '',
+          "language": webBrowserInfo.language ?? '',
+          "platform": webBrowserInfo.platform ?? '',
+          "userAgent": webBrowserInfo.userAgent ?? '',
+        };
       } else {
         if(Platform.isAndroid) {
           AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
           info = {
             "device": androidInfo.device,
             "brand": androidInfo.brand,
+            "serialNumber": androidInfo.serialNumber,
+            "version.codename": androidInfo.version.codename,
+            "version.incremental": androidInfo.version.incremental,
+            "version.sdkInt": androidInfo.version.sdkInt.toString(),
+            "version.baseOS": androidInfo.version.baseOS ?? '',
             "hardware": androidInfo.hardware,
+            "fingerprint": androidInfo.fingerprint,
             "id": androidInfo.id,
             "model": androidInfo.model,
             "isPhysicalDevice": androidInfo.isPhysicalDevice.toString(),
@@ -64,6 +76,12 @@ class HttpAdapter implements HttpClient {
             "systemName": iosInfo.systemName,
             "systemVersion": iosInfo.systemVersion,
             "model": iosInfo.model,
+            "localizedModel": iosInfo.localizedModel,
+            "utsname.release": iosInfo.utsname.release,
+            "utsname.sysname": iosInfo.utsname.sysname,
+            "utsname.version": iosInfo.utsname.version,
+            "utsname.machine": iosInfo.utsname.machine,
+            "utsname.nodename": iosInfo.utsname.nodename,
             "isPhysicalDevice": iosInfo.isPhysicalDevice.toString(),
           };
         }
@@ -92,7 +110,7 @@ class HttpAdapter implements HttpClient {
       }
       if(Valid.text(data)) {
         defaultHeaders.addAll({
-          'X-Device-Info': '$data',
+          'x-device-info': '$data',
         });
       }
     }
