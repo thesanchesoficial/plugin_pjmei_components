@@ -12,13 +12,21 @@ class _ProductEcommerceApi {
 
   Future<ProductEcommerceEntity> insert({
     required String name,
-    required int index,
     required String ecommerceId,
+    required String description,
+    required String type,
+    required String productCategoryId,
+    required bool highlight,
+    required bool legalAge,
   }) {
     return makeRemoteAddProduct().exec({
       "name": name,
-      "index": index,
       "ecommerceId": ecommerceId,
+      "description": description,
+      "type": type,
+      "productCategoryId": productCategoryId,
+      "highlight": highlight,
+      "legalAge": legalAge,
     });
   }
 
