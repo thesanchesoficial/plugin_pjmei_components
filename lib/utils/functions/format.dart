@@ -1049,6 +1049,7 @@ class OwFormat {
   /// Upper case for the fisrt letter
   static String capsFirst(String? value) {
     String result = value ?? "";
+    result = result.trim();
     if (value != null && value.length > 1) {
       result = "${value.substring(0, 1).toUpperCase()}${value.substring(1).toLowerCase()}";
     }
@@ -1058,6 +1059,7 @@ class OwFormat {
   /// Upper case for the fisrt letter
   static String fisrtUpperRestSame(String? value) {
     String result = value ?? "";
+    result = result.trim();
     if (value != null && value.length > 1) {
       result = "${value.substring(0, 1).toUpperCase()}${value.substring(1)}";
     }
@@ -1072,12 +1074,12 @@ class OwFormat {
   /// Upper case for the fisrt letter of each word
   static String capsFirstLetter(String? value) {
     String result = value ?? "";
+    result = result.trim();
     if (value != null && value.length > 1) {
       List nomes = value.split(" ");
       result = "";
       for (var element in nomes) {
-        result +=
-            "${element.substring(0, 1).toUpperCase()}${element.substring(1).toLowerCase()} ";
+        result += "${element.substring(0, 1).toUpperCase()}${element.substring(1).toLowerCase()} ";
       }
     }
     return result.trim();
