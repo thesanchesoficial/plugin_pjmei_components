@@ -84,6 +84,36 @@ class _MyAppState extends State<MyApp> {
               ),
               Observer(builder: (context) => Text('${userSM.user?.name}')),
               const SizedBox(height: 25),
+              Row(
+                children: [
+                  NavigationDestinationButton(
+                    icon: Icons.add,
+                    title: 'Teste',
+                    count: ' ',
+                    selected: true,
+                    onDestinationSelected: () {},
+                  ),
+                  NavigationDestinationButton(
+                    icon: Icons.add,
+                    title: 'Teste',
+                    selected: true,
+                    onDestinationSelected: () {},
+                  ),
+                ],
+              ),
+              ButtonMenuWeb(
+                icon: Icons.add,
+                label: 'Teste',
+                count: '10',
+                selected: true,
+                onPressed: () {  },
+              ),
+              ButtonMenuWeb(
+                icon: Icons.add,
+                label: 'Teste',
+                count: '1',
+                onPressed: () {  },
+              ),
               ElevatedButton(
                 child: const Text("Test"),
                 onPressed: () => context.push("/test/sadfgasgs/arroz/fasdfsd"),

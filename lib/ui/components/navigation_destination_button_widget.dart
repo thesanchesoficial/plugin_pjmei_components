@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:plugin_pjmei_components/utils/validators/validate.dart';
 
 class NavigationDestinationButton extends StatelessWidget {
   const NavigationDestinationButton({
     super.key,
     required this.title,
     required this.icon,
+    this.count,
     this.selected = false,
     required this.onDestinationSelected,
   });
   final String title;
+  final String? count;
   final IconData icon;
   final bool selected;
   final Function() onDestinationSelected;
@@ -33,13 +36,35 @@ class NavigationDestinationButton extends StatelessWidget {
             Radius.circular(80),
           ),
           onTap: onDestinationSelected,
-          child: Center(
-            child: Icon(
-              icon,
-              color: selected
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.inverseSurface,
-            ),
+          child: Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Center(
+                child: Icon(
+                  icon,
+                  color: selected
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.inverseSurface,
+                ),
+              ),
+              Visibility(
+                visible: Valid.text(count),
+                child: Container(
+                  margin: const EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    '$count',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

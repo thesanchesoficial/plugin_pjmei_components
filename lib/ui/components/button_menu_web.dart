@@ -7,9 +7,11 @@ class ButtonMenuWeb extends StatelessWidget {
     required this.label,
     required this.icon,
     this.selected = false,
+    this.count,
     required this.onPressed,
   }) : super(key: key);
   final String label;
+  final String? count;
   final IconData icon;
   final bool selected;
   final Function() onPressed;
@@ -46,17 +48,35 @@ class ButtonMenuWeb extends StatelessWidget {
               const SizedBox(
                 width: 16,
               ),
-              OwText(
-                label,
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  color: selected
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).textTheme.bodyLarge?.color,
+              Expanded(
+                child: OwText(
+                  label,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    color: selected
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
                 ),
               ),
               const SizedBox(
                 width: 20,
+              ),
+              Visibility(
+                visible: Valid.text(count),
+                child: Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    '$count',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
