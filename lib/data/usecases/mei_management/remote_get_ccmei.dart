@@ -17,12 +17,12 @@ class RemoteGetCcmei implements GetCcmei {
       } else if(httpResponse is String) {
         throw httpResponse;
       } else if((httpResponse as Map<String, dynamic>).containsKey('error')) {
-        if(httpResponse['error'] is List && (httpResponse['error'] as List).isNotEmpty) {
-          if(httpResponse['error'][0]['type'] == 'credentialsGov') {
-            throw DomainError.credentialsGov;
-          } else if (httpResponse['error'][0]['type'] == 'invalidCredentialsGov') {
-            throw DomainError.invalidCredentialsGov;
-          }
+        // final error = jsonDecode(httpResponse['error']);
+        // error
+        if(httpResponse['error']['errors'][0]['type'] == 'credentialsGov') {
+          throw DomainError.credentialsGov;
+        } else if (httpResponse['error']['errors'][0]['type'] == 'invalidCredentialsGov') {
+          throw DomainError.invalidCredentialsGov;
         }
         throw httpResponse['error']['message'];
       }
