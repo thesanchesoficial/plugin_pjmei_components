@@ -19,8 +19,8 @@ class CategoryFinancialEducationEntity {
       cover: map['cover'] ?? '',
       title: map['title'] ?? '',
       description: map['description'] ?? '',
-      videos: List<VideoFinancialEducationEntity>.from(
-          map['videos']?.map((x) => VideoFinancialEducationEntity.fromMap(x))),
+      videos: map['videos'] != null ? List<VideoFinancialEducationEntity>.from(
+          map['videos']?.map((x) => VideoFinancialEducationEntity.fromMap(x))) : null,
       tags: List<String>.from(map['tags']),
       index: map['index']?.toInt() ?? 0,
     );
