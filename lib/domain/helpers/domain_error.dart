@@ -8,5 +8,6 @@ enum DomainError {
   documentInUse,
   waitingInfoSimples,
   noMei,
-  
+  credentialsGov,
+  invalidCredentialsGov,
 }

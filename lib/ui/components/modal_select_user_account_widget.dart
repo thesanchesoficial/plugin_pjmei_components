@@ -48,8 +48,8 @@ class _ModalSelectUserAccountWidgetState extends State<ModalSelectUserAccountWid
                             ),
                           ),
                         ),
-                        Image.asset(
-                          '${WhiteLabelEntity.current?.style.image.logoMenuWeb}',
+                        imageLogoMenuWhiteLabelComponent(
+                          context,
                           fit: BoxFit.fitHeight,
                           color: Theme.of(context).colorScheme.primary,
                           height: 45,
@@ -215,5 +215,29 @@ Future setModalSelectUserAccountWidget(context, {bool isPf = false}) async {
         ),
       );
     }
+  );
+}
+
+Widget imageLogoMenuWhiteLabelComponent(BuildContext context, {
+  double height = 45,
+  double? width,
+  Color? color,
+  BoxFit fit = BoxFit.fitHeight,
+}) {
+  if('${WhiteLabelEntity.current?.style.image.logoMenuWeb}'.startsWith('http')) {
+    return Image.network(
+      '${WhiteLabelEntity.current?.style.image.logoMenuWeb}',
+      fit: fit,
+      height: height,
+      width: width,
+      color: color ?? Theme.of(context).colorScheme.primary,
+    );
+  }
+  return Image.asset(
+    '${WhiteLabelEntity.current?.style.image.logoMenuWeb}',
+    fit: fit,
+    height: height,
+    width: width,
+    color: color ?? Theme.of(context).colorScheme.primary,
   );
 }

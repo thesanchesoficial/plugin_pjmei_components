@@ -17,6 +17,13 @@ class RemoteGetCcmei implements GetCcmei {
       } else if(httpResponse is String) {
         throw httpResponse;
       } else if((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        if(httpResponse['error'] is List && (httpResponse['error'] as List).isNotEmpty) {
+          if(httpResponse['error'][0]['type'] == 'credentialsGov') {
+            throw DomainError.credentialsGov;
+          } else if (httpResponse['error'][0]['type'] == 'invalidCredentialsGov') {
+            throw DomainError.invalidCredentialsGov;
+          }
+        }
         throw httpResponse['error']['message'];
       }
       return CcmeiEntity.fromMap(httpResponse['success']['mei']);
