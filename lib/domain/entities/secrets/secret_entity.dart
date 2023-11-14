@@ -9,6 +9,8 @@ class SecretEntity {
     this.password,
     this.createdAt,
     this.updatedAt,
+    this.companyId,
+    this.type,
   });
 
   factory SecretEntity.fromMap(Map<String, dynamic> map) {
@@ -19,6 +21,8 @@ class SecretEntity {
       password: map['password'] ?? '',
       createdAt: map['createdAt'] ?? map['created_at'] ?? '',
       updatedAt: map['updatedAt'] ?? map['updated_at'] ?? '',
+      companyId: map['companyId'] ?? '',
+      type: map['type'] ?? '',
     );
   }
 
@@ -29,6 +33,8 @@ class SecretEntity {
   String? password;
   String? createdAt;
   String? updatedAt;
+  String? companyId;
+  String? type;
 
   SecretEntity copyWith({
     String? id,
@@ -37,6 +43,8 @@ class SecretEntity {
     String? password,
     String? createdAt,
     String? updatedAt,
+    String? companyId,
+    String? type,
   }) {
     return SecretEntity(
       id: id ?? this.id,
@@ -45,6 +53,8 @@ class SecretEntity {
       password: password ?? this.password,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      companyId: companyId ?? this.companyId,
+      type: type ?? this.type,
     );
   }
 
@@ -58,6 +68,8 @@ class SecretEntity {
       'updatedAt': updatedAt,
       'created_at': createdAt,
       'updated_at': updatedAt,
+      'companyId': companyId,
+      'type': type,
     };
   }
 
@@ -65,7 +77,7 @@ class SecretEntity {
 
   @override
   String toString() {
-    return 'SecretEntity(id: $id, description: $description, username: $username, password: $password, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'SecretEntity(id: $id, description: $description, username: $username, password: $password, createdAt: $createdAt, updatedAt: $updatedAt, companyId: $companyId, type: $type)';
   }
 
   @override
@@ -78,7 +90,9 @@ class SecretEntity {
       other.username == username &&
       other.password == password &&
       other.createdAt == createdAt &&
-      other.updatedAt == updatedAt;
+      other.updatedAt == updatedAt &&
+      other.companyId == companyId &&
+      other.type == type;
   }
 
   @override
@@ -88,6 +102,8 @@ class SecretEntity {
       username.hashCode ^
       password.hashCode ^
       createdAt.hashCode ^
-      updatedAt.hashCode;
+      updatedAt.hashCode ^
+      companyId.hashCode ^
+      type.hashCode;
   }
 }
