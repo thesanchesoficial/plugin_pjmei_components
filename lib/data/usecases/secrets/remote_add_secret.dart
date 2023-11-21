@@ -17,6 +17,7 @@ class RemoteAddSecret implements AddSecret {
           'username': params.username,
           'password': passwordCrypt,
           'companyId': companySM.company?.id,
+          'type': params.type,
         },
         newReturnErrorMsg: true,
       );
