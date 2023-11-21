@@ -92,6 +92,8 @@ export './notification/notification_entity.dart';
 
 export './secrets/secret_entity.dart';
 
+export './statistics/basic_entity.dart';
+
 export './stories/story_item_entity.dart';
 export './stories/story_view_entity.dart';
 

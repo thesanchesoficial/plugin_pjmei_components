@@ -152,6 +152,7 @@ export './mei_management/list_all_das_years.dart';
 export './mei_management/post_notafiscal.dart';
 export './mei_management/put_ccmei.dart';
 
+export './modules/clone_white_label.dart';
 export './modules/delete_module.dart';
 export './modules/list_all_modules.dart';
 export './modules/list_modules.dart';
@@ -217,6 +218,8 @@ export './secrets/add_secret.dart';
 export './secrets/list_secrets.dart';
 export './secrets/update_secret.dart';
 
+export './statistics/get_basic.dart';
+
 export './stories/story_item/add_story_item.dart';
 export './stories/story_item/delete_story_item.dart';
 export './stories/story_item/list_story_item.dart';
@@ -243,6 +246,7 @@ export './voucher/list_by_establishment_voucher.dart';
 export './voucher/update_voucher.dart';
 
 export './white_label/add_user_in_white_label.dart';
+export './white_label/delete_user_in_white_label.dart';
 export './white_label/add_white_label.dart';
 export './white_label/find_white_label.dart';
 export './white_label/list_white_label.dart';

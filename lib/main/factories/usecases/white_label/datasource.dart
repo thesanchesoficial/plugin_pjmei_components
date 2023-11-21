@@ -6,6 +6,10 @@ class _WhiteLabelApi {
     return makeRemoteFindWhiteLabel(id).exec();
   }
 
+  Future<bool> deleteUser({required String whiteLabelId, required String userId}) {
+    return makeRemoteDeleteUserInWhiteLabel(whiteLabelId, userId).exec();
+  }
+
   Future<List<WhiteLabelEntity>> list() {
     return makeRemoteListWhiteLabel().exec();
   }

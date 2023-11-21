@@ -4,6 +4,9 @@ import 'package:plugin_pjmei_components/main/factories/usecases/documents/list_d
 import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/order/find_order_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/order/list_orders_by_ecommerce_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/order/update_order_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/modules/clone_white_label_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_basic_statistics_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/white_label/delete_user_in_white_label_factory.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 import './address/delete_address_factory.dart';
@@ -242,6 +245,7 @@ part './plan/voucher/datasource.dart';
 part './plan/subscription/datasource.dart';
 part './plan/items/datasource.dart';
 part './secrets/datasource.dart';
+part './statistics/datasource.dart';
 part './stories/datasource.dart';
 part './stories/story_item/datasource.dart';
 part './stories/story_view/datasource.dart';
@@ -277,6 +281,7 @@ class Api {
   static final paymentAssistant = _PaymentAssistantApi();
   static final plan = _PlanApi();
   static final secret = _SecretsApi();
+  static final statistics = _StatisticsApi();
   static final stories = _StoriesApi();
   static final task = _TasksApi();
   static final user = _UserApi();

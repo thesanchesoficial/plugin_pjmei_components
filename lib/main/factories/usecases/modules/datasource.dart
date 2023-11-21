@@ -25,4 +25,11 @@ class _ModuleApi {
   Future<bool> delete({required String id}) {
     return makeRemoteDeleteModule(id).exec();
   }
+
+  Future<bool> clone({String? toWhiteLabel, required String fromWhiteLabel}) {
+    return makeRemoteClonarWhiteLabel().exec({
+      'toWhiteLabel': toWhiteLabel,
+      'fromWhiteLabel': fromWhiteLabel,
+    });
+  }
 }
