@@ -4,6 +4,8 @@ import 'package:plugin_pjmei_components/main/factories/usecases/documents/list_d
 import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/order/find_order_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/order/list_orders_by_ecommerce_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/order/update_order_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/schedule/delete_schedule_by_ecormmerce_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/schedule/delete_schedule_by_product_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/modules/clone_white_label_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_basic_statistics_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/white_label/delete_user_in_white_label_factory.dart';
