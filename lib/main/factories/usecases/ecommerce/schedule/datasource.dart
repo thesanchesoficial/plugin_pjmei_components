@@ -15,15 +15,15 @@ class _ScheduleApi {
   }
 
   Future<ScheduleEntity> insert({
-    required String name,
-    required int index,
-    required String ecommerceId,
+    String? ecommerceId,
+    String? productId,
+    required List<ScheduleEntity> data,
   }) {
-    return makeRemoteAddSchedule().exec({
-      "name": name,
-      "index": index,
-      "ecommerceId": ecommerceId,
-    });
+    return makeRemoteAddSchedule().exec(
+      ecommerceId,
+      productId,
+      data
+    );
   }
 
   Future<ScheduleEntity> update({required String id, required ScheduleEntity data}) {
@@ -32,5 +32,13 @@ class _ScheduleApi {
 
   Future<bool> delete({required String id}) {
     return makeRemoteDeleteSchedule(id).exec();
+  }
+
+  Future<bool> deleteByProduct({required String id}) {
+    return makeRemoteDeleteScheduleByProduct(id).exec();
+  }
+
+  Future<bool> deleteByEcommerce({required String id}) {
+    return makeRemoteDeleteScheduleByEcommerce(id).exec();
   }
 }
