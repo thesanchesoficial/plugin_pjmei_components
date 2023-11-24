@@ -18,6 +18,7 @@ class _ProductEcommerceApi {
     required String productCategoryId,
     required bool highlight,
     required bool legalAge,
+    required num amount
   }) {
     return makeRemoteAddProduct().exec({
       "name": name,
@@ -27,6 +28,7 @@ class _ProductEcommerceApi {
       "productCategoryId": productCategoryId,
       "highlight": highlight,
       "legalAge": legalAge,
+      'amount': amount
     });
   }
 

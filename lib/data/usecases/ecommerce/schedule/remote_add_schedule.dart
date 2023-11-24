@@ -5,21 +5,32 @@ class RemoteAddSchedule implements AddSchedule {
   final HttpClient httpClient;
   final String url;
 
-  Future<ScheduleEntity> exec(Map params, {bool log = false}) async {
+  Future<ScheduleEntity> exec(String? ecommerceId, String? productId, List<ScheduleEntity> data, {bool log = false}) async {
+    final Map body = {
+      "schedule": data.map((e) => e.toMap()).toList(),
+    };
+
+    if (ecommerceId == null){
+      body['productId'] = productId;
+    }
+
+    if (productId == null){
+      body['ecommerceId'] = ecommerceId;
+    }
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
         method: 'post',
-        body: params,
+        body: body,
         newReturnErrorMsg: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      if(httpResponse['success']['schedule'] != null) {
-        return ScheduleEntity.fromMap(httpResponse['success']['schedule']);
-      }
+      // if(httpResponse['success']['schedule'] != null) {
+      //   return ScheduleEntity.fromMap(httpResponse['success']['schedule']);
+      // }
       return ScheduleEntity.fromMap(httpResponse['success']);
     } catch (e) {
       throw e;
