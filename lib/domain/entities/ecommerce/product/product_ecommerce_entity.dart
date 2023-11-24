@@ -114,7 +114,7 @@ class ProductEcommerceEntity {
       id: map['id'] ?? '',
       name: map['name'] ?? '',
       description: map['description'] ?? '',
-      amount: num.parse(map['amount'].toString()) ?? 0,
+      amount: num.tryParse(map['amount'].toString()) ?? 0,
       productCategory: map['productCategory'] != null ? ProductCategoryEcommerceEntity.fromMap(map['productCategory']) : null,
       visibility: map['visibility'] ?? false,
       highlight: map['highlight'] ?? false,
