@@ -16,6 +16,8 @@ class RemoteListUsers implements ListUsers {
       );
       if(httpResponse["success"]["user"] != null) {
         return (httpResponse["success"]["user"] as List).map((e) => UserEntity.fromMap(e)).toList();
+      } else if(httpResponse["success"]["users"] != null) {
+        return (httpResponse["success"]["users"] as List).map((e) => UserEntity.fromMap(e)).toList();
       } else {
         return (httpResponse["success"] as List).map((e) => UserEntity.fromMap(e)).toList();
       }

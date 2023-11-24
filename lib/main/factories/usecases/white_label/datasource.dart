@@ -18,6 +18,10 @@ class _WhiteLabelApi {
     return makeRemoteListWhiteLabelByUser(id).exec();
   }
 
+  Future<List<UserEntity>> listTeamByWhiteLabel({required String id}) {
+    return makeRemoteListTeamByWhiteLabel(id).exec();
+  }
+
   Future<WhiteLabelEntity> insert({required WhiteLabelEntity data}) {
     return makeRemoteAddWhiteLabel().exec(data);
   }

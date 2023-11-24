@@ -7,6 +7,7 @@ import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/order/
 import 'package:plugin_pjmei_components/main/factories/usecases/modules/clone_white_label_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_basic_statistics_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/white_label/delete_user_in_white_label_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/white_label/list_team_by_white_label_factory.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 import './address/delete_address_factory.dart';
