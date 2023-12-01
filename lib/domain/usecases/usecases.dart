@@ -219,6 +219,7 @@ export './secrets/list_secrets.dart';
 export './secrets/update_secret.dart';
 
 export './statistics/get_basic.dart';
+export './statistics/get_statistics_period.dart';
 
 export './stories/story_item/add_story_item.dart';
 export './stories/story_item/delete_story_item.dart';

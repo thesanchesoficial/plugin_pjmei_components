@@ -26,6 +26,7 @@ class EcommerceEntity {
   num takeoutTime;
   num deliveryTime;
   num preparationTime;
+  int? maxParticipantsBySchedule;
   String? description;
   String? color;
   String? logo;
@@ -60,6 +61,7 @@ class EcommerceEntity {
     required this.takeoutTime,
     required this.deliveryTime,
     required this.preparationTime,
+    this.maxParticipantsBySchedule,
     this.description,
     this.color,
     this.logo,
@@ -96,6 +98,7 @@ class EcommerceEntity {
     num? takeoutTime,
     num? deliveryTime,
     num? preparationTime,
+    int? maxParticipantsBySchedule,
     String? description,
     String? color,
     String? logo,
@@ -131,6 +134,7 @@ class EcommerceEntity {
       takeoutTime: takeoutTime ?? this.takeoutTime,
       deliveryTime: deliveryTime ?? this.deliveryTime,
       preparationTime: preparationTime ?? this.preparationTime,
+      maxParticipantsBySchedule: maxParticipantsBySchedule ?? this.maxParticipantsBySchedule,
       description: description ?? this.description,
       color: color ?? this.color,
       logo: logo ?? this.logo,
@@ -169,6 +173,7 @@ class EcommerceEntity {
       'takeoutTime': takeoutTime,
       'deliveryTime': deliveryTime,
       'preparationTime': preparationTime,
+      'maxParticipantsBySchedule': maxParticipantsBySchedule,
       'description': description,
       'color': color,
       'logo': logo,
@@ -207,6 +212,7 @@ class EcommerceEntity {
       takeoutTime: map['takeoutTime'] ?? 0,
       deliveryTime: map['deliveryTime'] ?? 0,
       preparationTime: map['preparationTime'] ?? 0,
+      maxParticipantsBySchedule: map['maxParticipantsBySchedule'] ?? 0,
       description: map['description'],
       color: map['color'],
       logo: map['logo'],
@@ -227,7 +233,7 @@ class EcommerceEntity {
 
   @override
   String toString() {
-    return 'EcommerceEntity(id: $id, name: $name, email: $email, phone: $phone, documentType: $documentType, documentNumber: $documentNumber, url: $url, availableForScheduling: $availableForScheduling, voucherEnabled: $voucherEnabled, verified: $verified, acceptPaymentInstallments: $acceptPaymentInstallments, ecommercePaysFees: $ecommercePaysFees, visibility: $visibility, available: $available, blocked: $blocked, type: $type, serviceMethods: $serviceMethods, tags: $tags, paymentMethods: $paymentMethods, takeoutTime: $takeoutTime, deliveryTime: $deliveryTime, preparationTime: $preparationTime, description: $description, color: $color, logo: $logo, cover: $cover, exchangeAndReturnPolicy: $exchangeAndReturnPolicy, refundPolicy: $refundPolicy, minimumOrderValue: $minimumOrderValue, minimumOrderValueToDeliveryFree: $minimumOrderValueToDeliveryFree, schedules: $schedules, address: $address, bankAccount: $bankAccount)';
+    return 'EcommerceEntity(id: $id, name: $name, email: $email, phone: $phone, documentType: $documentType, documentNumber: $documentNumber, maxParticipantsBySchedule: $maxParticipantsBySchedule, url: $url, availableForScheduling: $availableForScheduling, voucherEnabled: $voucherEnabled, verified: $verified, acceptPaymentInstallments: $acceptPaymentInstallments, ecommercePaysFees: $ecommercePaysFees, visibility: $visibility, available: $available, blocked: $blocked, type: $type, serviceMethods: $serviceMethods, tags: $tags, paymentMethods: $paymentMethods, takeoutTime: $takeoutTime, deliveryTime: $deliveryTime, preparationTime: $preparationTime, description: $description, color: $color, logo: $logo, cover: $cover, exchangeAndReturnPolicy: $exchangeAndReturnPolicy, refundPolicy: $refundPolicy, minimumOrderValue: $minimumOrderValue, minimumOrderValueToDeliveryFree: $minimumOrderValueToDeliveryFree, schedules: $schedules, address: $address, bankAccount: $bankAccount)';
   }
 
   @override
@@ -257,6 +263,7 @@ class EcommerceEntity {
       other.takeoutTime == takeoutTime &&
       other.deliveryTime == deliveryTime &&
       other.preparationTime == preparationTime &&
+      other.maxParticipantsBySchedule == maxParticipantsBySchedule &&
       other.description == description &&
       other.color == color &&
       other.logo == logo &&
@@ -293,6 +300,7 @@ class EcommerceEntity {
       paymentMethods.hashCode ^
       takeoutTime.hashCode ^
       deliveryTime.hashCode ^
+      maxParticipantsBySchedule.hashCode ^
       preparationTime.hashCode ^
       description.hashCode ^
       color.hashCode ^
