@@ -176,6 +176,8 @@ export './secrets/remote_update_secret.dart';
 
 export './statistics/remote_get_basic.dart';
 export './statistics/remote_get_by_period.dart';
+export './statistics/remote_get_most_booked_weekdays.dart';
+export './statistics/remote_get_most_item.dart';
 
 export './stories/story_item/remote_add_story_item.dart';
 export './stories/story_item/remote_delete_story_item.dart';
