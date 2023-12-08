@@ -17,4 +17,20 @@ class _StatisticsApi {
   Future<StatisticsPeriodEntity> scheduleByPeriod({Map<String, dynamic>? params}) {
     return makeRemoteGetStatisticsPeriodSchedule(params: params).exec();
   }
+
+  Future<List<StatisticsMostBookedWeekdaysEntity>> mostBookedWeekdays({Map<String, dynamic>? params}) {
+    return makeRemoteGetStatisticsMostBookedWeekdays(params: params).exec();
+  }
+
+  Future<List<StatisticsMostItemEntity>> serviceLocationMostSchedule({Map<String, dynamic>? params}) {
+    return makeRemoteGetStatisticsMostServiceLocationMostSchedule(params: params).exec();
+  }
+
+  Future<List<StatisticsMostItemEntity>> productsMostSchedule({Map<String, dynamic>? params}) {
+    return makeRemoteGetStatisticsMostProductsMostSchedule(params: params).exec();
+  }
+
+  Future<List<StatisticsMostItemEntity>> categoryMostSchedule({Map<String, dynamic>? params}) {
+    return makeRemoteGetStatisticsMostCategoryMostSchedule(params: params).exec();
+  }
 }

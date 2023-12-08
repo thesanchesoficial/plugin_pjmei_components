@@ -8,9 +8,13 @@ import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/schedu
 import 'package:plugin_pjmei_components/main/factories/usecases/ecommerce/schedule/delete_schedule_by_product_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/modules/clone_white_label_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_basic_statistics_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_category_most_schedule_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_product_most_schedule_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_statistics_company_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_statistics_schedule_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/statistics/get_statistics_user_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/statistics/order_most_booked_weekdays_factory.dart';
+import 'package:plugin_pjmei_components/main/factories/usecases/statistics/order_service_location_most_schedule_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/white_label/delete_user_in_white_label_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/usecases/white_label/list_team_by_white_label_factory.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
