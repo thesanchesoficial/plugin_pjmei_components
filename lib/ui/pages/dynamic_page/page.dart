@@ -115,7 +115,7 @@ class _PageDynamicPageState extends State<PageDynamicPage> with AutomaticKeepAli
     try {
       modules = await  Api.module.list(params: {
         'screen': "${widget.module.params?["idDynamicPage"]}",
-        'companyId': companySM.company?.id,
+        'companyId': '${companySM.company?.id}',
       });
     } catch (e) {
       // e

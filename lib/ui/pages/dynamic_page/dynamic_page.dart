@@ -123,7 +123,7 @@ class _DynamicPageState extends State<DynamicPage> with AutomaticKeepAliveClient
     try {
       modules = await Api.module.list(params: {
         'screen': "${widget.module.params?["idDynamicPage"]}",
-        'companyId': companySM.company?.id,
+        'companyId': '${companySM.company?.id}',
       });
       _screens.add(
         TabModuleWidget(
