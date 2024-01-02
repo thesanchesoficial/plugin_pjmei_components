@@ -6,6 +6,10 @@ class _DasApi {
     return makeGetListDas(params: params).exec();
   }
 
+  Future<DasItemEntity> generatePdf(String id) {
+    return makeGeneratePdf().exec(id: id);
+  }
+
   Future<List<DasItemEntity>> update({Map<String, dynamic>? params}) {
     return makeUpdateListDas(params: params).exec();
   }
