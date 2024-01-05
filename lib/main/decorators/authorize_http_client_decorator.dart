@@ -1,5 +1,5 @@
-import 'package:plugin_pjmei_components/data/cache/cache.dart';
-import 'package:plugin_pjmei_components/data/http/http.dart';
+import 'package:plugin_pjmei_components/test/data/cache/cache.dart';
+import 'package:plugin_pjmei_components/test/data/http/http.dart';
 
 class AuthorizeHttpClientDecorator implements HttpClient {
   AuthorizeHttpClientDecorator({

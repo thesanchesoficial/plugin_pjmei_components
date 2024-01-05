@@ -1,5 +1,0 @@
-import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-
-abstract class AddCategoryKnowledgeBase {
-  Future<HelpCategoriesFaqEntity> exec(HelpCategoriesFaqEntity params, {bool log = false});
-}

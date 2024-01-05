@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:plugin_pjmei_components/features/app/domain/entities/environment.dart';
+import 'package:plugin_pjmei_components/features/white_label/domain/entity/white_label_entity.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:plugin_pjmei_components_example/ui/routes.dart';
+// ignore: depend_on_referenced_packages
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 class HomeSettings extends StatelessWidget {

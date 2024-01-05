@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
+import '../../features/white_label/domain/entity/white_label_entity.dart';
+
 class ModalSelectUserAccountWidget extends StatefulWidget {
   const ModalSelectUserAccountWidget({Key? key, required this.isPf}) : super(key: key);
   final bool isPf;

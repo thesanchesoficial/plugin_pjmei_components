@@ -1,4 +1,11 @@
-import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+import '../../features/white_label/domain/entity/environment_white_label_entity.dart';
+import '../../features/white_label/domain/entity/functionality_white_label_entity.dart';
+import '../../features/white_label/domain/entity/image_white_label_entity.dart';
+import '../../features/white_label/domain/entity/item_environment_white_label_entity.dart';
+import '../../features/white_label/domain/entity/link_white_label_entity.dart';
+import '../../features/white_label/domain/entity/setting_white_label_entity.dart';
+import '../../features/white_label/domain/entity/style_white_label_entity.dart';
+import '../../features/white_label/domain/entity/white_label_entity.dart';
 
 WhiteLabelEntity cachoeiroProd = WhiteLabelEntity(
   name: 'Cachoeiro Empreendedor',

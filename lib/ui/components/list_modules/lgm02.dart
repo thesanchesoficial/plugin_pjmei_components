@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
+import '../../../features/modules/domain/entity/pjmei_module_entity.dart';
+
 class LGM02 extends StatelessWidget {
   const LGM02({
     Key? key,

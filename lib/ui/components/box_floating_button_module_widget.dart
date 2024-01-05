@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/ui/components/widgets/ow_text.dart';
-import '../../domain/entities/pjmei_module_entity.dart';
+
+import '../../features/modules/domain/entity/pjmei_module_entity.dart';
 
 class BoxFloatingButtonWidget extends StatelessWidget {
   const BoxFloatingButtonWidget({

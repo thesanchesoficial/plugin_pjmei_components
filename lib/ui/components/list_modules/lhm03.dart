@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
+import '../../../features/modules/domain/entity/pjmei_module_entity.dart';
+
 class LHM03 extends StatelessWidget {
   const LHM03({
     Key? key,

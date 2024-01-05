@@ -1,4 +1,5 @@
-import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+import '../../../features/app/domain/entities/environment.dart';
+import '../../../utils/functions/print.dart';
 
 String makeApiUrl(String router, {Map<String, dynamic>? params}) {
   String urlParams = '?api_key=${Environment.current?.apiKey}';
