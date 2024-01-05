@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/help_categorie_faq_entity.dart';
 import '../../domain/usecase/list_categories_knowledge_base.dart';
 
 class RemoteListCategoriesKnowledgeBase implements ListCategoriesKnowledgeBase {

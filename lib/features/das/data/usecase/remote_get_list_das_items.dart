@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/das_item_entity.dart';
 import '../../domain/usecase/get_list_das_item.dart';
 
 class RemoteGetListDasItem implements GetListDasItem {

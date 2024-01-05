@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/help_question_faq_entity.dart';
 import '../../domain/usecase/add_question_knowledge_base.dart';
 
 class RemoteAddQuestionKnowledgeBase implements AddQuestionKnowledgeBase {

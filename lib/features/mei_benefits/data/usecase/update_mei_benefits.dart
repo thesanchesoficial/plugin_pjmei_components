@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/mei_benefits_entity.dart';
 import '../../domain/usecase/update_mei_benefits.dart';
 
 class RemoteUpdateMeiBenefits implements UpdateMeiBenefits {

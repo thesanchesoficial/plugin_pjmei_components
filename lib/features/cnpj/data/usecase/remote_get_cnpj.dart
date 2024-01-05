@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/cnpj_entity.dart';
 import '../../domain/usecase/get_cnpj.dart';
 
 class RemoteGetCnpj implements GetCnpj {

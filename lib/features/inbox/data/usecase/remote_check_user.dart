@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/check_user_entity.dart';
 import '../../domain/usecase/check_user.dart';
 
 class RemoteCheckUser implements CheckUser {

@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../../features/modules/domain/entity/pjmei_module_entity.dart';
 
 class LHM07 extends StatelessWidget {
   const LHM07({

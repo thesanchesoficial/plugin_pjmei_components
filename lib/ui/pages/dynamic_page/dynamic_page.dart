@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
-import '../../../features/modules/domain/entity/pjmei_module_entity.dart';
-import '../../../src/apis.dart';
 
 class DynamicPage extends StatefulWidget {
   const DynamicPage(this.module, {Key? key}) : super(key: key);

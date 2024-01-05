@@ -1,6 +1,6 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
 
-import '../../../../src/variables.dart';
+import '../../../../utils/variable.dart';
 import '../../../user/domain/entity/user_entity.dart';
 import '../../domain/usecase/refresh_token.dart';
 

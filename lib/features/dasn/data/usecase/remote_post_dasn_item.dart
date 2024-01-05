@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/dasn_declaration_entity.dart';
 import '../../domain/usecase/post_dasn_item.dart';
 
 class RemotePostDasnItem implements PostDasnItem {

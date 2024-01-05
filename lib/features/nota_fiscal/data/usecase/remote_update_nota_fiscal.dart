@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/nota_fiscal_entity.dart';
 import '../../domain/usecase/update_nota_fiscal.dart';
 
 class RemoteUpdateNotaFiscal implements UpdateNotaFiscal {

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
-import '../../../white_label/domain/entity/white_label_entity.dart';
 
 class ModulePjmei {
   String? id;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../../features/modules/domain/entity/pjmei_module_entity.dart';
 
 class LVM04 extends StatelessWidget {
   const LVM04({

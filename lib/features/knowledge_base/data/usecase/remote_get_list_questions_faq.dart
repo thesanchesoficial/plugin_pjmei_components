@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/help_question_faq_entity.dart';
 import '../../domain/usecase/get_list_questions_faq.dart';
 
 class RemoteGetListQuestionsFaq implements GetListQuestionsFaq {

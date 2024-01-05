@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/mei_benefits_entity.dart';
 import '../../domain/usecase/get_mei_benefits.dart';
 
 class RemoteGetMeiBenefits implements GetMeiBenefits {

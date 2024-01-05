@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/nota_fiscal_entity.dart';
 import '../../domain/usecase/list_notas_fiscais.dart';
 
 class RemoteListNotasFiscais implements ListNotasFiscais {

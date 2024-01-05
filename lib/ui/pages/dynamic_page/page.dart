@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../../features/modules/domain/entity/pjmei_module_entity.dart';
-import '../../../src/apis.dart';
 
 class PageDynamicPage extends StatefulWidget {
   const PageDynamicPage(this.module, {Key? key, this.modules}) : super(key: key);

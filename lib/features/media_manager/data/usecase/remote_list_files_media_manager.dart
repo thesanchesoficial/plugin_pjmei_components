@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/file_media_manager_entity.dart';
 import '../../domain/usecase/list_files_media_manager.dart';
 
 class RemoteListFilesMediaManager implements ListFilesMediaManager {

@@ -6,9 +6,6 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 import '../../features/app/domain/entities/environment.dart';
-import '../../features/user/domain/entity/user_entity.dart';
-import '../../features/white_label/domain/entity/white_label_entity.dart';
-import '../../src/apis.dart';
 
 class HttpAdapter implements HttpClient {
 

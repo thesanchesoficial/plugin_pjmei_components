@@ -1,7 +1,6 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 import '../../../app/domain/entities/environment.dart';
-import '../../domain/entity/notafiscal_service_entity.dart';
 import '../../domain/usecase/get_notafiscal_service.dart';
 
 class RemoteGetNotaFiscalService implements GetNotaFiscalService {

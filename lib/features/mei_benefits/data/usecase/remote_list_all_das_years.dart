@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/beneficios_entity.dart';
 import '../../domain/usecase/list_all_das_years.dart';
 
 class RemoteListAllDasYears implements ListAllDasYears {

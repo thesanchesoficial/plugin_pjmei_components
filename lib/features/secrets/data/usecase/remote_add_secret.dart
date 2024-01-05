@@ -1,7 +1,7 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
 import 'package:plugin_pjmei_components/utils/functions/encriptar.dart';
 
-import '../../../../src/variables.dart';
+import '../../../../utils/variable.dart';
 import '../../domain/entity/secret_entity.dart';
 import '../../domain/usecase/add_secret.dart';
 

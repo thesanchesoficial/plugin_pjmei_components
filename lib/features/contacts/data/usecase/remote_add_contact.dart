@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/contact_entity.dart';
 import '../../domain/usecase/add_contact.dart';
 
 class RemoteAddContact implements AddContact {

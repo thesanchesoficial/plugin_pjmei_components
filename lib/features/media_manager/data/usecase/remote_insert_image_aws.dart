@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/entity/file_media_aws_entity.dart';
 import '../../domain/usecase/insert_image_aws.dart';
 
 class RemoteInsertImageAws implements InsertImageAws {
