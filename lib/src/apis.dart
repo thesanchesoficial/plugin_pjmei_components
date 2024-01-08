@@ -6,6 +6,8 @@ import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_c
 import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_transaction_data_entity.dart';
 import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_transaction_entity.dart';
 import 'package:plugin_pjmei_components/features/finance/domain/usecase/list_finance_dashboard_basic.dart';
+import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/nota_fiscal_entity.dart';
+import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/notafiscal_service_entity.dart';
 
 export '../features/finance/data/repositories/bank/delete_finance_bank_factory.dart';
 export '../features/finance/data/repositories/bank/get_finance_bank_factory.dart';
@@ -34,9 +36,6 @@ export '../features/finance/data/repositories/credit-card/transactions/delete_fi
 export '../features/finance/data/repositories/credit-card/transactions/list_finance_credit_card_transaction_factory.dart';
 export '../features/finance/data/repositories/credit-card/transactions/update_finance_credit_card_transaction_factory.dart';
 export '../features/finance/data/repositories/credit-card/update_finance_credit_card_factory.dart';
-
-
-
 
 import '../features/address/data/repositories/delete_address_factory.dart';
 import '../features/address/data/repositories/find_address_factory.dart';
@@ -169,6 +168,11 @@ import '../features/mei_benefits/domain/entity/mei_benefits_entity.dart';
 import '../features/mei_limit/data/repositories/get_mei_limit_factory.dart';
 import '../features/mei_report/data/repositories/get_relatorio_mei_factory.dart';
 import '../features/mei_report/domain/entity/relatorio_mei_entity.dart';
+import '../features/nota_fiscal/data/repositories/get_nota_fiscal_factory.dart';
+import '../features/nota_fiscal/data/repositories/list_nota_fiscal_service_factory.dart';
+import '../features/nota_fiscal/data/repositories/list_notas_fiscais_factory.dart';
+import '../features/nota_fiscal/data/repositories/post_nota_fiscal_factory.dart';
+import '../features/nota_fiscal/data/repositories/put_nota_fiscal_factory.dart';
 import '../features/notifications/data/repositories/add_notifications_factory.dart';
 import '../features/notifications/data/repositories/delete_notifications_factory.dart';
 import '../features/notifications/data/repositories/get_list_notifications_factory.dart';
