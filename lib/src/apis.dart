@@ -5,7 +5,6 @@ import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_c
 import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_credit_card_category_entity.dart';
 import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_transaction_data_entity.dart';
 import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_transaction_entity.dart';
-import 'package:plugin_pjmei_components/features/finance/domain/usecase/list_finance_dashboard_basic.dart';
 import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/nota_fiscal_entity.dart';
 import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/notafiscal_service_entity.dart';
 
