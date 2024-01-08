@@ -10,7 +10,7 @@ class _FinanceApi {
     return makeRemoteListFinanceDashboardBasic(id, params: params).exec();
   }
 
-  Future<List<FinanceCreditCardCategoryEntity>> listFinanceCreditCardCategory({required String id, Map<String, dynamic>? params}) {
+  Future<List<FinanceCreditCardCategoryEntity>> listFinanceCreditCardCategory() {
     return makeRemoteListFinanceCreditCardCategory().exec();
   }
 
@@ -18,7 +18,7 @@ class _FinanceApi {
     return makeRemoteListFinanceCategory(type).exec();
   }
 
-  Future<List<FinanceBankInstitutionEntity>> listFinanceBankInstitution({required String type}) {
+  Future<List<FinanceBankInstitutionEntity>> listFinanceBankInstitution() {
     return makeRemoteListFinanceBankInstitution().exec();
   }
 

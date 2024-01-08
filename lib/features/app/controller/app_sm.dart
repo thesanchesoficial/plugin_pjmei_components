@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
 import '../../white_label/domain/entity/white_label_entity.dart';
-import '../domain/entities/environment.dart';
+import '../domain/entity/environment.dart';
 part 'app_sm.g.dart';
 
 class AppSMStore = AppSMStoreBase with _$AppSMStore;

@@ -1,4 +1,4 @@
-import '../../../features/app/domain/entities/environment.dart';
+import '../../../features/app/domain/entity/environment.dart';
 import '../../../utils/functions/print.dart';
 
 String makeApiUrl(String router, {Map<String, dynamic>? params}) {

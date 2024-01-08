@@ -1,6 +1,6 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../features/app/domain/entities/environment.dart';
+import '../../features/app/domain/entity/environment.dart';
 
 class Production extends Environment {
   final String baseUrl = 'https://api.pjmei.app/v1/';

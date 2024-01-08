@@ -2,6 +2,7 @@ import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
 import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
 import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
 
+import '../../../domain/entity/finance_dashboard_entity.dart';
 import '../../../domain/usecase/list_finance_dashboard_basic.dart';
 
 class RemoteListFinanceDashboardBanks implements ListFinanceDashboardBanks {

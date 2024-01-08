@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 import '../features/app/controller/app_sm.dart';
-import '../features/app/domain/entities/environment.dart';
+import '../features/app/domain/entity/environment.dart';
 import '../features/cart/controller/cart_sm.dart';
 import '../features/company/controller/company_sm.dart';
 import '../features/ecommerce/controller/ecommerce_sm.dart';

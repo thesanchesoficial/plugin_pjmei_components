@@ -1,4 +1,5 @@
 export './address/domain/entity/address_entity.dart';
+export './app/domain/entity/environment.dart';
 export './auth/domain/entity/check_if_user_exists_entity.dart';
 export './auth/domain/entity/login_params_entity.dart';
 export './auth/domain/entity/register_params_entity.dart';
@@ -19,7 +20,11 @@ export './documents/domain/entity/document_entity.dart';
 export './documents/domain/entity/document_subtype_entity.dart';
 export './documents/domain/entity/document_type_entity.dart';
 export './ecommerce/domain/entity/ecommerce_entity.dart';
+export './ecommerce/domain/entity/shifts_ecommerce_entity.dart';
 export './extract/domain/entity/extract_entity.dart';
+export './finance/domain/entity/finance_dashboard_basic_entity.dart';
+export './finance/domain/entity/finance_dashboard_entity.dart';
+export './finance/domain/entity/finance_transaction_result_entity.dart';
 export './finance/domain/entity/finance_bank_account_entity.dart';
 export './finance/domain/entity/finance_bank_institution_entity.dart';
 export './finance/domain/entity/finance_card_flag_entity.dart';

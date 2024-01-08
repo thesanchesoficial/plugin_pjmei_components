@@ -117,6 +117,7 @@ import '../features/finance/data/repositories/transactions/list_finance_transact
 import '../features/finance/data/repositories/transactions/list_finance_transactions_search_factory.dart';
 import '../features/finance/data/repositories/transactions/post_finance_transactions_factory.dart';
 import '../features/finance/data/repositories/transactions/put_finance_transactions_factory.dart';
+import '../features/finance/domain/entity/finance_dashboard_basic_entity.dart';
 import '../features/finance/domain/entity/finance_filter_entity.dart';
 import '../features/finance/domain/entity/finance_transaction_report_entity.dart';
 import '../features/financial_assistant/data/repositories/list_financial_assistant_factory.dart';
