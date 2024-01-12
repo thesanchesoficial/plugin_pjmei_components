@@ -18,6 +18,8 @@ WhiteLabelEntity serraProd = WhiteLabelEntity(
     forceAuthenticationStart: false,
     redirectOrigin: 'http://serra.es.gov.br/',
     urlWebApplication: 'https://ciampe.serra.es.gov.br/',
+    linkAppleStore: 'https://apps.apple.com/br/app/ciampe-serra-virtual/id6468666075',
+    linkGooglePlay: 'https://play.google.com/store/apps/details?id=app.pjmei.gov.es.serra',
     link: LinkWhiteLabelEntity(
       termsOfUse: 'https://www.pjmei.app/termos-de-uso',
       privacyPolicy: 'https://www.pjmei.app/politica-de-privacidade',

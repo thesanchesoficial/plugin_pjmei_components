@@ -1,7 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../features/app/domain/entity/environment.dart';
-
 class Development extends Environment {
   @override
   String get baseUrl => 'https://apistg.pjmei.app/v1/';

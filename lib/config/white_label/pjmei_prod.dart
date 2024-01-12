@@ -18,6 +18,8 @@ WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
     forceAuthenticationStart: false,
     redirectOrigin: 'https://portal.pjmei.app',
     urlWebApplication: 'https://portal.pjmei.app',
+    linkAppleStore: 'https://apps.apple.com/br/app/pjmei-loja-online-e-gest%C3%A3o/id1554746008',
+    linkGooglePlay: 'https://play.google.com/store/apps/details?id=com.dsanches.marketplace.marketplace_lojista',
     link: LinkWhiteLabelEntity(
       termsOfUse: 'https://www.pjmei.app/termos-de-uso',
       privacyPolicy: 'https://www.pjmei.app/politica-de-privacidade',

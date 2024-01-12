@@ -10,6 +10,8 @@ class SettingWhiteLabelEntity {
   bool forceAuthenticationStart;
   bool disabledPrintScreen;
   String urlWebApplication;
+  String? linkAppleStore;
+  String? linkGooglePlay;
   String redirectOrigin;
   LinkWhiteLabelEntity link;
   EnvironmentWhiteLabelEntity environment;
@@ -20,6 +22,8 @@ class SettingWhiteLabelEntity {
     required this.forceAuthenticationStart,
     required this.disabledPrintScreen,
     required this.urlWebApplication,
+    this.linkAppleStore,
+    this.linkGooglePlay,
     required this.redirectOrigin,
     required this.link,
     required this.environment,
@@ -32,6 +36,8 @@ class SettingWhiteLabelEntity {
     bool? forceAuthenticationStart,
     bool? disabledPrintScreen,
     String? urlWebApplication,
+    String? linkAppleStore,
+    String? linkGooglePlay,
     String? redirectOrigin,
     LinkWhiteLabelEntity? link,
     EnvironmentWhiteLabelEntity? environment,
@@ -43,6 +49,8 @@ class SettingWhiteLabelEntity {
       forceAuthenticationStart: forceAuthenticationStart ?? this.forceAuthenticationStart,
       disabledPrintScreen: disabledPrintScreen ?? this.disabledPrintScreen,
       urlWebApplication: urlWebApplication ?? this.urlWebApplication,
+      linkAppleStore: linkAppleStore ?? this.linkAppleStore,
+      linkGooglePlay: linkGooglePlay ?? this.linkGooglePlay,
       redirectOrigin: redirectOrigin ?? this.redirectOrigin,
       link: link ?? this.link,
       environment: environment ?? this.environment,
@@ -57,6 +65,8 @@ class SettingWhiteLabelEntity {
       'forceAuthenticationStart': forceAuthenticationStart,
       'disabledPrintScreen': disabledPrintScreen,
       'urlWebApplication': urlWebApplication,
+      'linkAppleStore': linkAppleStore,
+      'linkGooglePlay': linkGooglePlay,
       'redirectOrigin': redirectOrigin,
       'link': link.toMap(),
       'environment': environment.toMap(),
@@ -71,6 +81,8 @@ class SettingWhiteLabelEntity {
       forceAuthenticationStart: map['forceAuthenticationStart'] ?? false,
       disabledPrintScreen: map['disabledPrintScreen'] ?? false,
       urlWebApplication: map['urlWebApplication'] ?? '',
+      linkAppleStore: map['linkAppleStore'],
+      linkGooglePlay: map['linkGooglePlay'],
       redirectOrigin: map['redirectOrigin'] ?? '',
       link: LinkWhiteLabelEntity.fromMap(map['link']),
       environment: EnvironmentWhiteLabelEntity.fromMap(map['environment']),
@@ -92,6 +104,8 @@ class SettingWhiteLabelEntity {
       other.forceAuthenticationStart == forceAuthenticationStart &&
       other.disabledPrintScreen == disabledPrintScreen &&
       other.urlWebApplication == urlWebApplication &&
+      other.linkAppleStore == linkAppleStore &&
+      other.linkGooglePlay == linkGooglePlay &&
       other.redirectOrigin == redirectOrigin &&
       other.link == link &&
       other.environment == environment &&
@@ -105,14 +119,17 @@ class SettingWhiteLabelEntity {
       forceAuthenticationStart.hashCode ^
       disabledPrintScreen.hashCode ^
       urlWebApplication.hashCode ^
+      linkAppleStore.hashCode ^
+      linkGooglePlay.hashCode ^
       redirectOrigin.hashCode ^
       link.hashCode ^
       environment.hashCode ^
       functionality.hashCode;
   }
 
+
   @override
   String toString() {
-    return 'SettingWhiteLabelEntity(companyId: $companyId, ecommerceId: $ecommerceId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, urlWebApplication: $urlWebApplication, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
+    return 'SettingWhiteLabelEntity(companyId: $companyId, ecommerceId: $ecommerceId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, urlWebApplication: $urlWebApplication, linkAppleStore: $linkAppleStore, linkGooglePlay: $linkGooglePlay, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
   }
 }
