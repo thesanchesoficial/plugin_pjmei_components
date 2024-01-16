@@ -4,25 +4,36 @@ version: 0.0.130
 homepage:
 
 environment:
-  sdk: '>=3.0.0-218.0.dev <4.0.0'
-  flutter: ">=2.5.0"
+  sdk: '>=3.1.1 <4.0.0'
+  flutter: '>=3.3.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
+  # flutter_localizations:
+  #   sdk: flutter
 
 dependency_overrides:
+  path: ^1.9.0
   pjmei_white_label_dependencies:
     git:
       url: https://bitbucket.org/olawolffdevs/pjmei_white_label_dependencies
       ref: master
       publish_to: none
 
+  flutter_staggered_grid_view:
+    git:
+      url: https://github.com/MehmetKaranlik/flutter_staggered_grid_view
+      ref: master
+
+  flutter_placeholder_textlines:
+    git:
+      url: https://github.com/totorigolo/flutter_placeholder_textlines
+      ref: master
+
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  # flutter_test:
+  #   sdk: flutter
   mockito: ^5.0.16
   mobx_codegen: ^2.0.1+2
   build_runner: ^2.1.2

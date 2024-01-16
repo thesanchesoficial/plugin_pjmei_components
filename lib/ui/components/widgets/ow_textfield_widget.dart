@@ -234,38 +234,45 @@ class OwTextField extends StatelessWidget {
       );
     } else {
       return TypeAheadField(
-        suggestionsBoxDecoration: SuggestionsBoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(radius)),
-          color: Theme.of(context).colorScheme.surfaceVariant,
-        ),
+        decorationBuilder: (context, widget) {
+          return Material(
+            type: MaterialType.card,
+            elevation: 4,
+            borderRadius: BorderRadius.all(Radius.circular(radius)),
+            color: Theme.of(context).colorScheme.surfaceVariant,
+            child: widget,
+          );
+        },
         autoFlipDirection: true,
         hideOnLoading: false,
-        textFieldConfiguration: TextFieldConfiguration(
-          autofocus: autofocus,
-          controller: controller,
-          keyboardType: keyboardType ?? _keyboardType ?? TextInputType.text,
-          textInputAction: textInputAction ?? _textInputAction,
-          textCapitalization: textCapitalization ?? TextCapitalization.none,
-          obscureText: obscureText,
-          enabled: enabled,
-          enableInteractiveSelection: enableInteractiveSelection,
-          decoration: _defineTextFieldStyle(context),
-          onSubmitted: (_) {
-            onFieldSubmitted?.call(_);
-            _goToNextFocusNode?.call();
-          },
-          focusNode: _focusNode,
-          onChanged: onChanged,
-          onTap: onTap,
-          maxLength: maxLength,
-          minLines: minLines,
-          maxLines: maxLines,
-          inputFormatters: inputFormatters,
-        ),
+        builder:(context, controller, focusNode) {
+          return TextField(
+            autofocus: autofocus,
+            controller: controller,
+            keyboardType: keyboardType ?? _keyboardType ?? TextInputType.text,
+            textInputAction: textInputAction ?? _textInputAction,
+            textCapitalization: textCapitalization ?? TextCapitalization.none,
+            obscureText: obscureText,
+            enabled: enabled,
+            enableInteractiveSelection: enableInteractiveSelection,
+            decoration: _defineTextFieldStyle(context),
+            onSubmitted: (_) {
+              onFieldSubmitted?.call(_);
+              _goToNextFocusNode?.call();
+            },
+            focusNode: _focusNode,
+            onChanged: onChanged,
+            onTap: onTap,
+            maxLength: maxLength,
+            minLines: minLines,
+            maxLines: maxLines,
+            inputFormatters: inputFormatters,
+          );
+        },
         suggestionsCallback: (string) {
           return _getSuggestionsList(string);
         },
-        noItemsFoundBuilder: (_) {
+        emptyBuilder: (_) {
           return const Text("Nenhum item encontrado");
         },
         itemBuilder: (context, suggestion) {
@@ -277,7 +284,7 @@ class OwTextField extends StatelessWidget {
             trailing: suggestionListTileTrailing,
           );
         },
-        onSuggestionSelected: (suggestion) {
+        onSelected: (suggestion) {
           onSuggestionSelected?.call(suggestion?.toString() ?? "");
           if(controller != null) {
             controller!.text = suggestion?.toString() ?? "";
