@@ -1,6 +1,4 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
 
 import '../../domain/entity/subscription_entity.dart';
 import '../../domain/usecase/get_my_plan.dart';
@@ -18,24 +16,16 @@ class RemoteGetMyPlan implements GetMyPlan {
         method: 'get',
         newReturnErrorMsg: true,
       );
-      if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
-        throw HttpError.notFound;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
       }
-      if (httpResponse['success']['signature'] != null) {
-        return SubscriptionEntity.fromMap(
-            (httpResponse['success']['signature']));
+      if (httpResponse['success']['subscription'] != null) {
+        return SubscriptionEntity.fromMap((httpResponse['success']['subscription']));
       } else {
-        return SubscriptionEntity(
-          active: false,
-          dateEnd: '1990-01-01T10:10:10.999Z',
-          dateStart: '1990-01-01T10:10:10.999Z',
-          status: 'Sem',
-          plan:
-              PlanSubscriptionEntity.fromMap((httpResponse['success']['plan'])),
-        );
+        throw 'notSubscription';
       }
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

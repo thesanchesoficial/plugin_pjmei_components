@@ -5,5 +5,5 @@ import '../../usecase/remote_hire_plan.dart';
 
 HirePlan makeRemoteHirePlan() => RemoteHirePlan(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/signature'),
+  url: makeApiUrl('venver/subscription'),
 );

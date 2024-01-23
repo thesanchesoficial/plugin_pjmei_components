@@ -6,20 +6,20 @@ class _SubscriptionPlanApi {
     return makeRemoteHirePlan().exec(data);
   }
 
-  Future<SubscriptionEntity> find({required int id}) {
-    return makeRemoteFindSubscription(id).exec();
+  Future<SubscriptionEntity> find({required String id}) {
+    return makeRemoteFindSubscription(id: id).exec();
   }
 
-  Future<SubscriptionEntity> myPlan({required String id}) {
-    return makeRemoteGetMyPlan(id).exec();
+  Future<SubscriptionEntity> myPlan({required String type, required String id}) {
+    return makeRemoteGetMyPlan(id: id, type: type).exec();
   }
 
-  Future<List<SubscriptionEntity>> mySubscriptions({required String id}) {
-    return makeRemoteGetMySubscriptions(id).exec();
+  Future<List<SubscriptionEntity>> mySubscriptions({required String type, required String id}) {
+    return makeRemoteGetMySubscriptions(id: id, type: type).exec();
   }
 
-  Future<List<TransactionEntity>> transactionsBySubscription({required int id}) {
-    return makeRemoteListTransactionsBySubscriptions(id).exec();
+  Future<List<TransactionEntity>> transactionsBySubscription({required String id}) {
+    return makeRemoteListTransactionsBySubscriptions(id: id).exec();
   }
 
   Future<SubscriptionEntity> update({required String id, required Map<String, dynamic> data}) {

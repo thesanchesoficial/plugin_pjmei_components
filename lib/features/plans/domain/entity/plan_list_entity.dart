@@ -7,91 +7,138 @@ class PlanEntity {
   final String? planId;
   final bool? promotionalPlan;
   final String name;
-  final int amount;
+  final String type;
+  final String? statementDescriptor;
+  final String interval;
+  final int intervalCount;
+  final int price;
   final String description;
   final List<PlanItemEntity>? planItem;
+  final List<int>? installments;
   final int? days;
-  final int? trialDays;
+  final int? trialPeriodDays;
   final List<String>? paymentMethods;
-  
+  final String? status;
+  String? createdAt;
+  String? updatedAt;
   PlanEntity({
     this.id,
     this.planId,
     this.promotionalPlan,
     required this.name,
-    required this.amount,
+    required this.type,
+    this.statementDescriptor,
+    required this.interval,
+    required this.intervalCount,
+    required this.price,
     required this.description,
     this.planItem,
+    this.installments,
     this.days,
-    this.trialDays,
+    this.trialPeriodDays,
     this.paymentMethods,
+    this.status,
+    this.createdAt,
+    this.updatedAt,
   });
-  
+
+
   PlanEntity copyWith({
     String? id,
     String? planId,
     bool? promotionalPlan,
     String? name,
-    int? amount,
+    String? type,
+    String? statementDescriptor,
+    String? interval,
+    int? intervalCount,
+    int? price,
     String? description,
     List<PlanItemEntity>? planItem,
+    List<int>? installments,
     int? days,
-    int? trialDays,
+    int? trialPeriodDays,
     List<String>? paymentMethods,
+    String? status,
+    String? createdAt,
+    String? updatedAt,
   }) {
     return PlanEntity(
       id: id ?? this.id,
       planId: planId ?? this.planId,
       promotionalPlan: promotionalPlan ?? this.promotionalPlan,
       name: name ?? this.name,
-      amount: amount ?? this.amount,
+      type: type ?? this.type,
+      statementDescriptor: statementDescriptor ?? this.statementDescriptor,
+      interval: interval ?? this.interval,
+      intervalCount: intervalCount ?? this.intervalCount,
+      price: price ?? this.price,
       description: description ?? this.description,
       planItem: planItem ?? this.planItem,
+      installments: installments ?? this.installments,
       days: days ?? this.days,
-      trialDays: trialDays ?? this.trialDays,
+      trialPeriodDays: trialPeriodDays ?? this.trialPeriodDays,
       paymentMethods: paymentMethods ?? this.paymentMethods,
+      status: status ?? this.status,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
-
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'planId': planId,
-      'plan_id': planId,
       'promotionalPlan': promotionalPlan,
-      'promotional_plan': promotionalPlan,
       'name': name,
-      'amount': amount,
+      'type': type,
+      'statementDescriptor': statementDescriptor,
+      'interval': interval,
+      'intervalCount': intervalCount,
+      'price': price,
       'description': description,
-      'planItem': planItem?.map((x) => x.toMap()).toList() ?? [],
-      'plan_item': planItem?.map((x) => x.toMap()).toList() ?? [],
+      'planItem': planItem?.map((x) => x.toMap()).toList(),
+      'installments': installments,
       'days': days,
-      'trialDays': trialDays,
-      'trial_days': trialDays,
+      'trialPeriodDays': trialPeriodDays,
       'paymentMethods': paymentMethods,
-      'payment_methods': paymentMethods,
+      'status': status,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
     };
   }
 
   factory PlanEntity.fromMap(Map<String, dynamic> map) {
     return PlanEntity(
       id: map['id'],
-      planId: map['planId'] ?? map['plan_id'],
-      promotionalPlan: map['promotionalPlan'] ?? map['promotional_plan'],
+      planId: map['planId'],
+      promotionalPlan: map['promotionalPlan'],
       name: map['name'] ?? '',
-      amount: map['amount']?.toInt() ?? 0,
+      type: map['type'] ?? '',
+      statementDescriptor: map['statementDescriptor'],
+      interval: map['interval'] ?? '',
+      intervalCount: map['intervalCount']?.toInt() ?? 0,
+      price: map['price']?.toInt() ?? 0,
       description: map['description'] ?? '',
-      planItem: map['planItem'] != null ? List<PlanItemEntity>.from(map['planItem']?.map((x) => PlanItemEntity.fromMap(x))) : map['plan_item'] != null ? List<PlanItemEntity>.from(map['plan_item']?.map((x) => PlanItemEntity.fromMap(x))) : null,
+      planItem: map['planItem'] != null ? List<PlanItemEntity>.from(map['planItem']?.map((x) => PlanItemEntity.fromMap(x))) : null,
+      installments: List<int>.from(map['installments']),
       days: map['days']?.toInt(),
-      trialDays: map['trialDays']?.toInt() ?? map['trial_days']?.toInt(),
-      paymentMethods: map['paymentMethods'] != null ? List<String>.from(map['paymentMethods']) : map['paymentMethods'] != null ? List<String>.from(map['payment_methods']) : [],
+      trialPeriodDays: map['trialPeriodDays']?.toInt(),
+      paymentMethods: List<String>.from(map['paymentMethods']),
+      status: map['status'] ?? '',
+      createdAt: map['createdAt'],
+      updatedAt: map['updatedAt'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
   factory PlanEntity.fromJson(String source) => PlanEntity.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'PlanEntity(id: $id, planId: $planId, promotionalPlan: $promotionalPlan, name: $name, type: $type, statementDescriptor: $statementDescriptor, interval: $interval, intervalCount: $intervalCount, price: $price, description: $description, planItem: $planItem, installments: $installments, days: $days, trialPeriodDays: $trialPeriodDays, paymentMethods: $paymentMethods, status: $status, createdAt: $createdAt, updatedAt: $updatedAt)';
+  }
 
   @override
   bool operator ==(Object other) {
@@ -102,12 +149,20 @@ class PlanEntity {
       other.planId == planId &&
       other.promotionalPlan == promotionalPlan &&
       other.name == name &&
-      other.amount == amount &&
+      other.type == type &&
+      other.statementDescriptor == statementDescriptor &&
+      other.interval == interval &&
+      other.intervalCount == intervalCount &&
+      other.price == price &&
       other.description == description &&
       listEquals(other.planItem, planItem) &&
+      listEquals(other.installments, installments) &&
       other.days == days &&
-      other.trialDays == trialDays &&
-      listEquals(other.paymentMethods, paymentMethods);
+      other.trialPeriodDays == trialPeriodDays &&
+      listEquals(other.paymentMethods, paymentMethods) &&
+      other.status == status &&
+      other.createdAt == createdAt &&
+      other.updatedAt == updatedAt;
   }
 
   @override
@@ -116,17 +171,20 @@ class PlanEntity {
       planId.hashCode ^
       promotionalPlan.hashCode ^
       name.hashCode ^
-      amount.hashCode ^
+      type.hashCode ^
+      statementDescriptor.hashCode ^
+      interval.hashCode ^
+      intervalCount.hashCode ^
+      price.hashCode ^
       description.hashCode ^
       planItem.hashCode ^
+      installments.hashCode ^
       days.hashCode ^
-      trialDays.hashCode ^
-      paymentMethods.hashCode;
-  }
-
-  @override
-  String toString() {
-    return 'PlanEntity(id: $id, planId: $planId, promotionalPlan: $promotionalPlan, name: $name, amount: $amount, description: $description, planItem: $planItem, days: $days, trialDays: $trialDays, paymentMethods: $paymentMethods)';
+      trialPeriodDays.hashCode ^
+      paymentMethods.hashCode ^
+      status.hashCode ^
+      createdAt.hashCode ^
+      updatedAt.hashCode;
   }
 }
 
@@ -184,10 +242,12 @@ class PlanItemEntity {
 
   String toJson() => json.encode(toMap());
 
-  factory PlanItemEntity.fromJson(String source) => PlanItemEntity.fromMap(json.decode(source));
+  factory PlanItemEntity.fromJson(String source) =>
+      PlanItemEntity.fromMap(json.decode(source));
 
   @override
-  String toString() => 'PlanItemEntity(id: $id, icon: $icon, description: $description)';
+  String toString() =>
+      'PlanItemEntity(id: $id, icon: $icon, description: $description)';
 
   @override
   bool operator ==(Object other) {
@@ -202,5 +262,10 @@ class PlanItemEntity {
   }
 
   @override
-  int get hashCode => id.hashCode ^ icon.hashCode ^ index.hashCode ^ planId.hashCode ^ description.hashCode;
+  int get hashCode =>
+      id.hashCode ^
+      icon.hashCode ^
+      index.hashCode ^
+      planId.hashCode ^
+      description.hashCode;
 }

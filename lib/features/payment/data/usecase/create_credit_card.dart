@@ -1,5 +1,6 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
 
+import '../../domain/entity/credit_card_entity.dart';
 import '../../domain/usecase/create_credit_card.dart';
 
 class RemoteCreateCreditCard implements CreateCreditCard {
@@ -7,7 +8,7 @@ class RemoteCreateCreditCard implements CreateCreditCard {
   final HttpClient httpClient;
   final String url;
 
-  Future<String> exec(String token, {bool log = false}) async {
+  Future<CreditCardPaymentEntity> exec(String token, {bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
@@ -21,7 +22,7 @@ class RemoteCreateCreditCard implements CreateCreditCard {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return httpResponse['success'];
+      return CreditCardPaymentEntity.fromMap(httpResponse['success']);
     } catch (e) {
       throw e;
     }

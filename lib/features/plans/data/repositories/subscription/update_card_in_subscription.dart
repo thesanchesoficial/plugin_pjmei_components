@@ -5,5 +5,5 @@ import '../../usecase/remote_update_plan_by_subscription.dart';
 
 HirePlan makeRemoteUpdatePlanBySubscription() => RemoteUpdatePlanBySubscription(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/signature'),
+  url: makeApiUrl('venver/subscription/card'),
 );

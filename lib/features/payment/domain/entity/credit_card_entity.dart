@@ -1,58 +1,95 @@
 import 'dart:convert';
 
 class CreditCardPaymentEntity {
-  String key;
-  String nick;
-  String id;
-  String token;
-  String first_4;
-  String last_4;
+  String? userId;
+  String? companyId;
+  String? cardNumber;
+  String? cardHolderName;
+  String? cardExpMonth;
+  String? cardExpYear;
+  String? cardCvv;
+  String? cardId;
+  String? cardBrand;
+  String? nick;
+  String? first4;
+  String? last4;
+  
   CreditCardPaymentEntity({
-    required this.key,
-    required this.nick,
-    required this.id,
-    required this.token,
-    required this.first_4,
-    required this.last_4,
+    this.userId,
+    this.companyId,
+    this.cardNumber,
+    this.cardHolderName,
+    this.cardExpMonth,
+    this.cardExpYear,
+    this.cardCvv,
+    this.cardId,
+    this.cardBrand,
+    this.nick,
+    this.first4,
+    this.last4,
   });
 
   CreditCardPaymentEntity copyWith({
-    String? key,
+    String? userId,
+    String? companyId,
+    String? cardNumber,
+    String? cardHolderName,
+    String? cardExpMonth,
+    String? cardExpYear,
+    String? cardCvv,
+    String? cardId,
+    String? cardBrand,
     String? nick,
-    String? id,
-    String? token,
-    String? first_4,
-    String? last_4,
+    String? first4,
+    String? last4,
   }) {
     return CreditCardPaymentEntity(
-      key: key ?? this.key,
+      userId: userId ?? this.userId,
+      companyId: companyId ?? this.companyId,
+      cardNumber: cardNumber ?? this.cardNumber,
+      cardHolderName: cardHolderName ?? this.cardHolderName,
+      cardExpMonth: cardExpMonth ?? this.cardExpMonth,
+      cardExpYear: cardExpYear ?? this.cardExpYear,
+      cardCvv: cardCvv ?? this.cardCvv,
+      cardId: cardId ?? this.cardId,
+      cardBrand: cardBrand ?? this.cardBrand,
       nick: nick ?? this.nick,
-      id: id ?? this.id,
-      token: token ?? this.token,
-      first_4: first_4 ?? this.first_4,
-      last_4: last_4 ?? this.last_4,
+      first4: first4 ?? this.first4,
+      last4: last4 ?? this.last4,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'key': key,
+      'userId': userId,
+      'companyId': companyId,
+      'cardNumber': cardNumber,
+      'cardHolderName': cardHolderName,
+      'cardExpMonth': cardExpMonth,
+      'cardExpYear': cardExpYear,
+      'cardCvv': cardCvv,
+      'cardId': cardId,
+      'cardBrand': cardBrand,
       'nick': nick,
-      'id': id,
-      'token': token,
-      'first_4': first_4,
-      'last_4': last_4,
+      'first4': first4,
+      'last4': last4,
     };
   }
 
   factory CreditCardPaymentEntity.fromMap(Map<String, dynamic> map) {
     return CreditCardPaymentEntity(
-      key: map['key'] ?? '',
-      nick: map['nick'] ?? '',
-      id: map['id'] ?? '',
-      token: map['token'] ?? '',
-      first_4: map['first_4'] ?? '',
-      last_4: map['last_4'] ?? '',
+      userId: map['userId'],
+      companyId: map['companyId'],
+      cardNumber: map['cardNumber'],
+      cardHolderName: map['cardHolderName'],
+      cardExpMonth: map['cardExpMonth'],
+      cardExpYear: map['cardExpYear'],
+      cardCvv: map['cardCvv'],
+      cardId: map['cardId'],
+      cardBrand: map['cardBrand'],
+      nick: map['nick'],
+      first4: map['first4'],
+      last4: map['last4'],
     );
   }
 
@@ -62,7 +99,7 @@ class CreditCardPaymentEntity {
 
   @override
   String toString() {
-    return 'CreditCardPaymentEntity(key: $key, nick: $nick, id: $id, token: $token, first_4: $first_4, last_4: $last_4)';
+    return 'CreditCardPaymentEntity(userId: $userId, companyId: $companyId, cardNumber: $cardNumber, cardHolderName: $cardHolderName, cardExpMonth: $cardExpMonth, cardExpYear: $cardExpYear, cardCvv: $cardCvv, cardId: $cardId, cardBrand: $cardBrand, nick: $nick, first4: $first4, last4: $last4)';
   }
 
   @override
@@ -70,21 +107,33 @@ class CreditCardPaymentEntity {
     if (identical(this, other)) return true;
   
     return other is CreditCardPaymentEntity &&
-      other.key == key &&
+      other.userId == userId &&
+      other.companyId == companyId &&
+      other.cardNumber == cardNumber &&
+      other.cardHolderName == cardHolderName &&
+      other.cardExpMonth == cardExpMonth &&
+      other.cardExpYear == cardExpYear &&
+      other.cardCvv == cardCvv &&
+      other.cardId == cardId &&
+      other.cardBrand == cardBrand &&
       other.nick == nick &&
-      other.id == id &&
-      other.token == token &&
-      other.first_4 == first_4 &&
-      other.last_4 == last_4;
+      other.first4 == first4 &&
+      other.last4 == last4;
   }
 
   @override
   int get hashCode {
-    return key.hashCode ^
+    return userId.hashCode ^
+      companyId.hashCode ^
+      cardNumber.hashCode ^
+      cardHolderName.hashCode ^
+      cardExpMonth.hashCode ^
+      cardExpYear.hashCode ^
+      cardCvv.hashCode ^
+      cardId.hashCode ^
+      cardBrand.hashCode ^
       nick.hashCode ^
-      id.hashCode ^
-      token.hashCode ^
-      first_4.hashCode ^
-      last_4.hashCode;
+      first4.hashCode ^
+      last4.hashCode;
   }
 }

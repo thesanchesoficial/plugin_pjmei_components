@@ -21,4 +21,8 @@ class _PlanApi {
     return makeRemoteGetListPlans(params: query).exec();
   }
 
+  Future<bool> delete({required String id}) {
+    return makeRemoteDeletePlan(id).exec();
+  }
+
 }

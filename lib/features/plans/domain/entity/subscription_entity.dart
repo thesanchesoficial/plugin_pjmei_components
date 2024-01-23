@@ -1,12 +1,29 @@
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 
 import 'transaction_entity.dart';
 
 class SubscriptionEntity {
-  
+  int? id;
+  int? subscriberId;
+  String? url;
+  String? status;
+  bool? active;
+  CreditCardEntity? card;
+  SubscriberEntity? subscriber;
+  String? cardBrand;
+  String? cardFirstDigits;
+  String? cardLastDigits;
+  String? paymentMethod;
+  String? dateStart;
+  String? dateEnd;
+  String? createdAt;
+  String? updatedAt;
+  PlanSubscriptionEntity? plan;
   SubscriptionEntity({
     this.id,
+    this.subscriberId,
     this.url,
     this.status,
     this.active,
@@ -22,46 +39,12 @@ class SubscriptionEntity {
     this.updatedAt,
     this.plan,
   });
-
-  factory SubscriptionEntity.fromMap(Map<String, dynamic> map) {
-    return SubscriptionEntity(
-      id: int.parse(((map['id']) ?? 0).toString()),
-      url: map['url'] ?? map['manageUrl'] ?? '',
-      status: map['status'] ?? '',
-      active: map['active'] ?? false,
-      card: map['card'] == null ? null : CreditCardEntity.fromMap(map['card']),
-      subscriber:  map['subscriber'] == null ? null : SubscriberEntity.fromMap(map['subscriber']),
-      cardBrand: map['cardBrand'] ?? '',
-      cardFirstDigits: map['cardFirstDigits'] ?? '',
-      cardLastDigits: map['cardLastDigits'] ?? '',
-      paymentMethod: map['paymentMethod'] ?? '',
-      dateStart: map['dateStart'] ?? '',
-      dateEnd: map['dateEnd'] ?? '',
-      createdAt: map['created_at'] ?? '',
-      updatedAt: map['updated_at'] ?? '',
-      plan: map['plan'] == null ? null : PlanSubscriptionEntity.fromMap(map['plan']),
-    );
-  }
-
-  factory SubscriptionEntity.fromJson(String source) => SubscriptionEntity.fromMap(json.decode(source));
-  int? id;
-  String? url;
-  String? status;
-  bool? active;
-  CreditCardEntity? card;
-  SubscriberEntity? subscriber;
-  String? cardBrand;
-  String? cardFirstDigits;
-  String? cardLastDigits;
-  String? paymentMethod;
-  String? dateStart;
-  String? dateEnd;
-  String? createdAt;
-  String? updatedAt;
-  PlanSubscriptionEntity? plan;
   
+  
+
   SubscriptionEntity copyWith({
     int? id,
+    int? subscriberId,
     String? url,
     String? status,
     bool? active,
@@ -79,6 +62,7 @@ class SubscriptionEntity {
   }) {
     return SubscriptionEntity(
       id: id ?? this.id,
+      subscriberId: subscriberId ?? this.subscriberId,
       url: url ?? this.url,
       status: status ?? this.status,
       active: active ?? this.active,
@@ -99,6 +83,7 @@ class SubscriptionEntity {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
+      'subscriberId': subscriberId,
       'url': url,
       'status': status,
       'active': active,
@@ -110,13 +95,41 @@ class SubscriptionEntity {
       'paymentMethod': paymentMethod,
       'dateStart': dateStart,
       'dateEnd': dateEnd,
-      'created_at': createdAt,
-      'updated_at': updatedAt,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
       'plan': plan?.toMap(),
     };
   }
 
+  factory SubscriptionEntity.fromMap(Map<String, dynamic> map) {
+    return SubscriptionEntity(
+      id: map['id']?.toInt(),
+      subscriberId: map['subscriberId']?.toInt(),
+      url: map['url'],
+      status: map['status'],
+      active: map['active'],
+      card: map['card'] != null ? CreditCardEntity.fromMap(map['card']) : null,
+      subscriber: map['subscriber'] != null ? SubscriberEntity.fromMap(map['subscriber']) : null,
+      cardBrand: map['cardBrand'],
+      cardFirstDigits: map['cardFirstDigits'],
+      cardLastDigits: map['cardLastDigits'],
+      paymentMethod: map['paymentMethod'],
+      dateStart: map['dateStart'],
+      dateEnd: map['dateEnd'],
+      createdAt: map['createdAt'],
+      updatedAt: map['updatedAt'],
+      plan: map['plan'] != null ? PlanSubscriptionEntity.fromMap(map['plan']) : null,
+    );
+  }
+
   String toJson() => json.encode(toMap());
+
+  factory SubscriptionEntity.fromJson(String source) => SubscriptionEntity.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'SubscriptionEntity(id: $id, subscriberId: $subscriberId, url: $url, status: $status, active: $active, card: $card, subscriber: $subscriber, cardBrand: $cardBrand, cardFirstDigits: $cardFirstDigits, cardLastDigits: $cardLastDigits, paymentMethod: $paymentMethod, dateStart: $dateStart, dateEnd: $dateEnd, createdAt: $createdAt, updatedAt: $updatedAt, plan: $plan)';
+  }
 
   @override
   bool operator ==(Object other) {
@@ -124,6 +137,7 @@ class SubscriptionEntity {
   
     return other is SubscriptionEntity &&
       other.id == id &&
+      other.subscriberId == subscriberId &&
       other.url == url &&
       other.status == status &&
       other.active == active &&
@@ -143,6 +157,7 @@ class SubscriptionEntity {
   @override
   int get hashCode {
     return id.hashCode ^
+      subscriberId.hashCode ^
       url.hashCode ^
       status.hashCode ^
       active.hashCode ^
