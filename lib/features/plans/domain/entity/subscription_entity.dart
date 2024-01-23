@@ -5,8 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'transaction_entity.dart';
 
 class SubscriptionEntity {
-  int? id;
-  int? subscriberId;
+  String? id;
+  String? subscriberId;
   String? url;
   String? status;
   bool? active;
@@ -43,8 +43,8 @@ class SubscriptionEntity {
   
 
   SubscriptionEntity copyWith({
-    int? id,
-    int? subscriberId,
+    String? id,
+    String? subscriberId,
     String? url,
     String? status,
     bool? active,
@@ -103,8 +103,8 @@ class SubscriptionEntity {
 
   factory SubscriptionEntity.fromMap(Map<String, dynamic> map) {
     return SubscriptionEntity(
-      id: map['id']?.toInt(),
-      subscriberId: map['subscriberId']?.toInt(),
+      id: map['id'],
+      subscriberId: map['subscriberId'],
       url: map['url'],
       status: map['status'],
       active: map['active'],
