@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:plugin_pjmei_components/features/plans/domain/entity/plan_list_entity.dart';
 
 import '../../../extract/domain/entity/extract_entity.dart';
 import '../../../financial_assistant/domain/entity/financial_assistant_entity.dart';
-import '../../../plans/domain/entity/subscription_entity.dart';
 
 class BasicDashboardEntity {
 
@@ -17,7 +17,7 @@ class BasicDashboardEntity {
   factory BasicDashboardEntity.fromMap(Map<String, dynamic> map) {
     return BasicDashboardEntity(
       balance: map['balance'] != null ? ExtractEntity.fromMap(map['balance']) : null,
-      plan: map['plan'] != null ? PlanSubscriptionEntity.fromMap(map['plan']) : null,
+      plan: map['plan'] != null ? PlanEntity.fromMap(map['plan']) : null,
       order: int.parse((map['order'] ?? 0).toString()),
       financialAssistants: map['financialAssistants'] == null ? [] : List<FinancialAssistantEntity>.from(map['financialAssistants']?.map((x) => FinancialAssistantEntity.fromMap(x))),
     );
@@ -25,13 +25,13 @@ class BasicDashboardEntity {
 
   factory BasicDashboardEntity.fromJson(String source) => BasicDashboardEntity.fromMap(json.decode(source));
   ExtractEntity? balance;
-  PlanSubscriptionEntity? plan;
+  PlanEntity? plan;
   int? order;
   List<FinancialAssistantEntity>? financialAssistants;
   
   BasicDashboardEntity copyWith({
     ExtractEntity? balance,
-    PlanSubscriptionEntity? plan,
+    PlanEntity? plan,
     int? order,
     List<FinancialAssistantEntity>? financialAssistants,
   }) {
