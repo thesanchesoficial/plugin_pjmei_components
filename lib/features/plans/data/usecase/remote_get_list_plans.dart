@@ -20,9 +20,7 @@ class RemoteGetListPlans implements GetListPlans {
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
         throw HttpError.notFound;
       }
-      return ((httpResponse['success']['plans']) as List)
-          .map((e) => PlanEntity.fromMap(e))
-          .toList();
+      return ((httpResponse['success']['plans']) as List).map((e) => PlanEntity.fromMap(e)).toList();
     } on HttpError catch (_) {
       throw DomainError.unexpected;
     }

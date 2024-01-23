@@ -12,7 +12,7 @@ class PlanEntity {
   final String interval;
   final int intervalCount;
   final int price;
-  final String description;
+  final String? description;
   final List<PlanItemEntity>? planItem;
   final List<int>? installments;
   final int? days;
@@ -31,7 +31,7 @@ class PlanEntity {
     required this.interval,
     required this.intervalCount,
     required this.price,
-    required this.description,
+    this.description,
     this.planItem,
     this.installments,
     this.days,
@@ -119,7 +119,7 @@ class PlanEntity {
       interval: map['interval'] ?? '',
       intervalCount: map['intervalCount']?.toInt() ?? 0,
       price: map['price']?.toInt() ?? 0,
-      description: map['description'] ?? '',
+      description: map['description'],
       planItem: map['planItem'] != null ? List<PlanItemEntity>.from(map['planItem']?.map((x) => PlanItemEntity.fromMap(x))) : null,
       installments: List<int>.from(map['installments']),
       days: map['days']?.toInt(),

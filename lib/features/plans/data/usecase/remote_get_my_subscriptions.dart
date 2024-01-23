@@ -21,9 +21,7 @@ class RemoteGetMySubscriptions implements GetMySubscriptions {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return ((httpResponse['success']['signatures']) as List)
-          .map((e) => SubscriptionEntity.fromMap(e))
-          .toList();
+      return ((httpResponse['success']['subscription']) as List).map((e) => SubscriptionEntity.fromMap(e)).toList();
     } on HttpError catch (_) {
       throw DomainError.unexpected;
     }

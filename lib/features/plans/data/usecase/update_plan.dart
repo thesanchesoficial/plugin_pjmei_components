@@ -20,7 +20,7 @@ class RemoteUpdatePlan implements UpdatePlan {
         method: 'put',
         body: item.toMap(),
       );
-      return PlanEntity.fromMap(httpResponse["success"]);
+      return PlanEntity.fromMap(httpResponse["success"]['plan']);
     } on HttpError catch (_) {
       throw DomainError.unexpected;
     }

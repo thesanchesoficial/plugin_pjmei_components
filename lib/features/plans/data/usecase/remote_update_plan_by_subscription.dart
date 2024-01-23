@@ -20,7 +20,7 @@ class RemoteUpdatePlanBySubscription implements HirePlan {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return SubscriptionEntity.fromMap(httpResponse['success']);
+      return SubscriptionEntity.fromMap(httpResponse['success']['subscription']);
     } catch (error) {
       throw error;
     }

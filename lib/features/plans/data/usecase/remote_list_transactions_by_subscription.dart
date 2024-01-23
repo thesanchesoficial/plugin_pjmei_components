@@ -17,9 +17,7 @@ class RemoteListTransactionsBySubscriptions implements ListTransactionsBySubscri
       if ((httpResponse as Map<String, dynamic>).containsKey('erro')) {
         throw HttpError.notFound;
       }
-      return ((httpResponse['success']['payments']) as List)
-          .map((e) => TransactionEntity.fromMap(e))
-          .toList();
+      return ((httpResponse['success']['payments']) as List).map((e) => TransactionEntity.fromMap(e)).toList();
     } on HttpError catch (_) {
       throw DomainError.unexpected;
     }
