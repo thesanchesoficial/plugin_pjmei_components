@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+import '../../plans/domain/entity/subscription_entity.dart';
 import '../domain/entity/basic_dashboard_entity.dart';
 import 'package:plugin_pjmei_components/test/domain/entities/installed_widget_entity.dart';
 
@@ -8,8 +9,12 @@ part 'company_sm.g.dart';
 class CompanySMStore = CompanySMStoreBase with _$CompanySMStore;
 
 abstract class CompanySMStoreBase with Store {
+
   @observable
   CompanyEntity? company;
+
+  @observable
+  SubscriptionEntity? subscription;
 
   @observable
   BasicDashboardEntity? basicData;
@@ -26,6 +31,11 @@ abstract class CompanySMStoreBase with Store {
   @action
   void setEstablishment(CompanyEntity item) {
     company = item;
+  }
+
+  @action
+  void setSubscription(SubscriptionEntity? item) {
+    subscription = item;
   }
 
   @action

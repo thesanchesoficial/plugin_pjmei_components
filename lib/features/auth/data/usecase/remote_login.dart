@@ -1,7 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-
-import '../../../user/domain/entity/user_entity.dart';
-import '../../domain/entity/login_params_entity.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import '../../domain/usecase/login.dart';
 
 class RemoteLogin implements Login {
@@ -27,6 +24,9 @@ class RemoteLogin implements Login {
         refreshToken: httpResponse['success']['refreshToken'],
         accessToken: httpResponse['success']['accessToken'],
       );
+      if(httpResponse['success']['subscription'] != null) {
+        userSM.subscription = SubscriptionEntity.fromMap(httpResponse['success']['subscription']);
+      }
       return temp;
     } catch (errorMsg) {
       throw errorMsg;

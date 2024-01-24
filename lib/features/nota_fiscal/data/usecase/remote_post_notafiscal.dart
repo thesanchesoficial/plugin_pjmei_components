@@ -1,6 +1,5 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../../app/domain/entity/environment.dart';
 import '../../domain/usecase/post_notafiscal.dart';
 
 class RemotePostNotaFiscal implements PostNotaFiscal {

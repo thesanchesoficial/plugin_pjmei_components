@@ -1,6 +1,7 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
 
 import '../../../../utils/variable.dart';
+import '../../../plans/domain/entity/subscription_entity.dart';
 import '../../../user/domain/entity/user_entity.dart';
 import '../../domain/usecase/refresh_token.dart';
 
@@ -29,6 +30,9 @@ class RemoteRefreshToken implements RefreshToken {
         refreshToken: httpResponse['success']['refreshToken'],
         accessToken: httpResponse['success']['accessToken'],
       );
+      if(httpResponse['success']['subscription'] != null) {
+        userSM.subscription = SubscriptionEntity.fromMap(httpResponse['success']['subscription']);
+      }
       userSM.setUser(temp);
       return temp;
     } catch (errorMsg) {
