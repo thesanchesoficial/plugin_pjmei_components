@@ -200,13 +200,14 @@ import '../features/plans/data/repositories/items/delete_item_plan_factory.dart'
 import '../features/plans/data/repositories/items/list_items_plans_factory.dart';
 import '../features/plans/data/repositories/items/update_item_plan_factory.dart';
 import '../features/plans/data/repositories/list_plans_factory.dart';
+import '../features/plans/data/repositories/subscription/delete_subscription_factory.dart';
 import '../features/plans/data/repositories/subscription/find_subscription.dart';
 import '../features/plans/data/repositories/subscription/hire_plan.dart';
 import '../features/plans/data/repositories/subscription/get_my_plan.dart';
 import '../features/plans/data/repositories/subscription/get_my_subscriptions.dart';
 import '../features/plans/data/repositories/subscription/list_transactions_by_subscriptions.dart';
 import '../features/plans/data/repositories/subscription/update_card_in_subscription.dart';
-import '../features/plans/data/repositories/update_plan_factory copy.dart';
+import '../features/plans/data/repositories/delete_plan_factory.dart';
 import '../features/plans/data/repositories/update_plan_factory.dart';
 import '../features/plans/data/repositories/voucher/add_voucher_plan_factory.dart';
 import '../features/plans/data/repositories/voucher/delete_voucher_factory.dart';

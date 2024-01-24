@@ -26,4 +26,8 @@ class _SubscriptionPlanApi {
     return makeRemoteUpdatePlanBySubscription().exec(data);
   }
 
+  Future<bool> delete({required String id}) {
+    return makeRemoteDeleteSubscription(id).exec();
+  }
+
 }
