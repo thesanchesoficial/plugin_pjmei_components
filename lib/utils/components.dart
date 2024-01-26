@@ -62,9 +62,18 @@ class Main {
     );
 
     try {
-      WhiteLabelEntity temp = await Api.whiteLabel.find(id: whiteLabel);
-      WhiteLabelEntity.current = temp;
-      appSM.setWhiteLabel(temp);
+      if(environment == EnvironmentType.development) {
+        WhiteLabelEntity temp = pjmeiDev;
+        WhiteLabelEntity.current = temp;
+        appSM.setWhiteLabel(temp);
+      } else {
+        WhiteLabelEntity temp = pjmeiProd;
+        WhiteLabelEntity.current = temp;
+        appSM.setWhiteLabel(temp);
+      }
+      WhiteLabelEntity current = await Api.whiteLabel.find(id: whiteLabel);
+      WhiteLabelEntity.current = current;
+      appSM.setWhiteLabel(current);
     } catch (e) {
       log('error initializing white label');
     }
