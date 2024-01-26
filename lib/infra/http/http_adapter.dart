@@ -101,7 +101,7 @@ class HttpAdapter implements HttpClient {
         'X-Pjmei-Version': '$minimalVersion',
         'X-Pjmei-Company': '${companySM.company?.id}',
         'X-Pjmei-Ecommerce': '${ecommerceSM.establishment?.id}',
-        'x-api-key': Environment.current!.apiKey,
+        'x-api-key': '${Environment.current?.apiKey}',
       });
       if(Valid.text(userAgent)) {
         defaultHeaders.addAll({

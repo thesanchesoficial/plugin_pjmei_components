@@ -15,6 +15,7 @@ class RemoteFindWhiteLabel implements FindWhiteLabel {
         log: log,
         method: 'get',
         newReturnErrorMsg: true,
+        ignoreToken: true,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
