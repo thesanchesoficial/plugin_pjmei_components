@@ -140,7 +140,11 @@ class HttpAdapter implements HttpClient {
       p('statusCode: ${response.statusCode}');
       p('body: ${response.body}');
     }
-    OwBotToast.close();
+    try {
+      OwBotToast.close();
+    } catch (e) {
+      //
+    }
     return _handleResponse(response, newReturnErrorMsg);
   }
 

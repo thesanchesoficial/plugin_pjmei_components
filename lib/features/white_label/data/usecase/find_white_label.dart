@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 import '../../domain/usecase/find_white_label.dart';
@@ -17,13 +15,11 @@ class RemoteFindWhiteLabel implements FindWhiteLabel {
         newReturnErrorMsg: true,
         ignoreToken: true,
       );
-      p(httpResponse);
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
       return WhiteLabelEntity.fromMap(httpResponse['success']['whiteLabel']);
     } catch (e) {
-      log(e.toString());
       throw e;
     }
   }

@@ -160,6 +160,8 @@ Future<void> _basicInitEnvironment({
     Environment.current = Production();
   }
 
+  await BotToastInit();
+
   try {
     final GetIt getIt = GetIt.I;
     getIt.registerSingleton<AppSMStore>(AppSMStore());
