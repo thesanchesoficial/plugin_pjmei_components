@@ -16,6 +16,7 @@ WhiteLabelEntity cachoeiroProd = WhiteLabelEntity(
     ecommerceId: 'a5dd8021-8285-431f-97f1-85e1234a8e0a',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
+    planRequired: false,
     redirectOrigin: 'https://www.cachoeiro.es.gov.br/',
     urlWebApplication: 'https://empreendedor.cachoeiro.es.gov.br/',
     link: LinkWhiteLabelEntity(

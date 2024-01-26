@@ -16,6 +16,7 @@ WhiteLabelEntity serraProd = WhiteLabelEntity(
     ecommerceId: '58a52819-1c7b-4b88-81ba-562282bc9e78',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
+    planRequired: false,
     redirectOrigin: 'http://serra.es.gov.br/',
     urlWebApplication: 'https://ciampe.serra.es.gov.br/',
     linkAppleStore: 'https://apps.apple.com/br/app/ciampe-serra-virtual/id6468666075',

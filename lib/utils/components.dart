@@ -29,65 +29,20 @@ class Main {
     required String pathProfileUser,
   }) async {
     WidgetsFlutterBinding.ensureInitialized();
-    try {
-      final GetIt getIt = GetIt.I;
-      getIt.registerSingleton<AppSMStore>(AppSMStore());
-      getIt.registerSingleton<CartSMStore>(CartSMStore());
-      getIt.registerSingleton<CompanySMStore>(CompanySMStore());
-      getIt.registerSingleton<EcommerceSMStore>(EcommerceSMStore());
-      getIt.registerSingleton<ModuleSMStore>(ModuleSMStore());
-      getIt.registerSingleton<UserSMStore>(UserSMStore());
-    } catch (e) {
-      log('error initializing state management');
-    }
-
+    await _basicInitEnvironment(
+      environment: environment,
+    );
     WhiteLabelEntity.current = whiteLabel;
     appSM.setWhiteLabel(whiteLabel);
-    
-    if(environment == EnvironmentType.development) {
-      Environment.current = Development();
-    } else {
-      Environment.current = Production();
-    }
-
-    minimalVersion = minimalVersionApp;
-    logoutRedirect = logoutPathRedirect;
-    userProfile = pathProfileUser;
-    
-    try {
-      if (isFirstLoading) {
-        usePathUrlStrategy();
-        isFirstLoading = false;
-      }
-    } catch (e) {
-      log('error removing hastag from url');
-    }
-    try {
-      if(preload != null) {
-        await preload();
-      }
-    } catch (e) {
-      log('error starting preload');
-    }
-    try {
-      if(listenUser != null) {
-        checkUserNotifier.addListener(listenUser);
-      }
-    } catch (e) {
-      log('error listening for user changes');
-    }
-    try {
-      if(firebaseOptions != null) {
-        await Firebase.initializeApp(options: firebaseOptions);
-      }
-    } catch (e) {
-      log('error initializing firebase');
-    }
-    try {
-      runApp(home);
-    } catch (e) {
-      log('error initializing system');
-    }
+    await _basicInitVariables(
+      home: home,
+      logoutPathRedirect: logoutPathRedirect,
+      minimalVersionApp: minimalVersionApp,
+      pathProfileUser: pathProfileUser,
+      firebaseOptions: firebaseOptions,
+      listenUser: listenUser,
+      preload: preload,
+    );
   }
 
   static Future online({
@@ -102,19 +57,9 @@ class Main {
     required String pathProfileUser,
   }) async {
     WidgetsFlutterBinding.ensureInitialized();
-    try {
-      final GetIt getIt = GetIt.I;
-      getIt.registerSingleton<AppSMStore>(AppSMStore());
-      getIt.registerSingleton<CartSMStore>(CartSMStore());
-      getIt.registerSingleton<CompanySMStore>(CompanySMStore());
-      getIt.registerSingleton<EcommerceSMStore>(EcommerceSMStore());
-      getIt.registerSingleton<ModuleSMStore>(ModuleSMStore());
-      getIt.registerSingleton<UserSMStore>(UserSMStore());
-    } catch (e) {
-      log('error initializing state management');
-    }
-    
-    WhiteLabelEntity.current = pjmeiDev;
+    await _basicInitEnvironment(
+      environment: environment,
+    );
 
     try {
       WhiteLabelEntity temp = await Api.whiteLabel.find(id: whiteLabel);
@@ -124,50 +69,15 @@ class Main {
       log('error initializing white label');
     }
     
-    if(environment == EnvironmentType.development) {
-      Environment.current = Development();
-    } else {
-      Environment.current = Production();
-    }
-
-    minimalVersion = minimalVersionApp;
-    logoutRedirect = logoutPathRedirect;
-    userProfile = pathProfileUser;
-    
-    try {
-      if (isFirstLoading) {
-        usePathUrlStrategy();
-        isFirstLoading = false;
-      }
-    } catch (e) {
-      log('error removing hastag from url');
-    }
-    try {
-      if(preload != null) {
-        await preload();
-      }
-    } catch (e) {
-      log('error starting preload');
-    }
-    try {
-      if(listenUser != null) {
-        checkUserNotifier.addListener(listenUser);
-      }
-    } catch (e) {
-      log('error listening for user changes');
-    }
-    try {
-      if(firebaseOptions != null) {
-        await Firebase.initializeApp(options: firebaseOptions);
-      }
-    } catch (e) {
-      log('error initializing firebase');
-    }
-    try {
-      runApp(home);
-    } catch (e) {
-      log('error initializing system');
-    }
+    await _basicInitVariables(
+      home: home,
+      logoutPathRedirect: logoutPathRedirect,
+      minimalVersionApp: minimalVersionApp,
+      pathProfileUser: pathProfileUser,
+      firebaseOptions: firebaseOptions,
+      listenUser: listenUser,
+      preload: preload,
+    );
   }
 }
 
@@ -182,4 +92,75 @@ TransitionBuilder ComponentsInit({
   isWebApplication = isWeb;
   webStartsWithWidth = webWidth;
   return BotToastInit();
+}
+
+Future<void> _basicInitVariables({
+  required Widget home,
+  Function()? preload,
+  void Function()? listenUser,
+  required int minimalVersionApp,
+  FirebaseOptions? firebaseOptions,
+  required String logoutPathRedirect,
+  required String pathProfileUser,
+}) async {
+  minimalVersion = minimalVersionApp;
+  logoutRedirect = logoutPathRedirect;
+  userProfile = pathProfileUser;
+  
+  try {
+    if (isFirstLoading) {
+      usePathUrlStrategy();
+      isFirstLoading = false;
+    }
+  } catch (e) {
+    log('error removing hastag from url');
+  }
+  try {
+    if(preload != null) {
+      await preload();
+    }
+  } catch (e) {
+    log('error starting preload');
+  }
+  try {
+    if(listenUser != null) {
+      checkUserNotifier.addListener(listenUser);
+    }
+  } catch (e) {
+    log('error listening for user changes');
+  }
+  try {
+    if(firebaseOptions != null) {
+      await Firebase.initializeApp(options: firebaseOptions);
+    }
+  } catch (e) {
+    log('error initializing firebase');
+  }
+  try {
+    runApp(home);
+  } catch (e) {
+    log('error initializing system');
+  }
+}
+
+Future<void> _basicInitEnvironment({
+  required EnvironmentType environment,
+}) async {
+  if(environment == EnvironmentType.development) {
+    Environment.current = Development();
+  } else {
+    Environment.current = Production();
+  }
+
+  try {
+    final GetIt getIt = GetIt.I;
+    getIt.registerSingleton<AppSMStore>(AppSMStore());
+    getIt.registerSingleton<CartSMStore>(CartSMStore());
+    getIt.registerSingleton<CompanySMStore>(CompanySMStore());
+    getIt.registerSingleton<EcommerceSMStore>(EcommerceSMStore());
+    getIt.registerSingleton<ModuleSMStore>(ModuleSMStore());
+    getIt.registerSingleton<UserSMStore>(UserSMStore());
+  } catch (e) {
+    log('error initializing state management');
+  }
 }

@@ -9,6 +9,7 @@ class SettingWhiteLabelEntity {
   String ecommerceId;
   bool forceAuthenticationStart;
   bool disabledPrintScreen;
+  bool planRequired;
   String urlWebApplication;
   String? linkAppleStore;
   String? linkGooglePlay;
@@ -21,6 +22,7 @@ class SettingWhiteLabelEntity {
     required this.ecommerceId,
     required this.forceAuthenticationStart,
     required this.disabledPrintScreen,
+    required this.planRequired,
     required this.urlWebApplication,
     this.linkAppleStore,
     this.linkGooglePlay,
@@ -35,6 +37,7 @@ class SettingWhiteLabelEntity {
     String? ecommerceId,
     bool? forceAuthenticationStart,
     bool? disabledPrintScreen,
+    bool? planRequired,
     String? urlWebApplication,
     String? linkAppleStore,
     String? linkGooglePlay,
@@ -48,6 +51,7 @@ class SettingWhiteLabelEntity {
       ecommerceId: ecommerceId ?? this.ecommerceId,
       forceAuthenticationStart: forceAuthenticationStart ?? this.forceAuthenticationStart,
       disabledPrintScreen: disabledPrintScreen ?? this.disabledPrintScreen,
+      planRequired: planRequired ?? this.planRequired,
       urlWebApplication: urlWebApplication ?? this.urlWebApplication,
       linkAppleStore: linkAppleStore ?? this.linkAppleStore,
       linkGooglePlay: linkGooglePlay ?? this.linkGooglePlay,
@@ -64,6 +68,7 @@ class SettingWhiteLabelEntity {
       'ecommerceId': ecommerceId,
       'forceAuthenticationStart': forceAuthenticationStart,
       'disabledPrintScreen': disabledPrintScreen,
+      'planRequired': planRequired,
       'urlWebApplication': urlWebApplication,
       'linkAppleStore': linkAppleStore,
       'linkGooglePlay': linkGooglePlay,
@@ -80,6 +85,7 @@ class SettingWhiteLabelEntity {
       ecommerceId: map['ecommerceId'] ?? '',
       forceAuthenticationStart: map['forceAuthenticationStart'] ?? false,
       disabledPrintScreen: map['disabledPrintScreen'] ?? false,
+      planRequired: map['planRequired'] ?? false,
       urlWebApplication: map['urlWebApplication'] ?? '',
       linkAppleStore: map['linkAppleStore'],
       linkGooglePlay: map['linkGooglePlay'],
@@ -95,6 +101,11 @@ class SettingWhiteLabelEntity {
   factory SettingWhiteLabelEntity.fromJson(String source) => SettingWhiteLabelEntity.fromMap(json.decode(source));
 
   @override
+  String toString() {
+    return 'SettingWhiteLabelEntity(companyId: $companyId, ecommerceId: $ecommerceId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, planRequired: $planRequired, urlWebApplication: $urlWebApplication, linkAppleStore: $linkAppleStore, linkGooglePlay: $linkGooglePlay, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
+  }
+
+  @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
   
@@ -103,6 +114,7 @@ class SettingWhiteLabelEntity {
       other.ecommerceId == ecommerceId &&
       other.forceAuthenticationStart == forceAuthenticationStart &&
       other.disabledPrintScreen == disabledPrintScreen &&
+      other.planRequired == planRequired &&
       other.urlWebApplication == urlWebApplication &&
       other.linkAppleStore == linkAppleStore &&
       other.linkGooglePlay == linkGooglePlay &&
@@ -118,6 +130,7 @@ class SettingWhiteLabelEntity {
       ecommerceId.hashCode ^
       forceAuthenticationStart.hashCode ^
       disabledPrintScreen.hashCode ^
+      planRequired.hashCode ^
       urlWebApplication.hashCode ^
       linkAppleStore.hashCode ^
       linkGooglePlay.hashCode ^
@@ -125,11 +138,5 @@ class SettingWhiteLabelEntity {
       link.hashCode ^
       environment.hashCode ^
       functionality.hashCode;
-  }
-
-
-  @override
-  String toString() {
-    return 'SettingWhiteLabelEntity(companyId: $companyId, ecommerceId: $ecommerceId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, urlWebApplication: $urlWebApplication, linkAppleStore: $linkAppleStore, linkGooglePlay: $linkGooglePlay, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
   }
 }

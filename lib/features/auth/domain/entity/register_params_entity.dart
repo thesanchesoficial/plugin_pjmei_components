@@ -8,6 +8,7 @@ class RegisterParams {
   String password;
   String birth;
   String phone;
+  
   RegisterParams({
     required this.documentNumber,
     required this.documentType,

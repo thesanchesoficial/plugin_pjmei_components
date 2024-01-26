@@ -16,6 +16,7 @@ WhiteLabelEntity pjmeiProd = WhiteLabelEntity(
     ecommerceId: '9dd3f999-0453-44df-b254-96192075137c',
     disabledPrintScreen: false,
     forceAuthenticationStart: false,
+    planRequired: true,
     redirectOrigin: 'https://portal.pjmei.app',
     urlWebApplication: 'https://portal.pjmei.app',
     linkAppleStore: 'https://apps.apple.com/br/app/pjmei-loja-online-e-gest%C3%A3o/id1554746008',
