@@ -1,6 +1,7 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
+import 'dart:developer';
 
-import '../../domain/entity/white_label_entity.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+
 import '../../domain/usecase/find_white_label.dart';
 
 class RemoteFindWhiteLabel implements FindWhiteLabel {
@@ -8,20 +9,21 @@ class RemoteFindWhiteLabel implements FindWhiteLabel {
   final HttpClient httpClient;
   final String url;
 
-  Future<WhiteLabelEntity> exec({bool log = false}) async {
+  Future<WhiteLabelEntity> exec() async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
-        log: log,
         method: 'get',
         newReturnErrorMsg: true,
         ignoreToken: true,
       );
+      p(httpResponse);
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
       return WhiteLabelEntity.fromMap(httpResponse['success']['whiteLabel']);
     } catch (e) {
+      log(e.toString());
       throw e;
     }
   }
