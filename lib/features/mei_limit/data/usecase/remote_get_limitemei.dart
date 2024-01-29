@@ -14,9 +14,9 @@ class RemoteGetLimiteMei implements GetLimiteMei {
         method: 'get',
         newReturnErrorMsg: true,
       );
-      return (httpResponse['success']);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      return (httpResponse['success']['annualRevenue']);
+    } catch (e) {
+      throw e;
     }
   }
 }
