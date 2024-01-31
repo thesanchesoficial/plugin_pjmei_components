@@ -8,14 +8,33 @@ class RemoteCreateCreditCard implements CreateCreditCard {
   final HttpClient httpClient;
   final String url;
 
-  Future<CreditCardPaymentEntity> exec(String token, {bool log = false}) async {
+  Future<CreditCardPaymentEntity> exec({
+    required String token,
+    required String city,
+    String? complement,
+    String? number,
+    required String neighborhood,
+    required String state,
+    required String street,
+    required String zipCode,
+    bool log = false,
+  }) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
         method: 'post',
         body: {
-          'card': token
+          'card': token,
+          'billingAddress': {
+            'city': city,
+            'complement': complement,
+            'number': number,
+            'neighborhood': neighborhood,
+            'state': state,
+            'street': street,
+            'zipCode': zipCode,
+          }
         },
         newReturnErrorMsg: true,
       );
