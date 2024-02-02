@@ -1,13 +1,37 @@
 import 'dart:convert';
 
 class TransactionEntity {
-
+  int? id;
+  String? status;
+  String? url;
+  String? message;
+  String? authorizationCode;
+  String? tid;
+  String? paidAt;
+  String? dateCreated;
+  int? amount;
+  CreditCardEntity? card;
+  String? lastDigits;
+  String? firstDigits;
+  String? cardBrand;
+  String? paymentMethod;
+  String? ip;
+  String? subscriptionId;
+  String? boletoUrl;
+  String? boletoBarcode;
+  String? boletoExpirationDate;
+  String? boleto;
+  String? pixData;
+  String? pixQrCode;
+  String? pixExpirationDate;
   TransactionEntity({
     this.id,
     this.status,
+    this.url,
     this.message,
     this.authorizationCode,
     this.tid,
+    this.paidAt,
     this.dateCreated,
     this.amount,
     this.card,
@@ -26,62 +50,15 @@ class TransactionEntity {
     this.pixExpirationDate,
   });
 
-  factory TransactionEntity.fromMap(Map<String, dynamic> map) {
-    return TransactionEntity(
-      id: int.parse(map['id'] ?? '0'),
-      status: map['status'] ?? '',
-      message: map['message'] ?? '',
-      authorizationCode: map['authorizationCode'] ?? map['authorization_code'] ??'',
-      tid: map['tid'] ?? '',
-      dateCreated: map['dateCreated'] ?? map['date_created'] ?? '',
-      amount: map['amount']?.toInt() ?? 0,
-      card: CreditCardEntity.fromMap(map['card']),
-      lastDigits: map['lastDigits'] ?? map['last_digits'] ?? '',
-      firstDigits: map['firstDigits'] ?? map['first_digits'] ?? '',
-      cardBrand: map['cardBrand'] ?? map['card_brand'] ?? '',
-      paymentMethod: map['paymentMethod'] ??  map['payment_method'] ?? '',
-      ip: map['ip'] ?? '',
-      subscriptionId: map['subscriptionId'] ?? map['subscription_id'] ?? '',
-      boletoUrl: map['boletoUrl'] ?? map['boleto_url'] ?? '',
-      boletoBarcode: map['boletoBarcode'] ?? map['boleto_barcode'] ?? '',
-      boletoExpirationDate: map['boletoExpirationDate'] ?? map['boleto_expiration_date'] ?? '',
-      boleto: map['boleto'] ?? '',
-      pixData: map['pixData'] ?? map['pix_data'] ?? '',
-      pixQrCode: map['pixQrCode'] ?? map['pix_qr_code'] ?? '',
-      pixExpirationDate: map['pixExpirationDate'] ?? map['pix_expiration_date'] ?? '',
-    );
-  }
-
-  factory TransactionEntity.fromJson(String source) =>
-      TransactionEntity.fromMap(json.decode(source));
-  int? id;
-  String? status;
-  String? message;
-  String? authorizationCode;
-  String? tid;
-  String? dateCreated;
-  int? amount;
-  CreditCardEntity? card;
-  String? lastDigits;
-  String? firstDigits;
-  String? cardBrand;
-  String? paymentMethod;
-  String? ip;
-  String? subscriptionId;
-  String? boletoUrl;
-  String? boletoBarcode;
-  String? boletoExpirationDate;
-  String? boleto;
-  String? pixData;
-  String? pixQrCode;
-  String? pixExpirationDate;
 
   TransactionEntity copyWith({
     int? id,
     String? status,
+    String? url,
     String? message,
     String? authorizationCode,
     String? tid,
+    String? paidAt,
     String? dateCreated,
     int? amount,
     CreditCardEntity? card,
@@ -102,9 +79,11 @@ class TransactionEntity {
     return TransactionEntity(
       id: id ?? this.id,
       status: status ?? this.status,
+      url: url ?? this.url,
       message: message ?? this.message,
       authorizationCode: authorizationCode ?? this.authorizationCode,
       tid: tid ?? this.tid,
+      paidAt: paidAt ?? this.paidAt,
       dateCreated: dateCreated ?? this.dateCreated,
       amount: amount ?? this.amount,
       card: card ?? this.card,
@@ -128,9 +107,11 @@ class TransactionEntity {
     return {
       'id': id,
       'status': status,
+      'url': url,
       'message': message,
       'authorizationCode': authorizationCode,
       'tid': tid,
+      'paidAt': paidAt,
       'dateCreated': dateCreated,
       'amount': amount,
       'card': card?.toMap(),
@@ -150,64 +131,98 @@ class TransactionEntity {
     };
   }
 
+  factory TransactionEntity.fromMap(Map<String, dynamic> map) {
+    return TransactionEntity(
+      id: map['id']?.toInt(),
+      status: map['status'],
+      url: map['url'],
+      message: map['message'],
+      authorizationCode: map['authorizationCode'],
+      tid: map['tid'],
+      paidAt: map['paidAt'],
+      dateCreated: map['dateCreated'],
+      amount: map['amount']?.toInt(),
+      card: map['card'] != null ? CreditCardEntity.fromMap(map['card']) : null,
+      lastDigits: map['lastDigits'],
+      firstDigits: map['firstDigits'],
+      cardBrand: map['cardBrand'],
+      paymentMethod: map['paymentMethod'],
+      ip: map['ip'],
+      subscriptionId: map['subscriptionId'],
+      boletoUrl: map['boletoUrl'],
+      boletoBarcode: map['boletoBarcode'],
+      boletoExpirationDate: map['boletoExpirationDate'],
+      boleto: map['boleto'],
+      pixData: map['pixData'],
+      pixQrCode: map['pixQrCode'],
+      pixExpirationDate: map['pixExpirationDate'],
+    );
+  }
+
   String toJson() => json.encode(toMap());
+
+  factory TransactionEntity.fromJson(String source) => TransactionEntity.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'TransactionEntity(id: $id, status: $status, message: $message, authorizationCode: $authorizationCode, tid: $tid, dateCreated: $dateCreated, amount: $amount, card: $card, lastDigits: $lastDigits, firstDigits: $firstDigits, cardBrand: $cardBrand, paymentMethod: $paymentMethod, ip: $ip, subscriptionId: $subscriptionId, boletoUrl: $boletoUrl, boletoBarcode: $boletoBarcode, boletoExpirationDate: $boletoExpirationDate, boleto: $boleto, pixData: $pixData, pixQrCode: $pixQrCode, pixExpirationDate: $pixExpirationDate)';
+    return 'TransactionEntity(id: $id, status: $status, url: $url, message: $message, authorizationCode: $authorizationCode, tid: $tid, paidAt: $paidAt, dateCreated: $dateCreated, amount: $amount, card: $card, lastDigits: $lastDigits, firstDigits: $firstDigits, cardBrand: $cardBrand, paymentMethod: $paymentMethod, ip: $ip, subscriptionId: $subscriptionId, boletoUrl: $boletoUrl, boletoBarcode: $boletoBarcode, boletoExpirationDate: $boletoExpirationDate, boleto: $boleto, pixData: $pixData, pixQrCode: $pixQrCode, pixExpirationDate: $pixExpirationDate)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-
+  
     return other is TransactionEntity &&
-        other.id == id &&
-        other.status == status &&
-        other.message == message &&
-        other.authorizationCode == authorizationCode &&
-        other.tid == tid &&
-        other.dateCreated == dateCreated &&
-        other.amount == amount &&
-        other.card == card &&
-        other.lastDigits == lastDigits &&
-        other.firstDigits == firstDigits &&
-        other.cardBrand == cardBrand &&
-        other.paymentMethod == paymentMethod &&
-        other.ip == ip &&
-        other.subscriptionId == subscriptionId &&
-        other.boletoUrl == boletoUrl &&
-        other.boletoBarcode == boletoBarcode &&
-        other.boletoExpirationDate == boletoExpirationDate &&
-        other.boleto == boleto &&
-        other.pixData == pixData &&
-        other.pixQrCode == pixQrCode &&
-        other.pixExpirationDate == pixExpirationDate;
+      other.id == id &&
+      other.status == status &&
+      other.url == url &&
+      other.message == message &&
+      other.authorizationCode == authorizationCode &&
+      other.tid == tid &&
+      other.paidAt == paidAt &&
+      other.dateCreated == dateCreated &&
+      other.amount == amount &&
+      other.card == card &&
+      other.lastDigits == lastDigits &&
+      other.firstDigits == firstDigits &&
+      other.cardBrand == cardBrand &&
+      other.paymentMethod == paymentMethod &&
+      other.ip == ip &&
+      other.subscriptionId == subscriptionId &&
+      other.boletoUrl == boletoUrl &&
+      other.boletoBarcode == boletoBarcode &&
+      other.boletoExpirationDate == boletoExpirationDate &&
+      other.boleto == boleto &&
+      other.pixData == pixData &&
+      other.pixQrCode == pixQrCode &&
+      other.pixExpirationDate == pixExpirationDate;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-        status.hashCode ^
-        message.hashCode ^
-        authorizationCode.hashCode ^
-        tid.hashCode ^
-        dateCreated.hashCode ^
-        amount.hashCode ^
-        card.hashCode ^
-        lastDigits.hashCode ^
-        firstDigits.hashCode ^
-        cardBrand.hashCode ^
-        paymentMethod.hashCode ^
-        ip.hashCode ^
-        subscriptionId.hashCode ^
-        boletoUrl.hashCode ^
-        boletoBarcode.hashCode ^
-        boletoExpirationDate.hashCode ^
-        boleto.hashCode ^
-        pixData.hashCode ^
-        pixQrCode.hashCode ^
-        pixExpirationDate.hashCode;
+      status.hashCode ^
+      url.hashCode ^
+      message.hashCode ^
+      authorizationCode.hashCode ^
+      tid.hashCode ^
+      paidAt.hashCode ^
+      dateCreated.hashCode ^
+      amount.hashCode ^
+      card.hashCode ^
+      lastDigits.hashCode ^
+      firstDigits.hashCode ^
+      cardBrand.hashCode ^
+      paymentMethod.hashCode ^
+      ip.hashCode ^
+      subscriptionId.hashCode ^
+      boletoUrl.hashCode ^
+      boletoBarcode.hashCode ^
+      boletoExpirationDate.hashCode ^
+      boleto.hashCode ^
+      pixData.hashCode ^
+      pixQrCode.hashCode ^
+      pixExpirationDate.hashCode;
   }
 }
 
