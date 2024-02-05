@@ -8,12 +8,13 @@ class RemotePostChatDefault implements PostChatDefault {
   final HttpClient httpClient;
   final String url;
 
-  Future<ChatDefaultEntity> exec({bool log = false}) async {
+  Future<ChatDefaultEntity> exec({required Map<String, dynamic> params, bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         method: 'post',
         newReturnErrorMsg: true,
+        body: params,
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];

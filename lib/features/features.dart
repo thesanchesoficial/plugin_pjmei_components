@@ -7,6 +7,7 @@ export './bank_account/domain/entity/bank_account_entity.dart';
 export './blog/domain/entity/category_blog_entity.dart';
 export './blog/domain/entity/post_blog_entity.dart';
 export './ccmei/domain/entity/ccmei_entity.dart';
+export './chat/domain/entity/chat_default_entity.dart';
 export './ccmei/domain/entity/cnae_entity.dart';
 export './cnpj/domain/entity/cnpj_entity.dart';
 export './company/domain/entity/basic_dashboard_entity.dart';

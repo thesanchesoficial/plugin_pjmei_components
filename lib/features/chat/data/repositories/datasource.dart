@@ -7,7 +7,7 @@ class _ChatApi {
   }
 
   Future<ChatDefaultEntity> insertMessageDefauilt({required Map<String, dynamic> params}) {
-    return makePostChatDefault(params: params).exec();
+    return makePostChatDefault().exec(params: params);
   }
 
 }
