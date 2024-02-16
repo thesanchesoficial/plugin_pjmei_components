@@ -1,6 +1,4 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
 
 import '../../domain/entity/notification_entity.dart';
 import '../../domain/usecase/add_notifications.dart';
@@ -19,15 +17,19 @@ class RemoteAddNotification implements AddNotifications {
         url: url,
         log: log,
         method: 'post',
+        newReturnErrorMsg: true,
         body: {
           'title': params.title,
           'subtitle': params.subtitle,
           'link': params.link,
         },
       );
-      return NotificationEntity.fromMap(httpResponse["success"]);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return NotificationEntity.fromMap(httpResponse["success"]['notification']);
+    } catch (e) {
+      rethrow;
     }
   }
 }

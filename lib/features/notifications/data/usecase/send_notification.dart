@@ -1,28 +1,30 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
 
-import '../../domain/entity/notification_entity.dart';
-import '../../domain/usecase/update_notifications.dart';
+import '../../domain/usecase/send_notification.dart';
 
-class RemoteUpdateNotification implements UpdateNotification {
+class RemoteSendNotification implements SendNotification {
   final HttpClient httpClient;
   final String url;
 
-  RemoteUpdateNotification({required this.httpClient, required this.url});
+  RemoteSendNotification({required this.httpClient, required this.url});
 
   @override
-  Future<NotificationEntity> exec(NotificationEntity item, {bool log = false}) async {
+  Future<bool> exec({required String recipients, List<String>? ids, bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
-        method: 'put',
+        method: 'post',
         newReturnErrorMsg: true,
-        body: item.toMap(),
+        body: {
+          'recipients': recipients,
+          'ids': ids
+        },
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return NotificationEntity.fromMap(httpResponse["success"]);
+      return httpResponse["code"] == 204 || httpResponse == true;
     } catch (e) {
       rethrow;
     }

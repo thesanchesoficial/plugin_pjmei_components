@@ -103,3 +103,4 @@ export './white_label/domain/entity/setting_white_label_entity.dart';
 export './white_label/domain/entity/style_white_label_entity.dart';
 export './white_label/domain/entity/validation_white_label_entity.dart';
 export './white_label/domain/entity/white_label_entity.dart';
+export './web_socket/domain/entity/message_entity.dart';

@@ -5,5 +5,5 @@ import '../usecase/update_notifications.dart';
 
 UpdateNotification makeRemoteUpdateNotification(String id) => RemoteUpdateNotification(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/notification/$id')
+  url: makeApiUrl('venver/notifications/$id')
 );

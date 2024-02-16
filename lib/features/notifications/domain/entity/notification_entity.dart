@@ -2,20 +2,22 @@ import 'dart:convert';
 
 class NotificationEntity {
   String? id;
-  String title;
-  String subtitle;
+  final String title;
+  final String subtitle;
   String? link;
   String? createdAt;
-  bool send;
-  
+  String? updatedAt;
+  bool? send;
   NotificationEntity({
     this.id,
     required this.title,
     required this.subtitle,
     this.link,
     this.createdAt,
-    this.send = false,
+    this.updatedAt,
+    this.send,
   });
+  
 
   NotificationEntity copyWith({
     String? id,
@@ -23,6 +25,7 @@ class NotificationEntity {
     String? subtitle,
     String? link,
     String? createdAt,
+    String? updatedAt,
     bool? send,
   }) {
     return NotificationEntity(
@@ -31,6 +34,7 @@ class NotificationEntity {
       subtitle: subtitle ?? this.subtitle,
       link: link ?? this.link,
       createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
       send: send ?? this.send,
     );
   }
@@ -42,6 +46,7 @@ class NotificationEntity {
       'subtitle': subtitle,
       'link': link,
       'createdAt': createdAt,
+      'updatedAt': updatedAt,
       'send': send,
     };
   }
@@ -53,7 +58,8 @@ class NotificationEntity {
       subtitle: map['subtitle'] ?? '',
       link: map['link'],
       createdAt: map['createdAt'],
-      send: map['send'] ?? false,
+      updatedAt: map['updatedAt'],
+      send: map['send'],
     );
   }
 
@@ -63,7 +69,7 @@ class NotificationEntity {
 
   @override
   String toString() {
-    return 'NotificationEntity(id: $id, title: $title, subtitle: $subtitle, link: $link, send: $send, createdAt: $createdAt)';
+    return 'NotificationEntity(id: $id, title: $title, subtitle: $subtitle, link: $link, createdAt: $createdAt, updatedAt: $updatedAt, send: $send)';
   }
 
   @override
@@ -75,8 +81,9 @@ class NotificationEntity {
       other.title == title &&
       other.subtitle == subtitle &&
       other.link == link &&
-      other.send == send &&
-      other.createdAt == createdAt;
+      other.createdAt == createdAt &&
+      other.updatedAt == updatedAt &&
+      other.send == send;
   }
 
   @override
@@ -85,7 +92,8 @@ class NotificationEntity {
       title.hashCode ^
       subtitle.hashCode ^
       link.hashCode ^
-      send.hashCode ^
-      createdAt.hashCode;
+      createdAt.hashCode ^
+      updatedAt.hashCode ^
+      send.hashCode;
   }
 }

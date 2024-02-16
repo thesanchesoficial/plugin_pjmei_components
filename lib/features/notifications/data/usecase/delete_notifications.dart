@@ -1,6 +1,4 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
 
 import '../../domain/usecase/delete_notifications.dart';
 
@@ -17,10 +15,14 @@ class RemoteDeleteNotification implements DeleteNotification {
         url: url,
         log: log,
         method: 'delete',
+        newReturnErrorMsg: true
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
       return httpResponse["code"] == 204 || httpResponse == true;
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      rethrow;
     }
   }
 }

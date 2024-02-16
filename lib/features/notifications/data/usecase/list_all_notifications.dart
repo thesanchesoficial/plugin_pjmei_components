@@ -1,6 +1,4 @@
 import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
 
 import '../../domain/entity/notification_entity.dart';
 import '../../domain/usecase/list_all_notifications.dart';
@@ -18,12 +16,14 @@ class RemoteListNotifications implements ListNotifications {
         url: url,
         log: log,
         method: 'get',
+        newReturnErrorMsg: true
       );
-      return (httpResponse["success"] as List)
-          .map((e) => NotificationEntity.fromMap(e))
-          .toList();
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
+        throw httpResponse['error']['message'];
+      }
+      return (httpResponse["success"]['notifications'] as List).map((e) => NotificationEntity.fromMap(e)).toList();
+    } catch (e) {
+      rethrow;
     }
   }
 }

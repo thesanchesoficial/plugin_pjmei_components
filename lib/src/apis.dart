@@ -7,6 +7,7 @@ import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_t
 import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_transaction_entity.dart';
 import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/nota_fiscal_entity.dart';
 import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/notafiscal_service_entity.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 export '../features/finance/data/repositories/bank/delete_finance_bank_factory.dart';
 export '../features/finance/data/repositories/bank/get_finance_bank_factory.dart';
@@ -178,7 +179,9 @@ import '../features/nota_fiscal/data/repositories/post_nota_fiscal_factory.dart'
 import '../features/nota_fiscal/data/repositories/put_nota_fiscal_factory.dart';
 import '../features/notifications/data/repositories/add_notifications_factory.dart';
 import '../features/notifications/data/repositories/delete_notifications_factory.dart';
+import '../features/notifications/data/repositories/get_list_notifications_by_user_factory.dart';
 import '../features/notifications/data/repositories/get_list_notifications_factory.dart';
+import '../features/notifications/data/repositories/send_notifications_factory.dart';
 import '../features/notifications/data/repositories/update_notifications_factory.dart';
 import '../features/notifications/domain/entity/notification_entity.dart';
 import '../features/orders/data/repositories/create_order_factory.dart';
@@ -363,6 +366,7 @@ part '../features/bank_account/data/repositories/datasource.dart';
 part '../features/extract/data/repositories/datasource.dart';
 part '../features/finance/data/repositories/datasource.dart';
 part '../features/nota_fiscal/data/repositories/datasource.dart';
+part '../features/web_socket/data/repositories/datasource.dart';
 part '../features/white_label/data/repositories/datasource.dart';
 
 class Api {
@@ -412,5 +416,6 @@ class Api {
   static final user = _UserApi();
   static final users = _UserApi();
   static final vouchers = _VoucherEcommerceApi();
+  static final webSocket = _WebSocketApi();
   static final whiteLabel = _WhiteLabelApi();
 }

@@ -5,5 +5,5 @@ import '../usecase/delete_notifications.dart';
 
 DeleteNotification makeRemoteDeleteNotification(String id) => RemoteDeleteNotification(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/notification/$id')
+  url: makeApiUrl('venver/notifications/$id')
 );

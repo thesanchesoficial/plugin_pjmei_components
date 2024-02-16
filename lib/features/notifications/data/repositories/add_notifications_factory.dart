@@ -5,5 +5,5 @@ import '../usecase/add_notification.dart';
 
 AddNotifications makeRemoteAddNotification() => RemoteAddNotification(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/notification')
+  url: makeApiUrl('venver/notifications')
 );
