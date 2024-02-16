@@ -7,6 +7,7 @@ import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_t
 import 'package:plugin_pjmei_components/features/finance/domain/entity/finance_transaction_entity.dart';
 import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/nota_fiscal_entity.dart';
 import 'package:plugin_pjmei_components/features/nota_fiscal/domain/entity/notafiscal_service_entity.dart';
+import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 export '../features/finance/data/repositories/bank/delete_finance_bank_factory.dart';

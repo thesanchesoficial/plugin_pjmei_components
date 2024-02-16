@@ -4,7 +4,7 @@ class _WebSocketApi {
 
   WebSocketChannel connectWebSocketChannel() {
     return WebSocketChannel.connect(
-      Uri.parse('wss://wsstg.pjmei.app'),
+      Uri.parse('wss://wsstg.pjmei.app?token=${userSM.user?.accessToken}'),
     );
   }
 }
