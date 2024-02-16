@@ -5,5 +5,5 @@ import '../usecase/list_all_notifications.dart';
 
 ListNotifications makeRemoteListNotificationsByUser({required String id, Map<String, dynamic>? params}) => RemoteListNotifications(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/notifications/$id', params: params)
+  url: makeApiUrl('venver/notifications/user/$id', params: params)
 );
