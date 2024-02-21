@@ -17,7 +17,7 @@ class RemoteGetVoucher implements GetVoucher {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return VoucherEntity.fromMap((httpResponse['success']['discount']));
+      return VoucherEntity.fromMap((httpResponse['success']['coupon']));
     } catch (error) {
       throw error;
     }

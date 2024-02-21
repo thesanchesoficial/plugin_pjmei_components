@@ -20,7 +20,7 @@ class RemoteListVouchersByEstablishment implements ListVouchersByEstablishment {
         throw httpResponse['error']['message'];
       }
       final List<VoucherEntity> _list = [];
-      httpResponse['success']['items'].map((e) {
+      httpResponse['success']['coupons'].map((e) {
         _list.add(VoucherEntity.fromMap(e));
       }).toList();
       return _list;

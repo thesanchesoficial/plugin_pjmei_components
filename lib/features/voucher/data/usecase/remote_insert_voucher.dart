@@ -20,8 +20,8 @@ class RemoteAddVoucher implements AddVoucher {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      if(httpResponse['success']['voucher'] != null) {
-        return VoucherEntity.fromMap(httpResponse['success']['voucher']);
+      if(httpResponse['success']['coupon'] != null) {
+        return VoucherEntity.fromMap(httpResponse['success']['coupon']);
       }
       return VoucherEntity.fromMap(httpResponse['success']);
     } catch (e) {
