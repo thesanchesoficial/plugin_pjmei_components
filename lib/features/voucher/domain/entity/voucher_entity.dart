@@ -1,214 +1,167 @@
 import 'dart:convert';
-
-import '../../../ecommerce/domain/entity/ecommerce_entity.dart';
-import '../../../products/domain/entity/product_ecommerce_entity.dart';
-
-class VoucherEntity {
-  VoucherEntity({
-    this.id,
-    this.nome,
-    this.codigo,
-    this.freteGratis,
-    this.dataInicio,
-    this.dataTermino,
-    this.limiteUso,
-    this.numeroUso,
-    this.limiteCliente,
-    this.ativo,
-    this.isVisible,
-    this.subTotalMinimo,
-    this.tipo,
-    this.expirado,
-    this.descontoPorcentagem,
-    this.descontoDinheiro,
-    this.estabelecimento,
-    this.produto,
+class VoucherDiscountEntity {
+  final String type;
+  final num value;
+  VoucherDiscountEntity({
+    required this.type,
+    required this.value,
   });
 
-  factory VoucherEntity.fromMap(Map<String, dynamic> map) {
-    return VoucherEntity(
-      id: map['id'],
-      nome: map['nome'],
-      codigo: map['codigo'],
-      freteGratis: map['frete_gratis'] ?? false,
-      dataInicio: DateTime.tryParse(map['data_inicio'].toString()),
-      dataTermino: DateTime.tryParse(map['data_termino'].toString()),
-      limiteUso: int.tryParse(map['limite_uso'].toString()),
-      numeroUso: int.tryParse(map['numero_uso'].toString()),
-      limiteCliente: int.tryParse(map['limite_cliente'].toString()),
-      ativo: map['ativo'] ?? false,
-      isVisible: map['isVisible'] ?? false,
-      subTotalMinimo: num.tryParse(map['sub_total_minimo'].toString()),
-      tipo: map['tipo'],
-      expirado: map['expirado'] ?? false,
-      descontoPorcentagem: int.tryParse(map['desconto_porcentagem'].toString()),
-      descontoDinheiro: num.tryParse(map['desconto_dinheiro'].toString()),
-      estabelecimento: map['estabelecimento'] == null
-          ? null
-          : EcommerceEntity.fromMap(map['estabelecimento']),
-      produto: map['produto'] == null ? null : ProductEcommerceEntity.fromMap(map['produto']),
+  VoucherDiscountEntity copyWith({
+    String? type,
+    num? value,
+  }) {
+    return VoucherDiscountEntity(
+      type: type ?? this.type,
+      value: value ?? this.value,
     );
   }
 
-  factory VoucherEntity.fromJson(String source) => VoucherEntity.fromMap(json.decode(source));
+  Map<String, dynamic> toMap() {
+    return {
+      'type': type,
+      'value': value,
+    };
+  }
+
+  factory VoucherDiscountEntity.fromMap(Map<String, dynamic> map) {
+    return VoucherDiscountEntity(
+      type: map['type'] ?? '',
+      value: map['value'] ?? 0,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory VoucherDiscountEntity.fromJson(String source) => VoucherDiscountEntity.fromMap(json.decode(source));
+
+  @override
+  String toString() => 'VoucherDiscountEntity(type: $type, value: $value)';
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+  
+    return other is VoucherDiscountEntity &&
+      other.type == type &&
+      other.value == value;
+  }
+
+  @override
+  int get hashCode => type.hashCode ^ value.hashCode;
+}
+
+class VoucherEntity {
   String? id;
-  String? nome;
-  String? codigo;
-  bool? freteGratis;
-  DateTime? dataInicio;
-  DateTime? dataTermino;
-  int? limiteUso;
-  int? numeroUso;
-  int? limiteCliente;
-  bool? ativo;
-  bool? isVisible;
-  num? subTotalMinimo;
-  String? tipo;
-  bool? expirado;
-  int? descontoPorcentagem;
-  num? descontoDinheiro;
-  EcommerceEntity? estabelecimento;
-  ProductEcommerceEntity? produto;
+  String name;
+  String code;
+  DateTime? startDate;
+  DateTime? endDate;
+  DateTime? planId;
+  int limit;
+  int limitPerUser;
+  VoucherDiscountEntity discount;
+
+  VoucherEntity({
+    this.id,
+    required this.name,
+    required this.code,
+    this.startDate,
+    this.endDate,
+    this.planId,
+    required this.limit,
+    required this.limitPerUser,
+    required this.discount,
+  });
+  
 
   VoucherEntity copyWith({
     String? id,
-    String? nome,
-    String? codigo,
-    bool? freteGratis,
-    DateTime? dataInicio,
-    DateTime? dataTermino,
-    int? limiteUso,
-    int? numeroUso,
-    int? limiteCliente,
-    bool? ativo,
-    bool? isVisible,
-    num? subTotalMinimo,
-    String? tipo,
-    bool? expirado,
-    int? descontoPorcentagem,
-    num? descontoDinheiro,
-    EcommerceEntity? estabelecimento,
-    ProductEcommerceEntity? produto,
+    String? name,
+    String? code,
+    DateTime? startDate,
+    DateTime? endDate,
+    DateTime? planId,
+    int? limit,
+    int? limitPerUser,
+    VoucherDiscountEntity? discount,
   }) {
     return VoucherEntity(
       id: id ?? this.id,
-      nome: nome ?? this.nome,
-      codigo: codigo ?? this.codigo,
-      freteGratis: freteGratis ?? this.freteGratis,
-      dataInicio: dataInicio ?? this.dataInicio,
-      dataTermino: dataTermino ?? this.dataTermino,
-      limiteUso: limiteUso ?? this.limiteUso,
-      numeroUso: numeroUso ?? this.numeroUso,
-      limiteCliente: limiteCliente ?? this.limiteCliente,
-      ativo: ativo ?? this.ativo,
-      isVisible: isVisible ?? this.isVisible,
-      subTotalMinimo: subTotalMinimo ?? this.subTotalMinimo,
-      tipo: tipo ?? this.tipo,
-      expirado: expirado ?? this.expirado,
-      descontoPorcentagem: descontoPorcentagem ?? this.descontoPorcentagem,
-      descontoDinheiro: descontoDinheiro ?? this.descontoDinheiro,
-      estabelecimento: estabelecimento ?? this.estabelecimento,
-      produto: produto ?? this.produto,
+      name: name ?? this.name,
+      code: code ?? this.code,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      planId: planId ?? this.planId,
+      limit: limit ?? this.limit,
+      limitPerUser: limitPerUser ?? this.limitPerUser,
+      discount: discount ?? this.discount,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'nome': nome,
-      'codigo': codigo,
-      'freteGratis': freteGratis,
-      'dataInicio': dataInicio?.millisecondsSinceEpoch,
-      'dataTermino': dataTermino?.millisecondsSinceEpoch,
-      'limiteUso': limiteUso,
-      'numeroUso': numeroUso,
-      'limiteCliente': limiteCliente,
-      'ativo': ativo,
-      'isVisible': isVisible,
-      'subTotalMinimo': subTotalMinimo,
-      'tipo': tipo,
-      'expirado': expirado,
-      'descontoPorcentagem': descontoPorcentagem,
-      'descontoDinheiro': descontoDinheiro,
-      'estabelecimento': estabelecimento?.toMap(),
-      'produto': produto?.toMap(),
+      'name': name,
+      'code': code,
+      'startDate': startDate?.millisecondsSinceEpoch,
+      'endDate': endDate?.millisecondsSinceEpoch,
+      'planId': planId?.millisecondsSinceEpoch,
+      'limit': limit,
+      'limitPerUser': limitPerUser,
+      'discount': discount.toMap(),
     };
   }
 
-  Map<String, dynamic> toMapApi() {
-    return {
-      'id': id,
-      'nome': nome,
-      'codigo': codigo,
-      'frete_gratis': freteGratis ?? false,
-      'data_inicio': dataInicio?.toUtc().toString(),
-      'data_termino': dataTermino?.toUtc().toString(),
-      'limite_uso': limiteUso ?? 10000,
-      'numero_uso': numeroUso ?? 0,
-      'limite_cliente': limiteCliente ?? 10000,
-      'ativo': ativo ?? false,
-      'isVisible': isVisible ?? false,
-      'sub_total_minimo': subTotalMinimo ?? 0,
-      'tipo': tipo ?? 'tipo comun',
-      'expirado': expirado ?? false,
-      'desconto_porcentagem': descontoPorcentagem,
-      'desconto_dinheiro': descontoDinheiro,
-      'estabelecimento': estabelecimento?.id,
-      'produto': produto?.id,
-    };
+  factory VoucherEntity.fromMap(Map<String, dynamic> map) {
+    return VoucherEntity(
+      id: map['id'],
+      name: map['name'] ?? '',
+      code: map['code'] ?? '',
+      startDate: map['startDate'] != null ? DateTime.fromMillisecondsSinceEpoch(map['startDate']) : null,
+      endDate: map['endDate'] != null ? DateTime.fromMillisecondsSinceEpoch(map['endDate']) : null,
+      planId: map['planId'] != null ? DateTime.fromMillisecondsSinceEpoch(map['planId']) : null,
+      limit: map['limit']?.toInt() ?? 0,
+      limitPerUser: map['limitPerUser']?.toInt() ?? 0,
+      discount: VoucherDiscountEntity.fromMap(map['discount']),
+    );
   }
 
   String toJson() => json.encode(toMap());
 
+  factory VoucherEntity.fromJson(String source) => VoucherEntity.fromMap(json.decode(source));
+
   @override
   String toString() {
-    return 'Cupom(id: $id, nome: $nome, codigo: $codigo, freteGratis: $freteGratis, dataInicio: $dataInicio, dataTermino: $dataTermino, limiteUso: $limiteUso, numeroUso: $numeroUso, limiteCliente: $limiteCliente, ativo: $ativo, subTotalMinimo: $subTotalMinimo, tipo: $tipo, expirado: $expirado, descontoPorcentagem: $descontoPorcentagem, descontoDinheiro: $descontoDinheiro, estabelecimento: $estabelecimento, produto: $produto)';
+    return 'VoucherEntity(id: $id, name: $name, code: $code, startDate: $startDate, endDate: $endDate, planId: $planId, limit: $limit, limitPerUser: $limitPerUser, discount: $discount)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-
+  
     return other is VoucherEntity &&
-        other.id == id &&
-        other.nome == nome &&
-        other.codigo == codigo &&
-        other.freteGratis == freteGratis &&
-        other.dataInicio == dataInicio &&
-        other.dataTermino == dataTermino &&
-        other.limiteUso == limiteUso &&
-        other.numeroUso == numeroUso &&
-        other.limiteCliente == limiteCliente &&
-        other.ativo == ativo &&
-        other.isVisible == isVisible &&
-        other.subTotalMinimo == subTotalMinimo &&
-        other.tipo == tipo &&
-        other.expirado == expirado &&
-        other.descontoPorcentagem == descontoPorcentagem &&
-        other.descontoDinheiro == descontoDinheiro &&
-        other.estabelecimento == estabelecimento &&
-        other.produto == produto;
+      other.id == id &&
+      other.name == name &&
+      other.code == code &&
+      other.startDate == startDate &&
+      other.endDate == endDate &&
+      other.planId == planId &&
+      other.limit == limit &&
+      other.limitPerUser == limitPerUser &&
+      other.discount == discount;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-        nome.hashCode ^
-        codigo.hashCode ^
-        freteGratis.hashCode ^
-        dataInicio.hashCode ^
-        dataTermino.hashCode ^
-        limiteUso.hashCode ^
-        numeroUso.hashCode ^
-        limiteCliente.hashCode ^
-        ativo.hashCode ^
-        isVisible.hashCode ^
-        subTotalMinimo.hashCode ^
-        tipo.hashCode ^
-        expirado.hashCode ^
-        descontoPorcentagem.hashCode ^
-        descontoDinheiro.hashCode ^
-        estabelecimento.hashCode ^
-        produto.hashCode;
+      name.hashCode ^
+      code.hashCode ^
+      startDate.hashCode ^
+      endDate.hashCode ^
+      planId.hashCode ^
+      limit.hashCode ^
+      limitPerUser.hashCode ^
+      discount.hashCode;
   }
 }

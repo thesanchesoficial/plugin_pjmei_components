@@ -1,7 +1,7 @@
 part of '../../../../src/apis.dart';
 
 class _PlanApi {
-  final vouchers = _VoucherPlanApi();
+  // final vouchers = _VoucherPlanApi();
   final subscription = _SubscriptionPlanApi();
   final items = _ItemsPlanApi();
 

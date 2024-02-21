@@ -5,5 +5,5 @@ import '../usecase/remote_delete_voucher.dart';
 
 DeleteVoucher makeRemoteDeleteVoucher(String id) => RemoteDeleteVoucher(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/cupom/$id'),
+  url: makeApiUrl('venver/coupon/$id'),
 );

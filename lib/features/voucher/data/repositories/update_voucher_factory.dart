@@ -5,5 +5,5 @@ import '../usecase/remote_update_voucher.dart';
 
 UpdateVoucher makeRemoteUpdateVoucher(String id) => RemoteUpdateVoucher(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/cupom/$id'),
+  url: makeApiUrl('venver/coupon/$id'),
 );

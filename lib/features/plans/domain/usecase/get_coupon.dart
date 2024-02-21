@@ -1,5 +1,5 @@
-import '../entity/coupon_discount_entity.dart';
+import '../../../voucher/domain/entity/voucher_entity.dart';
 
-abstract class GetCoupon {
-  Future<CouponDiscount> exec({bool log = false});
+abstract class GetVoucher {
+  Future<VoucherEntity> exec({bool log = false});
 }
