@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 class VoucherDiscountEntity {
   final String type;
   final num value;
@@ -57,8 +56,8 @@ class VoucherEntity {
   String? id;
   String name;
   String code;
-  DateTime? startDate;
-  DateTime? endDate;
+  String? startDate;
+  String? endDate;
   String? planId;
   int limit;
   int limitPerUser;
@@ -75,13 +74,12 @@ class VoucherEntity {
     required this.discount,
   });
 
-
   VoucherEntity copyWith({
     String? id,
     String? name,
     String? code,
-    DateTime? startDate,
-    DateTime? endDate,
+    String? startDate,
+    String? endDate,
     String? planId,
     int? limit,
     int? limitPerUser,
@@ -105,8 +103,8 @@ class VoucherEntity {
       'id': id,
       'name': name,
       'code': code,
-      'startDate': startDate?.millisecondsSinceEpoch,
-      'endDate': endDate?.millisecondsSinceEpoch,
+      'startDate': startDate,
+      'endDate': endDate,
       'planId': planId,
       'limit': limit,
       'limitPerUser': limitPerUser,
@@ -119,8 +117,8 @@ class VoucherEntity {
       id: map['id'],
       name: map['name'] ?? '',
       code: map['code'] ?? '',
-      startDate: map['startDate'] != null ? DateTime.fromMillisecondsSinceEpoch(map['startDate']) : null,
-      endDate: map['endDate'] != null ? DateTime.fromMillisecondsSinceEpoch(map['endDate']) : null,
+      startDate: map['startDate'],
+      endDate: map['endDate'],
       planId: map['planId'],
       limit: map['limit']?.toInt() ?? 0,
       limitPerUser: map['limitPerUser']?.toInt() ?? 0,
