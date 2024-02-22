@@ -6,8 +6,8 @@ class _NotificationsApi {
     return makeRemoteAddNotification().exec(data);
   }
 
-  Future<bool> send({required String id, required String recipients, List<String>? ids}) {
-    return makeRemoteSendNotification(id: id).exec(recipients: recipients, ids: ids);
+  Future<bool> send({required String id, required String type, List<String>? ids}) {
+    return makeRemoteSendNotification(id: id).exec(type: type, ids: ids);
   }
 
   Future<NotificationEntity> update({required String id, required NotificationEntity data}) {

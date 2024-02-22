@@ -9,7 +9,7 @@ class RemoteSendNotification implements SendNotification {
   RemoteSendNotification({required this.httpClient, required this.url});
 
   @override
-  Future<bool> exec({required String recipients, List<String>? ids, bool log = false}) async {
+  Future<bool> exec({required String type, List<String>? ids, bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
@@ -17,8 +17,10 @@ class RemoteSendNotification implements SendNotification {
         method: 'post',
         newReturnErrorMsg: true,
         body: {
-          'recipients': recipients,
-          'ids': ids
+          'recipients': {
+            'type': type,
+            'ids': ids,
+          }
         },
       );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
