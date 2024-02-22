@@ -23,10 +23,12 @@ class RemoteSendNotification implements SendNotification {
           }
         },
       );
+      if(httpResponse == null || httpResponse?["code"] == 204 || httpResponse == true) {
+        return true;
+      }
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return httpResponse == null || httpResponse?["code"] == 204 || httpResponse == true;
     } catch (e) {
       rethrow;
     }
