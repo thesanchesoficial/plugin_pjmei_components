@@ -1,6 +1,6 @@
+import 'package:extended_masked_text/extended_masked_text.dart';
 import 'package:intl/intl.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 class OwFormat {
   const OwFormat._();

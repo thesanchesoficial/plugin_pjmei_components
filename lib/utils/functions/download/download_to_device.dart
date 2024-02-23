@@ -2,8 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 import 'empty_download.dart'

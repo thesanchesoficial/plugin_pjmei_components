@@ -1,4 +1,4 @@
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 
 class Valid {
   const Valid._();

@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:go_router/go_router.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 class HttpAdapter implements HttpClient {
 

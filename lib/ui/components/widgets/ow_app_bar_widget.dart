@@ -1,7 +1,9 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:ui';
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
+
+import 'package:go_router/go_router.dart';
 
 // ignore: must_be_immutable
 class OwAppBar extends StatelessWidget implements PreferredSizeWidget {

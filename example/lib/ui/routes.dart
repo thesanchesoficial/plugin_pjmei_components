@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-// ignore: depend_on_referenced_packages
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 import 'package:plugin_pjmei_components_example/settings/settings.dart';
 import 'package:plugin_pjmei_components_example/ui/bottom_app_bar.dart';
 import 'package:plugin_pjmei_components_example/ui/buttons.dart';
@@ -51,7 +50,7 @@ Future<String?> redirectRoute({
   bool atribuirGlobalmente = false,
   String redirect = '/',
 }) async {
-  for (var element in state.params.entries) {
+  for (var element in state.pathParameters.entries) {
     String? test = pegarMes(element, atribuirGlobalmente, redirect);
     return test;
   }

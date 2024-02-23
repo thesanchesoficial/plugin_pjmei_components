@@ -3,8 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class ModulePjmei {

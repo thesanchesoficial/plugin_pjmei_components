@@ -1,4 +1,4 @@
-import 'package:pjmei_white_label_dependencies/encrypt.dart';
+import 'package:encrypt/encrypt.dart';
 import 'package:flutter/services.dart';
 import 'package:pointycastle/asymmetric/api.dart';
 

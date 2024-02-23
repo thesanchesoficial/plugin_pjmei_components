@@ -1,8 +1,10 @@
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:go_router/go_router.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:plugin_pjmei_components_example/ui/routes.dart';
-// ignore: depend_on_referenced_packages
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 class HomeSettings extends StatelessWidget {
   const HomeSettings({super.key});

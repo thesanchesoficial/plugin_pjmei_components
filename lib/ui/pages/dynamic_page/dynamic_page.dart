@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
 
 
 class DynamicPage extends StatefulWidget {

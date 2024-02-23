@@ -10,7 +10,7 @@ packages:
     source: hosted
     version: "1.3.16"
   animations:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: animations
       sha256: d3d6dcfb218225bbe68e87ccf6378bbb2e32a94900722c5f81611dad089911cb
@@ -26,7 +26,7 @@ packages:
     source: hosted
     version: "2.0.2"
   app_settings:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: app_settings
       sha256: "09bc7fe0313a507087bec1a3baf555f0576e816a760cbb31813a88890a09d9e5"
@@ -74,7 +74,7 @@ packages:
     source: hosted
     version: "0.1.18"
   barcode:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: barcode
       sha256: "91b143666f7bb13636f716b6d4e412e372ab15ff7969799af8c9e30a382e9385"
@@ -82,7 +82,7 @@ packages:
     source: hosted
     version: "2.2.6"
   barcode_widget:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: barcode_widget
       sha256: "6f2c5b08659b1a5f4d88d183e6007133ea2f96e50e7b8bb628f03266c3931427"
@@ -106,7 +106,7 @@ packages:
     source: hosted
     version: "2.1.1"
   bot_toast:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: bot_toast
       sha256: "6b93030a99a98335b8827ecd83021e92e885ffc61d261d3825ffdecdd17f3bdf"
@@ -114,7 +114,7 @@ packages:
     source: hosted
     version: "4.1.3"
   brasil_fields:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: brasil_fields
       sha256: "6b04a76cff0105368504e4b8e55552ffbcaf50b46822794b3ec622026430d60d"
@@ -122,7 +122,7 @@ packages:
     source: hosted
     version: "1.14.1"
   cached_network_image:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: cached_network_image
       sha256: "28ea9690a8207179c319965c13cd8df184d5ee721ae2ce60f398ced1219cea1f"
@@ -162,7 +162,7 @@ packages:
     source: hosted
     version: "1.3.1"
   chewie:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: chewie
       sha256: "3427e469d7cc99536ac4fbaa069b3352c21760263e65ffb4f0e1c054af43a73e"
@@ -178,7 +178,7 @@ packages:
     source: hosted
     version: "1.1.1"
   cloud_firestore:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: cloud_firestore
       sha256: "8bfbb5a2edbc6052452326d60de0113fea2bcbf081d34a3f8e45c8b38307b31c"
@@ -218,7 +218,7 @@ packages:
     source: hosted
     version: "0.0.3"
   connectivity_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: connectivity_plus
       sha256: "224a77051d52a11fbad53dd57827594d3bd24f945af28bd70bab376d68d437f0"
@@ -242,7 +242,7 @@ packages:
     source: hosted
     version: "3.1.1"
   crop:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: crop
       sha256: "9d94ec70fb2a5b1f4c30a686db561ed2395a900e5b17f44a0111f2c70ecf6889"
@@ -258,7 +258,7 @@ packages:
     source: hosted
     version: "0.3.4+1"
   crypto:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: crypto
       sha256: ff625774173754681d66daaf4a448684fb04b78f902da9cb3d308c19cc5e8bab
@@ -282,7 +282,7 @@ packages:
     source: hosted
     version: "1.0.6"
   dartz:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dartz
       sha256: e6acf34ad2e31b1eb00948692468c30ab48ac8250e0f0df661e29f12dd252168
@@ -298,7 +298,7 @@ packages:
     source: hosted
     version: "0.7.10"
   device_info_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: device_info_plus
       sha256: "0042cb3b2a76413ea5f8a2b40cec2a33e01d0c937e91f0f7c211fde4f7739ba6"
@@ -314,7 +314,7 @@ packages:
     source: hosted
     version: "7.0.0"
   dio:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dio
       sha256: "797e1e341c3dd2f69f2dad42564a6feff3bfb87187d05abb93b9609e6f1645c3"
@@ -322,7 +322,7 @@ packages:
     source: hosted
     version: "5.4.0"
   dot_navigation_bar:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dot_navigation_bar
       sha256: "753e1d91644e39beddd0a4ed7e366f37a95e38cafb601c3b7496120ae0532f63"
@@ -330,7 +330,7 @@ packages:
     source: hosted
     version: "1.0.2"
   dotted_border:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dotted_border
       sha256: "108837e11848ca776c53b30bc870086f84b62ed6e01c503ed976e8f8c7df9c04"
@@ -338,7 +338,7 @@ packages:
     source: hosted
     version: "2.1.0"
   dynamic_color:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dynamic_color
       sha256: a866f1f8947bfdaf674d7928e769eac7230388a2e7a2542824fad4bb5b87be3b
@@ -346,7 +346,7 @@ packages:
     source: hosted
     version: "1.6.9"
   emoji_picker_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: emoji_picker_flutter
       sha256: "5e9ba37aa2763bb627e8452986bea2e88704f54b90a2fe5aa2b2b20d3102ecdd"
@@ -354,7 +354,7 @@ packages:
     source: hosted
     version: "2.0.0"
   encrypt:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: encrypt
       sha256: "62d9aa4670cc2a8798bab89b39fc71b6dfbacf615de6cf5001fb39f7e4a996a2"
@@ -362,7 +362,7 @@ packages:
     source: hosted
     version: "5.0.3"
   equatable:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: equatable
       sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
@@ -370,7 +370,7 @@ packages:
     source: hosted
     version: "2.0.5"
   eva_icons_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: eva_icons_flutter
       sha256: "6d48a10b93590ab83eb092bee5adacdeb14f3d83f527a4b9e4092c363d56e2a8"
@@ -378,7 +378,7 @@ packages:
     source: hosted
     version: "3.1.0"
   extended_image:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: extended_image
       sha256: b4d72a27851751cfadaf048936d42939db7cd66c08fdcfe651eeaa1179714ee6
@@ -394,7 +394,7 @@ packages:
     source: hosted
     version: "3.6.0"
   extended_masked_text:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: extended_masked_text
       sha256: dba132fffa2b931e8cdd005e0509dfac359d3f98a175eca18c0ac71605247b6b
@@ -426,7 +426,7 @@ packages:
     source: hosted
     version: "7.0.0"
   file_picker:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: file_picker
       sha256: "4e42aacde3b993c5947467ab640882c56947d9d27342a5b6f2895b23956954a6"
@@ -466,7 +466,7 @@ packages:
     source: hosted
     version: "0.9.3+1"
   firebase_core:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: firebase_core
       sha256: "96607c0e829a581c2a483c658f04e8b159964c3bae2730f73297070bc85d40bb"
@@ -498,7 +498,7 @@ packages:
     source: hosted
     version: "1.1.0"
   fl_chart:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: fl_chart
       sha256: "00b74ae680df6b1135bdbea00a7d1fc072a9180b7c3f3702e4b19a9943f5ed7d"
@@ -506,7 +506,7 @@ packages:
     source: hosted
     version: "0.66.2"
   flex_color_picker:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flex_color_picker
       sha256: "0871edc170153cfc3de316d30625f40a85daecfa76ce541641f3cc0ec7757cbf"
@@ -540,7 +540,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_inappwebview:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_inappwebview
       sha256: "3e9a443a18ecef966fb930c3a76ca5ab6a7aafc0c7b5e14a4a850cf107b09959"
@@ -657,7 +657,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_mobx:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_mobx
       sha256: "4a5d062ff85ed3759f4aac6410ff0ffae32e324b2e71ca722ae1b37b32e865f4"
@@ -665,7 +665,7 @@ packages:
     source: hosted
     version: "2.2.0+2"
   flutter_native_splash:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_native_splash
       sha256: "558f10070f03ee71f850a78f7136ab239a67636a294a44a06b6b7345178edb1e"
@@ -681,7 +681,7 @@ packages:
     source: hosted
     version: "2.0.17"
   flutter_rating_bar:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_rating_bar
       sha256: d2af03469eac832c591a1eba47c91ecc871fe5708e69967073c043b2d775ed93
@@ -689,7 +689,7 @@ packages:
     source: hosted
     version: "4.0.1"
   flutter_search_bar:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_search_bar
       sha256: "6bc1d82c4caf04f40a9386833d5e2a8d947c89fee5c4c1e735957851677d1012"
@@ -697,7 +697,7 @@ packages:
     source: hosted
     version: "3.0.0"
   flutter_secure_storage:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_secure_storage
       sha256: ffdbb60130e4665d2af814a0267c481bcf522c41ae2e43caf69fa0146876d685
@@ -758,7 +758,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_typeahead:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_typeahead
       sha256: d64712c65db240b1057559b952398ebb6e498077baeebf9b0731dade62438a6d
@@ -771,7 +771,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_widget_from_html:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_widget_from_html
       sha256: "22c911b6ccf82b83e0c457d987bac4e703440fea0fc88dab24f4dfe995a5f33f"
@@ -832,7 +832,7 @@ packages:
     source: hosted
     version: "0.9.0+4"
   fwfh_webview:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: fwfh_webview
       sha256: b828bb5ddd4361a866cdb8f1b0de4f3348f332915ecf2f4215ba17e46c656adc
@@ -840,7 +840,7 @@ packages:
     source: hosted
     version: "0.14.8"
   get_it:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: get_it
       sha256: e6017ce7fdeaf218dc51a100344d8cb70134b80e28b760f8bb23c242437bafd7
@@ -848,21 +848,13 @@ packages:
     source: hosted
     version: "7.6.7"
   go_router:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: go_router
       sha256: "170c46e237d6eb0e6e9f0e8b3f56101e14fb64f787016e42edd74c39cf8b176a"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "13.2.0"
-  go_router_flow:
-    dependency: transitive
-    description:
-      name: go_router_flow
-      sha256: "56dc958c076dc6ce9c119dd95fc696d179ef9daabd9f94116dee33aea2d7932f"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "6.2.0"
   google_maps:
     dependency: transitive
     description:
@@ -872,7 +864,7 @@ packages:
     source: hosted
     version: "6.3.0"
   google_maps_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_maps_flutter
       sha256: ae66fef3e71261d7df2eff29b2a119e190b2884325ecaa55321b1e17b5504066
@@ -944,7 +936,7 @@ packages:
     source: hosted
     version: "4.0.2"
   image:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: image
       sha256: "004a2e90ce080f8627b5a04aecb4cdfac87d2c3f3b520aa291260be5a32c033d"
@@ -952,7 +944,7 @@ packages:
     source: hosted
     version: "4.1.4"
   image_downloader_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: image_downloader_web
       sha256: b7fe34460541eedf8f7f616bca25d07068c19eddee0e409b6cba90fa39fee984
@@ -960,7 +952,7 @@ packages:
     source: hosted
     version: "2.0.4"
   image_editor:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: image_editor
       sha256: "9877a057b0cd2fafcd9a3dce5279948bd850d53ce76231a83c9678a2c9f186e9"
@@ -984,7 +976,7 @@ packages:
     source: hosted
     version: "1.0.1"
   image_gallery_saver:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: image_gallery_saver
       sha256: "0aba74216a4d9b0561510cb968015d56b701ba1bd94aace26aacdd8ae5761816"
@@ -992,7 +984,7 @@ packages:
     source: hosted
     version: "2.0.3"
   image_picker:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: image_picker
       sha256: "26222b01a0c9a2c8fe02fc90b8208bd3325da5ed1f4a2acabf75939031ac0bdd"
@@ -1061,7 +1053,7 @@ packages:
     source: sdk
     version: "0.0.0"
   intl:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: intl
       sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
@@ -1109,7 +1101,7 @@ packages:
     source: hosted
     version: "0.4.9"
   jwt_decoder:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: jwt_decoder
       sha256: "54774aebf83f2923b99e6416b4ea915d47af3bde56884eb622de85feabbc559f"
@@ -1117,7 +1109,7 @@ packages:
     source: hosted
     version: "2.0.1"
   latlng:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: latlng
       sha256: a324c80073ef959d67ead88b57a717b7b87f182da1b980ccae92b3555ac82712
@@ -1149,7 +1141,7 @@ packages:
     source: hosted
     version: "2.0.1"
   lecle_volume_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: lecle_volume_flutter
       sha256: "5519fed066f33c00a17b6c9fe3febc5517a8a2fe07edbf759bf1f25a33635820"
@@ -1165,7 +1157,7 @@ packages:
     source: hosted
     version: "2.1.1"
   local_auth:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: local_auth
       sha256: "27679ed8e0d7daab2357db6bb7076359e083a56b295c0c59723845301da6aed9"
@@ -1213,7 +1205,7 @@ packages:
     source: hosted
     version: "1.2.0"
   mask_text_input_formatter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: mask_text_input_formatter
       sha256: "4b40b7cbf1859a5e16a6c441faa00f36842068eca185985b2b30e61432058ef4"
@@ -1221,7 +1213,7 @@ packages:
     source: hosted
     version: "2.8.0"
   masked_text:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: masked_text
       sha256: dc3467eb5a128f9a4767023c10279ea522788fb90fd126a2b49fd858df576e65
@@ -1261,7 +1253,7 @@ packages:
     source: hosted
     version: "1.0.5"
   mobx:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: mobx
       sha256: "74ee54012dc7c1b3276eaa960a600a7418ef5f9997565deb8fca1fd88fb36b78"
@@ -1269,7 +1261,7 @@ packages:
     source: hosted
     version: "2.3.0+1"
   modal_bottom_sheet:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: modal_bottom_sheet
       sha256: "3bba63c62d35c931bce7f8ae23a47f9a05836d8cb3c11122ada64e0b2f3d718f"
@@ -1301,7 +1293,7 @@ packages:
     source: hosted
     version: "2.0.0"
   onesignal_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: onesignal_flutter
       sha256: "5d717e25ed5d72c52ae66f422c11272a54ef0b2fb208bcf27a4b4bc5fe033128"
@@ -1325,7 +1317,7 @@ packages:
     source: hosted
     version: "2.0.1"
   palette_generator:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: palette_generator
       sha256: eb7082b4b97487ebc65b3ad3f6f0b7489b96e76840381ed0e06a46fe7ffd4068
@@ -1357,7 +1349,7 @@ packages:
     source: hosted
     version: "1.0.1"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       sha256: b27217933eeeba8ff24845c34003b003b2b22151de3c908d0e679e8fe1aa078b
@@ -1405,7 +1397,7 @@ packages:
     source: hosted
     version: "2.2.1"
   pdf:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: pdf
       sha256: "243f05342fc0bdf140eba5b069398985cdbdd3dbb1d776cf43d5ea29cc570ba6"
@@ -1413,7 +1405,7 @@ packages:
     source: hosted
     version: "3.10.8"
   percent_indicator:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: percent_indicator
       sha256: c37099ad833a883c9d71782321cb65c3a848c21b6939b6185f0ff6640d05814c
@@ -1421,7 +1413,7 @@ packages:
     source: hosted
     version: "4.2.3"
   permission_handler:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: permission_handler
       sha256: "45ff3fbcb99040fde55c528d5e3e6ca29171298a85436274d49c6201002087d6"
@@ -1532,7 +1524,7 @@ packages:
     source: hosted
     version: "0.10.2"
   pointycastle:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: pointycastle
       sha256: "43ac87de6e10afabc85c445745a7b799e04de84cebaa4fd7bf55a5e1e9604d29"
@@ -1540,7 +1532,7 @@ packages:
     source: hosted
     version: "3.7.4"
   pretty_qr_code:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: pretty_qr_code
       sha256: "47a0fde3967e01ea31985d1a11a998fab1ab900becdba592e9abb0a4034b807e"
@@ -1548,7 +1540,7 @@ packages:
     source: hosted
     version: "3.2.1"
   process:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: process
       sha256: "21e54fd2faf1b5bdd5102afd25012184a6793927648ea81eea80552ac9405b32"
@@ -1572,7 +1564,7 @@ packages:
     source: hosted
     version: "3.0.1"
   quill_html_editor:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: quill_html_editor
       sha256: "7f46ec06a41b8ec30910afc219f1a447cd2e872614cc3a34ef16600043163f19"
@@ -1596,7 +1588,7 @@ packages:
     source: hosted
     version: "2.1.0"
   screenshot:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: screenshot
       sha256: "455284ff1f5b911d94a43c25e1385485cf6b4f288293eba68f15dad711c7b81c"
@@ -1604,7 +1596,7 @@ packages:
     source: hosted
     version: "2.1.0"
   share_files_and_screenshot_widgets:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: share_files_and_screenshot_widgets
       sha256: "351ddb09e4baebd4fbbdee95f2884d75a3c8154a1fa0abf679962a7cc9da0ca7"
@@ -1612,7 +1604,7 @@ packages:
     source: hosted
     version: "1.0.6"
   share_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: share_plus
       sha256: f74fc3f1cbd99f39760182e176802f693fa0ec9625c045561cfad54681ea93dd
@@ -1628,7 +1620,7 @@ packages:
     source: hosted
     version: "3.3.1"
   shared_preferences:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: shared_preferences
       sha256: "81429e4481e1ccfb51ede496e916348668fd0921627779233bd24cc3ff6abd02"
@@ -1713,7 +1705,7 @@ packages:
     source: hosted
     version: "7.0.0"
   sqflite:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: sqflite
       sha256: c2c32eb0c74021d987336522acc3b6bf0082fbd0c540c36a9cf4ddb8ba891ddc
@@ -1737,7 +1729,7 @@ packages:
     source: hosted
     version: "1.11.1"
   story_view:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: story_view
       sha256: ab64063569178e405b643ab11bdc28d6e85333191e3c8b5556e864fe6c5b2a5a
@@ -1785,7 +1777,7 @@ packages:
     source: hosted
     version: "3.1.0+1"
   tab_indicator_styler:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: tab_indicator_styler
       sha256: "9e7e90367e20f71f3882fc6578fdcced35ab1c66ab20fcb623cdcc20d2796c76"
@@ -1793,7 +1785,7 @@ packages:
     source: hosted
     version: "2.0.0"
   table_calendar:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: table_calendar
       sha256: "1e3521a3e6d3fc7f645a58b135ab663d458ab12504f1ea7f9b4b81d47086c478"
@@ -1825,7 +1817,7 @@ packages:
     source: hosted
     version: "1.3.2"
   universal_html:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: universal_html
       sha256: "56536254004e24d9d8cfdb7dbbf09b74cf8df96729f38a2f5c238163e3d58971"
@@ -1841,7 +1833,7 @@ packages:
     source: hosted
     version: "2.2.2"
   url_launcher:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: url_launcher
       sha256: c512655380d241a337521703af62d2c122bf7b77a46ff7dd750092aa9433499c
@@ -1905,7 +1897,7 @@ packages:
     source: hosted
     version: "3.1.1"
   url_strategy:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: url_strategy
       sha256: "42b68b42a9864c4d710401add17ad06e28f1c1d5500c93b98c431f6b0ea4ab87"
@@ -1953,7 +1945,7 @@ packages:
     source: hosted
     version: "2.1.4"
   video_player:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: video_player
       sha256: fbf28ce8bcfe709ad91b5789166c832cb7a684d14f571a81891858fefb5bb1c2
@@ -2025,7 +2017,7 @@ packages:
     source: hosted
     version: "0.5.0"
   web_ffi:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: web_ffi
       sha256: "48ef8037f7bc051d11b88d0f2903e02bec21092c51833d37c3361c36e3edc4f7"
@@ -2033,7 +2025,7 @@ packages:
     source: hosted
     version: "0.7.2"
   web_socket_channel:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: web_socket_channel
       sha256: "1d8e795e2a8b3730c41b8a98a2dff2e0fb57ae6f0764a1c46ec5915387d257b2"
@@ -2049,7 +2041,7 @@ packages:
     source: hosted
     version: "3.0.3"
   webview_flutter:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: webview_flutter
       sha256: "71e1bfaef41016c8d5954291df5e9f8c6172f1f6ff3af01b5656456ddb11f94c"
@@ -2081,7 +2073,7 @@ packages:
     source: hosted
     version: "3.11.0"
   widgets_to_image:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: widgets_to_image
       sha256: e32c7b77267c01d319dc97333d4f3d894e9d81c8b3a408fd33862fa7775ee398

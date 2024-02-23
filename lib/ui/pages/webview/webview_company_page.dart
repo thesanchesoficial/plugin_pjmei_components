@@ -1,7 +1,8 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
-import 'package:pjmei_white_label_dependencies/pjmei_white_label_dependencies.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class WebviewPage extends StatefulWidget {
   const WebviewPage({Key? key, required this.params}) : super(key: key);
