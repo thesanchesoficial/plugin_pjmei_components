@@ -17,14 +17,22 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.0.11"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      sha256: "8bf17a8ff6ea17499e40a2d2542c2f481cd7615760c6d34065cb22bfd22e6880"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "2.0.2"
   app_settings:
     dependency: transitive
     description:
       name: app_settings
-      sha256: e6a34735d4ddb24ca9c5fd7e965ec65c8b611cbd3a329152c294f9e9f4bacb33
+      sha256: "09bc7fe0313a507087bec1a3baf555f0576e816a760cbb31813a88890a09d9e5"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "4.3.1"
+    version: "5.1.1"
   archive:
     dependency: transitive
     description:
@@ -73,15 +81,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.2.6"
-  barcode_finder:
-    dependency: transitive
-    description:
-      path: "."
-      ref: main
-      resolved-ref: "27d19bbf97fe95cbc289005da39fc9d379153e1c"
-      url: "https://github.com/uynguyen/barcode-finder"
-    source: git
-    version: "0.0.5"
   barcode_widget:
     dependency: transitive
     description:
@@ -90,6 +89,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.0.4"
+  bidi:
+    dependency: transitive
+    description:
+      name: bidi
+      sha256: "1a7d0c696324b2089f72e7671fd1f1f64fef44c980f3cebc84e803967c597b63"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "2.0.10"
   boolean_selector:
     dependency: transitive
     description:
@@ -214,10 +221,10 @@ packages:
     dependency: transitive
     description:
       name: connectivity_plus
-      sha256: b74247fad72c171381dbe700ca17da24deac637ab6d43c343b42867acb95c991
+      sha256: "224a77051d52a11fbad53dd57827594d3bd24f945af28bd70bab376d68d437f0"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "3.0.6"
+    version: "5.0.2"
   connectivity_plus_platform_interface:
     dependency: transitive
     description:
@@ -246,10 +253,10 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: fedaadfa3a6996f75211d835aaeb8fede285dae94262485698afd832371b9a5e
+      sha256: "55d7b444feb71301ef6b8838dbc1ae02e63dd48c8773f3810ff53bb1e2945b32"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.3.3+8"
+    version: "0.3.4+1"
   crypto:
     dependency: transitive
     description:
@@ -314,15 +321,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "5.4.0"
-  dismissible_page:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: e5880ed9597c82b9f4c622ea65758a605179c8c2
-      url: "https://github.com/presence-app/Flutter_dismissible_page"
-    source: git
-    version: "1.0.1"
   dot_navigation_bar:
     dependency: transitive
     description:
@@ -339,15 +337,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.1.0"
-  downloads_path_provider:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "23710316c29bb1409b6ebbb91ef40650bf06384e"
-      url: "https://github.com/wiseminds/downloads_path_provider"
-    source: git
-    version: "0.0.1"
   dynamic_color:
     dependency: transitive
     description:
@@ -360,10 +349,10 @@ packages:
     dependency: transitive
     description:
       name: emoji_picker_flutter
-      sha256: "009c51efc763d5a6ba05a5628b8b2184c327cd117d66ea9c3e7edf2ff269c423"
+      sha256: "5e9ba37aa2763bb627e8452986bea2e88704f54b90a2fe5aa2b2b20d3102ecdd"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "1.6.3"
+    version: "2.0.0"
   encrypt:
     dependency: transitive
     description:
@@ -392,18 +381,18 @@ packages:
     dependency: transitive
     description:
       name: extended_image
-      sha256: d7f091d068fcac7246c4b22a84b8dac59a62e04d29a5c172710c696e67a22f94
+      sha256: b4d72a27851751cfadaf048936d42939db7cd66c08fdcfe651eeaa1179714ee6
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "8.2.0"
+    version: "8.1.1"
   extended_image_library:
     dependency: transitive
     description:
       name: extended_image_library
-      sha256: "9b55fc5ebc65fad984de66b8f177a1bef2a84d79203c9c213f75ff83c2c29edd"
+      sha256: "8bf87c0b14dcb59200c923a9a3952304e4732a0901e40811428834ef39018ee1"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "4.0.1"
+    version: "3.6.0"
   extended_masked_text:
     dependency: transitive
     description:
@@ -412,14 +401,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.3.1"
-  extension:
-    dependency: transitive
-    description:
-      name: extension
-      sha256: be3a6b7f8adad2f6e2e8c63c895d19811fcf203e23466c6296267941d0ff4f24
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.6.0"
   fake_async:
     dependency: transitive
     description:
@@ -440,26 +421,18 @@ packages:
     dependency: transitive
     description:
       name: file
-      sha256: "1b92bec4fc2a72f59a8e15af5f52cd441e4a7860b49499d69dfa817af20e925d"
+      sha256: "5fc22d7c25582e38ad9a8515372cd9a93834027aacf1801cf01164dac0ffa08c"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "6.1.4"
+    version: "7.0.0"
   file_picker:
     dependency: transitive
     description:
       name: file_picker
-      sha256: be325344c1f3070354a1d84a231a1ba75ea85d413774ec4bdf444c023342e030
+      sha256: "4e42aacde3b993c5947467ab640882c56947d9d27342a5b6f2895b23956954a6"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "5.5.0"
-  file_saver:
-    dependency: transitive
-    description:
-      name: file_saver
-      sha256: "8ffd91ae9f543c5ebbfec71a814ee5aa9e21176d31335133308abf63f4c42e8a"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.2.9"
+    version: "6.1.1"
   file_selector_linux:
     dependency: transitive
     description:
@@ -516,14 +489,22 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.10.0"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "1.1.0"
   fl_chart:
     dependency: transitive
     description:
       name: fl_chart
-      sha256: e97c5b850ad056e9b3a85d3afeb44c239a83aa994a90723940dac82234f2efaf
+      sha256: "00b74ae680df6b1135bdbea00a7d1fc072a9180b7c3f3702e4b19a9943f5ed7d"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.61.0"
+    version: "0.66.2"
   flex_color_picker:
     dependency: transitive
     description:
@@ -553,15 +534,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "3.3.1"
-  flutter_datetime_picker:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "373005972ef54776f688a7c99104e849c4c582e6"
-      url: "https://github.com/asionbo/flutter_datetime_picker_fork"
-    source: git
-    version: "1.5.1"
   flutter_driver:
     dependency: transitive
     description: flutter
@@ -627,10 +599,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_keyboard_visibility
-      sha256: "4983655c26ab5b959252ee204c2fffa4afeb4413cd030455194ec0caa3b8e7cb"
+      sha256: "98664be7be0e3ffca00de50f7f6a287ab62c763fc8c762e0a21584584a3ff4f8"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "5.4.1"
+    version: "6.0.0"
   flutter_keyboard_visibility_linux:
     dependency: transitive
     description:
@@ -692,15 +664,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.2.0+2"
-  flutter_placeholder_textlines:
+  flutter_native_splash:
     dependency: transitive
     description:
-      path: "."
-      ref: master
-      resolved-ref: "642dd78fb9031ac1ea120eedde3da2c5176da87d"
-      url: "https://github.com/totorigolo/flutter_placeholder_textlines"
-    source: git
-    version: "1.1.2"
+      name: flutter_native_splash
+      sha256: "558f10070f03ee71f850a78f7136ab239a67636a294a44a06b6b7345178edb1e"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "2.3.10"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -729,10 +700,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_secure_storage
-      sha256: "22dbf16f23a4bcf9d35e51be1c84ad5bb6f627750565edd70dab70f3ff5fff8f"
+      sha256: ffdbb60130e4665d2af814a0267c481bcf522c41ae2e43caf69fa0146876d685
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "8.1.0"
+    version: "9.0.0"
   flutter_secure_storage_linux:
     dependency: transitive
     description:
@@ -769,19 +740,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_secure_storage_windows
-      sha256: "38f9501c7cb6f38961ef0e1eacacee2b2d4715c63cc83fe56449c4d3d0b47255"
+      sha256: "5809c66f9dd3b4b93b0a6e2e8561539405322ee767ac2f64d084e2ab5429d108"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "2.1.1"
-  flutter_staggered_grid_view:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: eb9d71e0115ef5c7789f44bb97a7b065a5e08aad
-      url: "https://github.com/MehmetKaranlik/flutter_staggered_grid_view"
-    source: git
-    version: "0.6.2"
+    version: "3.0.0"
   flutter_svg:
     dependency: transitive
     description:
@@ -799,10 +761,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_typeahead
-      sha256: b9942bd5b7611a6ec3f0730c477146cffa4cd4b051077983ba67ddfc9e7ee818
+      sha256: d64712c65db240b1057559b952398ebb6e498077baeebf9b0731dade62438a6d
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "4.8.0"
+    version: "5.2.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -812,18 +774,18 @@ packages:
     dependency: transitive
     description:
       name: flutter_widget_from_html
-      sha256: "8d2a9a7979a9c1a5d866d1f4134d2ec2cca78716c112c76803d6a552281405cc"
+      sha256: "22c911b6ccf82b83e0c457d987bac4e703440fea0fc88dab24f4dfe995a5f33f"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.10.6"
+    version: "0.14.11"
   flutter_widget_from_html_core:
     dependency: transitive
     description:
       name: flutter_widget_from_html_core
-      sha256: "22140caa191cb4bba0fe4d5e4ad875c7e8a9ba47d61517f56d733019cf76396d"
+      sha256: "028f4989b9ff4907466af233d50146d807772600d98a3e895662fbdb09c39225"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.10.6"
+    version: "0.14.11"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -833,26 +795,26 @@ packages:
     dependency: transitive
     description:
       name: fwfh_cached_network_image
-      sha256: "3de22aa3a6943c968e0d9fbcba4463b3dbbf7103171d62c84b6c672fb83eebdf"
+      sha256: "952aea958a5fda7d616cc297ba4bc08427e381459e75526fa375d6d8345630d3"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.7.0+7"
+    version: "0.14.2"
   fwfh_chewie:
     dependency: transitive
     description:
       name: fwfh_chewie
-      sha256: "0b51a1c976bb74da5e8e45d545c74cb54a7168ad3938dd77103a7aee485f55fa"
+      sha256: bbb036cd322ab77dc0edd34cbbf76181681f5e414987ece38745dc4f3d7408ed
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.7.1+4"
+    version: "0.14.7"
   fwfh_just_audio:
     dependency: transitive
     description:
       name: fwfh_just_audio
-      sha256: "237b93a4cb9f0495a4b51940f361adda2a5abd57231dd44f07459db00144a6cd"
+      sha256: "4962bc59cf8bbb0a77a55ff56a7b925612b0d8263bc2ede3636b9c86113cb493"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.9.0+3"
+    version: "0.14.2"
   fwfh_svg:
     dependency: transitive
     description:
@@ -873,77 +835,10 @@ packages:
     dependency: transitive
     description:
       name: fwfh_webview
-      sha256: "90a8dda0695403cf57abd7e8b83f6fb1f1a12933930a0bf9cac7cafb06e06a18"
+      sha256: b828bb5ddd4361a866cdb8f1b0de4f3348f332915ecf2f4215ba17e46c656adc
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.9.0+2"
-  geocoder:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: b1e6c82f9eef8e3ab9ad853358e0305ee2192cee
-      url: "https://github.com/sudeshnb/flutter_geocoder"
-    source: git
-    version: "0.3.0"
-  geoflutterfire:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "9af78d3a5d619be255428ab14bf738579cc2e634"
-      url: "https://github.com/EncryptingWolf/GeoFlutterFire"
-    source: git
-    version: "3.0.3"
-  geolocator:
-    dependency: transitive
-    description:
-      path: geolocator
-      ref: main
-      resolved-ref: "78ab280cef14d9dd67d051b15b196fb8afcb20b9"
-      url: "https://github.com/adrgit10/flutter-geolocator"
-    source: git
-    version: "9.0.2"
-  geolocator_android:
-    dependency: transitive
-    description:
-      name: geolocator_android
-      sha256: "93906636752ea4d4e778afa981fdfe7409f545b3147046300df194330044d349"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "4.3.1"
-  geolocator_apple:
-    dependency: transitive
-    description:
-      name: geolocator_apple
-      sha256: "79babf44b692ec5e789d322dc736ef71586056e8e6828f747c9e005456b248bf"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "2.3.5"
-  geolocator_platform_interface:
-    dependency: transitive
-    description:
-      name: geolocator_platform_interface
-      sha256: "6c8d494d6948757c56720b778af742f6973f31fca1f702a7539b8917e4a2468a"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "4.2.0"
-  geolocator_web:
-    dependency: transitive
-    description:
-      name: geolocator_web
-      sha256: "59083f7e0871b78299918d92bf930a14377f711d2d1156c558cd5ebae6c20d58"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "2.2.0"
-  geolocator_windows:
-    dependency: transitive
-    description:
-      name: geolocator_windows
-      sha256: "4f4218f122a6978d0ad655fa3541eea74c67417440b09f0657238810d5af6bdc"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.1.3"
+    version: "0.14.8"
   get_it:
     dependency: transitive
     description:
@@ -956,10 +851,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: bd7e671d26fd39c78cba82070fa34ef1f830b0e7ed1aeebccabc6561302a7ee5
+      sha256: "170c46e237d6eb0e6e9f0e8b3f56101e14fb64f787016e42edd74c39cf8b176a"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "6.5.9"
+    version: "13.2.0"
   go_router_flow:
     dependency: transitive
     description:
@@ -1028,10 +923,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: a2bbf9d017fcced29139daa8ed2bba4ece450ab222871df93ca9eec6f80c34ba
+      sha256: "761a297c042deedc1ffbb156d6e2af13886bb305c2a343a4d972504cd67dd938"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   http_client_helper:
     dependency: transitive
     description:
@@ -1056,15 +951,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "4.1.4"
-  image_downloader:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "27f26486abf495f93b2e832d92a1dc73664258ce"
-      url: "https://github.com/duyjack/image_downloader"
-    source: git
-    version: "0.31.0"
   image_downloader_web:
     dependency: transitive
     description:
@@ -1109,10 +995,10 @@ packages:
     dependency: transitive
     description:
       name: image_picker
-      sha256: b6951e25b795d053a6ba03af5f710069c99349de9341af95155d52665cb4607c
+      sha256: "26222b01a0c9a2c8fe02fc90b8208bd3325da5ed1f4a2acabf75939031ac0bdd"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.8.9"
+    version: "1.0.7"
   image_picker_android:
     dependency: transitive
     description:
@@ -1174,15 +1060,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  internet_file:
-    dependency: transitive
-    description:
-      path: "packages/internet_file"
-      ref: master
-      resolved-ref: "6e020c6b0ae659d218496ffd37a6e6c5b75eb38a"
-      url: "https://github.com/nukeolay/packages.dart"
-    source: git
-    version: "1.2.0"
   intl:
     dependency: transitive
     description:
@@ -1243,10 +1120,34 @@ packages:
     dependency: transitive
     description:
       name: latlng
-      sha256: "7184897f8c807eec96b0ec931293d46c052f92bfee9a9b2b4648b66fed5f34cd"
+      sha256: a324c80073ef959d67ead88b57a717b7b87f182da1b980ccae92b3555ac82712
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.2.1"
+    version: "2.0.7"
+  leak_tracker:
+    dependency: transitive
+    description:
+      name: leak_tracker
+      sha256: "78eb209deea09858f5269f5a5b02be4049535f568c07b275096836f01ea323fa"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "10.0.0"
+  leak_tracker_flutter_testing:
+    dependency: transitive
+    description:
+      name: leak_tracker_flutter_testing
+      sha256: b46c5e37c19120a8a01918cfaf293547f47269f7cb4b0058f21531c2465d6ef0
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "2.0.1"
+  leak_tracker_testing:
+    dependency: transitive
+    description:
+      name: leak_tracker_testing
+      sha256: a597f72a664dbd293f3bfc51f9ba69816f84dcd403cdac7066cb3f6003f3ab47
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "2.0.1"
   lecle_volume_flutter:
     dependency: transitive
     description:
@@ -1311,50 +1212,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.2.0"
-  mapbox_gl:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: b2bfef669e42397704b6f43d55b5df67b18c0fa8
-      url: "https://github.com/flutter-mapbox-gl/maps"
-    source: git
-    version: "0.16.0"
-  mapbox_gl_dart:
-    dependency: transitive
-    description:
-      name: mapbox_gl_dart
-      sha256: de6d03718e5eb05c9eb1ddaae7f0383b28acb5afa16405e1deed7ff04dd34f3d
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.2.1"
-  mapbox_gl_platform_interface:
-    dependency: transitive
-    description:
-      path: mapbox_gl_platform_interface
-      ref: HEAD
-      resolved-ref: b2bfef669e42397704b6f43d55b5df67b18c0fa8
-      url: "https://github.com/tobrun/flutter-mapbox-gl.git"
-    source: git
-    version: "0.16.0"
-  mapbox_gl_web:
-    dependency: transitive
-    description:
-      path: mapbox_gl_web
-      ref: HEAD
-      resolved-ref: b2bfef669e42397704b6f43d55b5df67b18c0fa8
-      url: "https://github.com/tobrun/flutter-mapbox-gl.git"
-    source: git
-    version: "0.16.0"
-  mapbox_search:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: e4cc05c08eb4d9a0bcb774524653c59384c770ed
-      url: "https://github.com/BrunoMazzocchi/mapbox_search"
-    source: git
-    version: "3.2.0"
   mask_text_input_formatter:
     dependency: transitive
     description:
@@ -1375,26 +1232,26 @@ packages:
     dependency: transitive
     description:
       name: matcher
-      sha256: "1803e76e6653768d64ed8ff2e1e67bea3ad4b923eb5c56a295c3e634bad5960e"
+      sha256: d2323aa2060500f906aa31a895b4030b6da3ebdcc5619d14ce1aada65cd161cb
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.12.16"
+    version: "0.12.16+1"
   material_color_utilities:
     dependency: transitive
     description:
       name: material_color_utilities
-      sha256: "9528f2f296073ff54cb9fee677df673ace1218163c3bc7628093e7eed5203d41"
+      sha256: "0e0a020085b65b6083975e499759762399b4475f766c21668c4ecca34ea74e5a"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.5.0"
+    version: "0.8.0"
   meta:
     dependency: transitive
     description:
       name: meta
-      sha256: a6e590c838b18133bb482a2745ad77c5bb7715fb0451209e1a7567d416678b8e
+      sha256: d584fa6707a52763a52446f02cc621b077888fb63b93bbcb1143a7be5a0c0c04
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "1.10.0"
+    version: "1.11.0"
   mime:
     dependency: transitive
     description:
@@ -1447,18 +1304,18 @@ packages:
     dependency: transitive
     description:
       name: onesignal_flutter
-      sha256: f4e54ad09bbfc2401b5d3e9cda6b31577facf0dd119d282d008df5710f5665d0
+      sha256: "5d717e25ed5d72c52ae66f422c11272a54ef0b2fb208bcf27a4b4bc5fe033128"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "3.5.1"
+    version: "5.1.0"
   package_info_plus:
     dependency: transitive
     description:
       name: package_info_plus
-      sha256: "88bc797f44a94814f2213db1c9bd5badebafdfb8290ca9f78d4b9ee2a3db4d79"
+      sha256: "7e76fad405b3e4016cd39d08f455a4eb5199723cf594cd1b8916d47140d93017"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "5.0.1"
+    version: "4.2.0"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -1479,10 +1336,10 @@ packages:
     dependency: transitive
     description:
       name: path
-      sha256: "8829d8a55c13fc0e37127c29fedf290c102f4e40ae94ada574091fe0ff96c917"
+      sha256: "087ce49c3f0dc39180befefc60fdb4acd8f8620e5682fe2476afd0b3688bb4af"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "1.8.3"
+    version: "1.9.0"
   path_drawing:
     dependency: transitive
     description:
@@ -1547,15 +1404,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.2.1"
-  pdfx:
+  pdf:
     dependency: transitive
     description:
-      path: "packages/pdfx"
-      ref: main
-      resolved-ref: "1448f7a98805e04a0b5b309839653493c842db8c"
-      url: "https://github.com/vishwajit76/packages.flutter"
-    source: git
-    version: "2.3.0"
+      name: pdf
+      sha256: "243f05342fc0bdf140eba5b069398985cdbdd3dbb1d776cf43d5ea29cc570ba6"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "3.10.8"
   percent_indicator:
     dependency: transitive
     description:
@@ -1564,15 +1420,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "4.2.3"
-  perfect_volume_control:
-    dependency: transitive
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "6385b569e9e9608b4fda1fa436e8142dfed472bc"
-      url: "https://github.com/vladyslavlaba/FlutterPerfectVolumeControl"
-    source: git
-    version: "1.0.5+1"
   permission_handler:
     dependency: transitive
     description:
@@ -1629,31 +1476,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "6.0.2"
-  photo_view:
-    dependency: transitive
-    description:
-      name: photo_view
-      sha256: "8036802a00bae2a78fc197af8a158e3e2f7b500561ed23b4c458107685e645bb"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.14.0"
-  pjmei_white_label_dependencies:
-    dependency: "direct overridden"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "108cad0379d49f01d5a784f318a79bd638ae0f79"
-      url: "https://bitbucket.org/olawolffdevs/pjmei_white_label_dependencies"
-    source: git
-    version: "0.0.8"
   platform:
     dependency: transitive
     description:
       name: platform
-      sha256: ae68c7bfcd7383af3629daafb32fb4e8681c7154428da4febcff06200585f102
+      sha256: "12220bb4b65720483f8fa9450b4332347737cf8213dd2840d8b2c823e47243ec"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "3.1.2"
+    version: "3.1.4"
   plugin_pjmei_components:
     dependency: "direct main"
     description:
@@ -1673,10 +1503,34 @@ packages:
     dependency: transitive
     description:
       name: pointer_interceptor
-      sha256: adf7a637f97c077041d36801b43be08559fd4322d2127b3f20bb7be1b9eebc22
+      sha256: bd18321519718678d5fa98ad3a3359cbc7a31f018554eab80b73d08a7f0c165a
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.9.3+7"
+    version: "0.10.1"
+  pointer_interceptor_ios:
+    dependency: transitive
+    description:
+      name: pointer_interceptor_ios
+      sha256: "2e73c39452830adc4695757130676a39412a3b7f3c34e3f752791b5384770877"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "0.10.0+2"
+  pointer_interceptor_platform_interface:
+    dependency: transitive
+    description:
+      name: pointer_interceptor_platform_interface
+      sha256: "0597b0560e14354baeb23f8375cd612e8bd4841bf8306ecb71fcd0bb78552506"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "0.10.0+1"
+  pointer_interceptor_web:
+    dependency: transitive
+    description:
+      name: pointer_interceptor_web
+      sha256: a6237528b46c411d8d55cdfad8fcb3269fc4cbb26060b14bff94879165887d1e
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "0.10.2"
   pointycastle:
     dependency: transitive
     description:
@@ -1689,18 +1543,18 @@ packages:
     dependency: transitive
     description:
       name: pretty_qr_code
-      sha256: ea7ccb3069e0f5b89b441449b9ec10f4148ddda7a4bef89a130d2ebdaa0be647
+      sha256: "47a0fde3967e01ea31985d1a11a998fab1ab900becdba592e9abb0a4034b807e"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "2.0.3"
+    version: "3.2.1"
   process:
     dependency: transitive
     description:
       name: process
-      sha256: "53fd8db9cec1d37b0574e12f07520d582019cb6c44abf5479a01505099a34a09"
+      sha256: "21e54fd2faf1b5bdd5102afd25012184a6793927648ea81eea80552ac9405b32"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "4.2.4"
+    version: "5.0.2"
   provider:
     dependency: transitive
     description:
@@ -1721,10 +1575,10 @@ packages:
     dependency: transitive
     description:
       name: quill_html_editor
-      sha256: "843d5670bfad151bee9d314e2c4ff84d5fbc9e2f3cccb7991c6fcb930993c2bc"
+      sha256: "7f46ec06a41b8ec30910afc219f1a447cd2e872614cc3a34ef16600043163f19"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "2.2.6"
+    version: "2.2.8"
   rxdart:
     dependency: transitive
     description:
@@ -1817,10 +1671,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_web
-      sha256: "7b15ffb9387ea3e237bb7a66b8a23d2147663d391cafc5c8f37b2e7b4bde5d21"
+      sha256: "9aee1089b36bd2aafe06582b7d7817fd317ef05fc30e6ba14bff247d0933042a"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "2.2.2"
+    version: "2.3.0"
   shared_preferences_windows:
     dependency: transitive
     description:
@@ -1850,6 +1704,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.10.0"
+  sprintf:
+    dependency: transitive
+    description:
+      name: sprintf
+      sha256: "1fc9ffe69d4df602376b52949af107d8f5703b77cda567c4d7d86a0693120f23"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "7.0.0"
   sqflite:
     dependency: transitive
     description:
@@ -1878,10 +1740,10 @@ packages:
     dependency: transitive
     description:
       name: story_view
-      sha256: e1a647ef0682e46a3de5254a46ac3b809b5c2a509998365966958f977a127db4
+      sha256: ab64063569178e405b643ab11bdc28d6e85333191e3c8b5556e864fe6c5b2a5a
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.14.0"
+    version: "0.16.5"
   stream_channel:
     dependency: transitive
     description:
@@ -1962,14 +1824,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.3.2"
-  universal_file:
-    dependency: transitive
-    description:
-      name: universal_file
-      sha256: d1a957fccaad2a32023b62fe435b273ee47aaf2eb804709795e4bf4afff50960
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "1.0.0"
   universal_html:
     dependency: transitive
     description:
@@ -1986,14 +1840,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.2.2"
-  universal_platform:
-    dependency: transitive
-    description:
-      name: universal_platform
-      sha256: d315be0f6641898b280ffa34e2ddb14f3d12b1a37882557869646e0cc363d0cc
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "1.0.0+1"
   url_launcher:
     dependency: transitive
     description:
@@ -2046,10 +1892,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_web
-      sha256: fff0932192afeedf63cdd50ecbb1bc825d31aed259f02bb8dba0f3b729a5e88b
+      sha256: "3692a459204a33e04bc94f5fb91158faf4f2c8903281ddd82915adecdb1a901d"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "2.2.3"
+    version: "2.3.0"
   url_launcher_windows:
     dependency: transitive
     description:
@@ -2070,10 +1916,10 @@ packages:
     dependency: transitive
     description:
       name: uuid
-      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      sha256: cd210a09f7c18cbe5a02511718e0334de6559871052c90a90c0cca46a4aa81c8
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "3.0.7"
+    version: "4.3.3"
   vector_graphics:
     dependency: transitive
     description:
@@ -2150,35 +1996,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: c538be99af830f478718b51630ec1b6bee5e74e52c8a802d328d9e71d35d2583
+      sha256: b3d56ff4341b8f182b96aceb2fa20e3dcb336b9f867bc0eafc0de10f1048e957
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "11.10.0"
-  wakelock:
-    dependency: transitive
-    description:
-      path: wakelock
-      ref: main
-      resolved-ref: "04376a061ab5e420e8d6028aee75a8f3c5741bcb"
-      url: "https://github.com/sa3oudy93/wakelock"
-    source: git
-    version: "0.6.2"
-  wakelock_macos:
-    dependency: transitive
-    description:
-      name: wakelock_macos
-      sha256: "047c6be2f88cb6b76d02553bca5a3a3b95323b15d30867eca53a19a0a319d4cd"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.4.0"
-  wakelock_platform_interface:
-    dependency: transitive
-    description:
-      name: wakelock_platform_interface
-      sha256: "1f4aeb81fb592b863da83d2d0f7b8196067451e4df91046c26b54a403f9de621"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.3.0"
+    version: "13.0.0"
   wakelock_plus:
     dependency: transitive
     description:
@@ -2195,22 +2016,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.1.0"
-  wakelock_web:
-    dependency: transitive
-    description:
-      name: wakelock_web
-      sha256: "1b256b811ee3f0834888efddfe03da8d18d0819317f20f6193e2922b41a501b5"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.4.0"
   web:
     dependency: transitive
     description:
       name: web
-      sha256: afe077240a270dcfd2aafe77602b4113645af95d0ad31128cc02bce5ac5d5152
+      sha256: "1d9158c616048c38f712a6646e317a3426da10e884447626167240d45209cbad"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "0.3.0"
+    version: "0.5.0"
   web_ffi:
     dependency: transitive
     description:
@@ -2219,14 +2032,22 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "0.7.2"
+  web_socket_channel:
+    dependency: transitive
+    description:
+      name: web_socket_channel
+      sha256: "1d8e795e2a8b3730c41b8a98a2dff2e0fb57ae6f0764a1c46ec5915387d257b2"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "2.4.4"
   webdriver:
     dependency: transitive
     description:
       name: webdriver
-      sha256: "3c923e918918feeb90c4c9fdf1fe39220fa4c0e8e2c0fffaded174498ef86c49"
+      sha256: "003d7da9519e1e5f329422b36c4dcdf18d7d2978d1ba099ea4e45ba490ed845e"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "3.0.2"
+    version: "3.0.3"
   webview_flutter:
     dependency: transitive
     description:
@@ -2299,6 +2120,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "6.5.0"
+  yaml:
+    dependency: transitive
+    description:
+      name: yaml
+      sha256: "75769501ea3489fca56601ff33454fe45507ea3bfb014161abc3b43ae25989d5"
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "3.1.2"
 sdks:
-  dart: ">=3.2.3 <4.0.0"
-  flutter: ">=3.16.6"
+  dart: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.0"
