@@ -1,77 +1,31 @@
-import 'dart:convert';
-
-class VoucherDiscountEntity {
-  final String type;
-  final num value;
-  VoucherDiscountEntity({
-    required this.type,
-    required this.value,
-  });
-
-  VoucherDiscountEntity copyWith({
-    String? type,
-    num? value,
-  }) {
-    return VoucherDiscountEntity(
-      type: type ?? this.type,
-      value: value ?? this.value,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'type': type,
-      'value': value,
-    };
-  }
-
-  factory VoucherDiscountEntity.fromMap(Map<String, dynamic> map) {
-    return VoucherDiscountEntity(
-      type: map['type'] ?? '',
-      value: map['value'] ?? 0,
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory VoucherDiscountEntity.fromJson(String source) => VoucherDiscountEntity.fromMap(json.decode(source));
-
-  @override
-  String toString() => 'VoucherDiscountEntity(type: $type, value: $value)';
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-  
-    return other is VoucherDiscountEntity &&
-      other.type == type &&
-      other.value == value;
-  }
-
-  @override
-  int get hashCode => type.hashCode ^ value.hashCode;
-}
+import 'voucher_discount_entity.dart';
+export 'voucher_discount_entity.dart';
 
 class VoucherEntity {
-  String? id;
-  String name;
-  String code;
-  String? startDate;
-  String? endDate;
-  String? planId;
-  int limit;
-  int limitPerUser;
-  VoucherDiscountEntity discount;
+  final String? id;
+  final String name;
+  final String code;
+  final String startDate;
+  final String endDate;
+  final String? planId;
+  final int? limit;
+  final int? limitPerUser;
+  final VoucherDiscountEntity discount;
+  final bool isVisible;
+  final int? cycles;
+
   VoucherEntity({
     this.id,
     required this.name,
     required this.code,
-    this.startDate,
-    this.endDate,
+    required this.startDate,
+    required this.endDate,
     this.planId,
-    required this.limit,
-    required this.limitPerUser,
+    this.limit,
+    this.limitPerUser,
     required this.discount,
+    required this.isVisible,
+    this.cycles,
   });
 
   VoucherEntity copyWith({
@@ -84,6 +38,8 @@ class VoucherEntity {
     int? limit,
     int? limitPerUser,
     VoucherDiscountEntity? discount,
+    bool? isVisible,
+    int? cycles,
   }) {
     return VoucherEntity(
       id: id ?? this.id,
@@ -95,44 +51,14 @@ class VoucherEntity {
       limit: limit ?? this.limit,
       limitPerUser: limitPerUser ?? this.limitPerUser,
       discount: discount ?? this.discount,
+      isVisible: isVisible ?? this.isVisible,
+      cycles: cycles ?? this.cycles,
     );
   }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'code': code,
-      'startDate': startDate,
-      'endDate': endDate,
-      'planId': planId,
-      'limit': limit,
-      'limitPerUser': limitPerUser,
-      'discount': discount.toMap(),
-    };
-  }
-
-  factory VoucherEntity.fromMap(Map<String, dynamic> map) {
-    return VoucherEntity(
-      id: map['id'],
-      name: map['name'] ?? '',
-      code: map['code'] ?? '',
-      startDate: map['startDate'],
-      endDate: map['endDate'],
-      planId: map['planId'],
-      limit: map['limit']?.toInt() ?? 0,
-      limitPerUser: map['limitPerUser']?.toInt() ?? 0,
-      discount: VoucherDiscountEntity.fromMap(map['discount']),
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory VoucherEntity.fromJson(String source) => VoucherEntity.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'VoucherEntity(id: $id, name: $name, code: $code, startDate: $startDate, endDate: $endDate, planId: $planId, limit: $limit, limitPerUser: $limitPerUser, discount: $discount)';
+    return 'VoucherEntity(id: $id, name: $name, code: $code, startDate: $startDate, endDate: $endDate, planId: $planId, limit: $limit, limitPerUser: $limitPerUser, discount: $discount, isVisible: $isVisible, cycles: $cycles)';
   }
 
   @override
@@ -148,7 +74,9 @@ class VoucherEntity {
       other.planId == planId &&
       other.limit == limit &&
       other.limitPerUser == limitPerUser &&
-      other.discount == discount;
+      other.discount == discount &&
+      other.isVisible == isVisible &&
+      other.cycles == cycles;
   }
 
   @override
@@ -161,6 +89,40 @@ class VoucherEntity {
       planId.hashCode ^
       limit.hashCode ^
       limitPerUser.hashCode ^
-      discount.hashCode;
+      discount.hashCode ^
+      isVisible.hashCode ^
+      cycles.hashCode;
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'code': code,
+      'startDate': startDate,
+      'endDate': endDate,
+      'planId': planId,
+      'limit': limit,
+      'limitPerUser': limitPerUser,
+      'discount': discount.toMap(),
+      'isVisible': isVisible,
+      'cycles': cycles,
+    };
+  }
+
+  static VoucherEntity fromMap(Map<String, dynamic> map) {
+    return VoucherEntity(
+      id: map['id'],
+      name: map['name'],
+      code: map['code'],
+      startDate: map['startDate'],
+      endDate: map['endDate'],
+      planId: map['planId'],
+      limit: map['limit'],
+      limitPerUser: map['limitPerUser'],
+      discount: VoucherDiscountEntity.fromMap(map['discount']),
+      isVisible: map['isVisible'],
+      cycles: map['cycles'],
+    );
   }
 }
