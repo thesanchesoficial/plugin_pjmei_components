@@ -182,6 +182,8 @@ import '../features/products/data/repositories/find_product_ecommerce_factory.da
 import '../features/products/data/repositories/list_product_ecommerce_factory.dart';
 import '../features/products/data/repositories/update_product_ecommerce_factory.dart';
 import '../features/recipient/data/repositories/find.dart';
+import '../features/roadmap/data/repositories/list_roadmap_factory.dart';
+import '../features/roadmap/domain/entity/roadmap_item.dart';
 import '../features/schedule/data/repositories/add_schedule_factory.dart';
 import '../features/schedule/data/repositories/delete_schedule_by_ecormmerce_factory.dart';
 import '../features/schedule/data/repositories/delete_schedule_by_product_factory.dart';
@@ -246,6 +248,7 @@ import '../features/white_label/data/repositories/update_white_label_factory.dar
 
 part '../features/address/data/repositories/datasource.dart';
 part '../features/auth/data/repositories/datasource.dart';
+part '../features/backoffice_tutorials/data/repositories/datasource.dart';
 part '../features/blog/data/repositories/datasource.dart';
 part '../features/chat/data/repositories/datasource.dart';
 part '../features/ccmei/data/repositories/datasource.dart';
@@ -288,6 +291,7 @@ part '../features/stories/data/repositories/story_item/datasource.dart';
 part '../features/stories/data/repositories/story_view/datasource.dart';
 part '../features/tasks/data/repositories/datasource.dart';
 part '../features/recipient/data/repositories/datasource.dart';
+part '../features/roadmap/data/repositories/datasource.dart';
 part '../features/payables/data/repositories/datasource.dart';
 part '../features/financial_assistant/data/repositories/datasource.dart';
 part '../features/bank_account/data/repositories/datasource.dart';
@@ -301,6 +305,7 @@ class Api {
   Api._();
   static final address = _AddressApi();
   static final auth = _AuthApi();
+  static final backofficeTutorial = _BackofficeTutorialApi();
   static final bankAccount = _BankAccountApi();
   static final blog = _BlogApi();
   static final ccmei = _CcmeiApi();
@@ -336,6 +341,7 @@ class Api {
   static final productsCategory = _ProductCategoryEcommerceApi();
   static final products = _ProductEcommerceApi();
   static final recipients = _RecipientApi();
+  static final roadmap = _RoadmapApi();
   static final schedules = _ScheduleApi();
   static final secrets = _SecretsApi();
   static final statistics = _StatisticsApi();
