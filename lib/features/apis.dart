@@ -1,3 +1,5 @@
+import 'package:plugin_pjmei_components/features/tutorials/data/repositories/list_tutorial_factory.dart';
+import 'package:plugin_pjmei_components/features/tutorials/domain/entity/tutorial_entity.dart';
 import 'package:plugin_pjmei_components/features/extract/data/repositories/get_extract.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -248,7 +250,7 @@ import 'white_label/data/repositories/update_white_label_factory.dart';
 
 part 'address/data/repositories/datasource.dart';
 part 'auth/data/repositories/datasource.dart';
-part 'backoffice_tutorials/data/repositories/datasource.dart';
+part 'tutorials/data/repositories/datasource.dart';
 part 'blog/data/repositories/datasource.dart';
 part 'chat/data/repositories/datasource.dart';
 part 'ccmei/data/repositories/datasource.dart';

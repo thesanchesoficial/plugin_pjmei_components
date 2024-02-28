@@ -3,7 +3,7 @@ export './app/domain/entity/environment.dart';
 export './auth/domain/entity/check_if_user_exists_entity.dart';
 export './auth/domain/entity/login_params_entity.dart';
 export './auth/domain/entity/register_params_entity.dart';
-export './backoffice_tutorials/domain/entity/backoffice_tutorial_entity.dart';
+export './tutorials/domain/entity/tutorial_entity.dart';
 export './bank_account/domain/entity/bank_account_entity.dart';
 export './blog/domain/entity/category_blog_entity.dart';
 export './blog/domain/entity/post_blog_entity.dart';
