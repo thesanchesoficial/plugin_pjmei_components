@@ -1,6 +1,6 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_error.dart';
+import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
 
 import '../../../../domain/entity/finance_credit_card_invoice_entity.dart';
 import '../../../../domain/usecase/credit-card/invoice/finance_credit_card_invoice.dart';

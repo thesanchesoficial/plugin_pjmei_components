@@ -2,5 +2,4 @@
 
 // import 'package:localstorage/localstorage.dart';
 
-// LocalStorageAdapter makeLocalStorageAdapter() =>
-//   LocalStorageAdapter(localStorage: LocalStorage('fordev'));
+// LocalStorageAdapter makeLocalStorageAdapter() => LocalStorageAdapter(localStorage: LocalStorage('fordev'));

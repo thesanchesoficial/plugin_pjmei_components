@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plugin_pjmei_components/test/domain/domain.dart';
+import 'package:plugin_pjmei_components/domain/domain.dart';
 
 class ColorsAdapter {
   static ColorsByToken getByType(ColorSystem c) {

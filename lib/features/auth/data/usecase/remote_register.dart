@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 
 import '../../../user/domain/entity/user_entity.dart';
 import '../../domain/entity/register_params_entity.dart';

@@ -1,6 +1,6 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_error.dart';
+import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
 
 import '../../../../utils/variable.dart';
 import '../../domain/entity/link_entity.dart';

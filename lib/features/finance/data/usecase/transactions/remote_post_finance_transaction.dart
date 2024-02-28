@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 
 import '../../../domain/entity/finance_transaction_entity.dart';
 import '../../../domain/usecase/transactions/post_finance_transaction.dart';

@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 
 import '../../domain/entity/voucher_plan_entity.dart';
 import '../../domain/usecase/update_voucher_plan.dart';
@@ -19,10 +17,14 @@ class RemoteUpdateVoucherPlan implements UpdateVoucherPlan {
         log: log,
         method: 'put',
         body: item.toMap(),
+        newReturnErrorMsg: true,
       );
+      if ((httpResponse as Map<String, dynamic>).containsKey("error")) {
+        throw httpResponse["error"]["message"];
+      }
       return VoucherPlanEntity.fromMap(httpResponse["success"]["coupon"]);
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+    } catch (e) {
+      throw e;
     }
   }
 }

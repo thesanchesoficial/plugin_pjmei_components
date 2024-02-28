@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 
 import '../../../domain/entity/order_history_entity.dart';
 import '../../../domain/usecase/historic/create_order_historic.dart';

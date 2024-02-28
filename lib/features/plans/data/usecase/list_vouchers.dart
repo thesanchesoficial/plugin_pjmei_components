@@ -1,6 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 
 import '../../domain/entity/voucher_plan_entity.dart';
 import '../../domain/usecase/list_vouchers_plans.dart';
@@ -19,11 +17,12 @@ class RemoteListVouchersPlans implements ListVouchersPlans {
         log: log,
         method: 'get',
       );
-      return (httpResponse["success"]["coupons"] as List)
-          .map((e) => VoucherPlanEntity.fromMap(e))
-          .toList();
-    } on HttpError catch (_) {
-      throw DomainError.unexpected;
+      if ((httpResponse as Map<String, dynamic>).containsKey("error")) {
+        throw httpResponse["error"]["message"];
+      }
+      return (httpResponse["success"]["coupons"] as List).map((e) => VoucherPlanEntity.fromMap(e)).toList();
+    } catch (e) {
+      throw e;
     }
   }
 }

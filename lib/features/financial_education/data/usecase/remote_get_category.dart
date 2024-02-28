@@ -1,5 +1,5 @@
-import 'package:plugin_pjmei_components/test/data/http/http.dart';
-import 'package:plugin_pjmei_components/test/domain/domain.dart';
+import 'package:plugin_pjmei_components/data/http/http.dart';
+import 'package:plugin_pjmei_components/domain/domain.dart';
 
 import '../../domain/entity/category_entity.dart';
 import '../../domain/usecase/get_category.dart';

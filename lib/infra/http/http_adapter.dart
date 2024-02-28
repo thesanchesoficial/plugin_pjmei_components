@@ -22,9 +22,7 @@ class HttpAdapter implements HttpClient {
     bool ignoreToken = false,
   }) async {
     Map<String, String> defaultHeaders = {};
-    if(ignoreToken) {
-      p('Ignorando token.');
-    } else {
+    if(!ignoreToken) {
       if (userSM.user?.accessToken != null) {
         if (JwtDecoder.isExpired(userSM.user!.accessToken ?? "")) {
           try {

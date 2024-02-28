@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 
 import '../../domain/entity/statistics_most_item_entity.dart';
 import '../../domain/usecase/get_statistics_most_item.dart';

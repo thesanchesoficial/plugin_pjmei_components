@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/test/domain/entities/filtro/filtro_categoria.dart';
+import 'package:plugin_pjmei_components/domain/entities/filtro/filtro_categoria.dart';
 
 /// Pesquisa um [termo] em uma [lista] de *FiltroCategoria*.
 ///

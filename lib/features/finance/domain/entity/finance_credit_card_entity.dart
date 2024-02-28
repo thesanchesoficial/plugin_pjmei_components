@@ -69,16 +69,13 @@ class FinanceCreditCardEntity {
   }
 
   factory FinanceCreditCardEntity.fromMap(Map<String, dynamic> map) {
-    // print(map['hasFinancialMovement']);
     return FinanceCreditCardEntity(
       id: map['id'] ?? '',
       name: map['name'] ?? '',
       limit: num.parse(map['limit'].toString()),
       dueDay: num.parse(map['dueDay'].toString()),
       closureDay: num.parse(map['closureDay'].toString()),
-      // creditCardFlagId: map['creditCardFlagId'] ?? '',
       hasFinancialMovement: map['hasFinancialMovement'],
-      // creditCardFlagId: map['creditCardFlagId'] ?? '',
       creditCardFlag: map['creditCardFlag'] != null ? FinanceCardFlagEntity.fromMap(map['creditCardFlag']) : FinanceCardFlagEntity(),
     );
   }

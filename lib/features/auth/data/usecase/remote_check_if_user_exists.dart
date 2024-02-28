@@ -1,5 +1,5 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
 
 import '../../domain/entity/check_if_user_exists_entity.dart';
 import '../../domain/usecase/check_if_user_exists.dart';

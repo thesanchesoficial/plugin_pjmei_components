@@ -105,6 +105,22 @@ dependency_overrides:
     git:
       url: https://github.com/totorigolo/flutter_placeholder_textlines
       ref: master
+  
+  geolocator:
+    git:
+      url: https://github.com/adrgit10/flutter-geolocator
+      ref: main
+      path: geolocator
+
+  geocoder:
+    git:
+      url: https://github.com/sudeshnb/flutter_geocoder
+      ref: master
+  
+  geoflutterfire:
+    git:
+      url: https://github.com/EncryptingWolf/GeoFlutterFire
+      ref: master
 
 dev_dependencies:
   flutter_test:

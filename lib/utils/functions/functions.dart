@@ -6,7 +6,6 @@ export './br.dart';
 export './bs_bottom_padding.dart';
 export './check_screen_size_change.dart';
 export './color.dart';
-export './convert_string.dart';
 export './dark_mode_map_style.dart';
 export './encriptar.dart';
 export './f.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
+
+import '../../../utils/convert_string.dart';
 // "Matheus Sanches criou esse widget especial" // certo
 // "Matheus Sanches criou esse {{widget}} especial" = oculta o valor entre {} // certo
 // "Matheus Sanches criou esse ((widget)) especial" = muda para variavel com esse nome

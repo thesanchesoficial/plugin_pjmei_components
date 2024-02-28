@@ -1,6 +1,6 @@
-import 'package:plugin_pjmei_components/test/data/http/http.dart';
+import 'package:plugin_pjmei_components/data/http/http.dart';
 import '../../domain/entity/financial_assistant_entity.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
+import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
 import '../../domain/usecase/list_financial_assistant.dart';
 
 class RemoteListFinancialAssistant implements ListFinancialAssistant {

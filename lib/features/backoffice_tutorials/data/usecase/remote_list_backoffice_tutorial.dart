@@ -1,5 +1,5 @@
 import 'package:plugin_pjmei_components/features/backoffice_tutorials/domain/entity/backoffice_tutorial_entity.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 
 import '../../domain/usecase/list_backoffice_tutorial.dart';
 

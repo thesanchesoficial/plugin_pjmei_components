@@ -1,4 +1,4 @@
-part of '../../../../src/apis.dart';
+part of '../../../apis.dart';
 
 class _BlogApi {
 

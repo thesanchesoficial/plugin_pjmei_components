@@ -1,5 +1,5 @@
-import 'package:plugin_pjmei_components/test/data/http/http.dart';
-import 'package:plugin_pjmei_components/test/domain/domain.dart';
+import 'package:plugin_pjmei_components/data/http/http.dart';
+import 'package:plugin_pjmei_components/domain/domain.dart';
 
 import '../../domain/entity/video_entity.dart';
 import '../../domain/usecase/list_all_videos.dart';

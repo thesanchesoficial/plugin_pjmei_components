@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
 import 'package:plugin_pjmei_components/utils/functions/encriptar.dart';
 
 import '../../domain/entity/secret_entity.dart';

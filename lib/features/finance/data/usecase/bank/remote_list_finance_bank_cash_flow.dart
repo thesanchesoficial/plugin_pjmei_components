@@ -1,6 +1,6 @@
-import 'package:plugin_pjmei_components/test/data/http/http_client.dart';
-import 'package:plugin_pjmei_components/test/data/http/http_error.dart';
-import 'package:plugin_pjmei_components/test/domain/helpers/domain_error.dart';
+import 'package:plugin_pjmei_components/data/http/http_client.dart';
+import 'package:plugin_pjmei_components/data/http/http_error.dart';
+import 'package:plugin_pjmei_components/domain/helpers/domain_error.dart';
 
 import '../../../domain/entity/finance_cash_flow_entity.dart';
 import '../../../domain/usecase/bank/list_finance_bank_cash_flow.dart';
@@ -25,7 +25,7 @@ class RemoteListFinanceBankCashFlow implements ListFinanceBankCashFlow {
       throw DomainError.unexpected;
     }
     catch(e) {
-      print(e);
+      //
     }
     return [];
   }

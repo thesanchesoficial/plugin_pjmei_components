@@ -1,4 +1,4 @@
-import 'package:plugin_pjmei_components/test/data/http/http.dart';
+import 'package:plugin_pjmei_components/data/http/http.dart';
 import '../../decorators/decorators.dart';
 import '../../factories/factories.dart';
 

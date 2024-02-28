@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 import '../../plans/domain/entity/subscription_entity.dart';
 import '../domain/entity/basic_dashboard_entity.dart';
-import 'package:plugin_pjmei_components/test/domain/entities/installed_widget_entity.dart';
+import 'package:plugin_pjmei_components/domain/entities/installed_widget_entity.dart';
 
 import '../domain/entity/company_entity.dart';
 part 'company_sm.g.dart';

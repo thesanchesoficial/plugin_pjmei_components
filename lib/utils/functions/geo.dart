@@ -46,19 +46,6 @@
 //         String cidade = enderecoTemp.subAdminArea ?? resultadosPadrao.cidade ?? "Sem cidade";
 //         String estado = _abrevEstados(enderecoTemp.adminArea) ?? resultadosPadrao.estado ?? "Sem estado";
 //         String codigoPais = enderecoTemp.countryCode ?? "Sem país";
-//         p("endereco.addressLine: ${enderecoTemp.addressLine}");
-//         p("endereco.coordinates: ${enderecoTemp.coordinates}");
-//         p("endereco.countryCode: ${enderecoTemp.countryCode}");
-//         p("endereco.countryName: ${enderecoTemp.countryName}");
-//         p("endereco.featureName: ${enderecoTemp.featureName}");
-//         p("endereco.locality: ${enderecoTemp.locality}");
-//         p("endereco.subThoroughfare: ${enderecoTemp.subThoroughfare}");
-//         p("endereco.thoroughfare: ${enderecoTemp.thoroughfare}");
-//         p("endereco.subLocality: ${enderecoTemp.subLocality}");
-//         p("endereco.subAdminArea: ${enderecoTemp.subAdminArea}");
-//         p("endereco.adminArea: ${enderecoTemp.adminArea}");
-//         p("endereco.postalCode: ${enderecoTemp.postalCode}");
-//         p("endereco.countryCode: ${enderecoTemp.countryCode}");
 
 //         Map<String, dynamic> mapEndereco = {
 //           "cep": cep,
