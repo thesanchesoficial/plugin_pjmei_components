@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class ModulePjmei {
   String? id;
   String? title;
@@ -21,6 +20,8 @@ class ModulePjmei {
   int minimalVersion;
   int? maximalVersion;
   String typeScreen;
+  String? createdAt;
+  String? updatedAt;
   Map? params;
   List<String>? hideOnPlans;
   List<String>? activeOnPlans;
@@ -40,13 +41,15 @@ class ModulePjmei {
     this.maximalVersion,
     this.typeScreen = '',
     this.params,
+    this.createdAt,
+    this.updatedAt,
     this.hideOnPlans,
     this.activeOnPlans,
     this.groups,
   });
 
 
-  factory ModulePjmei.fromMap(Map<String, dynamic> map) {
+  factory ModulePjmei.fromMap(Map<String, dynamic> map, {bool backoffice = false}) {
     final int minimalVersion = map['minimalVersion'] ?? 0;
     final int maximalVersion = map['maximalVersion'] ?? 9999999999;
 
@@ -68,7 +71,7 @@ class ModulePjmei {
     }
 
     if (kIsWeb) {
-      if (!isWeb) {
+      if (!isWeb && !backoffice) {
         return ModulePjmei(
           displayType: 'DEVELOPMENT',
           title: '-',
@@ -78,7 +81,7 @@ class ModulePjmei {
         );
       }
     } else {
-      if (Platform.isAndroid && !isAndroid) {
+      if (Platform.isAndroid && !isAndroid && !backoffice) {
         return ModulePjmei(
           displayType: 'DEVELOPMENT',
           title: '-',
@@ -86,7 +89,7 @@ class ModulePjmei {
           params: {},
           whiteLabel: '${WhiteLabelEntity.current?.id}',
         );
-      } else if (Platform.isIOS && !isIos) {
+      } else if (Platform.isIOS && !isIos && !backoffice) {
         return ModulePjmei(
           displayType: 'DEVELOPMENT',
           title: '-',
@@ -98,7 +101,7 @@ class ModulePjmei {
     }
 
     if (appSM.isWeb) {
-      if (!largeScreen) {
+      if (!largeScreen && !backoffice) {
         return ModulePjmei(
           displayType: 'DEVELOPMENT',
           title: '-',
@@ -108,7 +111,7 @@ class ModulePjmei {
         );
       }
     } else {
-      if (!smallScreen) {
+      if (!smallScreen && !backoffice) {
         return ModulePjmei(
           displayType: 'DEVELOPMENT',
           title: '-',
@@ -140,6 +143,8 @@ class ModulePjmei {
       hideOnPlans: map['hideOnPlans'] == null ? [] : List<String>.from(map['hideOnPlans']),
       activeOnPlans: map['activeOnPlans'] == null ? [] : List<String>.from(map['activeOnPlans']),
       groups: map['groups'] == null ? [] : List<String>.from(map['groups']),
+      createdAt: map['createdAt'],
+      updatedAt: map['updatedAt'],
     );
   }
 
@@ -159,6 +164,8 @@ class ModulePjmei {
     String? whiteLabel,
     int? maximalVersion,
     String? typeScreen,
+    String? createdAt,
+    String? updatedAt,
     List<String>? hideOnPlans,
     List<String>? activeOnPlans,
     List<String>? groups,
@@ -180,6 +187,8 @@ class ModulePjmei {
       groups: groups ?? this.groups,
       hideOnPlans: hideOnPlans ?? this.hideOnPlans,
       maximalVersion: maximalVersion ?? this.maximalVersion,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 
@@ -196,6 +205,8 @@ class ModulePjmei {
       'spotlight': spotlight,
       'minimalVersion': minimalVersion,
       'params': params,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
     };
   }
 
@@ -203,7 +214,7 @@ class ModulePjmei {
 
   @override
   String toString() {
-    return 'ModulePjmei(id: $id, title: $title, description: $description, displayType: $displayType, index: $index, image: $image, params: $params, route: $route, spotlight: $spotlight, minimalVersion: $minimalVersion)';
+    return 'ModulePjmei(id: $id, title: $title, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, displayType: $displayType, index: $index, image: $image, params: $params, route: $route, spotlight: $spotlight, minimalVersion: $minimalVersion)';
   }
 
   @override
@@ -220,6 +231,8 @@ class ModulePjmei {
         mapEquals(other.image, image) &&
         mapEquals(other.params, params) &&
         other.route == route &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
         other.spotlight == spotlight;
   }
 
@@ -234,6 +247,8 @@ class ModulePjmei {
         image.hashCode ^
         params.hashCode ^
         route.hashCode ^
+        createdAt.hashCode ^
+        updatedAt.hashCode ^
         spotlight.hashCode;
   }
 
