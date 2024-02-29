@@ -5,5 +5,5 @@ import '../usecase/remote_list_tasks.dart';
 
 ListTasks makeRemoteListTasks(String id) => RemoteListTasks(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/task/$id/company'),
+  url: makeApiUrl('venver/task/company/$id'),
 );
