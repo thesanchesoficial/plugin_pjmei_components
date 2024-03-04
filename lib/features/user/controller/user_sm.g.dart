@@ -24,6 +24,22 @@ mixin _$UserSMStore on UserSMStoreBase, Store {
     });
   }
 
+  late final _$subscriptionAtom =
+      Atom(name: 'UserSMStoreBase.subscription', context: context);
+
+  @override
+  SubscriptionEntity? get subscription {
+    _$subscriptionAtom.reportRead();
+    return super.subscription;
+  }
+
+  @override
+  set subscription(SubscriptionEntity? value) {
+    _$subscriptionAtom.reportWrite(value, super.subscription, () {
+      super.subscription = value;
+    });
+  }
+
   late final _$UserSMStoreBaseActionController =
       ActionController(name: 'UserSMStoreBase', context: context);
 
@@ -39,9 +55,21 @@ mixin _$UserSMStore on UserSMStoreBase, Store {
   }
 
   @override
+  void setSubscription(SubscriptionEntity? item) {
+    final _$actionInfo = _$UserSMStoreBaseActionController.startAction(
+        name: 'UserSMStoreBase.setSubscription');
+    try {
+      return super.setSubscription(item);
+    } finally {
+      _$UserSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-user: ${user}
+user: ${user},
+subscription: ${subscription}
     ''';
   }
 }

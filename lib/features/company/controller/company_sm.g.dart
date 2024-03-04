@@ -25,6 +25,22 @@ mixin _$CompanySMStore on CompanySMStoreBase, Store {
     });
   }
 
+  late final _$subscriptionAtom =
+      Atom(name: 'CompanySMStoreBase.subscription', context: context);
+
+  @override
+  SubscriptionEntity? get subscription {
+    _$subscriptionAtom.reportRead();
+    return super.subscription;
+  }
+
+  @override
+  set subscription(SubscriptionEntity? value) {
+    _$subscriptionAtom.reportWrite(value, super.subscription, () {
+      super.subscription = value;
+    });
+  }
+
   late final _$basicDataAtom =
       Atom(name: 'CompanySMStoreBase.basicData', context: context);
 
@@ -104,6 +120,17 @@ mixin _$CompanySMStore on CompanySMStoreBase, Store {
   }
 
   @override
+  void setSubscription(SubscriptionEntity? item) {
+    final _$actionInfo = _$CompanySMStoreBaseActionController.startAction(
+        name: 'CompanySMStoreBase.setSubscription');
+    try {
+      return super.setSubscription(item);
+    } finally {
+      _$CompanySMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void addWidgets(InstalledWidget item) {
     final _$actionInfo = _$CompanySMStoreBaseActionController.startAction(
         name: 'CompanySMStoreBase.addWidgets');
@@ -173,6 +200,7 @@ mixin _$CompanySMStore on CompanySMStoreBase, Store {
   String toString() {
     return '''
 company: ${company},
+subscription: ${subscription},
 basicData: ${basicData},
 widgets: ${widgets},
 hideAmount: ${hideAmount},

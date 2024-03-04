@@ -72,6 +72,22 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
     });
   }
 
+  late final _$soundEnabledAtom =
+      Atom(name: 'AppSMStoreBase.soundEnabled', context: context);
+
+  @override
+  bool get soundEnabled {
+    _$soundEnabledAtom.reportRead();
+    return super.soundEnabled;
+  }
+
+  @override
+  set soundEnabled(bool value) {
+    _$soundEnabledAtom.reportWrite(value, super.soundEnabled, () {
+      super.soundEnabled = value;
+    });
+  }
+
   late final _$hideAmountAtom =
       Atom(name: 'AppSMStoreBase.hideAmount', context: context);
 
@@ -183,6 +199,22 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
     });
   }
 
+  late final _$countMessagesAtom =
+      Atom(name: 'AppSMStoreBase.countMessages', context: context);
+
+  @override
+  int get countMessages {
+    _$countMessagesAtom.reportRead();
+    return super.countMessages;
+  }
+
+  @override
+  set countMessages(int value) {
+    _$countMessagesAtom.reportWrite(value, super.countMessages, () {
+      super.countMessages = value;
+    });
+  }
+
   late final _$AppSMStoreBaseActionController =
       ActionController(name: 'AppSMStoreBase', context: context);
 
@@ -236,6 +268,17 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
         name: 'AppSMStoreBase.setDataSavingMode');
     try {
       return super.setDataSavingMode(item);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setSoundEnabled(bool item) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setSoundEnabled');
+    try {
+      return super.setSoundEnabled(item);
     } finally {
       _$AppSMStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -308,19 +351,32 @@ mixin _$AppSMStore on AppSMStoreBase, Store {
   }
 
   @override
+  void setCountMessages(int item) {
+    final _$actionInfo = _$AppSMStoreBaseActionController.startAction(
+        name: 'AppSMStoreBase.setCountMessages');
+    try {
+      return super.setCountMessages(item);
+    } finally {
+      _$AppSMStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 themeMode: ${themeMode},
 color: ${color},
 dataSavingMode: ${dataSavingMode},
 dynamicColor: ${dynamicColor},
+soundEnabled: ${soundEnabled},
 hideAmount: ${hideAmount},
 isWeb: ${isWeb},
 closeWebMenu: ${closeWebMenu},
 visualDensity: ${visualDensity},
 environment: ${environment},
 whiteLabel: ${whiteLabel},
-selectedIndex: ${selectedIndex}
+selectedIndex: ${selectedIndex},
+countMessages: ${countMessages}
     ''';
   }
 }

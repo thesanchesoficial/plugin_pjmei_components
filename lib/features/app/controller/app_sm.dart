@@ -44,6 +44,9 @@ abstract class AppSMStoreBase with Store {
   @observable
   int selectedIndex = 0;
 
+  @observable
+  int countMessages = 0;
+
   @action
   bool setIsHideAmount(bool value) => hideAmount = value;
   
@@ -100,5 +103,10 @@ abstract class AppSMStoreBase with Store {
   @action
   void setSelectedIndex(int item) {
     selectedIndex = item;
+  }
+
+  @action
+  void setCountMessages(int item) {
+    countMessages = item;
   }
 }
