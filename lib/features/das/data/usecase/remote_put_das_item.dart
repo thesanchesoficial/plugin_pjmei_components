@@ -8,7 +8,7 @@ class RemotePutDasItem implements PutDasItem {
 
   RemotePutDasItem({required this.httpClient, required this.url});
 
-  Future<bool> exec({String? year, String? month, bool log = false}) async {
+  Future<bool> exec({int? year, int? month, bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,

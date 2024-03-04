@@ -5,7 +5,7 @@ class _DasApi {
     return makeGetListDas(params: params).exec();
   }
 
-  Future<DasItemEntity> generatePdf(String year, String month) {
+  Future<DasItemEntity> generatePdf(int year, int month) {
     return makeGeneratePdf().exec(month: month, year: year);
   }
 

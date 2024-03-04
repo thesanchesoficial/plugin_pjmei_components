@@ -1,3 +1,3 @@
 abstract class PutDasItem {
-  Future<bool> exec({String? year, String? month, bool log = false});
+  Future<bool> exec({int? year, int? month, bool log = false});
 }
