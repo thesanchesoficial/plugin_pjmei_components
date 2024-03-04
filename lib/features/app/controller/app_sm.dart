@@ -21,6 +21,9 @@ abstract class AppSMStoreBase with Store {
   bool dynamicColor = false;
 
   @observable
+  bool soundEnabled = true;
+
+  @observable
   bool hideAmount = false;
 
   @observable
@@ -62,6 +65,11 @@ abstract class AppSMStoreBase with Store {
   @action
   void setDataSavingMode(bool item) {
     dataSavingMode = item;
+  }
+
+  @action
+  void setSoundEnabled(bool item) {
+    soundEnabled = item;
   }
 
   @action

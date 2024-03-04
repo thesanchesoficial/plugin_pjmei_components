@@ -5,5 +5,5 @@ import '../usecase/remote_get_das_item.dart';
 
 GetDasItem makeGeneratePdf() => RemoteGetDasItem(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/das')
+  url: makeApiUrl('venver/das/pdf')
 );

@@ -5,11 +5,11 @@ class _DasApi {
     return makeGetListDas(params: params).exec();
   }
 
-  Future<DasItemEntity> generatePdf(String id) {
-    return makeGeneratePdf().exec(id: id);
+  Future<DasItemEntity> generatePdf(String year, String month) {
+    return makeGeneratePdf().exec(month: month, year: year);
   }
 
-  Future<List<DasItemEntity>> update({Map<String, dynamic>? params}) {
+  Future<bool> update({Map<String, dynamic>? params}) {
     return makeUpdateListDas(params: params).exec();
   }
 }

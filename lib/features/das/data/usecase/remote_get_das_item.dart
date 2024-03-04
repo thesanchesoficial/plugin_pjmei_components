@@ -8,14 +8,15 @@ class RemoteGetDasItem implements GetDasItem {
 
   RemoteGetDasItem({required this.httpClient, required this.url});
 
-  Future<DasItemEntity> exec({required String id, bool log = false}) async {
+  Future<DasItemEntity> exec({required String year, required String month, bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         method: 'post',
         newReturnErrorMsg: true,
         body: {
-          'dasId': id,
+          'year': year,
+          'month': month,
         }
       );
       if(httpResponse == null) {

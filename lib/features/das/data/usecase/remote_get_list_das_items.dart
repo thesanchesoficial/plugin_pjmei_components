@@ -5,15 +5,14 @@ import '../../domain/usecase/get_list_das_item.dart';
 class RemoteGetListDasItem implements GetListDasItem {
   final HttpClient httpClient;
   final String url;
-  final String method;
 
-  RemoteGetListDasItem({required this.httpClient, required this.url, this.method = 'get'});
+  RemoteGetListDasItem({required this.httpClient, required this.url});
 
   Future<List<DasItemEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
-        method: method,
+        method: 'get',
         newReturnErrorMsg: true,
       );
       if(httpResponse == null) {
