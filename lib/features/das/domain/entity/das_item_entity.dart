@@ -5,7 +5,7 @@ class DasItemEntity {
   final String cnpj;
   final int year;
   final String month;
-  final String total;
+  final String? total;
   final String? barCode;
   final String? situation;
   final String? dueDate;
@@ -19,7 +19,7 @@ class DasItemEntity {
     required this.cnpj,
     required this.year,
     required this.month,
-    required this.total,
+    this.total,
     this.barCode,
     this.situation,
     this.dueDate,
@@ -86,7 +86,7 @@ class DasItemEntity {
       cnpj: map['cnpj'] ?? '',
       year: map['year'] ?? 0,
       month: map['month'] ?? '',
-      total: map['total'] ?? '',
+      total: map['total'],
       barCode: map['barCode'],
       situation: map['situation'],
       dueDate: map['dueDate'],
