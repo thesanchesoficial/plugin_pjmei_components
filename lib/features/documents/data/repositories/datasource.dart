@@ -2,8 +2,8 @@ part of '../../../apis.dart';
 
 class _DocumentsApi {
   
-  Future<DocumentEntity> add({required DocumentEntity data, required List<int>? file}) {
-    return makeRemoteAddDocument().exec(data, file);
+  Future<DocumentEntity> add({required DocumentEntity data}) {
+    return makeRemoteAddDocument().exec(data);
   }
 
   Future<DocumentEntity> update({required String id, required DocumentEntity data}) {

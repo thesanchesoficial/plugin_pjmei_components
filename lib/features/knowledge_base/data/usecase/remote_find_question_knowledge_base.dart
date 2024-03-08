@@ -1,24 +1,20 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/usecase/add_question_knowledge_base.dart';
+import '../../domain/usecase/find_question_knowledge_base.dart';
 
-class RemoteAddQuestionKnowledgeBase implements AddQuestionKnowledgeBase {
+class RemoteFindQuestionKnowledgeBase implements FindQuestionKnowledgeBase {
   final HttpClient httpClient;
   final String url;
 
-  RemoteAddQuestionKnowledgeBase({required this.httpClient, required this.url});
+  RemoteFindQuestionKnowledgeBase({required this.httpClient, required this.url});
 
   @override
-  Future<HelpQuestionFaqEntity> exec(HelpQuestionFaqEntity params, {bool log = false}) async {
-    Map<String, dynamic> body = params.toMap();
-    body.removeWhere((key, value) => key == "id");
-    body.addAll({"categoryId": params.category?.id ?? ""});
+  Future<HelpQuestionFaqEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
-        method: 'post',
-        body: body,
+        method: 'get',
         newReturnErrorMsg: true,
       );
 

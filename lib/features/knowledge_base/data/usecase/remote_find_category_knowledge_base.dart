@@ -1,23 +1,20 @@
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
-import '../../domain/usecase/add_category_knowledge_base.dart';
+import '../../domain/usecase/find_category_knowledge_base.dart';
 
-class RemoteAddCategoryKnowledgeBase implements AddCategoryKnowledgeBase {
+class RemoteFindCategoryKnowledgeBase implements FindCategoryKnowledgeBase {
   final HttpClient httpClient;
   final String url;
 
-  RemoteAddCategoryKnowledgeBase({required this.httpClient, required this.url});
+  RemoteFindCategoryKnowledgeBase({required this.httpClient, required this.url});
 
   @override
-  Future<HelpCategoriesFaqEntity> exec(HelpCategoriesFaqEntity params, {bool log = false}) async {
-    Map body = params.toMap();
-    body.removeWhere((key, value) => key == "id");
+  Future<HelpCategoriesFaqEntity> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
         url: url,
         log: log,
-        method: 'post',
-        body: body,
+        method: 'get',
         newReturnErrorMsg: true,
       );
 

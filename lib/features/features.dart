@@ -19,6 +19,7 @@ export './das/domain/entity/das_item_entity.dart';
 export './dasn/domain/entity/dasn_item_entity.dart';
 export './dasn/domain/entity/dasn_declaration_entity.dart';
 export './documents/domain/entity/document_entity.dart';
+export './upload/domain/entity/file_entity.dart';
 export './ecommerce/domain/entity/ecommerce_entity.dart';
 export './ecommerce/domain/entity/shifts_ecommerce_entity.dart';
 export './extract/domain/entity/extract_entity.dart';

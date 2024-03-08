@@ -1,6 +1,6 @@
 import 'package:plugin_pjmei_components/features/tutorials/data/repositories/list_tutorial_factory.dart';
-import 'package:plugin_pjmei_components/features/tutorials/domain/entity/tutorial_entity.dart';
 import 'package:plugin_pjmei_components/features/extract/data/repositories/get_extract.dart';
+import 'package:plugin_pjmei_components/features/upload/domain/entity/file_entity.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
@@ -117,6 +117,8 @@ import 'groups/data/repositories/update_group_factory.dart';
 import 'inbox/data/repositories/check_user_factory.dart';
 import 'knowledge_base/data/repositories/add_category_in_knowledge_base_factory.dart';
 import 'knowledge_base/data/repositories/add_question_in_knowledge_base_factory.dart';
+import 'knowledge_base/data/repositories/find_category_in_knowledge_base_factory.dart';
+import 'knowledge_base/data/repositories/find_question_in_knowledge_base_factory.dart';
 import 'knowledge_base/data/repositories/list_categories_knowledge_base_factory.dart';
 import 'knowledge_base/data/repositories/list_questions_by_search_faq_factory.dart';
 import 'knowledge_base/data/repositories/list_questions_knowledge_base_factory.dart';
@@ -185,7 +187,6 @@ import 'products/data/repositories/list_product_ecommerce_factory.dart';
 import 'products/data/repositories/update_product_ecommerce_factory.dart';
 import 'recipient/data/repositories/find.dart';
 import 'roadmap/data/repositories/list_roadmap_factory.dart';
-import 'roadmap/domain/entity/roadmap_item.dart';
 import 'schedule/data/repositories/add_schedule_factory.dart';
 import 'schedule/data/repositories/delete_schedule_by_ecormmerce_factory.dart';
 import 'schedule/data/repositories/delete_schedule_by_product_factory.dart';
@@ -220,6 +221,8 @@ import 'tasks/data/repositories/add_task_factory.dart';
 import 'tasks/data/repositories/delete_task_factory.dart';
 import 'tasks/data/repositories/list_tasks_factory.dart';
 import 'tasks/data/repositories/update_task_factory.dart';
+import 'upload/data/repositories/upload_file_factory.dart';
+import 'user/data/repositories/find_user_factory.dart';
 import 'voucher/data/repositories/delete_voucher_factory.dart';
 import 'voucher/data/repositories/find_by_code_voucher_factory.dart';
 import 'voucher/data/repositories/find_voucher_factory.dart';
@@ -302,6 +305,7 @@ part 'finance/data/repositories/datasource.dart';
 part 'nota_fiscal/data/repositories/datasource.dart';
 part 'web_socket/data/repositories/datasource.dart';
 part 'white_label/data/repositories/datasource.dart';
+part 'upload/data/repositories/datasource.dart';
 
 class Api {
   Api._();
@@ -349,6 +353,7 @@ class Api {
   static final statistics = _StatisticsApi();
   static final stories = _StoriesApi();
   static final tasks = _TasksApi();
+  static final upload = _UploadApi();
   static final user = _UserApi();
   static final users = _UserApi();
   static final vouchers = _VoucherEcommerceApi();

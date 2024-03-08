@@ -1,57 +1,41 @@
 import 'dart:convert';
 
 class DocumentEntity {
-  String id;
+  String? id;
   String url;
-  String category; // folha / fiscal / documento
-  String? tag;
-  String? dueDate;
-  String? barCode;
-  String createdAt;
-  String updatedAt;
+  String category;
+  String? title;
+  String? createdAt;
+  String? updatedAt;
   String companyId;
-  num? value;
-  num? year;
   
   DocumentEntity({
-    required this.id,
+    this.id,
     required this.url,
     required this.category,
-    this.tag,
-    this.dueDate,
-    this.barCode,
-    required this.createdAt,
-    required this.updatedAt,
+    this.title,
+    this.createdAt,
+    this.updatedAt,
     required this.companyId,
-    this.value,
-    this.year,
   });
 
   DocumentEntity copyWith({
     String? id,
     String? url,
     String? category,
-    String? tag,
-    String? dueDate,
-    String? barCode,
+    String? title,
     String? createdAt,
     String? updatedAt,
     String? companyId,
-    num? value,
-    num? year,
   }) {
     return DocumentEntity(
       id: id ?? this.id,
       url: url ?? this.url,
       category: category ?? this.category,
-      tag: tag ?? this.tag,
-      dueDate: dueDate ?? this.dueDate,
-      barCode: barCode ?? this.barCode,
+      title: title ?? this.title,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       companyId: companyId ?? this.companyId,
-      value: value ?? this.value,
-      year: year ?? this.year,
     );
   }
 
@@ -60,30 +44,22 @@ class DocumentEntity {
       'id': id,
       'url': url,
       'category': category,
-      'tag': tag,
-      'dueDate': dueDate,
-      'barCode': barCode,
+      'title': title,
       'createdAt': createdAt,
       'updatedAt': updatedAt,
       'companyId': companyId,
-      'value': value,
-      'year': year,
     };
   }
 
   factory DocumentEntity.fromMap(Map<String, dynamic> map) {
     return DocumentEntity(
-      id: map['id'] ?? '',
+      id: map['id'],
       url: map['url'] ?? '',
       category: map['category'] ?? '',
-      tag: map['tag'],
-      dueDate: map['dueDate'],
-      barCode: map['barCode'],
-      createdAt: map['createdAt'] ?? '',
-      updatedAt: map['updatedAt'] ?? '',
+      title: map['title'],
+      createdAt: map['createdAt'],
+      updatedAt: map['updatedAt'],
       companyId: map['companyId'] ?? '',
-      value: map['value'],
-      year: map['year'],
     );
   }
 
@@ -93,7 +69,7 @@ class DocumentEntity {
 
   @override
   String toString() {
-    return 'DocumentEntity(id: $id, url: $url, category: $category, tag: $tag, dueDate: $dueDate, barCode: $barCode, createdAt: $createdAt, updatedAt: $updatedAt, companyId: $companyId, value: $value, year: $year)';
+    return 'DocumentEntity(id: $id, url: $url, category: $category, title: $title, createdAt: $createdAt, updatedAt: $updatedAt, companyId: $companyId)';
   }
 
   @override
@@ -104,14 +80,10 @@ class DocumentEntity {
       other.id == id &&
       other.url == url &&
       other.category == category &&
-      other.tag == tag &&
-      other.dueDate == dueDate &&
-      other.barCode == barCode &&
+      other.title == title &&
       other.createdAt == createdAt &&
       other.updatedAt == updatedAt &&
-      other.companyId == companyId &&
-      other.value == value &&
-      other.year == year;
+      other.companyId == companyId;
   }
 
   @override
@@ -119,13 +91,9 @@ class DocumentEntity {
     return id.hashCode ^
       url.hashCode ^
       category.hashCode ^
-      tag.hashCode ^
-      dueDate.hashCode ^
-      barCode.hashCode ^
+      title.hashCode ^
       createdAt.hashCode ^
       updatedAt.hashCode ^
-      companyId.hashCode ^
-      value.hashCode ^
-      year.hashCode;
+      companyId.hashCode;
   }
 }

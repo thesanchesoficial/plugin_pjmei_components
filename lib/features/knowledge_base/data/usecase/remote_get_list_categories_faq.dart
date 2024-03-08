@@ -10,18 +10,16 @@ class RemoteGetListCategoriesFaq implements GetListCategoriesFaq {
   Future<List<HelpCategoriesFaqEntity>> exec({bool log = false}) async {
     try {
       final httpResponse = await httpClient.request(
-          url: url, log: log, method: 'get', newReturnErrorMsg: true);
+        url: url,
+        log: log,
+        method: 'get',
+        newReturnErrorMsg: true,
+      );
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
 
-      try {
-        return (httpResponse['success']['knowledgeCategories']['items'] as List)
-            .map((e) => HelpCategoriesFaqEntity.fromMap(e))
-            .toList();
-      } catch (e) {
-        throw DomainError.unexpected;
-      }
+      return (httpResponse['success']['knowledgeCategories']['items'] as List).map((e) => HelpCategoriesFaqEntity.fromMap(e)).toList();
     } catch (error) {
       throw error;
     }

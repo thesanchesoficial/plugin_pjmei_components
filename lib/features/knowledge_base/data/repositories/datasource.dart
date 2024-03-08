@@ -2,6 +2,14 @@ part of '../../../apis.dart';
 
 class _KnowledgeBaseApi {
 
+  Future<HelpCategoriesFaqEntity> findCategory({required String id}) {
+    return makeRemoteFindCategoryKnowledgeBase(id).exec();
+  }
+
+  Future<HelpQuestionFaqEntity> findQuestion({required String id}) {
+    return makeRemoteFindQuestionKnowledgeBase(id).exec();
+  }
+
   Future<List<HelpCategoriesFaqEntity>> listCategories({required Map<String, dynamic> params}) {
     return makeRemoteListCategoriesKnowledgeBase(params).exec();
   }
