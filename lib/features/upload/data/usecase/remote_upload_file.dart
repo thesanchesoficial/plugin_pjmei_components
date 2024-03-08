@@ -3,6 +3,7 @@ import 'dart:convert';
 import '../../../../plugin_pjmei_components.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 
 import '../../domain/usecase/upload_file.dart';
 
@@ -16,13 +17,18 @@ class RemoteUploadFile implements UploadFile {
   });
 
   @override
-  Future<FileEntity> exec(List<int>? file, {bool log = false}) async {
+  Future<FileEntity> exec(List<int>? file, {String? filename, MediaType? contentType, bool isPublic = false, bool log = false}) async {
     try {
       var req = http.MultipartRequest('POST', Uri.parse(url));
       req.headers['Content-Type'] = 'multipart/form-data';
       req.headers['x_api_key'] = '${Environment.current?.apiKey}';
       req.headers['Authorization'] = 'Bearer ${userSM.user?.accessToken}';
-      req.files.add(http.MultipartFile.fromBytes('file', file!));
+      req.headers['x-bucket-visibility'] = isPublic ? 'public' : 'private';
+      req.files.add(http.MultipartFile.fromBytes(
+        'file', file!,
+        contentType: contentType,
+        filename: filename,
+      ));
       final streamedResponse = await req.send();
 
       if (streamedResponse.statusCode == 200 || streamedResponse.statusCode == 201) {
@@ -37,7 +43,7 @@ class RemoteUploadFile implements UploadFile {
           throw decodedResponse;
         }
       } else {
-        throw streamedResponse.statusCode;
+        throw streamedResponse;
       }
     } catch(e) {
       throw e;
