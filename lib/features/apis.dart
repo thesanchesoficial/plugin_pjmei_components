@@ -1,8 +1,8 @@
 import 'package:plugin_pjmei_components/features/tutorials/data/repositories/list_tutorial_factory.dart';
 import 'package:plugin_pjmei_components/features/extract/data/repositories/get_extract.dart';
-import 'package:plugin_pjmei_components/features/upload/domain/entity/file_entity.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:http_parser/http_parser.dart';
 
 export 'finance/data/repositories/bank/delete_finance_bank_factory.dart';
 export 'finance/data/repositories/bank/get_finance_bank_factory.dart';

@@ -43,7 +43,11 @@ class RemoteUploadFile implements UploadFile {
           throw decodedResponse;
         }
       } else {
-        throw streamedResponse;
+        throw {
+          'statusCode': streamedResponse.statusCode,
+          'streamedResponse': streamedResponse,
+          'string': streamedResponse.toString(),
+        };
       }
     } catch(e) {
       throw e;
