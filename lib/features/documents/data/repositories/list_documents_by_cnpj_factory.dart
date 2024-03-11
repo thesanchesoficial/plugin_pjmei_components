@@ -6,5 +6,5 @@ import '../usecase/remote_list_documents.dart';
 
 ListDocuments makeRemoteListDocumentsByCnpj(String id, {Map<String, dynamic>? params}) => RemoteListDocuments(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/document/$id', params: params)
+  url: makeApiUrl('venver/document/company/$id', params: params)
 );
