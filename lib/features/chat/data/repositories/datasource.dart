@@ -6,8 +6,12 @@ class _ChatApi {
     return makeRemoteGetListChatDefault().exec();
   }
 
-  Future<ChatDefaultEntity> insertMessageDefauilt({required Map<String, dynamic> params}) {
+  Future<ChatDefaultEntity> insertMessageDefault({required Map<String, dynamic> params}) {
     return makePostChatDefault().exec(params: params);
+  }
+
+  Future<bool> deleteMessageDefauilt({required String id}) {
+    return makeRemoteDeleteChatDefault(id).exec();
   }
 
 }

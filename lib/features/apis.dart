@@ -48,6 +48,7 @@ import 'blog/data/repositories/get_list_categories_blog.dart';
 import 'blog/data/repositories/get_list_posts_blog.dart';
 import 'ccmei/data/repositories/get_ccmei_factory.dart';
 import 'ccmei/data/repositories/put_ccmei_factory.dart';
+import 'chat/data/repositories/delete_chat_factory.dart';
 import 'chat/data/repositories/get_list_chat_default.dart';
 import 'chat/data/repositories/post_chat_default.dart';
 import 'cnpj/data/repositories/get_cnpj_factory.dart';
