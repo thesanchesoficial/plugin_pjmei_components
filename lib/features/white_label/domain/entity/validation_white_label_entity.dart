@@ -1,46 +1,47 @@
 import 'dart:convert';
 
 class ValidationWhiteLabelEntity {
-  bool requiredCompanyEnvironment;
-  bool requiredIndividualEnvironment;
+  String name;
+  String description;
   String type;
-  String value;
+  dynamic parameters;
+  
   ValidationWhiteLabelEntity({
-    required this.requiredCompanyEnvironment,
-    required this.requiredIndividualEnvironment,
+    required this.name,
+    required this.description,
     required this.type,
-    required this.value,
+    required this.parameters,
   });
 
   ValidationWhiteLabelEntity copyWith({
-    bool? requiredCompanyEnvironment,
-    bool? requiredIndividualEnvironment,
+    String? name,
+    String? description,
     String? type,
-    String? value,
+    dynamic parameters,
   }) {
     return ValidationWhiteLabelEntity(
-      requiredCompanyEnvironment: requiredCompanyEnvironment ?? this.requiredCompanyEnvironment,
-      requiredIndividualEnvironment: requiredIndividualEnvironment ?? this.requiredIndividualEnvironment,
+      name: name ?? this.name,
+      description: description ?? this.description,
       type: type ?? this.type,
-      value: value ?? this.value,
+      parameters: parameters ?? this.parameters,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'requiredCompanyEnvironment': requiredCompanyEnvironment,
-      'requiredIndividualEnvironment': requiredIndividualEnvironment,
+      'name': name,
+      'description': description,
       'type': type,
-      'value': value,
+      'parameters': parameters,
     };
   }
 
   factory ValidationWhiteLabelEntity.fromMap(Map<String, dynamic> map) {
     return ValidationWhiteLabelEntity(
-      requiredCompanyEnvironment: map['requiredCompanyEnvironment'] ?? false,
-      requiredIndividualEnvironment: map['requiredIndividualEnvironment'] ?? false,
+      name: map['name'] ?? '',
+      description: map['description'] ?? '',
       type: map['type'] ?? '',
-      value: map['value'] ?? '',
+      parameters: map['parameters'] ?? null,
     );
   }
 
@@ -50,7 +51,7 @@ class ValidationWhiteLabelEntity {
 
   @override
   String toString() {
-    return 'ValidationWhiteLabelEntity(requiredCompanyEnvironment: $requiredCompanyEnvironment, requiredIndividualEnvironment: $requiredIndividualEnvironment, type: $type, value: $value)';
+    return 'ValidationWhiteLabelEntity(name: $name, description: $description, type: $type, parameters: $parameters)';
   }
 
   @override
@@ -58,17 +59,17 @@ class ValidationWhiteLabelEntity {
     if (identical(this, other)) return true;
   
     return other is ValidationWhiteLabelEntity &&
-      other.requiredCompanyEnvironment == requiredCompanyEnvironment &&
-      other.requiredIndividualEnvironment == requiredIndividualEnvironment &&
+      other.name == name &&
+      other.description == description &&
       other.type == type &&
-      other.value == value;
+      other.parameters == parameters;
   }
 
   @override
   int get hashCode {
-    return requiredCompanyEnvironment.hashCode ^
-      requiredIndividualEnvironment.hashCode ^
+    return name.hashCode ^
+      description.hashCode ^
       type.hashCode ^
-      value.hashCode;
+      parameters.hashCode;
   }
 }

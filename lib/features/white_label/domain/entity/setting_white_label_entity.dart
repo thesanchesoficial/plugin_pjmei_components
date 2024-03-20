@@ -17,6 +17,7 @@ class SettingWhiteLabelEntity {
   LinkWhiteLabelEntity link;
   EnvironmentWhiteLabelEntity environment;
   FunctionalityWhiteLabelEntity functionality;
+  String? notificationId;
   SettingWhiteLabelEntity({
     required this.companyId,
     required this.ecommerceId,
@@ -30,6 +31,7 @@ class SettingWhiteLabelEntity {
     required this.link,
     required this.environment,
     required this.functionality,
+    this.notificationId,
   });
 
   SettingWhiteLabelEntity copyWith({
@@ -45,6 +47,7 @@ class SettingWhiteLabelEntity {
     LinkWhiteLabelEntity? link,
     EnvironmentWhiteLabelEntity? environment,
     FunctionalityWhiteLabelEntity? functionality,
+    String? notificationId,
   }) {
     return SettingWhiteLabelEntity(
       companyId: companyId ?? this.companyId,
@@ -59,6 +62,7 @@ class SettingWhiteLabelEntity {
       link: link ?? this.link,
       environment: environment ?? this.environment,
       functionality: functionality ?? this.functionality,
+      notificationId: notificationId ?? this.notificationId,
     );
   }
 
@@ -76,6 +80,7 @@ class SettingWhiteLabelEntity {
       'link': link.toMap(),
       'environment': environment.toMap(),
       'functionality': functionality.toMap(),
+      'notificationId': notificationId,
     };
   }
 
@@ -93,6 +98,7 @@ class SettingWhiteLabelEntity {
       link: LinkWhiteLabelEntity.fromMap(map['link']),
       environment: EnvironmentWhiteLabelEntity.fromMap(map['environment']),
       functionality: FunctionalityWhiteLabelEntity.fromMap(map['functionality']),
+      notificationId: map['notificationId'],
     );
   }
 
@@ -102,7 +108,7 @@ class SettingWhiteLabelEntity {
 
   @override
   String toString() {
-    return 'SettingWhiteLabelEntity(companyId: $companyId, ecommerceId: $ecommerceId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, planRequired: $planRequired, urlWebApplication: $urlWebApplication, linkAppleStore: $linkAppleStore, linkGooglePlay: $linkGooglePlay, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality)';
+    return 'SettingWhiteLabelEntity(companyId: $companyId, ecommerceId: $ecommerceId, forceAuthenticationStart: $forceAuthenticationStart, disabledPrintScreen: $disabledPrintScreen, planRequired: $planRequired, urlWebApplication: $urlWebApplication, linkAppleStore: $linkAppleStore, linkGooglePlay: $linkGooglePlay, redirectOrigin: $redirectOrigin, link: $link, environment: $environment, functionality: $functionality, notificationId: $notificationId)';
   }
 
   @override
@@ -121,7 +127,8 @@ class SettingWhiteLabelEntity {
       other.redirectOrigin == redirectOrigin &&
       other.link == link &&
       other.environment == environment &&
-      other.functionality == functionality;
+      other.functionality == functionality &&
+      other.notificationId == notificationId;
   }
 
   @override
@@ -137,6 +144,7 @@ class SettingWhiteLabelEntity {
       redirectOrigin.hashCode ^
       link.hashCode ^
       environment.hashCode ^
-      functionality.hashCode;
+      functionality.hashCode ^
+      notificationId.hashCode;
   }
 }

@@ -52,7 +52,6 @@ import 'chat/data/repositories/delete_chat_factory.dart';
 import 'chat/data/repositories/get_list_chat_default.dart';
 import 'chat/data/repositories/post_chat_default.dart';
 import 'cnpj/data/repositories/get_cnpj_factory.dart';
-import 'cnpj/data/repositories/put_cnpj_factory.dart';
 import 'company/data/repositories/dashboard_basic_company_factory.dart';
 import 'company/data/repositories/delete_company_factory.dart';
 import 'company/data/repositories/find_company_factory.dart';

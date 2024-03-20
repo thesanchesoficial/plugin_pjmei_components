@@ -6,8 +6,4 @@ class _CnpjApi {
     return makeRemoteGetCnpj(cnpj, ignoreAuth: ignoreAuth).exec();
   }
 
-  Future<CnpjEntity> update() {
-    return makeRemotePutCnpj().exec();
-  }
-
 }
