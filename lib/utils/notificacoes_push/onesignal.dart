@@ -9,59 +9,61 @@ class NotificacaoOneSignal {
     if (!kIsWeb) {
       try {
         OneSignal.initialize('d5f646ee-53f2-4ddb-a64f-1958b10003c7');
-        await OneSignal.login('${userSM.user?.id}.${WhiteLabelEntity.current?.id}');
-        OneSignal.User.pushSubscription.optIn();
-        OneSignal.Notifications.requestPermission(true);
-        OneSignal.User.addEmail('${userSM.user?.email}');
-        OneSignal.User.addSms('${userSM.user?.phone}');
-        OneSignal.User.addTagWithKey('whiteLabel', '${WhiteLabelEntity.current?.id}');
-        OneSignal.User.addAlias('whiteLabel', '${WhiteLabelEntity.current?.id}');
+        final result = await OneSignal.Notifications.requestPermission(true);
+        if(result) {
+          await OneSignal.login('${userSM.user?.id}.${WhiteLabelEntity.current?.id}');
+          OneSignal.User.pushSubscription.optIn();
+          OneSignal.User.addEmail('${userSM.user?.email}');
+          OneSignal.User.addSms('${userSM.user?.phone}');
+          OneSignal.User.addTagWithKey('whiteLabel', '${WhiteLabelEntity.current?.id}');
+          OneSignal.User.addAlias('whiteLabel', '${WhiteLabelEntity.current?.id}');
 
-        OneSignal.Notifications.addForegroundWillDisplayListener((event) async {
-          final String info = event.notification.title.toString().toLowerCase();
-          dynamic funcaoTap;
-          dynamic icone;
+          OneSignal.Notifications.addForegroundWillDisplayListener((event) async {
+            final String info = event.notification.title.toString().toLowerCase();
+            dynamic funcaoTap;
+            dynamic icone;
 
-          if (info.toLowerCase().contains('mensagem')) {
-            icone = EvaIcons.messageSquareOutline;
-            funcaoTap = () {};
-          } else if (info.toLowerCase().contains('pedido')) {
-            icone = Icons.shopping_bag_outlined;
-            funcaoTap = () {};
-          } else if (info.toLowerCase().contains('agendamento')) {
-            icone = EvaIcons.calendarOutline;
-            funcaoTap = () {};
-          }
-          OwBotToast.notification(
-            title: event.notification.title ?? 'Você recebeu uma notificação',
-            icon: icone ?? EvaIcons.bellOutline,
-            subtitle: event.notification.body ?? 'Clique para acessar',
-            onTap: funcaoTap,
-          );
-        });
+            if (info.toLowerCase().contains('mensagem')) {
+              icone = EvaIcons.messageSquareOutline;
+              funcaoTap = () {};
+            } else if (info.toLowerCase().contains('pedido')) {
+              icone = Icons.shopping_bag_outlined;
+              funcaoTap = () {};
+            } else if (info.toLowerCase().contains('agendamento')) {
+              icone = EvaIcons.calendarOutline;
+              funcaoTap = () {};
+            }
+            OwBotToast.notification(
+              title: event.notification.title ?? 'Você recebeu uma notificação',
+              icon: icone ?? EvaIcons.bellOutline,
+              subtitle: event.notification.body ?? 'Clique para acessar',
+              onTap: funcaoTap,
+            );
+          });
 
-        OneSignal.Notifications.addClickListener((openedResult) {
-          final String info = openedResult.notification.title.toString().toLowerCase();
-          dynamic funcaoTap;
-          dynamic icone;
+          OneSignal.Notifications.addClickListener((openedResult) {
+            final String info = openedResult.notification.title.toString().toLowerCase();
+            dynamic funcaoTap;
+            dynamic icone;
 
-          if (info.toLowerCase().contains('mensage')) {
-            icone = EvaIcons.messageSquareOutline;
-            funcaoTap = () {};
-          } else if (info.toLowerCase().contains('pedido')) {
-            icone = Icons.shopping_bag_outlined;
-            funcaoTap = () {};
-          } else if (info.toLowerCase().contains('agendamento')) {
-            icone = EvaIcons.calendarOutline;
-            funcaoTap = () {};
-          }
-          OwBotToast.notification(
-            title: openedResult.notification.title ?? 'Você recebeu uma notificação',
-            icon: icone,
-            subtitle: openedResult.notification.body ?? 'Clique para acessar',
-            onTap: funcaoTap,
-          );
-        });
+            if (info.toLowerCase().contains('mensage')) {
+              icone = EvaIcons.messageSquareOutline;
+              funcaoTap = () {};
+            } else if (info.toLowerCase().contains('pedido')) {
+              icone = Icons.shopping_bag_outlined;
+              funcaoTap = () {};
+            } else if (info.toLowerCase().contains('agendamento')) {
+              icone = EvaIcons.calendarOutline;
+              funcaoTap = () {};
+            }
+            OwBotToast.notification(
+              title: openedResult.notification.title ?? 'Você recebeu uma notificação',
+              icon: icone,
+              subtitle: openedResult.notification.body ?? 'Clique para acessar',
+              onTap: funcaoTap,
+            );
+          });
+        }
       } catch (e) {
         //
       }
