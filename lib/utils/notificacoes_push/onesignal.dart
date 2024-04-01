@@ -8,15 +8,17 @@ class NotificacaoOneSignal {
   void initOneSignal() async {
     if (!kIsWeb) {
       try {
-        OneSignal.initialize('d5f646ee-53f2-4ddb-a64f-1958b10003c7');
+        OneSignal.initialize('${WhiteLabelEntity.current?.setting.notificationId}');
         final result = await OneSignal.Notifications.requestPermission(true);
         if(result) {
-          await OneSignal.login('${userSM.user?.id}.${WhiteLabelEntity.current?.id}');
+          await OneSignal.login('${userSM.user?.id}');
           OneSignal.User.pushSubscription.optIn();
           OneSignal.User.addEmail('${userSM.user?.email}');
           OneSignal.User.addSms('${userSM.user?.phone}');
           OneSignal.User.addTagWithKey('whiteLabel', '${WhiteLabelEntity.current?.id}');
+          OneSignal.User.addTagWithKey('minimalVersion', '${minimalVersion}');
           OneSignal.User.addAlias('whiteLabel', '${WhiteLabelEntity.current?.id}');
+          OneSignal.User.addAlias('minimalVersion', '${minimalVersion}');
 
           OneSignal.Notifications.addForegroundWillDisplayListener((event) async {
             final String info = event.notification.title.toString().toLowerCase();
