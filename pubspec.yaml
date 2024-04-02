@@ -26,7 +26,8 @@ dependencies:
   crop: ^0.5.4
   crypto: ^3.0.3
   dartz: ^0.10.1
-  device_info_plus: ^9.0.2
+  package_info_plus: ^6.0.0
+  device_info_plus: ^10.0.1
   dio: ^5.2.0
   dot_navigation_bar: ^1.0.1+4
   dotted_border: ^2.0.0+3
