@@ -122,6 +122,10 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () => context.push("/test/sadfgasgs/arroz/fasdfsd"),
               ),
               ElevatedButton(
+                child: const Text("Politica"),
+                onPressed: () => context.push("/politica"),
+              ),
+              ElevatedButton(
                 child: const Text("Buttons"),
                 onPressed: () => context.push("/buttons"),
               ),

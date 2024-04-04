@@ -1,8 +1,8 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 class WebviewPage extends StatefulWidget {
   const WebviewPage({Key? key, required this.params}) : super(key: key);
@@ -14,7 +14,6 @@ class WebviewPage extends StatefulWidget {
 }
 
 class _WebviewPageState extends State<WebviewPage> {
-  bool hideLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,19 +38,14 @@ class _WebviewPageState extends State<WebviewPage> {
       ),
       body: Stack(
         children: [
-          InAppWebView(
-            initialUrlRequest: URLRequest(
-              url: WebUri('${widget.params.url}'),
-            ),
+          Center(
+            child: CircularProgressIndicator(),
           ),
-          Visibility(
-            visible: !hideLoading,
-            child: Container(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              child: const Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
+          WebViewX(
+            initialContent: '${widget.params.url}',
+            initialSourceType: SourceType.url,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
           ),
         ],
       ),

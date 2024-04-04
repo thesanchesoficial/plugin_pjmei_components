@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 import '../features/white_label/domain/entity/white_label_entity.dart';
 import '../ui/components/widgets/ow_app_bar_widget.dart';
@@ -15,16 +15,22 @@ class _PoliticaDePrivacidadeState extends State<PoliticaDePrivacidade> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: OwAppBar(
-        title: OwText(
-          'Política de Privacidade'.toUpperCase(),
-        ),
+        title: OwText('Política de Privacidade'.toUpperCase()),
         centerTitle: true,
         elevation: 0,
       ),
-      body: InAppWebView(
-        initialUrlRequest: URLRequest(
-          url: WebUri('${WhiteLabelEntity.current?.setting.link.privacyPolicy}'),
-        ),
+      body: Stack(
+        children: [
+          Center(
+            child: CircularProgressIndicator(),
+          ),
+          WebViewX(
+            initialContent: '${WhiteLabelEntity.current?.setting.link.privacyPolicy}',
+            initialSourceType: SourceType.url,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+          ),
+        ],
       ),
     );
   }

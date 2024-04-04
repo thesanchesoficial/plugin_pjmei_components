@@ -16,7 +16,7 @@ dependencies:
   web_socket_channel: ^2.4.3
   animations: ^2.0.7
   app_settings: ^5.1.1
-  audioplayers: ^5.2.1
+  audioplayers: ^6.0.0
   barcode_widget: ^2.0.4
   barcode: ^2.2.4
   bot_toast: ^4.1.1
@@ -24,11 +24,11 @@ dependencies:
   cached_network_image: ^3.2.3
   chewie: ^1.7.1
   cloud_firestore: ^4.8.0
-  connectivity_plus: ^5.0.2
+  connectivity_plus: ^6.0.1
   crop: ^0.5.4
   crypto: ^3.0.3
   dartz: ^0.10.1
-  device_info_plus: ^9.0.3
+  device_info_plus: ^10.0.1
   dio: ^5.2.0
   dot_navigation_bar: ^1.0.1+4
   dotted_border: ^2.0.0+3
@@ -45,12 +45,11 @@ dependencies:
   firebase_storage: ^11.6.7
   fl_chart: ^0.66.2
   flex_color_picker: ^3.2.0
-  flutter_inappwebview: ^6.0.0-beta.24+1
+  webviewx_plus: ^0.5.0
   flutter_mobx: ^2.0.0
   flutter_native_splash: ^2.3.2
   flutter_rating_bar: ^4.0.1
   flutter_search_bar: ^3.0.0-dev.1
-  flutter_secure_storage: ^9.0.0
   flutter_typeahead: ^5.0.2
   flutter_widget_from_html: ^0.14.11
   fwfh_webview: ^0.14.8
@@ -94,10 +93,9 @@ dependencies:
   url_strategy: ^0.2.0
   video_player: ^2.1.6
   voice_message_package: ^2.1.4
-  web_ffi: ^0.7.2
+  # web_ffi: ^0.7.2 
   webview_flutter: ^4.2.1
   widgets_to_image: ^0.0.2
-  pdfx: ^2.6.0
 
 dependency_overrides:
   path: ^1.9.0
@@ -120,10 +118,29 @@ dependency_overrides:
       path: image_editor_common
       publish_to: none
 
+  pdfx:
+    git:
+      url: 'https://github.com/ScerIO/packages.flutter'
+      ref: main
+      path: packages/pdfx
+      publish_to: none
+
   flutter_staggered_grid_view:
     git:
       url: https://github.com/MehmetKaranlik/flutter_staggered_grid_view
       ref: master
+
+  flutter_secure_storage:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage
+      
+  flutter_secure_storage_web:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage_web
 
   share_files_and_screenshot_widgets:
     git:

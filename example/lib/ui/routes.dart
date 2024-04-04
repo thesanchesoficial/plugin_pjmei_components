@@ -14,49 +14,6 @@ import 'package:plugin_pjmei_components_example/ui/textfields.dart';
 import 'package:plugin_pjmei_components_example/ui/texts.dart';
 import 'package:plugin_pjmei_components_example/ui/toasts.dart';
 
-// class OwRoute extends owRoute{
-//   OwRoute({
-//     required super.path,
-//   });
-// }
-
-// context.push('empresa/:companyId/dashboard', extra: Company())
-// context.push('empresa/231423142/dashboard', extra: Company())
-
-arroz(element, atribuirGlobalmente, redirect) async {
-  // if(element.value == userSM.user?.id) {
-  //   return null;
-  // }
-  // else {
-  //   try {
-  //     final temp = await makeRemoteFindCompany(element.value).exec();
-  //     if(atribuirGlobalmente) {
-  //       companySM.setEstablishment(temp);
-  //     }
-  //     return null;
-  //   } catch (e) {
-  //     return redirect;
-  //   }
-  // }
-}
-
-String pegarMes(element, atribuirGlobalmente, redirect) => switch (element.key) {
-  'companyId' => arroz(element, atribuirGlobalmente, redirect),
-  _ => 'Mês inválido', //Valor padrão, substitui o default
-};
-
-Future<String?> redirectRoute({
-  required GoRouterState state,
-  bool atribuirGlobalmente = false,
-  String redirect = '/',
-}) async {
-  for (var element in state.pathParameters.entries) {
-    String? test = pegarMes(element, atribuirGlobalmente, redirect);
-    return test;
-  }
-  return redirect;
-}
-
 GoRoute owRoute({
   required String path,
   Widget Function(BuildContext context, GoRouterState state)? builder,
@@ -64,7 +21,6 @@ GoRoute owRoute({
   return GoRoute(
     path: path,
     builder: builder,
-    redirect: (context, state) => redirectRoute(state: state, atribuirGlobalmente: true),
   );
 }
 
@@ -118,6 +74,10 @@ final routes = GoRouter(
     owRoute(
       path: "/dropdown",
       builder: (context, state) => const DropdownTestPage(),
+    ),
+    owRoute(
+      path: "/politica",
+      builder: (context, state) => PoliticaDePrivacidade(),
     ),
     owRoute(
       path: "/dialogs",

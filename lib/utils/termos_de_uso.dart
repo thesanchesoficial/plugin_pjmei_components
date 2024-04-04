@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 import '../features/white_label/domain/entity/white_label_entity.dart';
 import '../ui/components/widgets/ow_app_bar_widget.dart';
@@ -15,16 +15,22 @@ class _TermosDeUsoState extends State<TermosDeUso> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: OwAppBar(
-        title: OwText(
-          'Termos de Uso'.toUpperCase(),
-        ),
+        title: OwText('Termos de Uso'.toUpperCase()),
         centerTitle: true,
         elevation: 0,
       ),
-      body: InAppWebView(
-        initialUrlRequest: URLRequest(
-          url: WebUri('${WhiteLabelEntity.current?.setting.link.termsOfUse}'),
-        ),
+      body: Stack(
+        children: [
+          Center(
+            child: CircularProgressIndicator(),
+          ),
+          WebViewX(
+            initialContent: '${WhiteLabelEntity.current?.setting.link.termsOfUse}',
+            initialSourceType: SourceType.url,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+          ),
+        ],
       ),
     );
   }
