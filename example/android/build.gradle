@@ -16,16 +16,6 @@ allprojects {
     google()
     mavenCentral()
     jcenter()
-    maven {
-      url 'https://api.mapbox.com/downloads/v2/releases/maven'
-      authentication {
-        basic(BasicAuthentication)
-      }
-      credentials {
-        username = "mapbox"
-        password = "sk.eyJ1IjoidGhlc2FuY2hlczIwMTYiLCJhIjoiY2xld3RjbzFrMDE4ZTNwbzBvcjMxYXliMCJ9.3DTxdDFmlt0Y2kZ2fmxXjQ"
-      }
-    }
   }
 }
 
