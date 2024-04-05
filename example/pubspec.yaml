@@ -94,7 +94,6 @@ dependencies:
   url_strategy: ^0.2.0
   video_player: ^2.1.6
   voice_message_package: ^2.1.4
-  # web_ffi: ^0.7.2 
   webview_flutter: ^4.2.1
   widgets_to_image: ^0.0.2
   flutter_secure_storage: ^9.0.0
@@ -105,20 +104,6 @@ dependency_overrides:
   image_gallery_saver:
     git:
       url: 'https://github.com/knottx/image_gallery_saver.git'
-
-  image_editor:
-    git:
-      url: 'https://github.com/jgrubesa-most/flutter_image_editor'
-      ref: main
-      path: image_editor
-      publish_to: none
-
-  image_editor_common:
-    git:
-      url: 'https://github.com/jgrubesa-most/flutter_image_editor'
-      ref: main
-      path: image_editor_common
-      publish_to: none
 
   pdfx:
     git:
@@ -131,12 +116,6 @@ dependency_overrides:
     git:
       url: https://github.com/MehmetKaranlik/flutter_staggered_grid_view
       ref: master
-
-  # flutter_secure_storage:
-  #   git:
-  #     url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
-  #     ref: develop
-  #     path: flutter_secure_storage
       
   flutter_secure_storage_web:
     git:

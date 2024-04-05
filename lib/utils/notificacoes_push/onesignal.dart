@@ -8,9 +8,9 @@ class NotificacaoOneSignal {
   void initOneSignal() async {
     if (!kIsWeb) {
       try {
-        OneSignal.initialize('${WhiteLabelEntity.current?.setting.notificationId}');
         final result = await OneSignal.Notifications.requestPermission(true);
         if(result) {
+          OneSignal.initialize('${WhiteLabelEntity.current?.setting.notificationId}');
           await OneSignal.login('${userSM.user?.id}');
           OneSignal.User.pushSubscription.optIn();
           OneSignal.User.addEmail('${userSM.user?.email}');
