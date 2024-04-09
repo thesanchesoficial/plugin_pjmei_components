@@ -1133,32 +1133,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.0.4"
-  image_editor:
-    dependency: "direct overridden"
-    description:
-      path: image_editor
-      ref: main
-      resolved-ref: ea6846a27674f203ccca0efd39a76109dd5ce4fb
-      url: "https://github.com/jgrubesa-most/flutter_image_editor"
-    source: git
-    version: "1.3.0"
-  image_editor_common:
-    dependency: "direct overridden"
-    description:
-      path: image_editor_common
-      ref: main
-      resolved-ref: ea6846a27674f203ccca0efd39a76109dd5ce4fb
-      url: "https://github.com/jgrubesa-most/flutter_image_editor"
-    source: git
-    version: "1.0.1"
-  image_editor_platform_interface:
-    dependency: transitive
-    description:
-      name: image_editor_platform_interface
-      sha256: ee01ec5e228e10c40f96d7f822c176d4140c15b6706e4a701866ee0cdd1c2b72
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "1.0.1"
   image_editor_plus:
     dependency: "direct main"
     description:
