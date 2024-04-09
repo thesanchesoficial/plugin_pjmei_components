@@ -17,7 +17,11 @@ class NotificacaoOneSignal {
         if(await Permission.notification.isGranted) {
           OneSignal.initialize('${WhiteLabelEntity.current?.setting.notificationId}');
           await OneSignal.login('${userSM.user?.id}');
-          OneSignal.User.pushSubscription.optIn();
+          if(OneSignal.User.pushSubscription.optedIn ?? false) {
+            // inscrito
+          } else {
+            await OneSignal.User.pushSubscription.optIn();
+          }
           OneSignal.User.addEmail('${userSM.user?.email}');
           OneSignal.User.addSms('${userSM.user?.phone}');
           OneSignal.User.addTagWithKey('whiteLabel', '${WhiteLabelEntity.current?.id}');
@@ -80,6 +84,7 @@ class NotificacaoOneSignal {
   void initOneSignal2() async {
     if (!kIsWeb) {
       try {
+        await OneSignal.User.pushSubscription.optOut();
         await OneSignal.logout();
       } catch (e) {}
     }
