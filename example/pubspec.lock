@@ -217,6 +217,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.3.1"
+  checked_yaml:
+    dependency: transitive
+    description:
+      name: checked_yaml
+      sha256: feb6bed21949061731a7a75fc5d2aa727cf160b91af9a3e464c5e3a32e28b5ff
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "2.0.3"
   chewie:
     dependency: "direct main"
     description:
@@ -225,6 +233,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.8.0"
+  cli_util:
+    dependency: transitive
+    description:
+      name: cli_util
+      sha256: c05b7406fdabc7a49a3929d4af76bcaccbbffcbcdcf185b082e1ae07da323d19
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "0.4.1"
   clock:
     dependency: transitive
     description:
@@ -281,22 +297,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "0.0.8"
-  connectivity_plus:
-    dependency: "direct main"
-    description:
-      name: connectivity_plus
-      sha256: e9feae83b1849f61bad9f6f33ee00646e3410d54ce0821e02f262f9901dad3c9
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "6.0.1"
-  connectivity_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: connectivity_plus_platform_interface
-      sha256: b6a56efe1e6675be240de39107281d4034b64ac23438026355b4234042a35adb
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "2.0.0"
   convert:
     dependency: transitive
     description:
@@ -385,6 +385,15 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "5.4.2+1"
+  dismissible_page:
+    dependency: "direct overridden"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: e5880ed9597c82b9f4c622ea65758a605179c8c2
+      url: "https://github.com/presence-app/Flutter_dismissible_page"
+    source: git
+    version: "1.0.1"
   dot_navigation_bar:
     dependency: "direct main"
     description:
@@ -638,6 +647,15 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.0.3"
+  flutter_datetime_picker:
+    dependency: "direct overridden"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "373005972ef54776f688a7c99104e849c4c582e6"
+      url: "https://github.com/asionbo/flutter_datetime_picker_fork"
+    source: git
+    version: "1.5.1"
   flutter_driver:
     dependency: transitive
     description: flutter
@@ -739,6 +757,24 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.0.0"
+  flutter_launcher_icons:
+    dependency: "direct overridden"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "006cb1ed53f969bf11816cde5b16dd520e1ee40e"
+      url: "https://github.com/fluttercommunity/flutter_launcher_icons"
+    source: git
+    version: "0.13.1"
+  flutter_layout:
+    dependency: "direct overridden"
+    description:
+      path: "."
+      ref: main
+      resolved-ref: bd62456b63d343eaebfc6eea02fdd49e2d6f8875
+      url: "https://github.com/thesanchesoficial/flutter_layout"
+    source: git
+    version: "0.0.1+1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -802,36 +838,40 @@ packages:
     source: hosted
     version: "3.0.0"
   flutter_secure_storage:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
-      name: flutter_secure_storage
-      sha256: ffdbb60130e4665d2af814a0267c481bcf522c41ae2e43caf69fa0146876d685
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
+      path: flutter_secure_storage
+      ref: develop
+      resolved-ref: "6ac827e457393b5c654c1abda40d31e2cb93f62c"
+      url: "https://github.com/ThexXTURBOXx/flutter_secure_storage.git"
+    source: git
     version: "9.0.0"
   flutter_secure_storage_linux:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: flutter_secure_storage_linux
-      sha256: "3d5032e314774ee0e1a7d0a9f5e2793486f0dff2dd9ef5a23f4e3fb2a0ae6a9e"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
+      path: flutter_secure_storage_linux
+      ref: develop
+      resolved-ref: "6ac827e457393b5c654c1abda40d31e2cb93f62c"
+      url: "https://github.com/ThexXTURBOXx/flutter_secure_storage.git"
+    source: git
     version: "1.2.0"
   flutter_secure_storage_macos:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: flutter_secure_storage_macos
-      sha256: bd33935b4b628abd0b86c8ca20655c5b36275c3a3f5194769a7b3f37c905369c
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
+      path: flutter_secure_storage_macos
+      ref: develop
+      resolved-ref: "6ac827e457393b5c654c1abda40d31e2cb93f62c"
+      url: "https://github.com/ThexXTURBOXx/flutter_secure_storage.git"
+    source: git
     version: "3.0.1"
   flutter_secure_storage_platform_interface:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: flutter_secure_storage_platform_interface
-      sha256: "0d4d3a5dd4db28c96ae414d7ba3b8422fd735a8255642774803b2532c9a61d7e"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
+      path: flutter_secure_storage_platform_interface
+      ref: develop
+      resolved-ref: "6ac827e457393b5c654c1abda40d31e2cb93f62c"
+      url: "https://github.com/ThexXTURBOXx/flutter_secure_storage.git"
+    source: git
     version: "1.0.2"
   flutter_secure_storage_web:
     dependency: "direct overridden"
@@ -843,12 +883,13 @@ packages:
     source: git
     version: "1.2.0"
   flutter_secure_storage_windows:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: flutter_secure_storage_windows
-      sha256: "5809c66f9dd3b4b93b0a6e2e8561539405322ee767ac2f64d084e2ab5429d108"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
+      path: flutter_secure_storage_windows
+      ref: develop
+      resolved-ref: "6ac827e457393b5c654c1abda40d31e2cb93f62c"
+      url: "https://github.com/ThexXTURBOXx/flutter_secure_storage.git"
+    source: git
     version: "3.0.0"
   flutter_staggered_grid_view:
     dependency: "direct overridden"
@@ -1125,6 +1166,15 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "4.1.7"
+  image_downloader:
+    dependency: "direct overridden"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "03a1f18fbc60b7001de9f50b8aadf4ae693c6704"
+      url: "https://github.com/thesanchesoficial/image_downloader.git"
+    source: git
+    version: "0.32.0"
   image_downloader_web:
     dependency: "direct main"
     description:
@@ -1214,11 +1264,28 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "0.2.1+1"
+  infinite_listview:
+    dependency: transitive
+    description:
+      name: infinite_listview
+      sha256: f6062c1720eb59be553dfa6b89813d3e8dd2f054538445aaa5edaddfa5195ce6
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "1.1.0"
   integration_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  internet_file:
+    dependency: "direct overridden"
+    description:
+      path: "packages/internet_file"
+      ref: master
+      resolved-ref: "6e020c6b0ae659d218496ffd37a6e6c5b75eb38a"
+      url: "https://github.com/nukeolay/packages.dart"
+    source: git
+    version: "1.2.0"
   intl:
     dependency: "direct main"
     description:
@@ -1235,6 +1302,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "0.7.1"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: b10a7b2ff83d83c777edba3c6a0f97045ddadd56c944e1a23a3fdf43a1bf4467
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "4.8.1"
   just_audio:
     dependency: transitive
     description:
@@ -1307,14 +1382,6 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "2.0.1"
-  lecle_volume_flutter:
-    dependency: "direct main"
-    description:
-      name: lecle_volume_flutter
-      sha256: "5519fed066f33c00a17b6c9fe3febc5517a8a2fe07edbf759bf1f25a33635820"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.0.1+1"
   lints:
     dependency: transitive
     description:
@@ -1371,6 +1438,33 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.2.0"
+  mapbox_gl:
+    dependency: "direct overridden"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: d79132a5118a076d4bd5e33aad158adc08afc1b8
+      url: "https://github.com/thesanchesoficial/maps"
+    source: git
+    version: "0.17.0"
+  mapbox_gl_platform_interface:
+    dependency: "direct overridden"
+    description:
+      path: mapbox_gl_platform_interface
+      ref: master
+      resolved-ref: d79132a5118a076d4bd5e33aad158adc08afc1b8
+      url: "https://github.com/thesanchesoficial/maps"
+    source: git
+    version: "0.17.0"
+  mapbox_search:
+    dependency: "direct overridden"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: e4cc05c08eb4d9a0bcb774524653c59384c770ed
+      url: "https://github.com/BrunoMazzocchi/mapbox_search"
+    source: git
+    version: "3.2.0"
   mask_text_input_formatter:
     dependency: "direct main"
     description:
@@ -1451,14 +1545,15 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.0.0"
-  nm:
-    dependency: transitive
+  numberpicker:
+    dependency: "direct overridden"
     description:
-      name: nm
-      sha256: "2c9aae4127bdc8993206464fcc063611e0e36e72018696cd9631023a31b24254"
-      url: "https://dartlang-pub.appspot.com"
-    source: hosted
-    version: "0.5.0"
+      path: "."
+      ref: master
+      resolved-ref: ebf4545591874c574d23e24419360479f51ff211
+      url: "https://github.com/litang0908/NumberPicker"
+    source: git
+    version: "2.1.1"
   octo_image:
     dependency: transitive
     description:
@@ -2025,6 +2120,14 @@ packages:
       url: "https://dartlang-pub.appspot.com"
     source: hosted
     version: "1.3.2"
+  universal_file:
+    dependency: transitive
+    description:
+      name: universal_file
+      sha256: d1a957fccaad2a32023b62fe435b273ee47aaf2eb804709795e4bf4afff50960
+      url: "https://dartlang-pub.appspot.com"
+    source: hosted
+    version: "1.0.0"
   universal_html:
     dependency: "direct main"
     description:
@@ -2218,21 +2321,21 @@ packages:
     source: hosted
     version: "2.1.4"
   wakelock_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: wakelock_plus
-      sha256: "104d94837bb28c735894dcd592877e990149c380e6358b00c04398ca1426eed4"
+      sha256: a1c0819351c86437f4c4afdb06d3bdcfc722f4d97c0f1c5ac7b73afd21114690
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "1.2.1"
+    version: "1.2.3"
   wakelock_plus_platform_interface:
     dependency: transitive
     description:
       name: wakelock_plus_platform_interface
-      sha256: "582f2f7aecc7376332d961a0dd1efa9378ce117657e0ade55d9ff72699a55e82"
+      sha256: "422d1cdbb448079a8a62a5a770b69baa489f8f7ca21aef47800c726d404f9d16"
       url: "https://dartlang-pub.appspot.com"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   web:
     dependency: transitive
     description:

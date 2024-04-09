@@ -25,7 +25,6 @@ dependencies:
   cached_network_image: ^3.2.3
   chewie: ^1.7.1
   cloud_firestore: ^4.8.0
-  connectivity_plus: ^6.0.1
   crop: ^0.5.4
   crypto: ^3.0.3
   dartz: ^0.10.1
@@ -55,7 +54,7 @@ dependencies:
   flutter_widget_from_html: ^0.14.11
   fwfh_webview: ^0.14.8
   get_it: ^7.2.0
-  go_router: ^13.2.0
+  go_router: ^13.2.2
   google_maps_flutter: ^2.0.1
   image_downloader_web: ^2.0.2
   image_editor_plus: ^1.0.5
@@ -66,7 +65,6 @@ dependencies:
   intl: ^0.18.0
   jwt_decoder: ^2.0.1
   latlng: ^2.0.7
-  lecle_volume_flutter: ^0.0.1+1
   local_auth: ^2.1.6
   mask_text_input_formatter: ^2.4.0
   masked_text: ^1.1.2
@@ -96,7 +94,7 @@ dependencies:
   voice_message_package: ^2.1.4
   webview_flutter: ^4.2.1
   widgets_to_image: ^0.0.2
-  flutter_secure_storage: ^9.0.0
+  wakelock_plus: ^1.2.2
 
 dependency_overrides:
   path: ^1.9.0
@@ -116,12 +114,42 @@ dependency_overrides:
     git:
       url: https://github.com/MehmetKaranlik/flutter_staggered_grid_view
       ref: master
+
+  flutter_secure_storage:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage
       
   flutter_secure_storage_web:
     git:
       url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
       ref: develop
       path: flutter_secure_storage_web
+
+  flutter_secure_storage_platform_interface:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage_platform_interface
+      
+  flutter_secure_storage_windows:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage_windows
+      
+  flutter_secure_storage_macos:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage_macos
+      
+  flutter_secure_storage_linux:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_secure_storage.git
+      ref: develop
+      path: flutter_secure_storage_linux
 
   share_files_and_screenshot_widgets:
     git:
@@ -131,6 +159,11 @@ dependency_overrides:
   flutter_placeholder_textlines:
     git:
       url: https://github.com/totorigolo/flutter_placeholder_textlines
+      ref: master
+
+  image_downloader:
+    git:
+      url: https://github.com/thesanchesoficial/image_downloader.git
       ref: master
   
   geolocator:
@@ -148,6 +181,69 @@ dependency_overrides:
     git:
       url: https://github.com/EncryptingWolf/GeoFlutterFire
       ref: master
+
+  flutter_layout:
+    git:
+      url: https://github.com/thesanchesoficial/flutter_layout
+      ref: main
+      publish_to: none
+
+  flutter_datetime_picker:
+    git:
+      url: https://github.com/asionbo/flutter_datetime_picker_fork
+      ref: master
+
+  numberpicker:
+    git:
+      url: https://github.com/litang0908/NumberPicker
+      ref: master
+
+  internet_file:
+    git:
+      url: https://github.com/nukeolay/packages.dart
+      ref: master
+      path: packages/internet_file
+
+  mapbox_search:
+    git:
+      url: https://github.com/BrunoMazzocchi/mapbox_search
+      ref: master
+
+  mapbox_gl:
+    git:
+      url: https://github.com/thesanchesoficial/maps
+      ref: master
+
+  mapbox_gl_platform_interface:
+    git:
+      url: https://github.com/thesanchesoficial/maps
+      ref: master
+      path: mapbox_gl_platform_interface
+  
+  dismissible_page:
+    git:
+      url: https://github.com/presence-app/Flutter_dismissible_page
+      ref: master
+
+  flutter_launcher_icons:
+    git:
+      url: https://github.com/fluttercommunity/flutter_launcher_icons
+      ref: master
+  
+  # barcode_finder:
+  #   git:
+  #     url: https://github.com/uynguyen/barcode-finder
+  #     ref: main
+
+  # perfect_volume_control:
+  #   git:
+  #     url: https://github.com/vladyslavlaba/FlutterPerfectVolumeControl
+  #     ref: master
+
+  # downloads_path_provider:
+  #   git:
+  #     url: https://github.com/wiseminds/downloads_path_provider
+  #     ref: master
 
 dev_dependencies:
   integration_test:
