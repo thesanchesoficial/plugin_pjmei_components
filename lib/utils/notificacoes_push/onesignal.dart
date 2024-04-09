@@ -2,14 +2,19 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 
 class NotificacaoOneSignal {
   void initOneSignal() async {
     if (!kIsWeb) {
       try {
-        final result = await OneSignal.Notifications.requestPermission(true);
-        if(result) {
+        await Permission.notification.isDenied.then((value) {
+          if (value) {
+            Permission.notification.request();
+          }
+        });
+        if(await Permission.notification.isGranted) {
           OneSignal.initialize('${WhiteLabelEntity.current?.setting.notificationId}');
           await OneSignal.login('${userSM.user?.id}');
           OneSignal.User.pushSubscription.optIn();
