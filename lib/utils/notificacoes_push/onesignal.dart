@@ -22,8 +22,6 @@ class NotificacaoOneSignal {
           } else {
             await OneSignal.User.pushSubscription.optIn();
           }
-          OneSignal.User.addEmail('${userSM.user?.email}');
-          OneSignal.User.addSms('${userSM.user?.phone}');
           OneSignal.User.addTagWithKey('whiteLabel', '${WhiteLabelEntity.current?.id}');
           OneSignal.User.addTagWithKey('minimalVersion', '${minimalVersion}');
           OneSignal.User.addAlias('whiteLabel', '${WhiteLabelEntity.current?.id}');
