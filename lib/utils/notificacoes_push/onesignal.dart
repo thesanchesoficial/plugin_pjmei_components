@@ -14,7 +14,7 @@ class NotificacaoOneSignal {
             Permission.notification.request();
           }
         });
-        if(await Permission.notification.isGranted) {
+        if(await Permission.notification.isGranted && Valid.text(userSM.user?.id)) {
           OneSignal.initialize('${WhiteLabelEntity.current?.setting.notificationId}');
           await OneSignal.login('${userSM.user?.id}');
           if(OneSignal.User.pushSubscription.optedIn ?? false) {
