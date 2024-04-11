@@ -24,8 +24,6 @@ class NotificacaoOneSignal {
           }
           OneSignal.User.addTagWithKey('whiteLabel', '${WhiteLabelEntity.current?.id}');
           OneSignal.User.addTagWithKey('minimalVersion', '${minimalVersion}');
-          OneSignal.User.addAlias('whiteLabel', '${WhiteLabelEntity.current?.id}');
-          OneSignal.User.addAlias('minimalVersion', '${minimalVersion}');
 
           OneSignal.Notifications.addForegroundWillDisplayListener((event) async {
             final String info = event.notification.title.toString().toLowerCase();
