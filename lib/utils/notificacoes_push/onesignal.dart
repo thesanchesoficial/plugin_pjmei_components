@@ -9,11 +9,10 @@ class NotificacaoOneSignal {
   void initOneSignal() async {
     if (!kIsWeb) {
       try {
-        await Permission.notification.isDenied.then((value) {
-          if (value) {
-            Permission.notification.request();
-          }
-        });
+        var status = await Permission.notification.status;
+        if (status.isDenied || status.isLimited) {
+          await Permission.notification.request();
+        }
         if(await Permission.notification.isGranted && Valid.text(userSM.user?.id)) {
           OneSignal.initialize('${WhiteLabelEntity.current?.setting.notificationId}');
           await OneSignal.login('${userSM.user?.id}');
