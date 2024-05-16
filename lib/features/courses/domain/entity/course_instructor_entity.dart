@@ -12,7 +12,7 @@ class CourseInstructorEntity {
   final String avatar;
   final String biography;
   final String? email;
-  final List<CourseEntity> courses;
+  final List<CourseEntity>? courses;
   final String? whiteLabel;
   CourseInstructorEntity({
     this.id,
@@ -22,7 +22,7 @@ class CourseInstructorEntity {
     required this.avatar,
     required this.biography,
     this.email,
-    required this.courses,
+    this.courses,
     this.whiteLabel,
   });
 
@@ -59,7 +59,7 @@ class CourseInstructorEntity {
       'avatar': avatar,
       'biography': biography,
       'email': email,
-      'courses': courses.map((x) => x.toMap()).toList(),
+      'courses': courses?.map((x) => x.toMap()).toList(),
       'whiteLabel': whiteLabel,
     };
   }
@@ -73,7 +73,7 @@ class CourseInstructorEntity {
       avatar: map['avatar'] ?? '',
       biography: map['biography'] ?? '',
       email: map['email'],
-      courses: List<CourseEntity>.from(map['courses']?.map((x) => CourseEntity.fromMap(x))),
+      courses: map['courses'] != null ? List<CourseEntity>.from(map['courses']?.map((x) => CourseEntity.fromMap(x))) : null,
       whiteLabel: map['whiteLabel'],
     );
   }

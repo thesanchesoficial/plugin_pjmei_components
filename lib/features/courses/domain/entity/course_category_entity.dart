@@ -10,7 +10,7 @@ class CourseCategoryEntity {
   final String? updatedAt;
   final String name;
   final String? description;
-  final List<CourseEntity> courses;
+  final List<CourseEntity>? courses;
   final String? whiteLabel;
   CourseCategoryEntity({
     this.id,
@@ -18,7 +18,7 @@ class CourseCategoryEntity {
     this.updatedAt,
     required this.name,
     this.description,
-    required this.courses,
+    this.courses,
     this.whiteLabel,
   });
 
@@ -49,7 +49,7 @@ class CourseCategoryEntity {
       'updatedAt': updatedAt,
       'name': name,
       'description': description,
-      'courses': courses.map((x) => x.toMap()).toList(),
+      'courses': courses?.map((x) => x.toMap()).toList(),
       'whiteLabel': whiteLabel,
     };
   }
@@ -61,7 +61,7 @@ class CourseCategoryEntity {
       updatedAt: map['updatedAt'],
       name: map['name'] ?? '',
       description: map['description'],
-      courses: List<CourseEntity>.from(map['courses']?.map((x) => CourseEntity.fromMap(x))),
+      courses: map['courses'] != null ? List<CourseEntity>.from(map['courses']?.map((x) => CourseEntity.fromMap(x))) : null,
       whiteLabel: map['whiteLabel'],
     );
   }
