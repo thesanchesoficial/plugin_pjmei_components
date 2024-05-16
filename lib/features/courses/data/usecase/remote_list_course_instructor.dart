@@ -17,7 +17,11 @@ class RemoteListCourseInstructor implements ListCourseInstructor {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return ((httpResponse['success']) as List).map((e) => CourseInstructorEntity.fromMap(e)).toList();
+      if(httpResponse['success']['instructors'] != null) {
+        return ((httpResponse['success']['instructors']) as List).map((e) => CourseInstructorEntity.fromMap(e)).toList();
+      } else {
+        return ((httpResponse['success']) as List).map((e) => CourseInstructorEntity.fromMap(e)).toList();
+      }
     } catch (e) {
       throw e;
     }

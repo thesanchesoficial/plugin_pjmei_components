@@ -5,5 +5,5 @@ import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.
 
 GetCourse makeRemoteInsertCourse() => RemoteInsertCourse(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/contact'),
+  url: makeApiUrl('venver/courses'),
 );

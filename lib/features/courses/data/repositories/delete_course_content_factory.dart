@@ -6,5 +6,5 @@ import '../../../links/domain/usecase/delete_link.dart';
 
 DeleteLink makeRemoteDeleteCourseContent(String id) => RemoteDeleteLink(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/contact/$id'),
+  url: makeApiUrl('venver/courses/sections/contents/$id'),
 );

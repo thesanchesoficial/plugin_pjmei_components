@@ -18,8 +18,8 @@ class RemoteFindCourseCategory implements GetCourseCategory {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      if(httpResponse['success']['course'] != null) {
-        return CourseCategoryEntity.fromMap(httpResponse['success']['course']);
+      if(httpResponse['success']['category'] != null) {
+        return CourseCategoryEntity.fromMap(httpResponse['success']['category']);
       } else {
         return CourseCategoryEntity.fromMap(httpResponse['success']);
       }

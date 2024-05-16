@@ -5,5 +5,5 @@ import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.
 
 GetCourseContent makeRemoteUpdateCourseContent(String id) => RemoteUpdateCourseContent(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/contact/$id'),
+  url: makeApiUrl('venver/courses/sections/contents/$id'),
 );

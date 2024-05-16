@@ -19,8 +19,8 @@ class RemoteInsertCourseContent implements GetCourseContent {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      if(httpResponse['success']['course'] != null) {
-        return CourseContentEntity.fromMap(httpResponse['success']['course']);
+      if(httpResponse['success']['content'] != null) {
+        return CourseContentEntity.fromMap(httpResponse['success']['content']);
       } else {
         return CourseContentEntity.fromMap(httpResponse['success']);
       }

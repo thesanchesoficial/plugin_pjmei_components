@@ -3,7 +3,7 @@ import 'package:plugin_pjmei_components/features/courses/domain/usecase/list_cou
 import 'package:plugin_pjmei_components/main/factories/http/api_url_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.dart';
 
-ListCourses makeRemoteListCourses({Map<String, dynamic>? query}) => RemoteListCourses(
+ListCourses makeRemoteListCoursesDashboard({Map<String, dynamic>? query}) => RemoteListCourses(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/courses', params: query),
+  url: makeApiUrl('venver/courses/white-label', params: query),
 );

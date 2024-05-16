@@ -19,7 +19,11 @@ class RemoteUpdateCourseSection implements GetCourseSection {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return CourseSectionEntity.fromMap(httpResponse["success"]);
+      if(httpResponse['success']['section'] != null) {
+        return CourseSectionEntity.fromMap(httpResponse["success"]["section"]);
+      } else {
+        return CourseSectionEntity.fromMap(httpResponse["success"]);
+      }
     } catch (e) {
       throw e;
     }

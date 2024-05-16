@@ -5,11 +5,17 @@ import 'package:flutter/foundation.dart';
 import 'course_entity.dart';
 
 class CourseCategoryEntity {
+  final String? id;
+  final String? createdAt;
+  final String? updatedAt;
   final String name;
   final String? description;
   final List<CourseEntity> courses;
   final String? whiteLabel;
   CourseCategoryEntity({
+    this.id,
+    this.createdAt,
+    this.updatedAt,
     required this.name,
     this.description,
     required this.courses,
@@ -17,12 +23,18 @@ class CourseCategoryEntity {
   });
 
   CourseCategoryEntity copyWith({
+    String? id,
+    String? createdAt,
+    String? updatedAt,
     String? name,
     String? description,
     List<CourseEntity>? courses,
     String? whiteLabel,
   }) {
     return CourseCategoryEntity(
+      id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
       name: name ?? this.name,
       description: description ?? this.description,
       courses: courses ?? this.courses,
@@ -32,6 +44,9 @@ class CourseCategoryEntity {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
       'name': name,
       'description': description,
       'courses': courses.map((x) => x.toMap()).toList(),
@@ -41,6 +56,9 @@ class CourseCategoryEntity {
 
   factory CourseCategoryEntity.fromMap(Map<String, dynamic> map) {
     return CourseCategoryEntity(
+      id: map['id'],
+      createdAt: map['createdAt'],
+      updatedAt: map['updatedAt'],
       name: map['name'] ?? '',
       description: map['description'],
       courses: List<CourseEntity>.from(map['courses']?.map((x) => CourseEntity.fromMap(x))),
@@ -54,7 +72,7 @@ class CourseCategoryEntity {
 
   @override
   String toString() {
-    return 'CourseCategoryEntity(name: $name, description: $description, courses: $courses, whiteLabel: $whiteLabel)';
+    return 'CourseCategoryEntity(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, description: $description, courses: $courses, whiteLabel: $whiteLabel)';
   }
 
   @override
@@ -62,6 +80,9 @@ class CourseCategoryEntity {
     if (identical(this, other)) return true;
   
     return other is CourseCategoryEntity &&
+      other.id == id &&
+      other.createdAt == createdAt &&
+      other.updatedAt == updatedAt &&
       other.name == name &&
       other.description == description &&
       listEquals(other.courses, courses) &&
@@ -70,7 +91,10 @@ class CourseCategoryEntity {
 
   @override
   int get hashCode {
-    return name.hashCode ^
+    return id.hashCode ^
+      createdAt.hashCode ^
+      updatedAt.hashCode ^
+      name.hashCode ^
       description.hashCode ^
       courses.hashCode ^
       whiteLabel.hashCode;

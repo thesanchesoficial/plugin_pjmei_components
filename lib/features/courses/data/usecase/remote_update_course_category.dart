@@ -19,7 +19,11 @@ class RemoteUpdateCourseCategory implements GetCourseCategory {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return CourseCategoryEntity.fromMap(httpResponse["success"]);
+      if(httpResponse['success']['category'] != null) {
+        return CourseCategoryEntity.fromMap(httpResponse["success"]["category"]);
+      } else {
+        return CourseCategoryEntity.fromMap(httpResponse["success"]);
+      }
     } catch (e) {
       throw e;
     }

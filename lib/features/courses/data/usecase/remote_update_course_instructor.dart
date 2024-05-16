@@ -19,7 +19,11 @@ class RemoteUpdateCourseInstructor implements GetCourseInstructor {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return CourseInstructorEntity.fromMap(httpResponse["success"]);
+      if(httpResponse['success']['instructor'] != null) {
+        return CourseInstructorEntity.fromMap(httpResponse["success"]["instructor"]);
+      } else {
+        return CourseInstructorEntity.fromMap(httpResponse["success"]);
+      }
     } catch (e) {
       throw e;
     }

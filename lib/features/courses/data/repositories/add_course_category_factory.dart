@@ -5,5 +5,5 @@ import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.
 
 GetCourseCategory makeRemoteInsertCourseCategory() => RemoteInsertCourseCategory(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/courses'),
+  url: makeApiUrl('venver/courses/categories'),
 );

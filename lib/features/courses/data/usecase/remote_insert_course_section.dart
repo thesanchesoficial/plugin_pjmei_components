@@ -19,8 +19,8 @@ class RemoteInsertCourseSection implements GetCourseSection {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      if(httpResponse['success']['course'] != null) {
-        return CourseSectionEntity.fromMap(httpResponse['success']['course']);
+      if(httpResponse['success']['section'] != null) {
+        return CourseSectionEntity.fromMap(httpResponse['success']['section']);
       } else {
         return CourseSectionEntity.fromMap(httpResponse['success']);
       }

@@ -17,7 +17,11 @@ class RemoteListCourseSections implements ListCourseSections {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return ((httpResponse['success']) as List).map((e) => CourseSectionEntity.fromMap(e)).toList();
+      if(httpResponse['success']['sections'] != null) {
+        return ((httpResponse['success']['sections']) as List).map((e) => CourseSectionEntity.fromMap(e)).toList();
+      } else {
+        return ((httpResponse['success']) as List).map((e) => CourseSectionEntity.fromMap(e)).toList();
+      }
     } catch (e) {
       throw e;
     }

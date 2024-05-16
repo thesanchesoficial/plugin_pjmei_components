@@ -19,7 +19,11 @@ class RemoteUpdateCourseContent implements GetCourseContent {
       if ((httpResponse as Map<String, dynamic>).containsKey('error')) {
         throw httpResponse['error']['message'];
       }
-      return CourseContentEntity.fromMap(httpResponse["success"]);
+      if(httpResponse['success']['content'] != null) {
+        return CourseContentEntity.fromMap(httpResponse["success"]["content"]);
+      } else {
+        return CourseContentEntity.fromMap(httpResponse["success"]);
+      }
     } catch (e) {
       throw e;
     }
