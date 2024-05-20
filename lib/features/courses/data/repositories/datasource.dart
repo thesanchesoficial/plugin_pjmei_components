@@ -45,11 +45,13 @@ class _CourseApi {
   Future<CourseCategoryEntity> insertCourseCategory({
     required String name,
     String? description,
+    bool isVisible = false,
   }) {
     return makeRemoteInsertCourseCategory().exec(
       body: {
         'name': name,
         'description': description,
+        'isVisible': isVisible,
       },
     );
   }
@@ -105,7 +107,10 @@ class _CourseApi {
   }
   
   Future<CourseEntity> updateCourse({required String id, required CourseEntity body}) {
-    return makeRemoteUpdateCourse(id).exec(body: body.toMap());
+    final Map<String, dynamic> tmp = body.toMap();
+    tmp['categoryId'] = '${body.category.id}';
+    tmp['instructors'] = '${body.instructors?.map((e) => e.id).toList()}';
+    return makeRemoteUpdateCourse(id).exec(body: tmp);
   }
 
   Future<CourseCategoryEntity> updateCourseCategory({required String id, required CourseCategoryEntity body}) {
