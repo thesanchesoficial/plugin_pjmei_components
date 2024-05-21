@@ -12,8 +12,10 @@ class CourseContentEntity {
   final String title;
   final String description;
   final String? body;
-  final String? storageKey;
+  final String? videoUrl;
+  final String? videoStatus;
   final int index;
+  final int durationInMs;
   final List<CourseAttachmentEntity>? attachments;
   final CourseSectionEntity? section;
   CourseContentEntity({
@@ -24,8 +26,10 @@ class CourseContentEntity {
     required this.title,
     required this.description,
     this.body,
-    this.storageKey,
+    this.videoUrl,
+    this.videoStatus,
     required this.index,
+    required this.durationInMs,
     this.attachments,
     this.section,
   });
@@ -38,8 +42,10 @@ class CourseContentEntity {
     String? title,
     String? description,
     String? body,
-    String? storageKey,
+    String? videoUrl,
+    String? videoStatus,
     int? index,
+    int? durationInMs,
     List<CourseAttachmentEntity>? attachments,
     CourseSectionEntity? section,
   }) {
@@ -51,8 +57,10 @@ class CourseContentEntity {
       title: title ?? this.title,
       description: description ?? this.description,
       body: body ?? this.body,
-      storageKey: storageKey ?? this.storageKey,
+      videoUrl: videoUrl ?? this.videoUrl,
+      videoStatus: videoStatus ?? this.videoStatus,
       index: index ?? this.index,
+      durationInMs: durationInMs ?? this.durationInMs,
       attachments: attachments ?? this.attachments,
       section: section ?? this.section,
     );
@@ -67,8 +75,10 @@ class CourseContentEntity {
       'title': title,
       'description': description,
       'body': body,
-      'storageKey': storageKey,
+      'videoUrl': videoUrl,
+      'videoStatus': videoStatus,
       'index': index,
+      'durationInMs': durationInMs,
       'attachments': attachments?.map((x) => x.toMap()).toList(),
       'section': section?.toMap(),
     };
@@ -83,8 +93,10 @@ class CourseContentEntity {
       title: map['title'] ?? '',
       description: map['description'] ?? '',
       body: map['body'],
-      storageKey: map['storageKey'],
+      videoUrl: map['videoUrl'],
+      videoStatus: map['videoStatus'],
       index: map['index']?.toInt() ?? 0,
+      durationInMs: map['durationInMs']?.toInt() ?? 0,
       attachments: map['attachments'] != null ? List<CourseAttachmentEntity>.from(map['attachments']?.map((x) => CourseAttachmentEntity.fromMap(x))) : null,
       section: map['section'] != null ? CourseSectionEntity.fromMap(map['section']) : null,
     );
@@ -96,7 +108,7 @@ class CourseContentEntity {
 
   @override
   String toString() {
-    return 'CourseContentEntity(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, type: $type, title: $title, description: $description, body: $body, storageKey: $storageKey, index: $index, attachments: $attachments, section: $section)';
+    return 'CourseContentEntity(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, type: $type, title: $title, description: $description, body: $body, videoUrl: $videoUrl, videoStatus: $videoStatus, index: $index, durationInMs: $durationInMs, attachments: $attachments, section: $section)';
   }
 
   @override
@@ -111,8 +123,10 @@ class CourseContentEntity {
       other.title == title &&
       other.description == description &&
       other.body == body &&
-      other.storageKey == storageKey &&
+      other.videoUrl == videoUrl &&
+      other.videoStatus == videoStatus &&
       other.index == index &&
+      other.durationInMs == durationInMs &&
       listEquals(other.attachments, attachments) &&
       other.section == section;
   }
@@ -126,8 +140,10 @@ class CourseContentEntity {
       title.hashCode ^
       description.hashCode ^
       body.hashCode ^
-      storageKey.hashCode ^
+      videoUrl.hashCode ^
+      videoStatus.hashCode ^
       index.hashCode ^
+      durationInMs.hashCode ^
       attachments.hashCode ^
       section.hashCode;
   }
