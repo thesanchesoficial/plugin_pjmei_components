@@ -175,9 +175,9 @@ class _CourseApi {
     return makeRemoteListCourseCategoriesDashboard(query: query).exec();
   }
 
-  // Future<List<CourseContentEntity>> listCourseContent({Map<String, dynamic>? query}) {
-  //   return makeRemoteListCourseContent(query: query).exec();
-  // }
+  Future<List<CourseContentEntity>> listCourseContent({required String id, Map<String, dynamic>? query}) {
+    return makeRemoteListCourseContent(id: id, query: query).exec();
+  }
 
   Future<List<CourseInstructorEntity>> listCourseInstructor({Map<String, dynamic>? query}) {
     return makeRemoteListCourseInstructor(query: query).exec();

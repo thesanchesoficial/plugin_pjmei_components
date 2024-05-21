@@ -83,6 +83,7 @@ import 'courses/data/repositories/get_course_factory.dart';
 import 'courses/data/repositories/get_course_instructor_factory.dart';
 import 'courses/data/repositories/get_course_section_factory.dart';
 import 'courses/data/repositories/list_course_category_dashboard_factory.dart';
+import 'courses/data/repositories/list_course_content_factory.dart';
 import 'courses/data/repositories/list_course_dashboard_factory.dart';
 import 'courses/data/repositories/list_course_factory.dart';
 import 'courses/data/repositories/list_course_instructor_dashboard_factory.dart';
