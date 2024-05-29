@@ -3,7 +3,7 @@ import 'package:plugin_pjmei_components/features/courses/domain/usecase/get_cour
 import 'package:plugin_pjmei_components/main/factories/http/api_url_factory.dart';
 import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.dart';
 
-GetCourse makeRemoteCourseFind(String id) => RemoteFindCourse(
+GetCourse makeRemoteUsersCourseFind(String id) => RemoteFindCourse(
   httpClient: makeHttpAdapter(),
-  url: makeApiUrl('venver/courses/$id'),
+  url: makeApiUrl('venver/users/courses/$id'),
 );

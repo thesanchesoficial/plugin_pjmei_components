@@ -3,23 +3,23 @@ part of '../../../apis.dart';
 class _CourseApi {
 
   Future<CourseEntity> findCourse({required String id}) {
-    return makeRemoteFindCourse(id).exec();
+    return makeRemoteDashboardCourseFind(id).exec();
   }
 
   Future<CourseCategoryEntity> findCourseCategory({required String id}) {
-    return makeRemoteFindCourseCategory(id).exec();
+    return makeRemoteDashboardCourseFindCategory(id).exec();
   }
 
   Future<CourseContentEntity> findCourseContent({required String id}) {
-    return makeRemoteFindCourseContent(id).exec();
+    return makeRemoteDashboardCourseFindContent(id).exec();
   }
 
   Future<CourseInstructorEntity> findCourseInstructor({required String id}) {
-    return makeRemoteFindCourseInstructor(id).exec();
+    return makeRemoteDashboardCourseFindInstructor(id).exec();
   }
 
   Future<CourseSectionEntity> findCourseSection({required String id}) {
-    return makeRemoteFindCourseSection(id).exec();
+    return makeRemoteDashboardCourseFindSection(id).exec();
   }
   
   Future<CourseEntity> insertCourse({
@@ -30,7 +30,7 @@ class _CourseApi {
     required List<String> instructors,
     required bool isFree,
   }) {
-    return makeRemoteInsertCourse().exec(
+    return makeRemoteDashboardCourseInsert().exec(
       body: {
         'categoryId': categoryId,
         'title': title,
@@ -47,7 +47,7 @@ class _CourseApi {
     String? description,
     bool isVisible = false,
   }) {
-    return makeRemoteInsertCourseCategory().exec(
+    return makeRemoteDashboardCourseInsertCategory().exec(
       body: {
         'name': name,
         'description': description,
@@ -63,7 +63,7 @@ class _CourseApi {
     required String description,
     required int index,
   }) {
-    return makeRemoteInsertCourseContent().exec(
+    return makeRemoteDashboardCourseInsertContent().exec(
       body: {
         'sectionId': sectionId,
         'type': type,
@@ -80,7 +80,7 @@ class _CourseApi {
     required String avatar,
     required String biography,
   }) {
-    return makeRemoteInsertCourseInstructor().exec(
+    return makeRemoteDashboardCourseInsertInstructor().exec(
       body: {
         'name': name,
         'avatar': avatar,
@@ -96,7 +96,7 @@ class _CourseApi {
     required int index,
     String? description,
   }) {
-    return makeRemoteInsertCourseSection().exec(
+    return makeRemoteDashboardCourseInsertSection().exec(
       body: {
         'courseId': courseId,
         'title': title,
@@ -140,55 +140,89 @@ class _CourseApi {
   }
   
   Future<bool> deleteCourse({required String id}) {
-    return makeRemoteDeleteCourse(id).exec();
+    return makeRemoteDashboardCourseDelete(id).exec();
   }
 
   Future<bool> deleteCourseCategory({required String id}) {
-    return makeRemoteDeleteCourseCategory(id).exec();
+    return makeRemoteDashboardCourseDeleteCategory(id).exec();
   }
 
   Future<bool> deleteCourseContent({required String id}) {
-    return makeRemoteDeleteCourseContent(id).exec();
+    return makeRemoteDashboardCourseDeleteContent(id).exec();
   }
 
   Future<bool> deleteCourseInstructor({required String id}) {
-    return makeRemoteDeleteCourseInstructor(id).exec();
+    return makeRemoteDashboardCourseDeleteInstructor(id).exec();
   }
 
   Future<bool> deleteCourseSection({required String id}) {
-    return makeRemoteDeleteCourseSection(id).exec();
-  }
-  
-  Future<List<CourseEntity>> listCourses({Map<String, dynamic>? query}) {
-    return makeRemoteListCourses(query: query).exec();
+    return makeRemoteDashboardCourseDeleteSection(id).exec();
   }
 
   Future<List<CourseEntity>> listCoursesDashboard({Map<String, dynamic>? query}) {
-    return makeRemoteListCoursesDashboard(query: query).exec();
-  }
-
-  Future<List<CourseCategoryEntity>> listCourseCategory({Map<String, dynamic>? query}) {
-    return makeRemoteListCourseCategories(query: query).exec();
+    return makeRemoteDashboardCourseList(query: query).exec();
   }
 
   Future<List<CourseCategoryEntity>> listCourseCategoryDashboard({Map<String, dynamic>? query}) {
-    return makeRemoteListCourseCategoriesDashboard(query: query).exec();
+    return makeRemoteDashboardCourseListCategories(query: query).exec();
   }
 
   Future<List<CourseContentEntity>> listCourseContent({required String id, Map<String, dynamic>? query}) {
-    return makeRemoteListCourseContent(id: id, query: query).exec();
+    return makeRemoteDashboardCourseListContent(id: id, query: query).exec();
   }
 
   Future<List<CourseInstructorEntity>> listCourseInstructor({Map<String, dynamic>? query}) {
-    return makeRemoteListCourseInstructor(query: query).exec();
+    return makeRemoteDashboardCourseListInstructor(query: query).exec();
   }
 
   Future<List<CourseInstructorEntity>> listCourseInstructorDashboard({Map<String, dynamic>? query}) {
-    return makeRemoteListCourseInstructorDashboard(query: query).exec();
+    return makeRemoteDashboardCourseListInstructor(query: query).exec();
   }
 
   Future<List<CourseSectionEntity>> listCourseSection({required String courseId, Map<String, dynamic>? query}) {
-    return makeRemoteListCourseSections(courseId, query: query).exec();
+    return makeRemoteDashboardCourseListSections(courseId, query: query).exec();
+  }
+
+
+  /////////////////////////////////
+  /////////////////////////////////
+  /////////////////////////////////
+  
+  
+  Future<List<CourseCategoryEntity>> listCategoryPublic({Map<String, dynamic>? query}) {
+    return makeRemoteCourseListCategories(query: query).exec();
+  }
+
+  Future<List<CourseEntity>> listCoursesPublic({Map<String, dynamic>? query}) {
+    return makeRemoteCourseList(query: query).exec();
+  }
+
+  Future<List<CourseEntity>> listCoursesByUser({Map<String, dynamic>? query}) {
+    return makeRemoteUsersCourseListMy(query: query).exec();
+  }
+
+  Future<CourseEntity> findCoursePublic({required String id}) {
+    return makeRemoteCourseFind(id).exec();
+  }
+
+  Future<CourseEntity> findCourseByUser({required String id}) {
+    return makeRemoteUsersCourseFind(id).exec();
+  }
+
+  Future<List<CourseSectionEntity>> listCourseSectionUser({required String courseId, Map<String, dynamic>? query}) {
+    return makeRemoteUsersCourseListSections(courseId, query: query).exec();
+  }
+
+  Future<CourseSectionEntity> findCourseSectionUser({required String id}) {
+    return makeRemoteUsersCourseFindSection(id).exec();
+  }
+
+  Future<CourseContentEntity> findCourseContentUser({required String id}) {
+    return makeRemoteUsersCourseFindContent(id).exec();
+  }
+
+  Future<List<CourseContentEntity>> listCourseContentUser({required String id, Map<String, dynamic>? query}) {
+    return makeRemoteUsersCourseListContent(id: id, query: query).exec();
   }
 
 }

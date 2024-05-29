@@ -4,7 +4,7 @@ import 'package:plugin_pjmei_components/main/factories/http/http_client_factory.
 import '../../../links/data/usecase/remote_delete_link.dart';
 import '../../../links/domain/usecase/delete_link.dart';
 
-DeleteLink makeRemoteDeleteCourseInstructor(String id) => RemoteDeleteLink(
+DeleteLink makeRemoteDashboardCourseDeleteInstructor(String id) => RemoteDeleteLink(
   httpClient: makeHttpAdapter(),
   url: makeApiUrl('venver/courses/instructors/$id'),
 );
