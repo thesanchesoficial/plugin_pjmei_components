@@ -34,20 +34,20 @@ class CardAtalhos extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(50)),
         child: ElevatedButton(
           style: ButtonStyle(
-            padding: MaterialStateProperty.all(
+            padding: WidgetStateProperty.all(
               const EdgeInsets.symmetric(horizontal: 8),
             ),
-            backgroundColor: MaterialStateProperty.all(
+            backgroundColor: WidgetStateProperty.all(
               selecionado
                 ? selectedColor ?? Theme.of(context).colorScheme.primary
                 : Theme.of(context).colorScheme.secondaryContainer,
             ),
-            shape: MaterialStatePropertyAll(
+            shape: WidgetStatePropertyAll(
               RoundedRectangleBorder(
                 side: border ?? BorderSide.none,
                 borderRadius: BorderRadius.circular(50)),
             ),
-            elevation: MaterialStateProperty.all(0),
+            elevation: WidgetStateProperty.all(0),
           ),
           onPressed: onPressed,
           child: Container(

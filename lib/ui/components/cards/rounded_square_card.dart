@@ -38,16 +38,16 @@ class RoundedSquareCard extends StatelessWidget {
           ),
           child: ElevatedButton(
             style: ButtonStyle(
-              padding: MaterialStateProperty.all(
+              padding: WidgetStateProperty.all(
                 const EdgeInsets.symmetric(horizontal: 8),
               ),
-              backgroundColor: MaterialStateProperty.all(
+              backgroundColor: WidgetStateProperty.all(
                 colors.background,
               ),
-              shape: MaterialStatePropertyAll(
+              shape: WidgetStatePropertyAll(
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               ),
-              elevation: MaterialStateProperty.all(0),
+              elevation: WidgetStateProperty.all(0),
             ),
             onPressed: onPressed,
             child: Container(

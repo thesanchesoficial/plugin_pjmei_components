@@ -24,13 +24,13 @@ class ButtonMenuWeb extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
+          backgroundColor: WidgetStateProperty.all(
             selected
                 ? Theme.of(context).colorScheme.primary.withOpacity(.15)
                 : Theme.of(context).scaffoldBackgroundColor,
           ),
-          elevation: MaterialStateProperty.all(0),
-          padding: MaterialStateProperty.all(EdgeInsets.zero),
+          elevation: WidgetStateProperty.all(0),
+          padding: WidgetStateProperty.all(EdgeInsets.zero),
         ),
         onPressed: onPressed,
         child: Container(

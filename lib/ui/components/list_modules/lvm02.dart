@@ -41,21 +41,21 @@ class LVM02 extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
+                            backgroundColor: WidgetStateProperty.all(
                               colors.background,
                             ),
-                            elevation: MaterialStateProperty.all(0),
-                            padding: MaterialStateProperty.all(
+                            elevation: WidgetStateProperty.all(0),
+                            padding: WidgetStateProperty.all(
                               const EdgeInsets.all(0),
                             ),
-                            shape: MaterialStateProperty.all(
+                            shape: WidgetStateProperty.all(
                               const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(0),
                                 ),
                               ),
                             ),
-                            side: MaterialStateProperty.all(BorderSide.none),
+                            side: WidgetStateProperty.all(BorderSide.none),
                           ),
                           onPressed: () async {
                             await modules[index].onTap(context);

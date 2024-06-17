@@ -119,8 +119,8 @@ class AppTheme {
       iconTheme: IconThemeData(color: colorSchemeApp.primary),
       iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
-          iconColor: MaterialStatePropertyAll(colorSchemeApp.primary),
-          backgroundColor: MaterialStatePropertyAll(colorSchemeApp.surfaceVariant),
+          iconColor: WidgetStatePropertyAll(colorSchemeApp.primary),
+          backgroundColor: WidgetStatePropertyAll(colorSchemeApp.surfaceVariant),
         ),
       ),
       primaryIconTheme: IconThemeData(
@@ -146,12 +146,12 @@ class AppTheme {
         mainAxisMargin: 0,
         interactive: true,
         radius: const Radius.circular(5),
-        thickness: MaterialStateProperty.all(12),
+        thickness: WidgetStateProperty.all(12),
         crossAxisMargin: 1,
-        thumbColor: MaterialStateProperty.all(
+        thumbColor: WidgetStateProperty.all(
           colorSchemeApp.surfaceVariant,
         ),
-        trackColor: MaterialStateProperty.all(
+        trackColor: WidgetStateProperty.all(
           colorSchemeApp.surfaceVariant,
         ),
       ),
@@ -187,8 +187,8 @@ class AppTheme {
       iconTheme: IconThemeData(color: colorSchemeApp.primary),
       iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
-          iconColor: MaterialStatePropertyAll(colorSchemeApp.primary),
-          backgroundColor: MaterialStatePropertyAll(colorSchemeApp.surfaceVariant),
+          iconColor: WidgetStatePropertyAll(colorSchemeApp.primary),
+          backgroundColor: WidgetStatePropertyAll(colorSchemeApp.surfaceVariant),
         ),
       ),
       primaryIconTheme: IconThemeData(
@@ -214,12 +214,12 @@ class AppTheme {
         mainAxisMargin: 0,
         interactive: true,
         radius: const Radius.circular(5),
-        thickness: MaterialStateProperty.all(12),
+        thickness: WidgetStateProperty.all(12),
         crossAxisMargin: 1,
-        thumbColor: MaterialStateProperty.all(
+        thumbColor: WidgetStateProperty.all(
           colorSchemeApp.surfaceVariant,
         ),
-        trackColor: MaterialStateProperty.all(
+        trackColor: WidgetStateProperty.all(
           colorSchemeApp.surfaceVariant,
         ),
       ),

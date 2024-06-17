@@ -53,16 +53,16 @@ class LVM01 extends StatelessWidget {
                       final ColorsByToken colors = ColorsAdapter.getByType(c);
                       return ElevatedButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
+                          backgroundColor: WidgetStateProperty.all(
                             colors.background,
                           ),
-                          elevation: MaterialStateProperty.all(0),
-                          padding: MaterialStateProperty.all(
+                          elevation: WidgetStateProperty.all(0),
+                          padding: WidgetStateProperty.all(
                             const EdgeInsets.all(0),
                           ),
-                          side: MaterialStateProperty.all(BorderSide.none),
+                          side: WidgetStateProperty.all(BorderSide.none),
                           shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(
                               top: Radius.circular(

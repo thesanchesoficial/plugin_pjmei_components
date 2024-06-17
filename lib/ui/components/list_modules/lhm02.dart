@@ -45,17 +45,17 @@ class LHM02 extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
+                              backgroundColor: WidgetStateProperty.all(
                                 colors.background,
                               ),
-                              elevation: MaterialStateProperty.all(0),
-                              padding: MaterialStateProperty.all(
+                              elevation: WidgetStateProperty.all(0),
+                              padding: WidgetStateProperty.all(
                                 const EdgeInsets.all(0),
                               ),
-                              side: MaterialStateProperty.all(
+                              side: WidgetStateProperty.all(
                                 BorderSide.none,
                               ),
-                              shape: MaterialStateProperty.all(
+                              shape: WidgetStateProperty.all(
                                 const ContinuousRectangleBorder(
                                   side: BorderSide.none,
                                 ),

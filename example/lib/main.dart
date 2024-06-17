@@ -3,8 +3,8 @@ import 'package:plugin_pjmei_components/plugin_pjmei_components.dart';
 import 'package:plugin_pjmei_components_example/settings/settings.dart';
 
 void main() => Main.local(
-  whiteLabel: serraProd,
-  environment: EnvironmentType.production,
+  whiteLabel: pjmeiDev,
+  environment: EnvironmentType.development,
   listenUser: _updateUserListener,
   minimalVersionApp: 11,
   home: const HomeSettings(),

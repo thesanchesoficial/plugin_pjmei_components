@@ -8,7 +8,7 @@ class RegisterParams {
   String password;
   String birth;
   String phone;
-  
+  String token;
   RegisterParams({
     required this.documentNumber,
     required this.documentType,
@@ -17,6 +17,7 @@ class RegisterParams {
     required this.password,
     required this.birth,
     required this.phone,
+    required this.token,
   });
 
   RegisterParams copyWith({
@@ -27,6 +28,7 @@ class RegisterParams {
     String? password,
     String? birth,
     String? phone,
+    String? token,
   }) {
     return RegisterParams(
       documentNumber: documentNumber ?? this.documentNumber,
@@ -36,6 +38,7 @@ class RegisterParams {
       password: password ?? this.password,
       birth: birth ?? this.birth,
       phone: phone ?? this.phone,
+      token: token ?? this.token,
     );
   }
 
@@ -48,6 +51,7 @@ class RegisterParams {
       'password': password,
       'birth': birth,
       'phone': phone,
+      'token': token,
     };
   }
 
@@ -60,6 +64,7 @@ class RegisterParams {
       password: map['password'] ?? '',
       birth: map['birth'] ?? '',
       phone: map['phone'] ?? '',
+      token: map['token'] ?? '',
     );
   }
 
@@ -69,7 +74,7 @@ class RegisterParams {
 
   @override
   String toString() {
-    return 'RegisterParams(documentNumber: $documentNumber, documentType: $documentType, name: $name, email: $email, password: $password, birth: $birth, phone: $phone)';
+    return 'RegisterParams(documentNumber: $documentNumber, documentType: $documentType, name: $name, email: $email, password: $password, birth: $birth, phone: $phone, token: $token)';
   }
 
   @override
@@ -83,7 +88,8 @@ class RegisterParams {
       other.email == email &&
       other.password == password &&
       other.birth == birth &&
-      other.phone == phone;
+      other.phone == phone &&
+      other.token == token;
   }
 
   @override
@@ -94,6 +100,7 @@ class RegisterParams {
       email.hashCode ^
       password.hashCode ^
       birth.hashCode ^
-      phone.hashCode;
+      phone.hashCode ^
+      token.hashCode;
   }
 }

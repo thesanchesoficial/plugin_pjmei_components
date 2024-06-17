@@ -30,14 +30,14 @@ class VerticalPictureCard extends StatelessWidget {
         ),
         child: ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
+            backgroundColor: WidgetStateProperty.all(
               colors.background,
             ),
-            elevation: MaterialStateProperty.all(0),
-            padding: MaterialStateProperty.all(
+            elevation: WidgetStateProperty.all(0),
+            padding: WidgetStateProperty.all(
               EdgeInsets.zero,
             ),
-            shape: MaterialStateProperty.all(
+            shape: WidgetStateProperty.all(
               const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
                   Radius.circular(15),

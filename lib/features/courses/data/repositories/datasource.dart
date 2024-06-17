@@ -225,4 +225,16 @@ class _CourseApi {
     return makeRemoteUsersCourseListContent(id: id, query: query).exec();
   }
 
+  // // insertUser
+
+  // Future<List<CourseContentEntity>> listCourseContentUser({required String id, Map<String, dynamic>? query}) {
+  //   return makeRemoteUsersCourseListContent(id: id, query: query).exec();
+  // }
+
+  // // updateProgress
+
+  // Future<List<CourseContentEntity>> listCourseContentUser({required String id, Map<String, dynamic>? query}) {
+  //   return makeRemoteUsersCourseListContent(id: id, query: query).exec();
+  // }
+
 }

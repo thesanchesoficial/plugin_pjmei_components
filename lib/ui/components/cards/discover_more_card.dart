@@ -34,10 +34,10 @@ class DiscoverMoreCard extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(colors.background),
-          elevation: MaterialStateProperty.all(0),
-          padding: MaterialStateProperty.all(EdgeInsets.zero),
-          shape: MaterialStateProperty.all(
+          backgroundColor: WidgetStateProperty.all(colors.background),
+          elevation: WidgetStateProperty.all(0),
+          padding: WidgetStateProperty.all(EdgeInsets.zero),
+          shape: WidgetStateProperty.all(
             const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15)),
             ),

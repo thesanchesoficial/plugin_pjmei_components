@@ -18,15 +18,15 @@ class CardDestaqueRecurso extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(
           Theme.of(context).colorScheme.secondaryContainer,
         ),
-        elevation: MaterialStateProperty.all(0),
-        padding: MaterialStateProperty.all(EdgeInsets.zero),
-        foregroundColor: MaterialStateProperty.all(
+        elevation: WidgetStateProperty.all(0),
+        padding: WidgetStateProperty.all(EdgeInsets.zero),
+        foregroundColor: WidgetStateProperty.all(
           Theme.of(context).colorScheme.onSecondaryContainer,
         ),
-        shape: MaterialStateProperty.all(
+        shape: WidgetStateProperty.all(
           const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(15),

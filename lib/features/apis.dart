@@ -50,6 +50,8 @@ import 'auth/data/repositories/new_password_factory.dart';
 import 'auth/data/repositories/new_refresh_token.dart';
 import 'auth/data/repositories/register_factory.dart';
 import 'auth/data/repositories/send_email_recover_password_factory.dart';
+import 'auth/data/repositories/send_verification_email_factory.dart';
+import 'auth/data/repositories/verify_email_code_factory.dart';
 import 'blog/data/repositories/get_list_categories_blog.dart';
 import 'blog/data/repositories/get_list_posts_blog.dart';
 import 'ccmei/data/repositories/get_ccmei_factory.dart';

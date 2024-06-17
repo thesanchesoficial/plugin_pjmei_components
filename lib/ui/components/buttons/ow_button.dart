@@ -269,50 +269,50 @@ class OwButton extends StatelessWidget {
         style: ButtonStyle(
           foregroundColor: enable
               ? foregroundColor != null
-                  ? MaterialStateProperty.all(foregroundColor)
+                  ? WidgetStateProperty.all(foregroundColor)
                   : mainButton
-                      ? MaterialStateProperty.all(
+                      ? WidgetStateProperty.all(
                           Theme.of(context).colorScheme.onPrimary)
                       : secondary
-                          ? MaterialStateProperty.all(Theme.of(context)
+                          ? WidgetStateProperty.all(Theme.of(context)
                               .colorScheme
                               .onSecondaryContainer)
                           : outline
-                              ? MaterialStateProperty.all(
+                              ? WidgetStateProperty.all(
                                   Theme.of(context).colorScheme.primary)
                               : elevated
-                                  ? MaterialStateProperty.all(
+                                  ? WidgetStateProperty.all(
                                       Theme.of(context).colorScheme.primary)
-                                  : MaterialStateProperty.all(
+                                  : WidgetStateProperty.all(
                                       Theme.of(context).colorScheme.primary)
-              : MaterialStateProperty.all(
+              : WidgetStateProperty.all(
                   Theme.of(context).colorScheme.onSurfaceVariant),
-          padding: MaterialStateProperty.all(
+          padding: WidgetStateProperty.all(
             padding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           ),
           backgroundColor: enable
               ? color != null
-                  ? MaterialStateProperty.all(
+                  ? WidgetStateProperty.all(
                       outline ? Colors.transparent : (color!))
                   : mainButton
-                      ? MaterialStateProperty.all(
+                      ? WidgetStateProperty.all(
                           Theme.of(context).colorScheme.primary)
                       : secondary
-                          ? MaterialStateProperty.all(
+                          ? WidgetStateProperty.all(
                               Theme.of(context).colorScheme.secondaryContainer)
                           : outline
-                              ? MaterialStateProperty.all(
+                              ? WidgetStateProperty.all(
                                   Theme.of(context).colorScheme.background)
                               : elevated
-                                  ? MaterialStateProperty.all(
+                                  ? WidgetStateProperty.all(
                                       Theme.of(context).colorScheme.surface)
-                                  : MaterialStateProperty.all(
+                                  : WidgetStateProperty.all(
                                       Theme.of(context).colorScheme.background)
-              : MaterialStateProperty.all(
+              : WidgetStateProperty.all(
                   Theme.of(context).colorScheme.surfaceVariant),
-          elevation: MaterialStateProperty.all(elevated && enable ? 1 : 0),
-          textStyle: MaterialStateProperty.all(textStyle),
-          shape: MaterialStateProperty.all(
+          elevation: WidgetStateProperty.all(elevated && enable ? 1 : 0),
+          textStyle: WidgetStateProperty.all(textStyle),
+          shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius),
               side: BorderSide(

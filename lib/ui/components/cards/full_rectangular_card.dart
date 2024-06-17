@@ -29,13 +29,13 @@ class FullRectangularCard extends StatelessWidget {
       children: [
         ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
+            backgroundColor: WidgetStateProperty.all(
               colors.background,
             ),
-            elevation: MaterialStateProperty.all(0),
-            padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
-            side: MaterialStateProperty.all(BorderSide.none),
-            shape: MaterialStateProperty.all(
+            elevation: WidgetStateProperty.all(0),
+            padding: WidgetStateProperty.all(const EdgeInsets.all(0)),
+            side: WidgetStateProperty.all(BorderSide.none),
+            shape: WidgetStateProperty.all(
               const ContinuousRectangleBorder(
                 side: BorderSide.none,
               ),

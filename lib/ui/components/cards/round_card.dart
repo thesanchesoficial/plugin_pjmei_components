@@ -50,15 +50,15 @@ class RoundCard extends StatelessWidget {
                     ),
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStateProperty.all(
                           colors.background,
                         ),
-                        shape: MaterialStatePropertyAll(
+                        shape: WidgetStatePropertyAll(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        elevation: MaterialStateProperty.all(0),
+                        elevation: WidgetStateProperty.all(0),
                       ),
                       onPressed: onPressed,
                       child: Center(

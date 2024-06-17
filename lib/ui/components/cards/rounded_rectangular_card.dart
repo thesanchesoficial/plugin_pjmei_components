@@ -35,14 +35,14 @@ class RoundedRectangularCard extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(15)),
         child: ElevatedButton(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(colors.background),
-            elevation: MaterialStateProperty.all(0),
-            padding: MaterialStateProperty.all(const EdgeInsets.symmetric(
+            backgroundColor: WidgetStateProperty.all(colors.background),
+            elevation: WidgetStateProperty.all(0),
+            padding: WidgetStateProperty.all(const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 15,
             )),
-            side: MaterialStateProperty.all(BorderSide.none),
-            shape: MaterialStateProperty.all(
+            side: WidgetStateProperty.all(BorderSide.none),
+            shape: WidgetStateProperty.all(
               const ContinuousRectangleBorder(side: BorderSide.none),
             ),
           ),
