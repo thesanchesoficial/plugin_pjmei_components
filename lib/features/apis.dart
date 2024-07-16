@@ -38,6 +38,17 @@ export 'finance/data/repositories/credit-card/transactions/list_finance_credit_c
 export 'finance/data/repositories/credit-card/transactions/update_finance_credit_card_transaction_factory.dart';
 export 'finance/data/repositories/credit-card/update_finance_credit_card_factory.dart';
 
+import 'account/data/repositories/generate_kyc_link.dart';
+import 'account/data/repositories/generate_withdrawals.dart';
+import 'account/data/repositories/get_balance.dart';
+import 'account/data/repositories/list_operations.dart';
+import 'account/data/repositories/list_payables.dart';
+import 'account/data/repositories/list_withdrawals.dart';
+import 'account/data/repositories/register_account_payments.dart';
+import 'account/domain/entity/balance_entity.dart';
+import 'account/domain/entity/kyc_details_entity.dart';
+import 'account/domain/entity/operation_entity.dart';
+import 'account/domain/entity/withdrawals_entity.dart';
 import 'address/data/repositories/delete_address_factory.dart';
 import 'address/data/repositories/find_address_factory.dart';
 import 'address/data/repositories/insert_address_factory.dart';
@@ -60,10 +71,8 @@ import 'chat/data/repositories/delete_chat_factory.dart';
 import 'chat/data/repositories/get_list_chat_default.dart';
 import 'chat/data/repositories/post_chat_default.dart';
 import 'cnpj/data/repositories/get_cnpj_factory.dart';
-import 'company/data/repositories/dashboard_basic_company_factory.dart';
 import 'company/data/repositories/delete_company_factory.dart';
 import 'company/data/repositories/find_company_factory.dart';
-import 'company/data/repositories/find_receita_federal_factory.dart';
 import 'company/data/repositories/insert_company_factory.dart';
 import 'company/data/repositories/list_business_factory.dart';
 import 'company/data/repositories/list_company_factory.dart';
@@ -191,7 +200,6 @@ import 'orders/data/repositories/historic/create_historic_order_factory.dart';
 import 'orders/data/repositories/list_orders_by_ecommerce_factory.dart';
 import 'orders/data/repositories/list_orders_by_user_factory.dart';
 import 'orders/data/repositories/update_order_factory.dart';
-import 'payables/data/repositories/list_payables.dart';
 import 'payment/data/repositories/create_credit_card_factory.dart';
 import 'payment_assistant/data/repositories/list_transactions_by_date.dart';
 import 'plans/data/repositories/add_plan_factory.dart';
@@ -288,6 +296,7 @@ import 'white_label/data/repositories/list_white_label_by_user_factory.dart';
 import 'white_label/data/repositories/list_white_label_factory.dart';
 import 'white_label/data/repositories/update_white_label_factory.dart';
 
+part 'account/data/repositories/datasource.dart';
 part 'address/data/repositories/datasource.dart';
 part 'auth/data/repositories/datasource.dart';
 part 'tutorials/data/repositories/datasource.dart';
@@ -335,7 +344,6 @@ part 'stories/data/repositories/story_view/datasource.dart';
 part 'tasks/data/repositories/datasource.dart';
 part 'recipient/data/repositories/datasource.dart';
 part 'roadmap/data/repositories/datasource.dart';
-part 'payables/data/repositories/datasource.dart';
 part 'financial_assistant/data/repositories/datasource.dart';
 part 'bank_account/data/repositories/datasource.dart';
 part 'extract/data/repositories/datasource.dart';
@@ -347,6 +355,7 @@ part 'upload/data/repositories/datasource.dart';
 
 class Api {
   Api._();
+  static final account = _AccountApi();
   static final address = _AddressApi();
   static final auth = _AuthApi();
   static final backofficeTutorial = _BackofficeTutorialApi();
@@ -379,7 +388,6 @@ class Api {
   static final notaFiscal = _NotaFiscalApi();
   static final notifications = _NotificationsApi();
   static final orders = _OrderEcommerceApi();
-  static final payables = _PayablesApi();
   static final payment = _PaymentApi();
   static final paymentAssistant = _PaymentAssistantApi();
   static final plans = _PlanApi();

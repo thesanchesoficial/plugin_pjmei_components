@@ -1,6 +1,5 @@
 import 'package:mobx/mobx.dart';
 import '../../plans/domain/entity/subscription_entity.dart';
-import '../domain/entity/basic_dashboard_entity.dart';
 import 'package:plugin_pjmei_components/domain/entities/installed_widget_entity.dart';
 
 import '../domain/entity/company_entity.dart';
@@ -15,9 +14,6 @@ abstract class CompanySMStoreBase with Store {
 
   @observable
   SubscriptionEntity? subscription;
-
-  @observable
-  BasicDashboardEntity? basicData;
 
   @observable
   List<InstalledWidget>? widgets;
@@ -57,11 +53,6 @@ abstract class CompanySMStoreBase with Store {
       widgets = List.from(widgets!..clear());
     }
   } 
-
-  @action
-  void setBasicData(BasicDashboardEntity item) {
-    basicData = item;
-  }
 
   @action
   bool setIsHideAmount(bool value) => hideAmount = value;

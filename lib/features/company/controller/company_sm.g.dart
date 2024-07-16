@@ -41,22 +41,6 @@ mixin _$CompanySMStore on CompanySMStoreBase, Store {
     });
   }
 
-  late final _$basicDataAtom =
-      Atom(name: 'CompanySMStoreBase.basicData', context: context);
-
-  @override
-  BasicDashboardEntity? get basicData {
-    _$basicDataAtom.reportRead();
-    return super.basicData;
-  }
-
-  @override
-  set basicData(BasicDashboardEntity? value) {
-    _$basicDataAtom.reportWrite(value, super.basicData, () {
-      super.basicData = value;
-    });
-  }
-
   late final _$widgetsAtom =
       Atom(name: 'CompanySMStoreBase.widgets', context: context);
 
@@ -164,17 +148,6 @@ mixin _$CompanySMStore on CompanySMStoreBase, Store {
   }
 
   @override
-  void setBasicData(BasicDashboardEntity item) {
-    final _$actionInfo = _$CompanySMStoreBaseActionController.startAction(
-        name: 'CompanySMStoreBase.setBasicData');
-    try {
-      return super.setBasicData(item);
-    } finally {
-      _$CompanySMStoreBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   bool setIsHideAmount(bool value) {
     final _$actionInfo = _$CompanySMStoreBaseActionController.startAction(
         name: 'CompanySMStoreBase.setIsHideAmount');
@@ -201,7 +174,6 @@ mixin _$CompanySMStore on CompanySMStoreBase, Store {
     return '''
 company: ${company},
 subscription: ${subscription},
-basicData: ${basicData},
 widgets: ${widgets},
 hideAmount: ${hideAmount},
 selectedIndex: ${selectedIndex}
