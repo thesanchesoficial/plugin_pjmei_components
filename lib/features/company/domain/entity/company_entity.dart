@@ -212,11 +212,19 @@ class Recipient {
   final DefaultBankAccount? bankAccount;
   final KycDetails? kycDetails;
   final TransferSettings? transferSettings;
+  final num pixFeeInPercentage;
+  final num boletoFeeInMoney;
+  final num withdrawalFeeInMoney;
+  final num creditCardFeeInPercentage;
   Recipient({
     required this.status,
     this.bankAccount,
     this.kycDetails,
     this.transferSettings,
+    required this.pixFeeInPercentage,
+    required this.boletoFeeInMoney,
+    required this.withdrawalFeeInMoney,
+    required this.creditCardFeeInPercentage,
   });
 
   Recipient copyWith({
@@ -224,12 +232,20 @@ class Recipient {
     DefaultBankAccount? bankAccount,
     KycDetails? kycDetails,
     TransferSettings? transferSettings,
+    num? pixFeeInPercentage,
+    num? boletoFeeInMoney,
+    num? withdrawalFeeInMoney,
+    num? creditCardFeeInPercentage,
   }) {
     return Recipient(
       status: status ?? this.status,
       bankAccount: bankAccount ?? this.bankAccount,
       kycDetails: kycDetails ?? this.kycDetails,
       transferSettings: transferSettings ?? this.transferSettings,
+      pixFeeInPercentage: pixFeeInPercentage ?? this.pixFeeInPercentage,
+      boletoFeeInMoney: boletoFeeInMoney ?? this.boletoFeeInMoney,
+      withdrawalFeeInMoney: withdrawalFeeInMoney ?? this.withdrawalFeeInMoney,
+      creditCardFeeInPercentage: creditCardFeeInPercentage ?? this.creditCardFeeInPercentage,
     );
   }
 
@@ -239,6 +255,10 @@ class Recipient {
       'bankAccount': bankAccount?.toMap(),
       'kycDetails': kycDetails?.toMap(),
       'transferSettings': transferSettings?.toMap(),
+      'pixFeeInPercentage': pixFeeInPercentage,
+      'boletoFeeInMoney': boletoFeeInMoney,
+      'withdrawalFeeInMoney': withdrawalFeeInMoney,
+      'creditCardFeeInPercentage': creditCardFeeInPercentage,
     };
   }
 
@@ -248,6 +268,10 @@ class Recipient {
       bankAccount: map['bankAccount'] != null ? DefaultBankAccount.fromMap(map['bankAccount']) : null,
       kycDetails: map['kycDetails'] != null ? KycDetails.fromMap(map['kycDetails']) : null,
       transferSettings: map['transferSettings'] != null ? TransferSettings.fromMap(map['transferSettings']) : null,
+      pixFeeInPercentage: map['pixFeeInPercentage'] ?? 0,
+      boletoFeeInMoney: map['boletoFeeInMoney'] ?? 0,
+      withdrawalFeeInMoney: map['withdrawalFeeInMoney'] ?? 0,
+      creditCardFeeInPercentage: map['creditCardFeeInPercentage'] ?? 0,
     );
   }
 
@@ -257,7 +281,7 @@ class Recipient {
 
   @override
   String toString() {
-    return 'Recipient(status: $status, bankAccount: $bankAccount, kycDetails: $kycDetails, transferSettings: $transferSettings)';
+    return 'Recipient(status: $status, bankAccount: $bankAccount, kycDetails: $kycDetails, transferSettings: $transferSettings, pixFeeInPercentage: $pixFeeInPercentage, boletoFeeInMoney: $boletoFeeInMoney, withdrawalFeeInMoney: $withdrawalFeeInMoney, creditCardFeeInPercentage: $creditCardFeeInPercentage)';
   }
 
   @override
@@ -268,7 +292,11 @@ class Recipient {
       other.status == status &&
       other.bankAccount == bankAccount &&
       other.kycDetails == kycDetails &&
-      other.transferSettings == transferSettings;
+      other.transferSettings == transferSettings &&
+      other.pixFeeInPercentage == pixFeeInPercentage &&
+      other.boletoFeeInMoney == boletoFeeInMoney &&
+      other.withdrawalFeeInMoney == withdrawalFeeInMoney &&
+      other.creditCardFeeInPercentage == creditCardFeeInPercentage;
   }
 
   @override
@@ -276,6 +304,10 @@ class Recipient {
     return status.hashCode ^
       bankAccount.hashCode ^
       kycDetails.hashCode ^
-      transferSettings.hashCode;
+      transferSettings.hashCode ^
+      pixFeeInPercentage.hashCode ^
+      boletoFeeInMoney.hashCode ^
+      withdrawalFeeInMoney.hashCode ^
+      creditCardFeeInPercentage.hashCode;
   }
 }
