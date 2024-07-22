@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-class RegisterPaymentChurch {
-  RegisterPaymentChurch({
+class RegisterPayment {
+  RegisterPayment({
     this.email,
     this.document,
     this.type,
@@ -20,12 +20,11 @@ class RegisterPaymentChurch {
     this.bankAccountAccountNumber,
     this.bankAccountAccountCheckDigit,
     this.bankAccountType,
-    this.church,
     this.selfDeclaredLegalRepresentative,
   });
 
-  factory RegisterPaymentChurch.fromMap(Map<String, dynamic> map) {
-    return RegisterPaymentChurch(
+  factory RegisterPayment.fromMap(Map<String, dynamic> map) {
+    return RegisterPayment(
       email: map['email'],
       document: map['document'],
       type: map['type'],
@@ -44,12 +43,11 @@ class RegisterPaymentChurch {
       bankAccountAccountNumber: map['bankAccountAccountNumber'],
       bankAccountAccountCheckDigit: map['bankAccountAccountCheckDigit'],
       bankAccountType: map['bankAccountType'],
-      church: map['church'],
       selfDeclaredLegalRepresentative: map['selfDeclaredLegalRepresentative'],
     );
   }
 
-  factory RegisterPaymentChurch.fromJson(String source) => RegisterPaymentChurch.fromMap(json.decode(source));
+  factory RegisterPayment.fromJson(String source) => RegisterPayment.fromMap(json.decode(source));
   final String? email;
   final String? document;
   final String? type;
@@ -68,10 +66,9 @@ class RegisterPaymentChurch {
   final String? bankAccountAccountNumber;
   final String? bankAccountAccountCheckDigit;
   final String? bankAccountType;
-  final String? church;
   final bool? selfDeclaredLegalRepresentative;
 
-  RegisterPaymentChurch copyWith({
+  RegisterPayment copyWith({
     String? email,
     String? document,
     String? type,
@@ -90,10 +87,9 @@ class RegisterPaymentChurch {
     String? bankAccountAccountNumber,
     String? bankAccountAccountCheckDigit,
     String? bankAccountType,
-    String? church,
     bool? selfDeclaredLegalRepresentative,
   }) {
-    return RegisterPaymentChurch(
+    return RegisterPayment(
       email: email ?? this.email,
       document: document ?? this.document,
       type: type ?? this.type,
@@ -112,7 +108,6 @@ class RegisterPaymentChurch {
       bankAccountAccountNumber: bankAccountAccountNumber ?? this.bankAccountAccountNumber,
       bankAccountAccountCheckDigit: bankAccountAccountCheckDigit ?? this.bankAccountAccountCheckDigit,
       bankAccountType: bankAccountType ?? this.bankAccountType,
-      church: church ?? this.church,
       selfDeclaredLegalRepresentative: selfDeclaredLegalRepresentative ?? this.selfDeclaredLegalRepresentative,
     );
   }
@@ -137,7 +132,6 @@ class RegisterPaymentChurch {
       'bankAccountAccountNumber': bankAccountAccountNumber,
       'bankAccountAccountCheckDigit': bankAccountAccountCheckDigit,
       'bankAccountType': bankAccountType,
-      'church': church,
       'selfDeclaredLegalRepresentative': selfDeclaredLegalRepresentative,
     };
   }
@@ -146,14 +140,14 @@ class RegisterPaymentChurch {
 
   @override
   String toString() {
-    return 'RegisterPaymentChurch(email: $email, document: $document, type: $type, name: $name, birthdate: $birthdate, monthlyIncome: $monthlyIncome, professionalOccupation: $professionalOccupation, companyName: $companyName, tradingName: $tradingName, annualRevenue: $annualRevenue, bankAccountHolderName: $bankAccountHolderName, bankAccountHolderType: $bankAccountHolderType, bankAccountHolderDocument: $bankAccountHolderDocument, bankAccountBank: $bankAccountBank, bankAccountBranchNumber: $bankAccountBranchNumber, bankAccountAccountNumber: $bankAccountAccountNumber, bankAccountAccountCheckDigit: $bankAccountAccountCheckDigit, bankAccountType: $bankAccountType)';
+    return 'RegisterPayment(email: $email, document: $document, type: $type, name: $name, birthdate: $birthdate, monthlyIncome: $monthlyIncome, professionalOccupation: $professionalOccupation, companyName: $companyName, tradingName: $tradingName, annualRevenue: $annualRevenue, bankAccountHolderName: $bankAccountHolderName, bankAccountHolderType: $bankAccountHolderType, bankAccountHolderDocument: $bankAccountHolderDocument, bankAccountBank: $bankAccountBank, bankAccountBranchNumber: $bankAccountBranchNumber, bankAccountAccountNumber: $bankAccountAccountNumber, bankAccountAccountCheckDigit: $bankAccountAccountCheckDigit, bankAccountType: $bankAccountType)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
   
-    return other is RegisterPaymentChurch &&
+    return other is RegisterPayment &&
       other.email == email &&
       other.document == document &&
       other.type == type &&
@@ -171,7 +165,6 @@ class RegisterPaymentChurch {
       other.bankAccountBranchNumber == bankAccountBranchNumber &&
       other.bankAccountAccountNumber == bankAccountAccountNumber &&
       other.bankAccountAccountCheckDigit == bankAccountAccountCheckDigit &&
-      other.church == church &&
       other.selfDeclaredLegalRepresentative == selfDeclaredLegalRepresentative &&
       other.bankAccountType == bankAccountType;
   }
@@ -195,7 +188,6 @@ class RegisterPaymentChurch {
       bankAccountBranchNumber.hashCode ^
       bankAccountAccountNumber.hashCode ^
       bankAccountAccountCheckDigit.hashCode ^
-      church.hashCode ^
       selfDeclaredLegalRepresentative.hashCode ^
       bankAccountType.hashCode;
   }

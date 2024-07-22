@@ -4,7 +4,6 @@ export './account/domain/entity/default_bank_account_entity.dart';
 export './account/domain/entity/kyc_details_entity.dart';
 export './account/domain/entity/operation_entity.dart';
 export './account/domain/entity/payable_entity.dart';
-export './account/domain/entity/register_params_entity.dart';
 export './account/domain/entity/register_payment_params_entity.dart';
 export './account/domain/entity/transfer_settings_entity.dart';
 export './account/domain/entity/withdrawals_entity.dart';
